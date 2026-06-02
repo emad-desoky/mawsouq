@@ -96,7 +96,8 @@ export default function Header() {
               <Image
                 src="/mawsouq-logo.png"
                 alt="موسوق"
-                fill
+                width={1200}
+                height={1020}
                 sizes="44px"
                 className="object-contain p-1.5"
                 priority
