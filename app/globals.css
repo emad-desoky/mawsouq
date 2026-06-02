@@ -342,13 +342,13 @@ img {
 .whatsapp-btn {
   background-color: #25d366;
   bottom: 20px;
-  left: 20px;
+  right: 20px;
 }
 
 .call-btn {
   background-color: #0b5bb8;
   bottom: 84px;
-  left: 20px;
+  right: 20px;
 }
 
 /* remove ugly blue bottom line */
