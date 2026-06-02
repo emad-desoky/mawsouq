@@ -1,166 +1,287 @@
-import Link from 'next/link'
+import Link from "next/link";
+
+const WHATSAPP_URL =
+  "https://wa.me/201223328270?text=مرحبا%20موسوق،%20أريد%20الاستفسار%20عن%20خدمة%20";
 
 const services = [
   {
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-      </svg>
-    ),
-    title: 'التصميم المعماري',
-    description: 'تنفيذ جميع التصميمات والمخططات الهندسية المعمارية للمشروع بأحدث الأساليب العالمية',
-    color: 'from-blue-500 to-blue-600',
+    title: "التصميم المعماري",
+    description:
+      "تنفيذ جميع التصميمات والمخططات الهندسية المعمارية للمشروع بأحدث الأساليب العالمية",
+    icon: "architecture",
   },
   {
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
-      </svg>
-    ),
-    title: 'التصميم الإنشائي',
-    description: 'تنفيذ جميع التصميمات والمخططات الهندسية الإنشائية للمشروع طبقاً للكود السعودي',
-    color: 'from-emerald-500 to-emerald-600',
+    title: "التصميم الإنشائي",
+    description:
+      "تنفيذ جميع التصميمات والمخططات الهندسية الإنشائية للمشروع طبقاً للكود السعودي",
+    icon: "structure",
   },
   {
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-      </svg>
-    ),
-    title: 'التصميم الداخلي',
-    description: 'تنفيذ جميع التصميمات الداخلية للمبنى بأحدث الأفكار العالمية في هذا المجال',
-    color: 'from-purple-500 to-purple-600',
+    title: "التصميم الداخلي",
+    description:
+      "تنفيذ جميع التصميمات الداخلية للمبنى بأحدث الأفكار العالمية في هذا المجال",
+    icon: "interior",
   },
   {
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-      </svg>
-    ),
-    title: 'حاسبة تكلفة البناء',
-    description: 'حساب تكلفة البناء بدقة طبقاً لأسعار السوق السعودي المحدثة باستمرار',
-    color: 'from-amber-500 to-amber-600',
+    title: "حاسبة تكلفة البناء",
+    description:
+      "حساب تكلفة البناء بدقة طبقاً لأسعار السوق السعودي المحدثة باستمرار",
+    icon: "calculator",
   },
   {
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-      </svg>
-    ),
-    title: 'دراسة الجدوى والتكاليف',
-    description: 'تنفيذ أعمال دراسات الجدوى وحساب التكاليف للمشروع طبقاً لأسعار السوق',
-    color: 'from-cyan-500 to-cyan-600',
+    title: "دراسة الجدوى والتكاليف",
+    description:
+      "تنفيذ أعمال دراسات الجدوى وحساب التكاليف للمشروع طبقاً لأسعار السوق",
+    icon: "feasibility",
   },
   {
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    ),
-    title: 'شبكات الكهرباء والإضاءة',
-    description: 'تنفيذ أعمال تصميم شبكات الكهرباء والإضاءة للمبنى طبقاً للكود السعودي',
-    color: 'from-yellow-500 to-yellow-600',
+    title: "شبكات الكهرباء والإضاءة",
+    description:
+      "تنفيذ أعمال تصميم شبكات الكهرباء والإضاءة للمبنى طبقاً للكود السعودي",
+    icon: "electricity",
   },
   {
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-      </svg>
-    ),
-    title: 'شبكات الصرف الصحي',
-    description: 'تنفيذ أعمال تصميم شبكات الصرف الصحي للمبنى طبقاً للكود السعودي',
-    color: 'from-teal-500 to-teal-600',
+    title: "شبكات الصرف الصحي",
+    description:
+      "تنفيذ أعمال تصميم شبكات الصرف الصحي للمبنى طبقاً للكود السعودي",
+    icon: "plumbing",
   },
   {
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-      </svg>
-    ),
-    title: 'أنظمة التكييف والتدفئة',
-    description: 'تنفيذ أعمال التكييف والتبريد والتدفئة طبقاً للكود السعودي',
-    color: 'from-sky-500 to-sky-600',
+    title: "أنظمة التكييف والتدفئة",
+    description: "تنفيذ أعمال التكييف والتبريد والتدفئة طبقاً للكود السعودي",
+    icon: "hvac",
   },
   {
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
-      </svg>
-    ),
-    title: 'الإطفاء والحماية المدنية',
-    description: 'تنفيذ أعمال تصميم شبكات الإطفاء ومكافحة الحريق طبقاً للكود السعودي',
-    color: 'from-red-500 to-red-600',
+    title: "الإطفاء والحماية المدنية",
+    description:
+      "تنفيذ أعمال تصميم شبكات الإطفاء ومكافحة الحريق طبقاً للكود السعودي",
+    icon: "fire",
   },
   {
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-      </svg>
-    ),
-    title: 'حفر الأساسات وتجهيز الموقع',
-    description: 'تنفيذ جميع أعمال الحفر والرفع المساحي في الموقع طبقاً لعمل التأسيس المطلوب',
-    color: 'from-orange-500 to-orange-600',
+    title: "حفر الأساسات وتجهيز الموقع",
+    description:
+      "تنفيذ جميع أعمال الحفر والرفع المساحي في الموقع طبقاً لعمل التأسيس المطلوب",
+    icon: "excavation",
   },
-]
+];
+
+function ServiceIcon({ type }) {
+  const common =
+    "stroke-current stroke-[1.8] [stroke-linecap:round] [stroke-linejoin:round]";
+
+  const icons = {
+    architecture: (
+      <>
+        <path className={common} d="M4.5 20.5h15" />
+        <path className={common} d="M6.5 20.5V9.5L12 5l5.5 4.5v11" />
+        <path className={common} d="M9.25 20.5v-6.25h5.5v6.25" />
+        <path className={common} d="M8.5 10.75h7" />
+      </>
+    ),
+    structure: (
+      <>
+        <path className={common} d="M4.5 20.5h15" />
+        <path className={common} d="M6.5 20.5v-9h11v9" />
+        <path className={common} d="M5.5 11.5 12 4l6.5 7.5" />
+        <path className={common} d="M9 15h6M9 18h6" />
+      </>
+    ),
+    interior: (
+      <>
+        <path
+          className={common}
+          d="M5 20V8.5A2.5 2.5 0 0 1 7.5 6h9A2.5 2.5 0 0 1 19 8.5V20"
+        />
+        <path className={common} d="M8 20v-5.25h8V20" />
+        <path className={common} d="M8.25 10.5h7.5M9.5 13h5" />
+      </>
+    ),
+    calculator: (
+      <>
+        <rect
+          className={common}
+          x="5"
+          y="3.75"
+          width="14"
+          height="16.5"
+          rx="3"
+        />
+        <path className={common} d="M8.5 7.25h7" />
+        <path
+          className={common}
+          d="M8.5 11h.01M12 11h.01M15.5 11h.01M8.5 14.5h.01M12 14.5h.01M15.5 14.5h.01M8.5 18h.01M12 18h3.5"
+        />
+      </>
+    ),
+    feasibility: (
+      <>
+        <path
+          className={common}
+          d="M6.5 20.5h11A2.5 2.5 0 0 0 20 18V8.5L15.5 4h-9A2.5 2.5 0 0 0 4 6.5V18a2.5 2.5 0 0 0 2.5 2.5Z"
+        />
+        <path className={common} d="M15.5 4v4.5H20" />
+        <path className={common} d="M8 16.5v-3M12 16.5V10M16 16.5v-5" />
+      </>
+    ),
+    electricity: (
+      <>
+        <path className={common} d="M13 3 5.5 13h5L9 21l9.5-12h-5L13 3Z" />
+      </>
+    ),
+    plumbing: (
+      <>
+        <path
+          className={common}
+          d="M7 5h10M9 5v5.25a3 3 0 0 1-.88 2.12L5.6 14.9a3.3 3.3 0 0 0 2.33 5.63h8.14a3.3 3.3 0 0 0 2.33-5.63l-2.52-2.53A3 3 0 0 1 15 10.25V5"
+        />
+        <path
+          className={common}
+          d="M8.5 15.5c1.2-.6 2.2-.6 3.3 0s2.15.6 3.35 0"
+        />
+      </>
+    ),
+    hvac: (
+      <>
+        <path className={common} d="M12 3v18M5.5 6.5l13 11M18.5 6.5l-13 11" />
+        <circle className={common} cx="12" cy="12" r="3" />
+      </>
+    ),
+    fire: (
+      <>
+        <path
+          className={common}
+          d="M12.25 21c3.6-.35 6.25-3.15 6.25-6.85 0-3.15-1.85-5.2-4.65-7.9.05 2.15-.75 3.4-2.2 4.35.05-2.7-1.25-5.15-3.15-6.6.35 3.25-3 5.25-3 9.9C5.5 18 8.45 20.65 12.25 21Z"
+        />
+        <path
+          className={common}
+          d="M10 17.25c0-1.35 1.15-2.15 1.1-3.45 1.15.8 2.4 1.9 2.4 3.45a1.75 1.75 0 0 1-3.5 0Z"
+        />
+      </>
+    ),
+    excavation: (
+      <>
+        <path className={common} d="M4 19.5h16" />
+        <path className={common} d="M6.5 19.5l2-7h7l2 7" />
+        <path className={common} d="M9 12.5l1.5-6h3l1.5 6" />
+        <path className={common} d="M8 6.5h8M10 16h4" />
+      </>
+    ),
+  };
+
+  return (
+    <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      {icons[type]}
+    </svg>
+  );
+}
 
 export default function ServicesSection() {
   return (
-    <section id="architectural-design" className="py-24 bg-[var(--mawsouq-light)] relative">
-      {/* Decorative Pattern */}
-      <div className="absolute inset-0 opacity-50" style={{
-        backgroundImage: `radial-gradient(circle at 2px 2px, rgba(47, 134, 246, 0.1) 1px, transparent 0)`,
-        backgroundSize: '32px 32px'
-      }} />
+    <section
+      id="architectural-design"
+      dir="rtl"
+      className="relative isolate overflow-hidden bg-[#f6fbff] py-20 sm:py-24 lg:py-28"
+    >
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_78%_12%,rgba(47,134,246,0.16),transparent_32%),radial-gradient(circle_at_12%_90%,rgba(11,91,184,0.10),transparent_30%)]" />
+      <div className="absolute inset-0 -z-10 opacity-[0.22] [background-image:radial-gradient(circle_at_1px_1px,rgba(16,32,51,0.12)_1px,transparent_0)] [background-size:34px_34px]" />
 
-      <div className="container mx-auto px-4 relative">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-[var(--mawsouq-primary)]/10 text-[var(--mawsouq-primary)] text-sm font-medium mb-4">
-            خدماتنا المتكاملة
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--mawsouq-dark)] mb-6 text-balance">
+      <div className="mx-auto w-full max-w-[1480px] px-5 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto mb-14 max-w-3xl text-center lg:mb-16">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#0b5bb8]/10 bg-white/80 px-4 py-2 shadow-[0_10px_30px_rgba(16,32,51,0.06)] backdrop-blur-xl">
+            <span className="h-2.5 w-2.5 rounded-full bg-[#2f86f6] shadow-[0_0_0_5px_rgba(47,134,246,0.12)]" />
+            <span className="text-sm font-black text-[#0b5bb8]">
+              خدماتنا المتكاملة
+            </span>
+          </div>
+
+          <h2 className="text-balance text-3xl font-black leading-tight tracking-[-0.03em] text-[#102033] sm:text-4xl lg:text-5xl">
             خدمات موسوق في السعودية
           </h2>
-          <p className="text-lg text-[var(--mawsouq-dark)]/70 text-pretty">
-            نجمع لك أفضل مزوّدي الخدمات بحسب آراء العملاء لنقدم لك تجربة بناء متكاملة
+
+          <p className="mx-auto mt-5 max-w-2xl text-pretty text-base leading-8 text-[#102033]/65 sm:text-lg">
+            نجمع لك أفضل مزوّدي الخدمات بحسب آراء العملاء لنقدم لك تجربة بناء
+            متكاملة
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="group bg-white rounded-2xl p-6 hover-lift card-shine transition-all duration-300 border border-transparent hover:border-[var(--mawsouq-bright)]/30"
+            <article
+              key={service.title}
+              className={`group relative overflow-hidden rounded-[28px] border border-white/80 bg-white/85 p-5 shadow-[0_18px_55px_rgba(16,32,51,0.075)] backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:bg-white hover:shadow-[0_28px_80px_rgba(16,32,51,0.13)] ${
+                index === 0 ? "lg:col-span-2 xl:col-span-2" : ""
+              }`}
             >
-              {/* Icon */}
-              <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.color} text-white flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
-                {service.icon}
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-l from-[#0b5bb8] via-[#2f86f6] to-[#7cc4ff] opacity-0 transition duration-300 group-hover:opacity-100" />
+
+              <div className="absolute -left-10 -top-10 h-28 w-28 rounded-full bg-[#2f86f6]/10 blur-2xl transition duration-300 group-hover:bg-[#2f86f6]/20" />
+
+              <div className="relative flex h-full min-h-[245px] flex-col">
+                <div className="mb-5 flex items-center justify-between gap-4">
+                  <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-[#0b5bb8] to-[#2f86f6] text-white shadow-[0_16px_34px_rgba(11,91,184,0.26)] transition duration-300 group-hover:scale-105 group-hover:rotate-3">
+                    <ServiceIcon type={service.icon} />
+                  </div>
+
+                  <span className="rounded-full bg-[#f5f9ff] px-3 py-1 text-xs font-black text-[#0b5bb8]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-black leading-7 text-[#102033] transition-colors duration-300 group-hover:text-[#0b5bb8]">
+                  {service.title}
+                </h3>
+
+                <p className="mt-3 flex-1 text-sm leading-7 text-[#102033]/62">
+                  {service.description}
+                </p>
+
+                <a
+                  href={`${WHATSAPP_URL}${encodeURIComponent(service.title)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-[#f5f9ff] px-4 py-2.5 text-sm font-black text-[#0b5bb8] transition duration-300 hover:bg-[#0b5bb8] hover:text-white"
+                >
+                  اطلب الخدمة
+                  <svg
+                    className="h-4 w-4 rotate-180 transition duration-300 group-hover:-translate-x-1"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M5 12h14M13 5l7 7-7 7"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </a>
               </div>
-
-              {/* Content */}
-              <h3 className="text-lg font-bold text-[var(--mawsouq-dark)] mb-2 group-hover:text-[var(--mawsouq-primary)] transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-sm text-[var(--mawsouq-dark)]/60 leading-relaxed mb-4">
-                {service.description}
-              </p>
-
-              {/* CTA */}
-              <a
-                href="https://wa.me/201223328270?text=مرحبا%20موسوق،%20أريد%20الاستفسار%20عن%20خدمة%20" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-sm font-medium text-[var(--mawsouq-primary)] hover:text-[var(--mawsouq-bright)] transition-colors"
-              >
-                اطلب الخدمة
-                <svg className="w-4 h-4 rotate-180 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </a>
-            </div>
+            </article>
           ))}
+        </div>
+
+        <div className="mt-10 rounded-[32px] border border-white/80 bg-[#102033] p-6 text-white shadow-[0_24px_80px_rgba(16,32,51,0.18)] sm:p-8 lg:mt-12">
+          <div className="flex flex-col items-center justify-between gap-5 text-center lg:flex-row lg:text-right">
+            <div>
+              <h3 className="text-2xl font-black">تحتاج خدمة محددة لمشروعك؟</h3>
+              <p className="mt-2 text-sm leading-7 text-white/65 sm:text-base">
+                تواصل معنا وسنساعدك في اختيار الخدمة المناسبة حسب مرحلة مشروعك.
+              </p>
+            </div>
+
+            <a
+              href="https://wa.me/201223328270?text=مرحبا%20موسوق،%20أريد%20استشارة%20عن%20خدمات%20التصميم%20والبناء"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-12 shrink-0 items-center justify-center rounded-full bg-[#25d366] px-6 text-sm font-black text-white shadow-[0_14px_35px_rgba(37,211,102,0.28)] transition hover:-translate-y-1 sm:h-14 sm:px-8 sm:text-base"
+            >
+              ابدأ استشارة واتساب
+            </a>
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
