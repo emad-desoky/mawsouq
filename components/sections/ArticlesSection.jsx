@@ -139,7 +139,8 @@ export default function ArticlesSection() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-pretty text-base leading-8 text-[#102033]/65 sm:text-lg">
-            اقرأ دليلنا الشامل لفهم تكاليف وخطوات البناء في السعودية
+            اقرأ دليلنا الشامل لفهم تكاليف وخطوات البناء في السعودية والوطن
+            العربى، مع نصائح عملية لتخطيط مشروعك بثقة.
           </p>
         </div>
 

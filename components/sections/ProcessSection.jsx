@@ -49,7 +49,7 @@ export default function ProcessSection() {
   return (
     <section
       dir="rtl"
-      className="relative isolate overflow-hidden bg-[#071a33] py-20 sm:py-24 lg:py-28"
+      className="relative isolate overflow-hidden bg-[#071a33] dark:bg-[color:var(--surface-2)] py-20 sm:py-24 lg:py-28"
     >
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_80%_15%,rgba(47,134,246,0.28),transparent_32%),radial-gradient(circle_at_14%_88%,rgba(11,91,184,0.34),transparent_34%)]" />
       <div className="absolute inset-0 -z-10 opacity-[0.18] [background-image:radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.45)_1px,transparent_0)] [background-size:34px_34px]" />

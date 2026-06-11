@@ -115,18 +115,18 @@ export default function AboutSection() {
   return (
     <section
       dir="rtl"
-      className="relative isolate overflow-hidden bg-[#f6fbff] py-20 sm:py-24 lg:py-28"
+      className="relative isolate overflow-hidden bg-[var(--surface-2)] py-20 text-[var(--ink)] sm:py-24 lg:py-28"
     >
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_82%_14%,rgba(47,134,246,0.15),transparent_32%),radial-gradient(circle_at_10%_86%,rgba(11,91,184,0.10),transparent_34%)]" />
-      <div className="absolute inset-0 -z-10 opacity-[0.18] [background-image:radial-gradient(circle_at_1px_1px,rgba(16,32,51,0.12)_1px,transparent_0)] [background-size:34px_34px]" />
+      <div className="absolute inset-0 -z-10 opacity-[0.18] [background-image:radial-gradient(circle_at_1px_1px,var(--hairline-strong)_1px,transparent_0)] [background-size:34px_34px]" />
 
       <div className="mx-auto w-full max-w-[1360px] px-5 sm:px-8 lg:px-12 xl:px-16">
         <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
           <div className="order-2 lg:order-1">
             <div className="relative mx-auto max-w-[560px]">
-              <div className="absolute -inset-5 rounded-[44px] bg-gradient-to-br from-[#0b5bb8]/16 via-[#2f86f6]/10 to-transparent blur-2xl" />
+              <div className="absolute -inset-5 rounded-[44px] bg-gradient-to-br from-[var(--brand)]/16 via-[var(--brand-bright)]/10 to-transparent blur-2xl" />
 
-              <div className="relative overflow-hidden rounded-[36px] border border-white/80 bg-white p-4 shadow-[0_28px_90px_rgba(16,32,51,0.13)]">
+              <div className="relative overflow-hidden rounded-[36px] border border-[var(--hairline)] bg-[var(--surface)] p-4 shadow-[var(--card-shadow)]">
                 <div className="relative grid aspect-square place-items-center overflow-hidden rounded-[28px] bg-gradient-to-br from-[#0b5bb8] via-[#1473dc] to-[#2f86f6]">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(255,255,255,0.28),transparent_34%),radial-gradient(circle_at_82%_86%,rgba(255,255,255,0.16),transparent_30%)]" />
                   <div className="absolute inset-0 opacity-[0.16] [background-image:radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.65)_1px,transparent_0)] [background-size:30px_30px]" />
@@ -147,16 +147,16 @@ export default function AboutSection() {
                 </div>
               </div>
 
-              <div className="absolute -top-6 left-4 hidden rounded-3xl border border-white/80 bg-white/92 p-4 shadow-[0_20px_65px_rgba(16,32,51,0.14)] backdrop-blur-xl sm:left-[-20px] md:block">
+              <div className="absolute -top-6 left-4 hidden rounded-3xl border border-[var(--hairline)] bg-[var(--surface)]/92 p-4 shadow-[var(--card-shadow)] backdrop-blur-xl sm:left-[-20px] md:block">
                 <div className="flex items-center gap-3">
                   <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#25d366] text-white shadow-[0_14px_34px_rgba(37,211,102,0.24)]">
                     <LocationIcon />
                   </div>
                   <div>
-                    <p className="text-lg font-black text-[#102033]">
-                      السعودية ومصر
+                    <p className="text-lg font-black text-[var(--ink)]">
+                      الوطن العربى
                     </p>
-                    <p className="text-sm font-bold text-[#102033]/55">
+                    <p className="text-sm font-bold text-[var(--ink-muted)]">
                       نطاق عملنا
                     </p>
                   </div>
@@ -167,12 +167,12 @@ export default function AboutSection() {
                 {stats.map((item) => (
                   <div
                     key={item.label}
-                    className="rounded-3xl border border-white/80 bg-white/85 p-4 text-center shadow-[0_14px_40px_rgba(16,32,51,0.07)] backdrop-blur-xl"
+                    className="rounded-3xl border border-[var(--hairline)] bg-[var(--surface)]/85 p-4 text-center shadow-[var(--card-shadow)] backdrop-blur-xl"
                   >
-                    <p className="text-xl font-black text-[#102033] sm:text-2xl">
+                    <p className="text-xl font-black text-[var(--ink)] sm:text-2xl">
                       {item.value}
                     </p>
-                    <p className="mt-1 text-xs font-bold text-[#102033]/50">
+                    <p className="mt-1 text-xs font-bold text-[var(--ink-faint)]">
                       {item.label}
                     </p>
                   </div>
@@ -183,21 +183,21 @@ export default function AboutSection() {
 
           <div className="order-1 lg:order-2">
             <div className="max-w-2xl text-center lg:text-right">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#0b5bb8]/10 bg-white/85 px-4 py-2 shadow-[0_10px_30px_rgba(16,32,51,0.06)] backdrop-blur-xl">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#2f86f6] shadow-[0_0_0_5px_rgba(47,134,246,0.12)]" />
-                <span className="text-sm font-black text-[#0b5bb8]">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--hairline)] bg-[var(--surface)]/85 px-4 py-2 shadow-[var(--card-shadow)] backdrop-blur-xl">
+                <span className="h-2.5 w-2.5 rounded-full bg-[var(--brand-bright)] shadow-[0_0_0_5px_rgba(47,134,246,0.12)]" />
+                <span className="text-sm font-black text-[var(--brand)]">
                   عن موسوق
                 </span>
               </div>
 
-              <h2 className="text-balance text-3xl font-black leading-tight tracking-[-0.03em] text-[#102033] sm:text-4xl lg:text-5xl">
-                منصة سعودية للتصميم والبناء
+              <h2 className="text-balance text-3xl font-black leading-tight tracking-[-0.03em] text-[var(--ink)] sm:text-4xl lg:text-5xl">
+                منصة عربية للتصميم والبناء
               </h2>
 
-              <div className="mt-6 space-y-5 text-pretty text-base leading-8 text-[#102033]/65 sm:text-lg">
+              <div className="mt-6 space-y-5 text-pretty text-base leading-8 text-[var(--ink-muted)] sm:text-lg">
                 <p>
-                  موسوق منصة سعودية تهدف إلى تسهيل رحلة التصميم والبناء من
-                  الفكرة إلى التنفيذ باستخدام التكنولوجيا وتنظيم المعلومات.
+                  موسوق منصة عربية تهدف إلى تسهيل رحلة التصميم والبناء من الفكرة
+                  إلى التنفيذ باستخدام التكنولوجيا وتنظيم المعلومات.
                 </p>
 
                 <p>
@@ -211,21 +211,21 @@ export default function AboutSection() {
                 {features.map((feature) => (
                   <div
                     key={feature.title}
-                    className="group flex items-center gap-3 rounded-3xl border border-[#102033]/5 bg-white/88 p-4 text-right shadow-[0_14px_42px_rgba(16,32,51,0.06)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-[0_22px_65px_rgba(16,32,51,0.10)]"
+                    className="group flex items-center gap-3 rounded-3xl border border-[var(--hairline)] bg-[var(--surface)]/88 p-4 text-right shadow-[var(--card-shadow)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:bg-[var(--surface)] hover:shadow-[var(--card-shadow)]"
                   >
-                    <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-[#e9f3ff] text-[#0b5bb8] transition duration-300 group-hover:bg-[#0b5bb8] group-hover:text-white">
+                    <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-[var(--surface-3)] text-[var(--brand)] transition duration-300 group-hover:bg-[var(--brand)] group-hover:text-white">
                       <FeatureIcon type={feature.icon} />
                     </div>
 
-                    <span className="text-sm font-black text-[#102033] sm:text-base">
+                    <span className="text-sm font-black text-[var(--ink)] sm:text-base">
                       {feature.title}
                     </span>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-8 rounded-[32px] border border-[#0b5bb8]/10 bg-white/80 p-5 shadow-[0_18px_55px_rgba(16,32,51,0.07)] backdrop-blur-xl">
-                <p className="text-sm font-bold leading-7 text-[#102033]/66 sm:text-base">
+              <div className="mt-8 rounded-[32px] border border-[var(--hairline)] bg-[var(--surface)]/80 p-5 shadow-[var(--card-shadow)] backdrop-blur-xl">
+                <p className="text-sm font-bold leading-7 text-[var(--ink-muted)] sm:text-base">
                   هدفنا أن تبدأ مشروعك بوضوح أكبر: تعرف الخدمة المناسبة، تفهم
                   التكلفة المتوقعة، وتصل إلى مزود الخدمة الأنسب لاحتياجك.
                 </p>

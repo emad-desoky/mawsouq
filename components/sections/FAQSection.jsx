@@ -7,9 +7,9 @@ const WHATSAPP_URL =
 
 const faqs = [
   {
-    question: "ما هي خدمات موسوق في السعودية؟",
+    question: "ما هي خدمات موسوق في الوطن العربى",
     answer:
-      "موسوق تقدم خدمات التصميم المعماري والإنشائي والداخلي، بالإضافة إلى حاسبة تكلفة البناء ودراسات الجدوى وربطك بمزودي الخدمات المناسبين في السعودية.",
+      "موسوق تقدم خدمات التصميم المعماري والإنشائي والداخلي، بالإضافة إلى حاسبة تكلفة البناء ودراسات الجدوى وربطك بمزودي الخدمات المناسبين في الوطن العربى.",
   },
   {
     question: "هل تساعد موسوق في حساب تكلفة البناء؟",
@@ -93,31 +93,31 @@ export default function FAQSection() {
     <section
       id="faq"
       dir="rtl"
-      className="relative isolate overflow-hidden bg-[#f6fbff] py-20 sm:py-24 lg:py-28"
+      className="relative isolate overflow-hidden bg-[var(--surface-2)] py-20 text-[var(--ink)] sm:py-24 lg:py-28"
     >
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_84%_14%,rgba(47,134,246,0.14),transparent_32%),radial-gradient(circle_at_10%_88%,rgba(11,91,184,0.10),transparent_32%)]" />
-      <div className="absolute inset-0 -z-10 opacity-[0.18] [background-image:radial-gradient(circle_at_1px_1px,rgba(16,32,51,0.12)_1px,transparent_0)] [background-size:34px_34px]" />
+      <div className="absolute inset-0 -z-10 opacity-[0.18] [background-image:radial-gradient(circle_at_1px_1px,var(--hairline-strong)_1px,transparent_0)] [background-size:34px_34px]" />
 
       <div className="mx-auto w-full max-w-[1180px] px-5 sm:px-8 lg:px-12">
         <div className="mx-auto mb-12 max-w-3xl text-center lg:mb-14">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#0b5bb8]/10 bg-white/85 px-4 py-2 shadow-[0_10px_30px_rgba(16,32,51,0.06)] backdrop-blur-xl">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#2f86f6] shadow-[0_0_0_5px_rgba(47,134,246,0.12)]" />
-            <span className="text-sm font-black text-[#0b5bb8]">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--hairline)] bg-[var(--surface)]/85 px-4 py-2 shadow-[var(--card-shadow)] backdrop-blur-xl">
+            <span className="h-2.5 w-2.5 rounded-full bg-[var(--brand-bright)] shadow-[0_0_0_5px_rgba(47,134,246,0.12)]" />
+            <span className="text-sm font-black text-[var(--brand)]">
               أسئلة شائعة
             </span>
           </div>
 
-          <h2 className="text-balance text-3xl font-black leading-tight tracking-[-0.03em] text-[#102033] sm:text-4xl lg:text-5xl">
+          <h2 className="text-balance text-3xl font-black leading-tight tracking-[-0.03em] text-[var(--ink)] sm:text-4xl lg:text-5xl">
             الأسئلة الشائعة
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-pretty text-base leading-8 text-[#102033]/65 sm:text-lg">
+          <p className="mx-auto mt-5 max-w-2xl text-pretty text-base leading-8 text-[var(--ink-muted)] sm:text-lg">
             إجابات على أهم الأسئلة التي يطرحها عملاؤنا
           </p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
-          <div className="rounded-[34px] border border-white/80 bg-gradient-to-br from-[#0b5bb8] via-[#1473dc] to-[#2f86f6] p-6 text-white shadow-[0_28px_90px_rgba(11,91,184,0.25)] sm:p-8">
+          <div className="rounded-[34px] border border-[var(--hairline)] bg-gradient-to-br from-[#0b5bb8] via-[#1473dc] to-[#2f86f6] p-6 text-white shadow-[0_28px_90px_rgba(11,91,184,0.25)] sm:p-8">
             <div className="grid h-16 w-16 place-items-center rounded-3xl bg-white/15 ring-1 ring-white/20">
               <QuestionIcon />
             </div>
@@ -162,10 +162,10 @@ export default function FAQSection() {
               return (
                 <article
                   key={faq.question}
-                  className={`overflow-hidden rounded-[26px] border bg-white shadow-[0_14px_42px_rgba(16,32,51,0.055)] transition duration-300 ${
+                  className={`overflow-hidden rounded-[26px] border bg-[var(--surface)] shadow-[var(--card-shadow)] transition duration-300 ${
                     isOpen
-                      ? "border-[#0b5bb8]/18 shadow-[0_22px_70px_rgba(16,32,51,0.10)]"
-                      : "border-white/80 hover:border-[#0b5bb8]/12 hover:bg-white"
+                      ? "border-[var(--brand)]/18 shadow-[var(--card-shadow)]"
+                      : "border-[var(--hairline)] hover:border-[var(--brand)]/12 hover:bg-[var(--surface)]"
                   }`}
                 >
                   <button
@@ -178,14 +178,14 @@ export default function FAQSection() {
                       <span
                         className={`grid h-10 w-10 shrink-0 place-items-center rounded-2xl text-sm font-black transition duration-300 ${
                           isOpen
-                            ? "bg-[#0b5bb8] text-white"
-                            : "bg-[#e9f3ff] text-[#0b5bb8]"
+                            ? "bg-[var(--brand)] text-white"
+                            : "bg-[var(--surface-3)] text-[var(--brand)]"
                         }`}
                       >
                         {String(index + 1).padStart(2, "0")}
                       </span>
 
-                      <h3 className="text-base font-black leading-7 text-[#102033] sm:text-lg">
+                      <h3 className="text-base font-black leading-7 text-[var(--ink)] sm:text-lg">
                         {faq.question}
                       </h3>
                     </div>
@@ -193,8 +193,8 @@ export default function FAQSection() {
                     <span
                       className={`grid h-10 w-10 shrink-0 place-items-center rounded-full transition duration-300 ${
                         isOpen
-                          ? "bg-[#0b5bb8] text-white"
-                          : "bg-[#f5f9ff] text-[#0b5bb8]"
+                          ? "bg-[var(--brand)] text-white"
+                          : "bg-[var(--surface-3)] text-[var(--brand)]"
                       }`}
                     >
                       <ChevronIcon open={isOpen} />
@@ -208,8 +208,8 @@ export default function FAQSection() {
                   >
                     <div className="overflow-hidden">
                       <div className="px-5 pb-5 sm:px-6 sm:pb-6">
-                        <div className="border-t border-[#102033]/8 pt-4">
-                          <p className="text-sm leading-8 text-[#102033]/65 sm:text-base">
+                        <div className="border-t border-[var(--hairline)] pt-4">
+                          <p className="text-sm leading-8 text-[var(--ink-muted)] sm:text-base">
                             {faq.answer}
                           </p>
                         </div>

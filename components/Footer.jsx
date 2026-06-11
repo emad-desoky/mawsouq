@@ -5,8 +5,7 @@ import Image from "next/image";
 
 const footerLinks = {
   services: [
-    { href: "/ar/sa/", label: "خدمات السعودية" },
-    { href: "/en/sa/", label: "Saudi Services" },
+    { href: "/", label: "خدماتنا" },
     { href: "#architectural-design", label: "التصميم المعماري" },
     { href: "#cost-calculator", label: "حاسبة التكلفة" },
   ],
@@ -93,10 +92,10 @@ export default function Footer() {
         <div className="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/ar/sa/" className="mb-5 flex items-center gap-3">
+            <Link href="/" className="mb-5 flex items-center gap-3">
               <div className="relative h-14 w-14 overflow-hidden rounded-2xl bg-white/10 ring-1 ring-white/10">
                 <Image
-                  src="/mawsouq-logo.png"
+                  src="/logo-png.webp"
                   alt="موسوق"
                   fill
                   className="object-contain p-1.5"
@@ -111,9 +110,9 @@ export default function Footer() {
             </Link>
 
             <p className="max-w-sm text-sm leading-8 text-white/70">
-              منصة سعودية تسعى لتسهيل رحلة المشروع من الفكرة إلى التنفيذ
-              باستخدام التكنولوجيا، عبر تقديم خدمات التصميم والبناء بشكل أكثر
-              وضوحًا واحترافية.
+              منصة عربية تسعى لتسهيل رحلة المشروع من الفكرة إلى التنفيذ باستخدام
+              التكنولوجيا، عبر تقديم خدمات التصميم والبناء بشكل أكثر وضوحًا
+              واحترافية.
             </p>
           </div>
 
@@ -162,10 +161,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="mb-1 text-xs font-bold text-white/45">
-                    السعودية
-                  </p>
-                  <p className="text-sm leading-7 text-white/75">
-                    الرياض - حي النسيم - تقاطع شارع الحمراء مع شارع الثلاثين
+                    السكندرية - مصر{" "}
                   </p>
                 </div>
               </div>

@@ -56,7 +56,7 @@ export default function CTASection() {
   return (
     <section
       dir="rtl"
-      className="relative isolate overflow-hidden bg-white py-20 sm:py-24 lg:py-28"
+      className="relative isolate overflow-hidden bg-[var(--page)] py-20 sm:py-24 lg:py-28"
     >
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_86%_18%,rgba(47,134,246,0.10),transparent_30%),radial-gradient(circle_at_10%_84%,rgba(11,91,184,0.08),transparent_32%)]" />
 
@@ -75,7 +75,7 @@ export default function CTASection() {
             </div>
 
             <h2 className="text-balance text-3xl font-black leading-tight tracking-[-0.035em] text-white sm:text-4xl lg:text-6xl">
-              هل تخطط لمشروع بناء في السعودية؟
+              هل تخطط لمشروع بناء في الوطن العربى
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-8 text-white/76 sm:text-lg lg:text-xl">
@@ -97,7 +97,7 @@ export default function CTASection() {
 
               <a
                 href="tel:+201223328270"
-                className="inline-flex h-14 w-full items-center justify-center gap-2 rounded-full border border-white/25 bg-white px-8 text-base font-black text-[#0b5bb8] shadow-[0_18px_52px_rgba(255,255,255,0.12)] transition duration-300 hover:-translate-y-1 hover:bg-[#f5f9ff] sm:w-auto"
+                className="inline-flex h-14 w-full items-center justify-center gap-2 rounded-full border border-[var(--hairline)] bg-[var(--surface)] px-8 text-base font-black text-[var(--brand)] shadow-[var(--card-shadow)] transition duration-300 hover:-translate-y-1 hover:bg-[var(--surface-2)] sm:w-auto"
               >
                 <PhoneIcon />
                 اتصل بنا

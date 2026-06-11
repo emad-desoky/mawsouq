@@ -1,5 +1,10 @@
 import { Tajawal } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import FloatingButtons from "@/components/FloatingButtons";
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
 const tajawal = Tajawal({
   subsets: ["arabic", "latin"],
@@ -15,13 +20,33 @@ export const metadata = {
     icon: "/mawsouq-logo.png",
     apple: "/mawsouq-logo.png",
   },
+  generator: "v0.app",
+};
+
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#071321" },
+  ],
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ar" dir="rtl" className="bg-background">
+    <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body className={`${tajawal.variable} font-sans antialiased`}>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SmoothScrollProvider>
+            <Header />
+            {children}
+            <Footer />
+            <FloatingButtons />
+          </SmoothScrollProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -95,41 +95,43 @@ export default function ComparisonSection() {
   return (
     <section
       dir="rtl"
-      className="relative isolate overflow-hidden bg-[#f6fbff] py-20 sm:py-24 lg:py-28"
+      className="relative isolate overflow-hidden bg-[#f6fbff] dark:bg-[color:var(--surface-2)] py-20 sm:py-24 lg:py-28"
     >
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_85%_15%,rgba(47,134,246,0.14),transparent_32%),radial-gradient(circle_at_8%_82%,rgba(11,91,184,0.10),transparent_30%)]" />
-      <div className="absolute inset-0 -z-10 opacity-[0.18] [background-image:radial-gradient(circle_at_1px_1px,rgba(16,32,51,0.12)_1px,transparent_0)] [background-size:34px_34px]" />
+      <div className="absolute inset-0 -z-10 opacity-[0.18] dark:opacity-[0.12] [background-image:radial-gradient(circle_at_1px_1px,rgba(16,32,51,0.12)_1px,transparent_0)] dark:[background-image:radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.14)_1px,transparent_0)] [background-size:34px_34px]" />
 
       <div className="mx-auto w-full max-w-[1280px] px-5 sm:px-8 lg:px-12">
         <div className="mx-auto mb-14 max-w-3xl text-center lg:mb-16">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#0b5bb8]/10 bg-white/85 px-4 py-2 shadow-[0_10px_30px_rgba(16,32,51,0.06)] backdrop-blur-xl">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#0b5bb8]/10 dark:border-[color:var(--hairline-strong)] bg-white/85 dark:bg-[color:var(--surface)] px-4 py-2 shadow-[0_10px_30px_rgba(16,32,51,0.06)] backdrop-blur-xl">
             <span className="h-2.5 w-2.5 rounded-full bg-[#2f86f6] shadow-[0_0_0_5px_rgba(47,134,246,0.12)]" />
-            <span className="text-sm font-black text-[#0b5bb8]">
+            <span className="text-sm font-black text-[#0b5bb8] dark:text-[color:var(--brand-bright)]">
               الفرق واضح
             </span>
           </div>
 
-          <h2 className="text-balance text-3xl font-black leading-tight tracking-[-0.03em] text-[#102033] sm:text-4xl lg:text-5xl">
+          <h2 className="text-balance text-3xl font-black leading-tight tracking-[-0.03em] text-[#102033] dark:text-[color:var(--ink)] sm:text-4xl lg:text-5xl">
             لماذا لا تبدأ المشروع بدون تصور واضح؟
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-pretty text-base leading-8 text-[#102033]/65 sm:text-lg">
+          <p className="mx-auto mt-5 max-w-2xl text-pretty text-base leading-8 text-[#102033]/65 dark:text-[color:var(--ink-muted)] sm:text-lg">
             قارن بين البدء بدون تخطيط والبدء مع موسوق
           </p>
         </div>
 
         <div className="relative mx-auto max-w-6xl">
-          <div className="pointer-events-none absolute left-1/2 top-1/2 z-20 hidden h-20 w-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-white/80 bg-white shadow-[0_24px_70px_rgba(16,32,51,0.16)] lg:grid">
-            <span className="text-xl font-black text-[#0b5bb8]">VS</span>
+          <div className="pointer-events-none absolute left-1/2 top-1/2 z-20 hidden h-20 w-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-white/80 dark:border-[color:var(--hairline)] bg-white dark:bg-[color:var(--surface)] shadow-[0_24px_70px_rgba(16,32,51,0.16)] lg:grid">
+            <span className="text-xl font-black text-[#0b5bb8] dark:text-[color:var(--brand-bright)]">
+              VS
+            </span>
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
-            <article className="group relative overflow-hidden rounded-[34px] border border-red-100 bg-white p-6 shadow-[0_24px_75px_rgba(16,32,51,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_32px_90px_rgba(16,32,51,0.12)] sm:p-8">
+            <article className="group relative overflow-hidden rounded-[34px] border border-red-100 dark:border-red-500/20 bg-white dark:bg-[color:var(--surface)] p-6 shadow-[0_24px_75px_rgba(16,32,51,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_32px_90px_rgba(16,32,51,0.12)] sm:p-8">
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-l from-red-400 to-red-600" />
-              <div className="absolute -left-16 -top-16 h-40 w-40 rounded-full bg-red-100/60 blur-3xl" />
+              <div className="absolute -left-16 -top-16 h-40 w-40 rounded-full bg-red-100/60 dark:bg-red-500/10 blur-3xl" />
 
-              <div className="relative mb-7 flex items-center gap-4 border-b border-[#102033]/8 pb-5">
-                <div className="grid h-14 w-14 place-items-center rounded-2xl bg-red-50 text-red-500 ring-1 ring-red-100">
+              <div className="relative mb-7 flex items-center gap-4 border-b border-[#102033]/8 dark:border-[color:var(--hairline)] pb-5">
+                <div className="grid h-14 w-14 place-items-center rounded-2xl bg-red-50 dark:bg-red-500/15 text-red-500 ring-1 ring-red-100 dark:ring-red-500/20">
                   <WarningIcon />
                 </div>
 
@@ -137,7 +139,7 @@ export default function ComparisonSection() {
                   <p className="text-xs font-black text-red-500">
                     مسار عالي المخاطر
                   </p>
-                  <h3 className="mt-1 text-2xl font-black text-[#102033]">
+                  <h3 className="mt-1 text-2xl font-black text-[#102033] dark:text-[color:var(--ink)]">
                     بدون تخطيط
                   </h3>
                 </div>
@@ -147,19 +149,19 @@ export default function ComparisonSection() {
                 {withoutPlanning.map((item) => (
                   <li
                     key={item.text}
-                    className="flex items-center gap-3 rounded-2xl bg-red-50/55 px-4 py-3 text-right"
+                    className="flex items-center gap-3 rounded-2xl bg-red-50/55 dark:bg-red-500/10 px-4 py-3 text-right"
                   >
-                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white text-red-500 shadow-sm ring-1 ring-red-100">
+                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white dark:bg-[color:var(--surface-3)] text-red-500 shadow-sm ring-1 ring-red-100 dark:ring-red-500/20">
                       <XIcon />
                     </span>
-                    <span className="text-sm font-bold text-[#102033]/72 sm:text-base">
+                    <span className="text-sm font-bold text-[#102033]/72 dark:text-[color:var(--ink-muted)] sm:text-base">
                       {item.text}
                     </span>
                   </li>
                 ))}
               </ul>
 
-              <div className="relative mt-7 rounded-3xl bg-red-50 p-4 text-sm font-bold leading-7 text-red-700">
+              <div className="relative mt-7 rounded-3xl bg-red-50 dark:bg-red-500/12 p-4 text-sm font-bold leading-7 text-red-700 dark:text-red-300">
                 النتيجة غالبًا: قرارات مكلفة، وقت أطول، وضبابية في اختيار الخدمة
                 المناسبة.
               </div>

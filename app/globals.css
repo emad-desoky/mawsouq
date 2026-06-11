@@ -1,7 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@custom-variant dark (&:is(.dark *));
+
 :root {
+  /* Brand palette (primary colors) */
   --mawsouq-primary: #0b5bb8;
   --mawsouq-bright: #2f86f6;
   --mawsouq-light: #f5f9ff;
@@ -9,10 +12,49 @@
   --mawsouq-whatsapp: #25d366;
   --nav-height: 88px;
 
-  --background: #ffffff;
-  --foreground: #102033;
-  --border: #e2e8f0;
+  /* Semantic theme tokens (LIGHT) */
+  --page: #ffffff;            /* default page background */
+  --surface: #ffffff;         /* cards / panels */
+  --surface-2: #f6fbff;       /* alternating section background */
+  --surface-3: #f5f9ff;       /* subtle chips / pills */
+  --brand: #0b5bb8;           /* primary brand */
+  --brand-bright: #2f86f6;    /* bright brand */
+  --ink: #102033;             /* main text */
+  --ink-muted: rgba(16, 32, 51, 0.66);  /* secondary text */
+  --ink-faint: rgba(16, 32, 51, 0.5);   /* tertiary text */
+  --hairline: rgba(16, 32, 51, 0.08);   /* borders */
+  --hairline-strong: rgba(16, 32, 51, 0.12);
   --ring: #2f86f6;
+  --header-bg: rgba(255, 255, 255, 0.55);
+  --header-bg-scrolled: rgba(255, 255, 255, 0.88);
+  --header-shadow: 0 18px 55px rgba(16, 32, 51, 0.1);
+  --card-shadow: 0 18px 55px rgba(16, 32, 51, 0.075);
+  --hero-bg: #f6fbff;
+
+  --background: var(--page);
+  --foreground: var(--ink);
+  --border: var(--hairline);
+}
+
+.dark {
+  /* Semantic theme tokens (DARK) — built around the same brand blues */
+  --page: #071321;            /* deep navy page */
+  --surface: #0f2238;         /* cards / panels */
+  --surface-2: #0a1a2c;       /* alternating section background */
+  --surface-3: #11283f;       /* subtle chips / pills */
+  --brand: #2f86f6;           /* primary brand (brightened for contrast) */
+  --brand-bright: #5aa6ff;    /* bright brand */
+  --ink: #eaf1fb;             /* main text */
+  --ink-muted: rgba(234, 241, 251, 0.68);  /* secondary text */
+  --ink-faint: rgba(234, 241, 251, 0.5);   /* tertiary text */
+  --hairline: rgba(255, 255, 255, 0.1);    /* borders */
+  --hairline-strong: rgba(255, 255, 255, 0.16);
+  --ring: #5aa6ff;
+  --header-bg: rgba(10, 23, 40, 0.6);
+  --header-bg-scrolled: rgba(10, 23, 40, 0.9);
+  --header-shadow: 0 18px 55px rgba(0, 0, 0, 0.45);
+  --card-shadow: 0 18px 55px rgba(0, 0, 0, 0.4);
+  --hero-bg: #0a1a2c;
 }
 
 @theme inline {
@@ -21,6 +63,16 @@
   --color-foreground: var(--foreground);
   --color-border: var(--border);
   --color-ring: var(--ring);
+
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-brand: var(--brand);
+  --color-brand-bright: var(--brand-bright);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
 }
 
 * {
@@ -36,9 +88,10 @@ body {
   width: 100%;
   margin: 0;
   overflow-x: hidden;
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--page);
+  color: var(--ink);
   font-family: var(--font-tajawal), "Tajawal", system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -60,7 +113,7 @@ img {
 
 ::selection {
   background-color: rgba(47, 134, 246, 0.22);
-  color: #102033;
+  color: var(--ink);
 }
 
 /* HERO */
@@ -68,7 +121,7 @@ img {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: #f6fbff;
+  background: var(--hero-bg);
   min-height: calc(100svh - var(--nav-height));
   border: 0 !important;
 }
@@ -80,7 +133,7 @@ img {
   background:
     radial-gradient(circle at 78% 18%, rgba(47, 134, 246, 0.15), transparent 34%),
     radial-gradient(circle at 18% 82%, rgba(11, 91, 184, 0.1), transparent 32%),
-    linear-gradient(135deg, #ffffff 0%, #f6fbff 48%, #eef6ff 100%);
+    linear-gradient(135deg, var(--page) 0%, var(--hero-bg) 48%, var(--surface-2) 100%);
 }
 
 .hero-container {
@@ -107,11 +160,11 @@ img {
   gap: 10px;
   margin-bottom: 18px;
   padding: 8px 14px;
-  border: 1px solid rgba(11, 91, 184, 0.12);
+  border: 1px solid var(--hairline-strong);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.88);
+  background: var(--surface);
   box-shadow: 0 10px 26px rgba(16, 32, 51, 0.055);
-  color: var(--mawsouq-primary);
+  color: var(--brand);
   font-size: 13px;
   font-weight: 900;
 }
@@ -120,13 +173,13 @@ img {
   width: 9px;
   height: 9px;
   border-radius: 999px;
-  background: var(--mawsouq-bright);
+  background: var(--brand-bright);
   box-shadow: 0 0 0 5px rgba(47, 134, 246, 0.12);
 }
 
 .hero-title {
   margin: 0;
-  color: var(--mawsouq-dark);
+  color: var(--ink);
   font-size: clamp(40px, 4.1vw, 68px);
   line-height: 1.08;
   letter-spacing: -0.045em;
@@ -137,7 +190,7 @@ img {
   display: block;
   margin-top: 8px;
   color: transparent;
-  background: linear-gradient(270deg, #0b5bb8, #2f86f6, #46a6ff);
+  background: linear-gradient(270deg, var(--brand), var(--brand-bright), #46a6ff);
   background-clip: text;
   -webkit-background-clip: text;
   font-weight: 950;
@@ -146,7 +199,7 @@ img {
 .hero-description {
   max-width: 590px;
   margin: 22px 0 0;
-  color: rgba(16, 32, 51, 0.66);
+  color: var(--ink-muted);
   font-size: clamp(15px, 1.15vw, 17px);
   line-height: 1.9;
   font-weight: 500;
@@ -184,12 +237,12 @@ img {
 }
 
 .hero-btn-primary {
-  background: var(--mawsouq-dark);
-  box-shadow: 0 16px 38px rgba(16, 32, 51, 0.2);
+  background: var(--brand);
+  box-shadow: 0 16px 38px rgba(11, 91, 184, 0.28);
 }
 
 .hero-btn-primary:hover {
-  background: var(--mawsouq-primary);
+  background: var(--brand-bright);
 }
 
 .hero-features {
@@ -205,11 +258,11 @@ img {
   align-items: center;
   justify-content: flex-start;
   padding-inline: 18px;
-  border: 1px solid rgba(16, 32, 51, 0.055);
+  border: 1px solid var(--hairline);
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--surface);
   box-shadow: 0 10px 28px rgba(16, 32, 51, 0.045);
-  color: var(--mawsouq-dark);
+  color: var(--ink);
   font-size: 14px;
   font-weight: 900;
 }
@@ -220,9 +273,9 @@ img {
   gap: 0;
   margin-top: 18px;
   padding: 16px;
-  border: 1px solid rgba(16, 32, 51, 0.055);
+  border: 1px solid var(--hairline);
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.82);
+  background: var(--surface);
   box-shadow: 0 12px 34px rgba(16, 32, 51, 0.055);
 }
 
@@ -232,7 +285,7 @@ img {
 
 .hero-stats strong {
   display: block;
-  color: var(--mawsouq-dark);
+  color: var(--ink);
   font-size: 24px;
   line-height: 1;
   font-weight: 950;
@@ -241,7 +294,7 @@ img {
 .hero-stats span {
   display: block;
   margin-top: 7px;
-  color: rgba(16, 32, 51, 0.52);
+  color: var(--ink-faint);
   font-size: 12px;
   font-weight: 800;
 }
@@ -258,9 +311,9 @@ img {
   aspect-ratio: 3 / 2;
   overflow: hidden;
   border-radius: 32px;
-  background: white;
+  background: var(--surface);
   box-shadow: 0 30px 90px rgba(16, 32, 51, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--hairline);
 }
 
 .hero-image {
@@ -268,57 +321,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  background: #eef6ff;
-}
-
-.hero-floating {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(255, 255, 255, 0.95);
-  box-shadow: 0 20px 55px rgba(16, 32, 51, 0.14);
-  backdrop-filter: blur(14px);
-}
-
-.hero-floating span {
-  width: 40px;
-  height: 40px;
-  display: grid;
-  place-items: center;
-  border-radius: 15px;
-  background: var(--mawsouq-dark);
-  color: white;
-  font-size: 12px;
-  font-weight: 950;
-}
-
-.hero-floating small {
-  display: block;
-  color: var(--mawsouq-primary);
-  font-size: 12px;
-  font-weight: 950;
-}
-
-.hero-floating p {
-  margin: 3px 0 0;
-  color: var(--mawsouq-dark);
-  font-size: 14px;
-  line-height: 1.35;
-  font-weight: 950;
-}
-
-.hero-floating-top {
-  top: -22px;
-  right: 28px;
-}
-
-.hero-floating-bottom {
-  bottom: -22px;
-  left: 28px;
+  background: var(--surface-2);
 }
 
 /* Floating buttons */
@@ -346,7 +349,7 @@ img {
 }
 
 .call-btn {
-  background-color: #0b5bb8;
+  background-color: var(--brand);
   bottom: 84px;
   right: 20px;
 }
@@ -454,10 +457,6 @@ main {
     font-size: 20px;
   }
 
-  .hero-floating {
-    display: none;
-  }
-
   .hero-image-card {
     border-radius: 24px;
   }
@@ -476,4 +475,15 @@ main {
     bottom: 72px;
     left: 16px;
   }
+}
+
+.services-slider {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.services-slider::-webkit-scrollbar {
+  display: none;
 }

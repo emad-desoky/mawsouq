@@ -3,13 +3,13 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const WHATSAPP_URL =
-  "https://wa.me/201223328270?text=مرحبا%20موسوق،%20أريد%20استشارة%20عن%20خدمات%20التصميم%20والبناء%20في%20السعودية";
+  "https://wa.me/201223328270?text=مرحبا%20موسوق،%20أريد%20استشارة%20عن%20خدمات%20التصميم%20والبناء%20في%20الوطن%20العربى";
 
 const navLinks = [
   { href: "/", label: "الرئيسية" },
-  { href: "/ar/sa/", label: "خدمات السعودية" },
   { href: "#architectural-design", label: "التصميم المعماري" },
   { href: "#cost-calculator", label: "حاسبة التكلفة" },
   { href: "#faq", label: "الأسئلة الشائعة" },
@@ -32,17 +32,17 @@ function MenuIcon({ isOpen }) {
   return (
     <span className="relative flex h-5 w-6 items-center justify-center">
       <span
-        className={`absolute h-0.5 w-6 rounded-full bg-[#102033] transition duration-300 ${
+        className={`absolute h-0.5 w-6 rounded-full bg-[color:var(--ink)] transition duration-300 ${
           isOpen ? "rotate-45" : "-translate-y-2"
         }`}
       />
       <span
-        className={`absolute h-0.5 w-6 rounded-full bg-[#102033] transition duration-300 ${
+        className={`absolute h-0.5 w-6 rounded-full bg-[color:var(--ink)] transition duration-300 ${
           isOpen ? "opacity-0 scale-0" : "opacity-100"
         }`}
       />
       <span
-        className={`absolute h-0.5 w-6 rounded-full bg-[#102033] transition duration-300 ${
+        className={`absolute h-0.5 w-6 rounded-full bg-[color:var(--ink)] transition duration-300 ${
           isOpen ? "-rotate-45" : "translate-y-2"
         }`}
       />
@@ -80,24 +80,24 @@ export default function Header() {
     >
       <div className="mx-auto w-full max-w-[1480px] px-4 sm:px-6 lg:px-10 xl:px-14">
         <div
-          className={`relative flex items-center justify-between rounded-full border px-4 transition-all duration-300 lg:px-5 ${
+          className={`relative flex items-center justify-between rounded-full border border-[color:var(--hairline-strong)] px-4 backdrop-blur-2xl transition-all duration-300 lg:px-5 ${
             isScrolled || isOpen
-              ? "border-white/80 bg-white/88 shadow-[0_18px_55px_rgba(16,32,51,0.10)] backdrop-blur-2xl"
-              : "border-white/60 bg-white/55 shadow-[0_10px_32px_rgba(16,32,51,0.055)] backdrop-blur-xl"
+              ? "bg-[color:var(--header-bg-scrolled)] shadow-[var(--header-shadow)]"
+              : "bg-[color:var(--header-bg)] shadow-[0_10px_32px_rgba(16,32,51,0.055)]"
           }`}
         >
           <Link
-            href="/ar/sa/"
+            href="/"
             onClick={() => setIsOpen(false)}
             className="group flex h-[84px] items-center gap-3"
             aria-label="موسوق"
           >
-            <span className="relative grid h-22 w-22 place-items-center overflow-hidden rounded-2xl   transition duration-300 group-hover:scale-105">
+            <span className="relative grid h-22 w-22 place-items-center overflow-hidden rounded-2xl transition duration-300 group-hover:scale-105">
               <Image
-                src="/mawsouq-logo.png"
+                src="/logo-png.webp"
                 alt="موسوق"
                 width={1200}
-                height={1020}
+                height={1220}
                 sizes="44px"
                 className="object-contain p-1.5"
                 priority
@@ -105,12 +105,12 @@ export default function Header() {
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-1 rounded-full border border-[#102033]/5 bg-[#f6fbff]/80 p-1 lg:flex">
+          <nav className="hidden items-center gap-1 rounded-full border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-1 lg:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="group relative rounded-full px-4 py-2.5 text-sm font-black text-[#102033]/72 transition duration-300 hover:bg-white hover:text-[#0b5bb8] hover:shadow-sm"
+                className="group relative rounded-full px-4 py-2.5 text-sm font-black text-[color:var(--ink-muted)] transition duration-300 hover:bg-[color:var(--surface)] hover:text-[color:var(--brand)] hover:shadow-sm"
               >
                 {link.label}
               </Link>
@@ -118,9 +118,11 @@ export default function Header() {
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
+            <ThemeToggle />
+
             <Link
-              href="/en/sa/"
-              className="rounded-full px-4 py-2.5 text-sm font-black text-[#102033]/65 transition duration-300 hover:bg-[#f6fbff] hover:text-[#0b5bb8]"
+              href="/en"
+              className="rounded-full px-4 py-2.5 text-sm font-black text-[color:var(--ink-muted)] transition duration-300 hover:bg-[color:var(--surface-2)] hover:text-[color:var(--brand)]"
             >
               English
             </Link>
@@ -136,15 +138,19 @@ export default function Header() {
             </a>
           </div>
 
-          <button
-            type="button"
-            onClick={() => setIsOpen((value) => !value)}
-            className="grid h-11 w-11 place-items-center rounded-2xl border border-[#102033]/6 bg-white text-[#102033] shadow-sm transition duration-300 hover:bg-[#f6fbff] lg:hidden"
-            aria-label={isOpen ? "إغلاق القائمة" : "فتح القائمة"}
-            aria-expanded={isOpen}
-          >
-            <MenuIcon isOpen={isOpen} />
-          </button>
+          <div className="flex items-center gap-2 lg:hidden">
+            <ThemeToggle />
+
+            <button
+              type="button"
+              onClick={() => setIsOpen((value) => !value)}
+              className="grid h-11 w-11 place-items-center rounded-2xl border border-[color:var(--hairline)] bg-[color:var(--surface)] text-[color:var(--ink)] shadow-sm transition duration-300 hover:bg-[color:var(--surface-2)]"
+              aria-label={isOpen ? "إغلاق القائمة" : "فتح القائمة"}
+              aria-expanded={isOpen}
+            >
+              <MenuIcon isOpen={isOpen} />
+            </button>
+          </div>
         </div>
 
         <div
@@ -155,34 +161,34 @@ export default function Header() {
           }`}
         >
           <div className="overflow-hidden">
-            <div className="rounded-[28px] border border-white/80 bg-white/94 p-3 shadow-[0_24px_80px_rgba(16,32,51,0.16)] backdrop-blur-2xl">
+            <div className="rounded-[28px] border border-[color:var(--hairline-strong)] bg-[color:var(--header-bg-scrolled)] p-3 shadow-[var(--header-shadow)] backdrop-blur-2xl">
               <nav className="flex flex-col gap-1">
                 {navLinks.map((link, index) => (
                   <Link
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-between rounded-2xl px-4 py-3.5 text-sm font-black text-[#102033] transition duration-300 hover:bg-[#f6fbff] hover:text-[#0b5bb8]"
+                    className="flex items-center justify-between rounded-2xl px-4 py-3.5 text-sm font-black text-[color:var(--ink)] transition duration-300 hover:bg-[color:var(--surface-2)] hover:text-[color:var(--brand)]"
                   >
                     <span>{link.label}</span>
-                    <span className="text-xs font-black text-[#2f86f6]/45">
+                    <span className="text-xs font-black text-[color:var(--brand-bright)]/45">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </Link>
                 ))}
 
                 <Link
-                  href="/en/sa/"
+                  href="/en"
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-between rounded-2xl px-4 py-3.5 text-sm font-black text-[#102033] transition duration-300 hover:bg-[#f6fbff] hover:text-[#0b5bb8]"
+                  className="flex items-center justify-between rounded-2xl px-4 py-3.5 text-sm font-black text-[color:var(--ink)] transition duration-300 hover:bg-[color:var(--surface-2)] hover:text-[color:var(--brand)]"
                 >
                   <span>English</span>
-                  <span className="text-xs font-black text-[#2f86f6]/45">
+                  <span className="text-xs font-black text-[color:var(--brand-bright)]/45">
                     EN
                   </span>
                 </Link>
 
-                <div className="mt-3 border-t border-[#102033]/8 pt-3">
+                <div className="mt-3 border-t border-[color:var(--hairline)] pt-3">
                   <a
                     href={WHATSAPP_URL}
                     target="_blank"

@@ -1,5 +1,5 @@
 const WHATSAPP_URL =
-  "https://wa.me/201223328270?text=مرحبا%20موسوق،%20أريد%20استشارة%20عن%20خدمات%20البناء%20في%20السعودية";
+  "https://wa.me/201223328270?text=مرحبا%20موسوق،%20أريد%20استشارة%20عن%20خدمات%20البناء%";
 
 const cities = [
   { name: "الرياض", type: "عاصمة الأعمال", position: "lg:translate-y-8" },
@@ -135,7 +135,7 @@ export default function SaudiCitiesSection() {
   return (
     <section
       dir="rtl"
-      className="relative isolate overflow-hidden bg-white py-20 sm:py-24 lg:py-28"
+      className="relative isolate overflow-hidden bg-white dark:bg-[color:var(--page)] py-20 sm:py-24 lg:py-28"
     >
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_82%_18%,rgba(47,134,246,0.12),transparent_30%),radial-gradient(circle_at_8%_78%,rgba(11,91,184,0.08),transparent_32%)]" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-l from-transparent via-[#2f86f6]/30 to-transparent" />
@@ -144,25 +144,25 @@ export default function SaudiCitiesSection() {
         <div className="grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
           <div className="order-1">
             <div className="max-w-2xl">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#0b5bb8]/10 bg-[#f5f9ff] px-4 py-2 shadow-sm">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#0b5bb8]/10 dark:border-[color:var(--hairline-strong)] bg-[#f5f9ff] dark:bg-[color:var(--surface-3)] px-4 py-2 shadow-sm">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#2f86f6] shadow-[0_0_0_5px_rgba(47,134,246,0.12)]" />
-                <span className="text-sm font-black text-[#0b5bb8]">
+                <span className="text-sm font-black text-[#0b5bb8] dark:text-[color:var(--brand-bright)]">
                   تغطية شاملة
                 </span>
               </div>
 
-              <h2 className="text-balance text-3xl font-black leading-tight tracking-[-0.035em] text-[#102033] sm:text-4xl lg:text-5xl">
+              <h2 className="text-balance text-3xl font-black leading-tight tracking-[-0.035em] text-[#102033] dark:text-[color:var(--ink)] sm:text-4xl lg:text-5xl">
                 خدمة مخصصة للسوق السعودي
               </h2>
 
-              <p className="mt-5 text-pretty text-base leading-8 text-[#102033]/65 sm:text-lg">
-                نقدم خدماتنا في جميع مناطق المملكة العربية السعودية مع مراعاة
-                اختلاف التكاليف والمتطلبات حسب كل منطقة ونوع المشروع.
+              <p className="mt-5 text-pretty text-base leading-8 text-[#102033]/65 dark:text-[color:var(--ink-muted)] sm:text-lg">
+                نقدم خدماتنا في جميع مناطق الوطن العربي مع مراعاة اختلاف
+                التكاليف والمتطلبات حسب كل منطقة ونوع المشروع.
               </p>
             </div>
 
-            <div className="mt-8 rounded-[32px] border border-[#102033]/5 bg-[#f6fbff] p-5 sm:p-6">
-              <h3 className="text-lg font-black text-[#102033]">
+            <div className="mt-8 rounded-[32px] border border-[#102033]/5 dark:border-[color:var(--hairline)] bg-[#f6fbff] dark:bg-[color:var(--surface)] p-5 sm:p-6">
+              <h3 className="text-lg font-black text-[#102033] dark:text-[color:var(--ink)]">
                 عوامل نراعيها في كل مشروع:
               </h3>
 
@@ -170,9 +170,9 @@ export default function SaudiCitiesSection() {
                 {factors.map((factor) => (
                   <span
                     key={factor}
-                    className="inline-flex items-center gap-2 rounded-full border border-[#0b5bb8]/10 bg-white px-4 py-2.5 text-sm font-bold text-[#102033] shadow-[0_8px_22px_rgba(16,32,51,0.045)]"
+                    className="inline-flex items-center gap-2 rounded-full border border-[#0b5bb8]/10 dark:border-[color:var(--hairline)] bg-white dark:bg-[color:var(--surface-3)] px-4 py-2.5 text-sm font-bold text-[#102033] dark:text-[color:var(--ink)] shadow-[0_8px_22px_rgba(16,32,51,0.045)]"
                   >
-                    <span className="grid h-6 w-6 place-items-center rounded-full bg-[#e9f3ff] text-[#0b5bb8]">
+                    <span className="grid h-6 w-6 place-items-center rounded-full bg-[#e9f3ff] dark:bg-[color:var(--brand)]/20 text-[#0b5bb8] dark:text-[color:var(--brand-bright)]">
                       <CheckIcon />
                     </span>
                     {factor}
@@ -193,23 +193,23 @@ export default function SaudiCitiesSection() {
           </div>
 
           <div className="order-2">
-            <div className="relative rounded-[36px] border border-[#102033]/5 bg-[#f6fbff] p-4 shadow-[0_24px_80px_rgba(16,32,51,0.08)] sm:p-6 lg:p-7">
+            <div className="relative rounded-[36px] border border-[#102033]/5 dark:border-[color:var(--hairline)] bg-[#f6fbff] dark:bg-[color:var(--surface)] p-4 shadow-[0_24px_80px_rgba(16,32,51,0.08)] sm:p-6 lg:p-7">
               <div className="absolute inset-0 rounded-[36px] bg-[radial-gradient(circle_at_70%_16%,rgba(47,134,246,0.15),transparent_35%)]" />
 
               <div className="relative grid gap-4 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-                <div className="relative mx-auto aspect-square w-full max-w-[430px] rounded-[32px] bg-white/70 p-4 shadow-inner">
+                <div className="relative mx-auto aspect-square w-full max-w-[430px] rounded-[32px] bg-white/70 dark:bg-[color:var(--surface-2)] p-4 shadow-inner">
                   <SaudiMapMark />
 
-                  <div className="absolute bottom-5 right-5 rounded-3xl border border-white/80 bg-white/90 px-4 py-3 shadow-[0_18px_55px_rgba(16,32,51,0.12)] backdrop-blur-xl">
+                  <div className="absolute bottom-5 right-5 rounded-3xl border border-white/80 dark:border-[color:var(--hairline)] bg-white/90 dark:bg-[color:var(--surface-3)] px-4 py-3 shadow-[0_18px_55px_rgba(16,32,51,0.12)] backdrop-blur-xl">
                     <div className="flex items-center gap-3">
                       <div className="grid h-11 w-11 place-items-center rounded-2xl bg-[#25d366] text-white">
                         <CheckIcon />
                       </div>
                       <div>
-                        <p className="text-2xl font-black leading-none text-[#102033]">
+                        <p className="text-2xl font-black leading-none text-[#102033] dark:text-[color:var(--ink)]">
                           +13
                         </p>
-                        <p className="mt-1 text-xs font-bold text-[#102033]/55">
+                        <p className="mt-1 text-xs font-bold text-[#102033]/55 dark:text-[color:var(--ink-faint)]">
                           منطقة نغطيها
                         </p>
                       </div>
@@ -221,18 +221,18 @@ export default function SaudiCitiesSection() {
                   {cities.map((city, index) => (
                     <article
                       key={city.name}
-                      className={`group relative overflow-hidden rounded-3xl border border-white/80 bg-white p-4 shadow-[0_16px_45px_rgba(16,32,51,0.07)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(16,32,51,0.12)] ${city.position}`}
+                      className={`group relative overflow-hidden rounded-3xl border border-white/80 dark:border-[color:var(--hairline)] bg-white dark:bg-[color:var(--surface-3)] p-4 shadow-[0_16px_45px_rgba(16,32,51,0.07)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(16,32,51,0.12)] ${city.position}`}
                     >
                       <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-l from-[#0b5bb8] to-[#2f86f6] opacity-0 transition duration-300 group-hover:opacity-100" />
 
-                      <div className="mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-[#f5f9ff] text-[#0b5bb8] transition duration-300 group-hover:bg-[#0b5bb8] group-hover:text-white">
+                      <div className="mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-[#f5f9ff] dark:bg-[color:var(--brand)]/20 text-[#0b5bb8] dark:text-[color:var(--brand-bright)] transition duration-300 group-hover:bg-[#0b5bb8] group-hover:text-white dark:group-hover:bg-[color:var(--brand)]">
                         <PinIcon />
                       </div>
 
-                      <h3 className="text-base font-black text-[#102033]">
+                      <h3 className="text-base font-black text-[#102033] dark:text-[color:var(--ink)]">
                         {city.name}
                       </h3>
-                      <p className="mt-1 text-xs font-bold text-[#102033]/50">
+                      <p className="mt-1 text-xs font-bold text-[#102033]/50 dark:text-[color:var(--ink-faint)]">
                         {city.type}
                       </p>
 
