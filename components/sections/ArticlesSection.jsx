@@ -1,41 +1,54 @@
+"use client";
+
+import { useRef } from "react";
 import Link from "next/link";
 
 const articles = [
   {
-    title: "تكلفة بناء فلة في السعودية",
+    title: "بناء فلة",
     description:
-      "دليل شامل لتكاليف بناء الفلل في السعودية مع أسعار السوق المحدثة",
-    href: "/تكلفة-بناء-فلة-في-السعودية/",
+      "دليل شامل لتكاليف وخطوات بناء الفلل مع أهم النصائح قبل البدء.",
+    href: "/%d8%a8%d9%86%d8%a7%d8%a1-%d9%81%d9%84%d8%a9/",
     category: "تكاليف البناء",
+    image:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=90",
     icon: "villa",
   },
   {
     title: "تكلفة التصميم المعماري في السعودية",
     description:
-      "تعرف على أسعار التصميم المعماري ومتوسط الأسعار في السوق السعودي",
-    href: "/تكلفة-التصميم-المعماري-في-السعودية/",
+      "تعرف على أسعار التصميم المعماري ومتوسط الأسعار في السوق السعودي.",
+    href: "/%d8%a7%d9%84%d8%aa%d8%b5%d9%85%d9%8a%d9%85-%d8%a7%d9%84%d9%85%d8%b9%d9%85%d8%a7%d8%b1%d9%8a/",
     category: "التصميم",
+    image:
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=90",
     icon: "design",
   },
   {
     title: "طريقة توزيع الغرف في البيت",
-    description: "نقاط مهمة وأساسية لتوزيع الغرف بطريقة عملية ومريحة",
-    href: "/طريقة-توزيع-الغرف-في-البيت/",
+    description: "نقاط مهمة وأساسية لتوزيع الغرف بطريقة عملية ومريحة.",
+    href: "/%d8%b7%d8%b1%d9%8a%d9%82%d8%a9-%d8%aa%d9%88%d8%b2%d9%8a%d8%b9-%d8%a7%d9%84%d8%ba%d8%b1%d9%81-%d9%81%d9%8a-%d8%a7%d9%84%d8%a8%d9%8a%d8%aa/",
     category: "تخطيط",
+    image:
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=90",
     icon: "layout",
   },
   {
-    title: "واجهات فلل حديثة",
-    description: "31 فكرة رائعة لواجهات الفلل الحديثة مع ألبوم صور ملهم",
-    href: "/واجهات-فلل-حديثة/",
+    title: "واجهات منازل حديثة",
+    description: "31 فكرة رائعة لواجهات المنازل الحديثة مع صور ملهمة.",
+    href: "/%d9%88%d8%a7%d8%ac%d9%87%d8%a7%d8%aa-%d9%85%d9%86%d8%a7%d8%b2%d9%84-%d8%ad%d9%85%d8%af%d9%8a%d8%ab%d8%a9/",
     category: "تصميم خارجي",
+    image:
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=90",
     icon: "facade",
   },
   {
     title: "تكلفة بناء دور واحد",
-    description: "خطوات البناء والتكلفة التفصيلية لبناء دور واحد في السعودية",
-    href: "/تكلفة-بناء-دور-واحد/",
+    description: "خطوات البناء والتكلفة التفصيلية لبناء دور واحد في السعودية.",
+    href: "/%d8%aa%d9%83%d9%84%d9%81%d8%a9-%d8%a8%d9%86%d8%a7%d8%a1-%d8%af%d9%88%d8%b1-%d9%88%d8%a7%d8%ad%d8%af/",
     category: "تكاليف البناء",
+    image:
+      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1600&q=90",
     icon: "building",
   },
 ];
@@ -91,16 +104,16 @@ function ArticleIcon({ type }) {
   };
 
   return (
-    <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       {icons[type]}
     </svg>
   );
 }
 
-function ArrowIcon() {
+function ArrowIcon({ className = "" }) {
   return (
     <svg
-      className="h-4.5 w-4.5 rotate-180"
+      className={`h-4.5 w-4.5 ${className}`}
       viewBox="0 0 24 24"
       fill="none"
       aria-hidden="true"
@@ -116,102 +129,224 @@ function ArrowIcon() {
   );
 }
 
+function ChevronIcon({ direction = "left" }) {
+  return (
+    <svg
+      className={`h-5 w-5 ${direction === "right" ? "rotate-180" : ""}`}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M15 5 8 12l7 7"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function ArticlesSection() {
+  const trackRef = useRef(null);
+
+  const scrollTrack = (dir) => {
+    if (!trackRef.current) return;
+    const amount = trackRef.current.clientWidth;
+    trackRef.current.scrollBy({
+      left: dir === "next" ? -amount : amount,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section
+      id="articles"
       dir="rtl"
-      className="relative isolate overflow-hidden bg-white py-20 sm:py-24 lg:py-28"
+      className="relative isolate overflow-hidden bg-[#f6fbff] py-20 transition-colors duration-300 dark:bg-[#061322] sm:py-24 lg:py-28"
     >
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_82%_12%,rgba(47,134,246,0.12),transparent_32%),radial-gradient(circle_at_10%_88%,rgba(11,91,184,0.08),transparent_32%)]" />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-l from-transparent via-[#2f86f6]/25 to-transparent" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_82%_12%,rgba(47,134,246,0.16),transparent_32%),radial-gradient(circle_at_10%_88%,rgba(11,91,184,0.10),transparent_34%)] dark:bg-[radial-gradient(circle_at_82%_12%,rgba(47,134,246,0.18),transparent_32%),radial-gradient(circle_at_10%_88%,rgba(124,196,255,0.08),transparent_34%)]" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-l from-transparent via-[#2f86f6]/35 to-transparent" />
 
       <div className="mx-auto w-full max-w-[1480px] px-5 sm:px-8 lg:px-12 xl:px-16">
-        <div className="mx-auto mb-14 max-w-3xl text-center lg:mb-16">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#0b5bb8]/10 bg-[#f5f9ff] px-4 py-2 shadow-sm">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#2f86f6] shadow-[0_0_0_5px_rgba(47,134,246,0.12)]" />
-            <span className="text-sm font-black text-[#0b5bb8]">
-              مقالات مفيدة
-            </span>
-          </div>
-
-          <h2 className="text-balance text-3xl font-black leading-tight tracking-[-0.03em] text-[#102033] sm:text-4xl lg:text-5xl">
-            مقالات تساعدك قبل بدء البناء
-          </h2>
-
-          <p className="mx-auto mt-5 max-w-2xl text-pretty text-base leading-8 text-[#102033]/65 sm:text-lg">
-            اقرأ دليلنا الشامل لفهم تكاليف وخطوات البناء في السعودية والوطن
-            العربى، مع نصائح عملية لتخطيط مشروعك بثقة.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-          {articles.map((article, index) => (
-            <Link
-              key={article.href}
-              href={article.href}
-              className={`group relative overflow-hidden rounded-[30px] border border-[#102033]/5 bg-[#f6fbff] p-5 shadow-[0_18px_55px_rgba(16,32,51,0.065)] transition duration-300 hover:-translate-y-2 hover:bg-white hover:shadow-[0_30px_85px_rgba(16,32,51,0.12)] ${
-                index === 0 ? "lg:col-span-2 xl:col-span-1" : ""
-              }`}
-            >
-              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-l from-[#0b5bb8] via-[#2f86f6] to-[#7cc4ff] opacity-0 transition duration-300 group-hover:opacity-100" />
-              <div className="absolute -left-14 -top-14 h-36 w-36 rounded-full bg-[#2f86f6]/10 blur-3xl transition duration-300 group-hover:bg-[#2f86f6]/20" />
-
-              <div className="relative flex min-h-[275px] flex-col">
-                <div className="mb-5 flex items-start justify-between gap-4">
-                  <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-[#0b5bb8] to-[#2f86f6] text-white shadow-[0_16px_34px_rgba(11,91,184,0.24)] transition duration-300 group-hover:scale-105 group-hover:rotate-3">
-                    <ArticleIcon type={article.icon} />
-                  </div>
-
-                  <span className="rounded-full border border-[#0b5bb8]/10 bg-white px-3 py-1.5 text-xs font-black text-[#0b5bb8]">
-                    {article.category}
-                  </span>
-                </div>
-
-                <h3 className="line-clamp-2 text-xl font-black leading-8 text-[#102033] transition-colors duration-300 group-hover:text-[#0b5bb8]">
-                  {article.title}
-                </h3>
-
-                <p className="mt-3 line-clamp-3 flex-1 text-sm leading-7 text-[#102033]/62">
-                  {article.description}
-                </p>
-
-                <div className="mt-6 flex items-center justify-between gap-4 border-t border-[#102033]/8 pt-5">
-                  <span className="inline-flex items-center gap-2 text-sm font-black text-[#0b5bb8]">
-                    اقرأ المزيد
-                    <ArrowIcon />
-                  </span>
-
-                  <span className="grid h-9 w-9 place-items-center rounded-full bg-white text-xs font-black text-[#2f86f6] shadow-sm ring-1 ring-[#0b5bb8]/8">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-
-        <div className="mt-10 rounded-[32px] border border-[#102033]/5 bg-[#102033] p-6 text-white shadow-[0_24px_80px_rgba(16,32,51,0.18)] sm:p-8 lg:mt-12">
-          <div className="flex flex-col items-center justify-between gap-5 text-center lg:flex-row lg:text-right">
-            <div>
-              <h3 className="text-2xl font-black">
-                تريد معرفة تكلفة مشروعك بدل القراءة فقط؟
-              </h3>
-              <p className="mt-2 text-sm leading-7 text-white/65 sm:text-base">
-                استخدم حاسبة التكلفة أو تواصل معنا لنساعدك في تحديد الخطوة
-                التالية.
-              </p>
+        <div className="mb-10 flex flex-col items-center justify-between gap-6 text-center lg:mb-12 lg:flex-row lg:text-right">
+          <div className="max-w-3xl">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#0b5bb8]/10 bg-white px-4 py-2 shadow-sm dark:border-white/10 dark:bg-white/5">
+              <span className="h-2.5 w-2.5 rounded-full bg-[#2f86f6] shadow-[0_0_0_5px_rgba(47,134,246,0.12)]" />
+              <span className="text-sm font-black text-[#0b5bb8] dark:text-[#7cc4ff]">
+                مقالات مفيدة
+              </span>
             </div>
 
-            <Link
-              href="#cost-calculator"
-              className="inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-black px-6 text-sm font-black text-[#0b5bb8] shadow-[0_14px_35px_rgba(255,255,255,0.12)] transition hover:-translate-y-1 sm:h-14 sm:px-8 sm:text-base"
+            <h2 className="text-balance text-3xl font-black leading-tight tracking-[-0.03em] text-[#102033] dark:text-white sm:text-4xl lg:text-5xl">
+              مقالات تساعدك قبل بدء البناء
+            </h2>
+
+            <p className="mt-5 max-w-2xl text-pretty text-base leading-8 text-[#102033]/65 dark:text-white/65 sm:text-lg">
+              اقرأ دليلنا الشامل لفهم تكاليف وخطوات البناء في السعودية والوطن
+              العربى، مع نصائح عملية لتخطيط مشروعك بثقة.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => scrollTrack("prev")}
+              className="grid h-12 w-12 place-items-center rounded-full border border-[#102033]/10 bg-white text-[#0b5bb8] shadow-[0_14px_34px_rgba(16,32,51,0.08)] transition hover:-translate-y-1 hover:bg-[#0b5bb8] hover:text-white dark:border-white/10 dark:bg-white/5 dark:text-[#7cc4ff] dark:hover:bg-[#2f86f6] dark:hover:text-white"
+              aria-label="السابق"
             >
-              احسب تكلفة مشروعك
-              <ArrowIcon />
-            </Link>
+              <ChevronIcon direction="right" />
+            </button>
+
+            <button
+              type="button"
+              onClick={() => scrollTrack("next")}
+              className="grid h-12 w-12 place-items-center rounded-full border border-[#102033]/10 bg-white text-[#0b5bb8] shadow-[0_14px_34px_rgba(16,32,51,0.08)] transition hover:-translate-y-1 hover:bg-[#0b5bb8] hover:text-white dark:border-white/10 dark:bg-white/5 dark:text-[#7cc4ff] dark:hover:bg-[#2f86f6] dark:hover:text-white"
+              aria-label="التالي"
+            >
+              <ChevronIcon direction="left" />
+            </button>
+          </div>
+        </div>
+
+        <div className="overflow-hidden">
+          <div ref={trackRef} className="article-track">
+            {articles.map((article, index) => (
+              <Link
+                key={article.href}
+                href={article.href}
+                className="article-slide group"
+              >
+                <article className="flex h-full min-h-[580px] flex-col overflow-hidden rounded-[34px] border border-[#102033]/8 bg-white shadow-[0_18px_55px_rgba(16,32,51,0.08)] transition duration-300 hover:-translate-y-2 hover:shadow-[0_30px_85px_rgba(16,32,51,0.16)] dark:border-white/10 dark:bg-white/[0.05] dark:shadow-[0_22px_70px_rgba(0,0,0,0.28)] dark:hover:bg-white/[0.07]">
+                  <div className="relative h-[300px] shrink-0 overflow-hidden">
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover object-center transition duration-700 group-hover:scale-110"
+                    />
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#071321]/82 via-[#071321]/18 to-transparent" />
+
+                    <span className="absolute right-5 top-5 rounded-full border border-white/20 bg-white px-4 py-2 text-xs font-black text-[#0b5bb8] shadow-sm backdrop-blur-xl dark:bg-[#071321]/85 dark:text-[#7cc4ff]">
+                      {article.category}
+                    </span>
+
+                    <span className="absolute left-5 top-5 grid h-11 w-11 place-items-center rounded-full border border-white/20 bg-[#071321]/60 text-sm font-black text-white backdrop-blur-xl">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+
+                    <div className="absolute bottom-5 right-5 grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-[#0b5bb8] to-[#2f86f6] text-white shadow-[0_16px_34px_rgba(11,91,184,0.34)] transition duration-300 group-hover:scale-105 group-hover:rotate-3">
+                      <ArticleIcon type={article.icon} />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-6">
+                    <h3 className="line-clamp-2 min-h-[72px] text-2xl font-black leading-9 text-[#102033] transition-colors duration-300 group-hover:text-[#0b5bb8] dark:text-white dark:group-hover:text-[#7cc4ff]">
+                      {article.title}
+                    </h3>
+
+                    <p className="mt-4 line-clamp-4 min-h-[128px] text-base leading-8 text-[#102033]/62 dark:text-white/60">
+                      {article.description}
+                    </p>
+
+                    <div className="mt-auto flex items-center justify-between gap-4 border-t border-[#102033]/8 pt-5 dark:border-white/10">
+                      <span className="inline-flex items-center gap-2 text-sm font-black text-[#0b5bb8] dark:text-[#7cc4ff]">
+                        اقرأ المزيد
+                        <ArrowIcon className="rotate-180" />
+                      </span>
+
+                      <span className="h-2.5 w-2.5 rounded-full bg-[#2f86f6] shadow-[0_0_0_7px_rgba(47,134,246,0.12)]" />
+                    </div>
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-10 overflow-hidden rounded-[34px] border border-[#102033]/5 bg-[#102033] p-6 text-white shadow-[0_24px_80px_rgba(16,32,51,0.18)] dark:border-white/10 dark:bg-[#071321] sm:p-8 lg:mt-12">
+          <div className="relative">
+            <div className="absolute -left-20 -top-20 h-52 w-52 rounded-full bg-[#2f86f6]/25 blur-3xl" />
+
+            <div className="relative flex flex-col items-center justify-between gap-5 text-center lg:flex-row lg:text-right">
+              <div>
+                <h3 className="text-2xl font-black text-white">
+                  تريد معرفة تكلفة مشروعك بدل القراءة فقط؟
+                </h3>
+                <p className="mt-2 text-sm leading-7 text-white/65 sm:text-base">
+                  استخدم حاسبة التكلفة أو تواصل معنا لنساعدك في تحديد الخطوة
+                  التالية.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="/#cost-calculator"
+                  className="inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-[#2f86f6] px-6 text-sm font-black text-white shadow-[0_14px_35px_rgba(47,134,246,0.32)] transition hover:-translate-y-1 hover:bg-[#0b5bb8] sm:h-14 sm:px-8 sm:text-base"
+                >
+                  احسب تكلفة مشروعك
+                  <ArrowIcon className="rotate-180" />
+                </Link>
+
+                <Link
+                  href="/%d8%a7%d9%84%d9%85%d8%af%d9%88%d9%86%d8%a7%d8%aa/"
+                  className="inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 text-sm font-black text-white backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white/18 sm:h-14 sm:px-8 sm:text-base"
+                >
+                  كل المدونات
+                  <ArrowIcon className="rotate-180" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .article-track {
+          display: grid;
+          grid-auto-flow: column;
+          grid-auto-columns: 100%;
+          gap: 24px;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          scroll-behavior: smooth;
+          scrollbar-width: none;
+          padding-bottom: 8px;
+        }
+
+        .article-track::-webkit-scrollbar {
+          display: none;
+        }
+
+        .article-slide {
+          scroll-snap-align: start;
+          min-width: 0;
+        }
+
+        @media (min-width: 640px) {
+          .article-track {
+            grid-auto-columns: calc((100% - 24px) / 2);
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .article-track {
+            grid-auto-columns: calc((100% - 48px) / 3);
+          }
+        }
+
+        @media (max-width: 639px) {
+          .article-slide article {
+            min-height: 540px;
+          }
+
+          .article-slide article > div:first-child {
+            height: 260px;
+          }
+        }
+      `}</style>
     </section>
   );
 }

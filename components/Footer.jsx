@@ -159,9 +159,14 @@ export default function Footer() {
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#2f86f6] text-white shadow-lg">
                   <LocationIcon />
                 </div>
+
                 <div>
                   <p className="mb-1 text-xs font-bold text-white/45">
-                    السكندرية - مصر{" "}
+                    العنوان
+                  </p>
+                  <p className="max-w-[280px] text-sm leading-7 text-white/75">
+                    مشروع صفوة المستقبل رقم 215 الكائن بسبورتنج شارع بورسعيد
+                    الرئيسي – الدور الأرضي - سيدي جابر - الإسكندرية
                   </p>
                 </div>
               </div>

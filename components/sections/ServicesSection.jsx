@@ -34,7 +34,8 @@ const services = [
     title: "دراسة الجدوى والتكاليف",
     description:
       "تنفيذ أعمال دراسات الجدوى وحساب التكاليف للمشروع طبقاً لأسعار السوق",
-    image: "",
+    image:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=90",
   },
   {
     title: "شبكات الكهرباء والإضاءة",
@@ -46,7 +47,8 @@ const services = [
     title: "شبكات الصرف الصحي",
     description:
       "تنفيذ أعمال تصميم شبكات الصرف الصحي للمبنى طبقاً للكود السعودي",
-    image: "/services/PLUMBING.webp",
+    image:
+      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1400&q=90",
   },
   {
     title: "أنظمة التكييف والتدفئة",
@@ -63,7 +65,8 @@ const services = [
     title: "حفر الأساسات وتجهيز الموقع",
     description:
       "تنفيذ جميع أعمال الحفر والرفع المساحي في الموقع طبقاً لعمل التأسيس المطلوب",
-    image: "/services/hadern.webp",
+    image:
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=90",
   },
 ];
 

@@ -10,9 +10,13 @@ const WHATSAPP_URL =
 
 const navLinks = [
   { href: "/", label: "الرئيسية" },
-  { href: "#architectural-design", label: "التصميم المعماري" },
-  { href: "#cost-calculator", label: "حاسبة التكلفة" },
-  { href: "#faq", label: "الأسئلة الشائعة" },
+  {
+    href: "/%d8%a7%d9%84%d9%85%d8%af%d9%88%d9%86%d8%a7%d8%aa/",
+    label: "المدونات",
+  },
+  { href: "/#architectural-design", label: "التصميم المعماري" },
+  { href: "/#cost-calculator", label: "حاسبة التكلفة" },
+  { href: "/#faq", label: "الأسئلة الشائعة" },
 ];
 
 function WhatsAppIcon() {
