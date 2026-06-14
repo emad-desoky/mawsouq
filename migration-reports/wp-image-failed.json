@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://mawsouq.com/wp-content/uploads/2023/02/4-copy.webp",
+    "normalizedUrl": "https://mawsouq.com/wp-content/uploads/2023/02/4-copy.webp",
+    "status": "failed",
+    "reason": "curl: (22) The requested URL returned error: 404\r\n",
+    "path": "public\\wp-content\\uploads\\2023\\02\\4-copy.webp",
+    "attempt": 3
+  },
+  {
+    "url": "https://mawsouq.com/wp-content/uploads/2023/02/تصميم-حدائق-16-copy.webp",
+    "normalizedUrl": "https://mawsouq.com/wp-content/uploads/2023/02/%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%AD%D8%AF%D8%A7%D8%A6%D9%82-16-copy.webp",
+    "status": "failed",
+    "reason": "curl: (22) The requested URL returned error: 404\r\n",
+    "path": "public\\wp-content\\uploads\\2023\\02\\تصميم-حدائق-16-copy.webp",
+    "attempt": 3
+  },
+  {
+    "url": "https://mawsouq.com/wp-content/uploads/2023/02/واجهات-منازل15",
+    "normalizedUrl": "https://mawsouq.com/wp-content/uploads/2023/02/%D9%88%D8%A7%D8%AC%D9%87%D8%A7%D8%AA-%D9%85%D9%86%D8%A7%D8%B2%D9%8415",
+    "status": "failed",
+    "reason": "curl: (22) The requested URL returned error: 404\r\n",
+    "path": "public\\wp-content\\uploads\\2023\\02\\واجهات-منازل15",
+    "attempt": 3
+  }
+]
