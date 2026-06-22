@@ -51,7 +51,7 @@ function ArrowIcon() {
 
 export default function HeroSection() {
   return (
-    <section dir="rtl" className="hero-section lg:pt-22 pt-10">
+    <section dir="rtl" className="hero-section lg:pt-22 pt-30">
       <div className="hero-bg" />
 
       <div className="hero-container">
