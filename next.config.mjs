@@ -1,3 +1,99 @@
+import fs from "fs";
+import path from "path";
+
+function safeDecode(value) {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+}
+
+function safeEncodePath(decodedPath) {
+  return decodedPath
+    .split("/")
+    .map((part) => (part ? encodeURIComponent(part).toLowerCase() : ""))
+    .join("/");
+}
+
+function getArabicEncodedRewrites() {
+  const appDir = path.join(process.cwd(), "app");
+  const rewrites = [];
+  const seen = new Set();
+
+  function addRewrite(source, destination) {
+    if (!source || !destination) return;
+    if (source === destination) return;
+
+    const key = `${source}=>${destination}`;
+    if (seen.has(key)) return;
+
+    seen.add(key);
+    rewrites.push({ source, destination });
+  }
+
+  function addArabicVariants(decodedRoute, encodedRoute) {
+    const variants = new Set();
+
+    variants.add(decodedRoute);
+
+    // Fix Arabic ي / ى word-ending issue globally
+    variants.add(decodedRoute.replace(/ي(?=$|\/|-)/g, "ى"));
+    variants.add(decodedRoute.replace(/ى(?=$|\/|-)/g, "ي"));
+
+    for (const variant of variants) {
+      addRewrite(variant, encodedRoute);
+      addRewrite(variant + "/", encodedRoute + "/");
+
+      const encodedVariant = safeEncodePath(variant);
+      addRewrite(encodedVariant, encodedRoute);
+      addRewrite(encodedVariant + "/", encodedRoute + "/");
+    }
+  }
+
+  function walk(dir, routeParts = []) {
+    if (!fs.existsSync(dir)) return;
+
+    const items = fs.readdirSync(dir, { withFileTypes: true });
+
+    const hasPage = items.some(
+      (item) =>
+        item.isFile() &&
+        ["page.js", "page.jsx", "page.ts", "page.tsx"].includes(item.name),
+    );
+
+    if (hasPage && routeParts.length > 0) {
+      const encodedRoute = "/" + routeParts.join("/");
+      const decodedRoute = safeDecode(encodedRoute);
+
+      if (/[\u0600-\u06FF]/.test(decodedRoute)) {
+        addArabicVariants(decodedRoute, encodedRoute);
+      }
+    }
+
+    for (const item of items) {
+      if (!item.isDirectory()) continue;
+
+      if (item.name === "api") continue;
+      if (item.name.startsWith("_")) continue;
+
+      const isRouteGroup = item.name.startsWith("(") && item.name.endsWith(")");
+      const isSlot = item.name.startsWith("@");
+
+      const nextRouteParts =
+        isRouteGroup || isSlot ? routeParts : [...routeParts, item.name];
+
+      walk(path.join(dir, item.name), nextRouteParts);
+    }
+  }
+
+  walk(appDir);
+
+  console.log("Arabic rewrites generated:", rewrites.length);
+
+  return rewrites;
+}
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async redirects() {
@@ -18,6 +114,13 @@ const nextConfig = {
       },
     ];
   },
+
+  async rewrites() {
+    return {
+      beforeFiles: getArabicEncodedRewrites(),
+    };
+  },
+
   images: {
     remotePatterns: [
       {
