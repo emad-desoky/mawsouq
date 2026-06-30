@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
+import LocalDomainLinkFix from "@/components/LocalDomainLinkFix";
 
 const tajawal = Tajawal({
   subsets: ["arabic", "latin"],
@@ -42,6 +43,7 @@ export default function RootLayout({ children }) {
         >
           <SmoothScrollProvider>
             <Header />
+            <LocalDomainLinkFix />
             {children}
             <Footer />
             <FloatingButtons />
