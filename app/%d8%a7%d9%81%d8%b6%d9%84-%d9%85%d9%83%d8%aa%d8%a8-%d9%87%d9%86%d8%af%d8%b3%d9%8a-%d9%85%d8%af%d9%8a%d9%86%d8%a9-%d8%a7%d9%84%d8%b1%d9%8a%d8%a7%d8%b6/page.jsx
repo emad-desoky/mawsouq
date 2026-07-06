@@ -2,7 +2,7 @@ const pageUrl =
   "https://mawsouq.com/%d8%a7%d9%81%d8%b6%d9%84-%d9%85%d9%83%d8%aa%d8%a8-%d9%87%d9%86%d8%af%d8%b3%d9%8a-%d9%85%d8%af%d9%8a%d9%86%d8%a9-%d8%a7%d9%84%d8%b1%d9%8a%d8%a7%d8%b6/";
 
 const featuredImage =
-  "https://mawsouq.com/wp-content/uploads/2022/11/engineer-office2.png";
+  "https://mawsouq.com/wp-content/uploads/2026/11/engineer-office2.png";
 
 export const metadata = {
   title: "ما هو أفضل مكتب هندسي في الرياض؟",
@@ -20,8 +20,8 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T10:52:00+03:00",
-    modifiedTime: "2022-11-08T23:39:00+03:00",
+    publishedTime: "2026-03-10T10:52:00+03:00",
+    modifiedTime: "2026-11-08T23:39:00+03:00",
     images: [
       {
         url: featuredImage,
@@ -45,8 +45,8 @@ const articleJsonLd = {
   description:
     "هل تحاول العثور على أفضل مكتب هندسي في الرياض من بين مجموعة كبيرة من توصيات الأصدقاء وآراء المستخدمين عبر الانترنت؟",
   image: featuredImage,
-  datePublished: "2022-03-10T10:52:00+03:00",
-  dateModified: "2022-11-08T23:39:00+03:00",
+  datePublished: "2026-03-10T10:52:00+03:00",
+  dateModified: "2026-11-08T23:39:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
     "@type": "WebPage",
@@ -190,7 +190,7 @@ export default function BestEngineeringOfficeRiyadhPage() {
           <h1>ما هو أفضل مكتب هندسي في الرياض؟</h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث نوفمبر 8، 2022
+            نُشر في مارس 10، 2026 — آخر تحديث نوفمبر 8، 2026
           </p>
 
           <p className="article-lead">

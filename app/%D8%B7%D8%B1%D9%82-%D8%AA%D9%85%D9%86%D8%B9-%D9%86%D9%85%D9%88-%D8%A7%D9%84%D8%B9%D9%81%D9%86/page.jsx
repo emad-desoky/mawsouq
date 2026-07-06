@@ -2,7 +2,7 @@ const pageUrl =
   "https://mawsouq.com/%D8%B7%D8%B1%D9%82-%D8%AA%D9%85%D9%86%D8%B9-%D9%86%D9%85%D9%88-%D8%A7%D9%84%D8%B9%D9%81%D9%86";
 
 const featuredImage =
-  "https://mawsouq.com/wp-content/uploads/2022/05/نمو-العفن-فى-بيتك-2.webp";
+  "https://mawsouq.com/wp-content/uploads/2026/05/نمو-العفن-فى-بيتك-2.webp";
 
 export const metadata = {
   title: "9 طرق تمنع نمو العفن في بيتك – تعرف عليها",
@@ -20,8 +20,8 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T11:08:00+03:00",
-    modifiedTime: "2025-02-24T23:07:00+03:00",
+    publishedTime: "2026-03-10T11:08:00+03:00",
+    modifiedTime: "2026-02-24T23:07:00+03:00",
     images: [
       {
         url: featuredImage,
@@ -47,8 +47,8 @@ const articleJsonLd = {
   description:
     "اليك افضل الطرق المستخدمة التى تمنع نمو العفن فى بيتك حيث ان العفن يسبب اضرار بصحة الانسان بما فى ذلك الحساسية واعراض الربو",
   image: featuredImage,
-  datePublished: "2022-03-10T11:08:00+03:00",
-  dateModified: "2025-02-24T23:07:00+03:00",
+  datePublished: "2026-03-10T11:08:00+03:00",
+  dateModified: "2026-02-24T23:07:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
     "@type": "WebPage",
@@ -84,7 +84,7 @@ export default function MoldPreventionPage() {
           <h1>9 طرق تمنع نمو العفن في بيتك – تعرف عليها</h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث فبراير 24، 2025
+            نُشر في مارس 10، 2026 — آخر تحديث فبراير 24، 2026
           </p>
         </header>
 
@@ -121,7 +121,7 @@ export default function MoldPreventionPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/نمو-العفن-فى-بيتك-2.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/نمو-العفن-فى-بيتك-2.webp"
             alt=""
             title="طرق تمنع نمو العفن في بيتك"
             caption={
@@ -188,7 +188,7 @@ export default function MoldPreventionPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/نمو-العفن-فى-بيتك-1.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/نمو-العفن-فى-بيتك-1.webp"
             alt=""
             title="نمو العفن فى بيتك"
             caption=""
@@ -197,7 +197,7 @@ export default function MoldPreventionPage() {
           <hr />
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/نمو-العفن-فى-بيتك-3.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/نمو-العفن-فى-بيتك-3.webp"
             alt=""
             title="نمو العفن فى بيتك"
             caption={

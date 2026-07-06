@@ -22,7 +22,7 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T11:03:00+03:00",
+    publishedTime: "2026-03-10T11:03:00+03:00",
     modifiedTime: "2026-05-05T12:38:00+03:00",
   },
   twitter: {
@@ -39,7 +39,7 @@ const articleJsonLd = {
   headline: "الدهان (البوية) – معدّل اسعار السوق, الضمانات, وغيره (2026)",
   description:
     "تختلف  اسعار الدهان فى السعودية في حال كان الدهان أول مرة أم للتجديد، حيث أن دهان أول مرة يزيد سعره عن دهان التجديد.",
-  datePublished: "2022-03-10T11:03:00+03:00",
+  datePublished: "2026-03-10T11:03:00+03:00",
   dateModified: "2026-05-05T12:38:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
@@ -73,7 +73,7 @@ export default function PaintPricesPage() {
           <h1>الدهان (البوية) – معدّل اسعار السوق, الضمانات, وغيره (2026)</h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث مايو 5، 2026
+            نُشر في مارس 10، 2026 — آخر تحديث مايو 5، 2026
           </p>
 
           <p className="article-lead">

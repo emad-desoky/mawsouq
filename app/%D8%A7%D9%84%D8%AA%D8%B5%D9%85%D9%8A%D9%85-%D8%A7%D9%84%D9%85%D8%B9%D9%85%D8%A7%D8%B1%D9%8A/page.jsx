@@ -2,7 +2,7 @@ const pageUrl =
   "https://mawsouq.com/%D8%A7%D9%84%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%A7%D9%84%D9%85%D8%B9%D9%85%D8%A7%D8%B1%D9%8A/";
 
 const featuredImage =
-  "https://mawsouq.com/wp-content/uploads/2022/03/مصمم-معمارى.webp";
+  "https://mawsouq.com/wp-content/uploads/2026/03/مصمم-معمارى.webp";
 
 export const metadata = {
   title: "تكلفة التصميم المعماري في السعوديّة – اسعار السوق (2026)",
@@ -20,7 +20,7 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T14:24:00+03:00",
+    publishedTime: "2026-03-10T14:24:00+03:00",
     modifiedTime: "2026-05-05T12:34:00+03:00",
     images: [
       {
@@ -47,7 +47,7 @@ const articleJsonLd = {
   description:
     "تختلف تكلفة التصميم المعماري في السعوديّة من شركة لأخرى ومن مُهندس لآخر، فهنالك العديد من العوامل التي تؤثر في سعر التصميم الذي ستحصل عليه",
   image: featuredImage,
-  datePublished: "2022-03-10T14:24:00+03:00",
+  datePublished: "2026-03-10T14:24:00+03:00",
   dateModified: "2026-05-05T12:34:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
@@ -84,7 +84,7 @@ export default function ArchitecturalDesignCostPage() {
           <h1>تكلفة التصميم المعماري في السعوديّة – اسعار السوق (2026)</h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث مايو 5، 2026
+            نُشر في مارس 10، 2026 — آخر تحديث مايو 5، 2026
           </p>
 
           <p className="article-lead">
@@ -151,7 +151,7 @@ export default function ArchitecturalDesignCostPage() {
                 سعر تصميم واجهة بيت أو فيلا عن طريق الانترنت:
               </h2>
             </li>
-            <li>متوسط الأسعار: 600 ريال.</li>
+            <li>متوسط الأسعار: 1000 ريال.</li>
           </ul>
 
           <p>
@@ -177,7 +177,7 @@ export default function ArchitecturalDesignCostPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/03/مصمم-معمارى.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/03/مصمم-معمارى.webp"
             alt=""
             title="تكلفة التصميم المعمارى فى السعودية واجهة لاحدى الفلل"
             caption="تكلفة التصميم المعمارى فى السعودية واجهة لاحدى الفلل"
@@ -287,7 +287,7 @@ export default function ArchitecturalDesignCostPage() {
           </ul>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/2مخطط-انشائى-سطح-فيلا-scaled.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/2مخطط-انشائى-سطح-فيلا-scaled.webp"
             alt=""
             title="المخطط الانشائي"
             caption=""

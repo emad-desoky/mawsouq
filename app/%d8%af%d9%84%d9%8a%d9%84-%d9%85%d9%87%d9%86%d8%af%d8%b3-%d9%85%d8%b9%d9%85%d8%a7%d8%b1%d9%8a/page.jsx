@@ -2,7 +2,7 @@ const pageUrl =
   "https://mawsouq.com/%d9%83%d9%8a%d9%81-%d8%aa%d8%ac%d8%af-%d9%85%d9%87%d9%86%d8%af%d8%b3-%d9%85%d8%b9%d9%85%d8%a7%d8%b1%d9%8a-%d8%af%d9%84%d9%8a%d9%84%d9%83-%d8%a7%d9%84%d8%b4%d8%a7%d9%85%d9%84/";
 
 const featuredImage =
-  "https://mawsouq.com/wp-content/uploads/2022/11/كيف-تجد-مهندس-معماري؟.png";
+  "https://mawsouq.com/wp-content/uploads/2026/11/كيف-تجد-مهندس-معماري؟.png";
 
 export const metadata = {
   title: "كيف تجد مهندس معماري (دليلك الشامل)",
@@ -29,8 +29,8 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T10:52:00+03:00",
-    modifiedTime: "2022-11-08T23:45:00+03:00",
+    publishedTime: "2026-03-10T10:52:00+03:00",
+    modifiedTime: "2026-11-08T23:45:00+03:00",
     images: [
       {
         url: featuredImage,
@@ -54,8 +54,8 @@ const articleJsonLd = {
   description:
     "تتعرف على بعض أهم النقاط لتعرف كيف تجد مهندس معماري و النقاط المهمة الأخرى التي تتعلق بكيفيّة اختيار المهندس الأفضل بعد إيجاده.",
   image: featuredImage,
-  datePublished: "2022-03-10T10:52:00+03:00",
-  dateModified: "2022-11-08T23:45:00+03:00",
+  datePublished: "2026-03-10T10:52:00+03:00",
+  dateModified: "2026-11-08T23:45:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
     "@type": "WebPage",
@@ -161,7 +161,7 @@ export default function FindArchitectPage() {
           <h1>كيف تجد مهندس معماري (دليلك الشامل)</h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث نوفمبر 8، 2022
+            نُشر في مارس 10، 2026 — آخر تحديث نوفمبر 8، 2026
           </p>
 
           <p className="article-lead">
@@ -192,7 +192,7 @@ export default function FindArchitectPage() {
 
         <div className="article-content">
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/11/كيف-تجد-مهندس-معماري؟.png"
+            src="https://mawsouq.com/wp-content/uploads/2026/11/كيف-تجد-مهندس-معماري؟.png"
             alt="كيف تجد مهندس معماري"
             title="كيف تجد مهندس معماري (دليلك الشامل)"
           />

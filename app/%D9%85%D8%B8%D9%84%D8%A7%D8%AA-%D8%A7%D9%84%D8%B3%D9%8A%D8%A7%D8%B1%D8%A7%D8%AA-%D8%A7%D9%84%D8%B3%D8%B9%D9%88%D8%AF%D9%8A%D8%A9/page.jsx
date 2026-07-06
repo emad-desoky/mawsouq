@@ -2,7 +2,7 @@ const pageUrl =
   "https://mawsouq.com/%D9%85%D8%B8%D9%84%D8%A7%D8%AA-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9";
 
 const featuredImage =
-  "https://mawsouq.com/wp-content/uploads/2022/05/مظلات-السيارات-السعودية.webp";
+  "https://mawsouq.com/wp-content/uploads/2026/05/مظلات-السيارات-السعودية.webp";
 
 export const metadata = {
   title: "مظلات السيارات بالسعودية – دليلك الشامل (2026)",
@@ -20,7 +20,7 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T11:08:00+03:00",
+    publishedTime: "2026-03-10T11:08:00+03:00",
     modifiedTime: "2026-05-05T12:35:00+03:00",
     images: [
       {
@@ -47,7 +47,7 @@ const articleJsonLd = {
   description:
     "استفسرنا  عن مظلات السيارات بالسعودية من ١٤ شركة لنجد لكم معدّلات اسعار السوق مظلات السيارات بالسعودية  ووجدنا بأن متوسّط الاسعار هو ٩٠ ريال",
   image: featuredImage,
-  datePublished: "2022-03-10T11:08:00+03:00",
+  datePublished: "2026-03-10T11:08:00+03:00",
   dateModified: "2026-05-05T12:35:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
@@ -84,7 +84,7 @@ export default function SaudiCarShadesPage() {
           <h1>مظلات السيارات بالسعودية – دليلك الشامل (2026)</h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث مايو 5، 2026
+            نُشر في مارس 10، 2026 — آخر تحديث مايو 5، 2026
           </p>
 
           <p className="article-lead">
@@ -281,7 +281,7 @@ export default function SaudiCarShadesPage() {
           </ul>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/مظلات-السيارات-السعودية.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/مظلات-السيارات-السعودية.webp"
             alt=""
             title="مظلات السيارات بالسعودية"
             caption="الصورة: مظلات سيارات"

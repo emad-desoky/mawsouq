@@ -234,7 +234,7 @@ export default function Footer() {
         <div className="border-t border-white/10 py-6">
           <div className="flex flex-col items-center justify-between gap-3 text-center md:flex-row">
             <p className="text-sm text-white/55">
-              جميع الحقوق محفوظة موقع مَوْسوق 2025-2026
+              جميع الحقوق محفوظة موقع مَوْسوق 2026-2026
             </p>
 
             <a

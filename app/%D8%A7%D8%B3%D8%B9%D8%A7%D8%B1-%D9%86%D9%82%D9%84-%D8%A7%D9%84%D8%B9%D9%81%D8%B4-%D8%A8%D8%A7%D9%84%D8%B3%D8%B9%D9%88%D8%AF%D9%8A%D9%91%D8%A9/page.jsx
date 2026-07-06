@@ -2,7 +2,7 @@ const pageUrl =
   "https://mawsouq.com/%D8%A7%D8%B3%D8%B9%D8%A7%D8%B1-%D9%86%D9%82%D9%84-%D8%A7%D9%84%D8%B9%D9%81%D8%B4-%D8%A8%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D9%91%D8%A9";
 
 const featuredImage =
-  "https://mawsouq.com/wp-content/uploads/2022/03/اسعار-نقل-العفش-بالسعوديّة-2.webp";
+  "https://mawsouq.com/wp-content/uploads/2026/03/اسعار-نقل-العفش-بالسعوديّة-2.webp";
 
 export const metadata = {
   title: "نقل العفش – معلومات مهمّة قبل طلب الخدمة",
@@ -24,8 +24,8 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T11:08:00+03:00",
-    modifiedTime: "2025-02-24T23:06:00+03:00",
+    publishedTime: "2026-03-10T11:08:00+03:00",
+    modifiedTime: "2026-02-24T23:06:00+03:00",
     images: [
       {
         url: featuredImage,
@@ -49,8 +49,8 @@ const articleJsonLd = {
   description:
     "استفسرنا عن اسعار نقل العفش بالسعوديّة مع ٢٣ شركة مختلفة ووجدنا بانّ معدّل الاسعار هو 570 ريال. السعر يرتفع كلّما زادت المسافة او حجم العفش",
   image: featuredImage,
-  datePublished: "2022-03-10T11:08:00+03:00",
-  dateModified: "2025-02-24T23:06:00+03:00",
+  datePublished: "2026-03-10T11:08:00+03:00",
+  dateModified: "2026-02-24T23:06:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
     "@type": "WebPage",
@@ -86,7 +86,7 @@ export default function FurnitureMovingPricesPage() {
           <h1>نقل العفش – معلومات مهمّة قبل طلب الخدمة</h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث فبراير 24، 2025
+            نُشر في مارس 10، 2026 — آخر تحديث فبراير 24، 2026
           </p>
 
           <p className="article-lead">
@@ -112,7 +112,7 @@ export default function FurnitureMovingPricesPage() {
               تم الاستفسار مع: <strong>4 شركات</strong>
             </li>
             <li>
-              آخر تحديث: <strong>6-2-2025</strong>
+              آخر تحديث: <strong>6-2-2026</strong>
             </li>
           </ul>
 
@@ -126,7 +126,7 @@ export default function FurnitureMovingPricesPage() {
               تم الاستفسار مع: <strong>4 شركات</strong>
             </li>
             <li>
-              آخر تحديث: <strong>6-2-2025</strong>
+              آخر تحديث: <strong>6-2-2026</strong>
             </li>
           </ul>
 
@@ -140,7 +140,7 @@ export default function FurnitureMovingPricesPage() {
               تم الاستفسار مع: <strong>2</strong> <strong>شركات</strong>
             </li>
             <li>
-              آخر تحديث: <strong>6-2-2025</strong>
+              آخر تحديث: <strong>6-2-2026</strong>
             </li>
           </ul>
 
@@ -154,7 +154,7 @@ export default function FurnitureMovingPricesPage() {
               تم الاستفسار مع: <strong>6 شركات</strong>
             </li>
             <li>
-              آخر تحديث: <strong>6-2-2025</strong>
+              آخر تحديث: <strong>6-2-2026</strong>
             </li>
           </ul>
 
@@ -315,7 +315,7 @@ export default function FurnitureMovingPricesPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/03/اسعار-نقل-العفش-بالسعوديّة-2.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/03/اسعار-نقل-العفش-بالسعوديّة-2.webp"
             alt=""
             title="اسعار نقل العفش بالسعوديّة"
             caption={

@@ -10,13 +10,14 @@
 !.yarn/releases
 !.yarn/versions
 
+
 # testing
 /coverage
 
 # next.js
 /.next/
 /out/
-
+/app/(generated-arabic-routes)/
 # production
 /build
 

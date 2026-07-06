@@ -2,7 +2,7 @@ const pageUrl =
   "https://mawsouq.com/%D8%A7%D9%84%D8%B3%D9%8A%D8%B1%D8%A7%D9%85%D9%8A%D9%83-%D8%A7%D9%84%D8%B1%D8%AE%D8%A7%D9%85";
 
 const featuredImage =
-  "https://mawsouq.com/wp-content/uploads/2022/06/السيراميك-الرخام.webp";
+  "https://mawsouq.com/wp-content/uploads/2026/06/السيراميك-الرخام.webp";
 
 export const metadata = {
   title:
@@ -22,8 +22,8 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T11:05:00+03:00",
-    modifiedTime: "2025-02-24T22:37:00+03:00",
+    publishedTime: "2026-03-10T11:05:00+03:00",
+    modifiedTime: "2026-02-24T22:37:00+03:00",
     images: [
       {
         url: featuredImage,
@@ -49,8 +49,8 @@ const articleJsonLd = {
   description:
     "بعد التواصل مع 16 شركة مختلفة, قمنا بحساب اسعار السوق للسيراميك والرخام في السعوديّة لعام 2020. كما وشملنا نصائح اخرى تفيدكم قبل طلب الخدمة.",
   image: featuredImage,
-  datePublished: "2022-03-10T11:05:00+03:00",
-  dateModified: "2025-02-24T22:37:00+03:00",
+  datePublished: "2026-03-10T11:05:00+03:00",
+  dateModified: "2026-02-24T22:37:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
     "@type": "WebPage",
@@ -85,7 +85,7 @@ export default function CeramicMarblePage() {
           </h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث فبراير 24، 2025
+            نُشر في مارس 10، 2026 — آخر تحديث فبراير 24، 2026
           </p>
 
           <p className="article-lead">
@@ -112,14 +112,14 @@ export default function CeramicMarblePage() {
             <li>متوسط الأسعار للإيطالي: 70 ريال للمتر المربع</li>
             <li>تم الاستفسار من: 3 شركات</li>
             <li>
-              آخر تحديث: 3-1-2025
+              آخر تحديث: 3-1-2026
               <h3 className="inline-heading">اسعار سيراميك جدران</h3>
             </li>
             <li>متوسط الأسعار للهندي: 20 ريال للمتر المربع</li>
             <li>تم الاستفسار من: 4 شركات</li>
             <li>متوسط الأسعار للوطني: 13 ريال للمتر المربع</li>
             <li>تم الاستفسار من: شركتين</li>
-            <li>آخر تحديث: 3-1-2025</li>
+            <li>آخر تحديث: 3-1-2026</li>
           </ul>
 
           <h2>اسعار الرخام</h2>
@@ -135,11 +135,11 @@ export default function CeramicMarblePage() {
             <li>تم الاستفسار من: شركتين</li>
             <li>متوسط الأسعار للأسباني: 300 ريال للمتر المربع</li>
             <li>تم الاستفسار من: شركتين</li>
-            <li>آخر تحديث: 3-1-2025</li>
+            <li>آخر تحديث: 3-1-2026</li>
           </ul>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/06/السيراميك-الرخام.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/06/السيراميك-الرخام.webp"
             alt=""
             title="السيراميك والرخام"
             caption={
@@ -225,7 +225,7 @@ export default function CeramicMarblePage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              مظلات السيارات بالسعودية – دليلك الشامل (2025)
+              مظلات السيارات بالسعودية – دليلك الشامل (2026)
             </a>
 
             <a
@@ -233,7 +233,7 @@ export default function CeramicMarblePage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              تكلفة بناء دور واحد وخطوات البناء بالتفصيل (2025)
+              تكلفة بناء دور واحد وخطوات البناء بالتفصيل (2026)
             </a>
 
             <a

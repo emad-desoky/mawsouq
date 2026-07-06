@@ -2,7 +2,7 @@ const pageUrl =
   "https://mawsouq.com/%D8%AC%D8%A8%D8%B3-%D8%B9%D8%A7%D8%AF%D9%8A-%D8%A8%D9%88%D8%B1%D8%AF";
 
 const featuredImage =
-  "https://mawsouq.com/wp-content/uploads/2022/05/جبس-عادي-بورد-1.webp";
+  "https://mawsouq.com/wp-content/uploads/2026/05/جبس-عادي-بورد-1.webp";
 
 export const metadata = {
   title: "تركيب الجبس – معدّل اسعار السوق, الضمانات, وغيره (2026)",
@@ -26,7 +26,7 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T11:06:00+03:00",
+    publishedTime: "2026-03-10T11:06:00+03:00",
     modifiedTime: "2026-05-05T12:36:00+03:00",
     images: [
       {
@@ -51,7 +51,7 @@ const articleJsonLd = {
   description:
     "نقدم كل ما يخص مجال الجبس والديكور الداخلي بالسعودية, بوضع كل ما تحتاجون معرفته عن أنواع الجبس بورد المختلفة ومميزاتها وأسعارها ومميزاتها",
   image: featuredImage,
-  datePublished: "2022-03-10T11:06:00+03:00",
+  datePublished: "2026-03-10T11:06:00+03:00",
   dateModified: "2026-05-05T12:36:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
@@ -88,7 +88,7 @@ export default function GypsumBoardPage() {
           <h1>تركيب الجبس – معدّل اسعار السوق, الضمانات, وغيره (2026)</h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث مايو 5، 2026
+            نُشر في مارس 10، 2026 — آخر تحديث مايو 5، 2026
           </p>
 
           <p className="article-lead">
@@ -147,7 +147,7 @@ export default function GypsumBoardPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/جبس-عادي-بورد-1.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/جبس-عادي-بورد-1.webp"
             alt=""
             title="جبس عادي بورد"
             caption={
@@ -282,7 +282,7 @@ export default function GypsumBoardPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/جبس-عادي-بورد-1-copy.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/جبس-عادي-بورد-1-copy.webp"
             alt=""
             title="طريقة تركيب الجبس"
             caption={

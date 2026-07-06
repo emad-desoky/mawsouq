@@ -28,8 +28,8 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T11:00:00+03:00",
-    modifiedTime: "2025-02-24T22:31:00+03:00",
+    publishedTime: "2026-03-10T11:00:00+03:00",
+    modifiedTime: "2026-02-24T22:31:00+03:00",
     images: [
       {
         url: featuredImage,
@@ -55,8 +55,8 @@ const articleJsonLd = {
   description:
     "انواع الديكور الداخلي المختلف وطرح العديد من الأمثلة حوله وذكر النقاط المُهمّة التي تُميّز كل فكرة عن الأخرى",
   image: featuredImage,
-  datePublished: "2022-03-10T11:00:00+03:00",
-  dateModified: "2025-02-24T22:31:00+03:00",
+  datePublished: "2026-03-10T11:00:00+03:00",
+  dateModified: "2026-02-24T22:31:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
     "@type": "WebPage",
@@ -312,7 +312,7 @@ export default function InteriorDecorTypesPage() {
           <h1>الديكور الداخلي - 5 انواع مع صور</h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث فبراير 24، 2025
+            نُشر في مارس 10، 2026 — آخر تحديث فبراير 24، 2026
           </p>
 
           <p className="article-lead">
@@ -450,7 +450,7 @@ export default function InteriorDecorTypesPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              ديكور تلفزيون – 30 فكرة ابداع مع صور [2025]
+              ديكور تلفزيون – 30 فكرة ابداع مع صور [2026]
             </a>
           </section>
         </div>

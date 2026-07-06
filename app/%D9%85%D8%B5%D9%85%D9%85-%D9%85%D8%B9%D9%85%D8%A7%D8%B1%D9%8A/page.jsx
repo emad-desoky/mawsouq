@@ -28,7 +28,7 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T10:58:00+03:00",
+    publishedTime: "2026-03-10T10:58:00+03:00",
     modifiedTime: "2023-02-13T22:30:00+03:00",
     images: [
       {
@@ -55,7 +55,7 @@ const articleJsonLd = {
   description:
     "اختيار مصمم المعماري المناسب للعمل على المشروع حيث ان المصمم المعماري هو الشخص الذي سوف ينقل أفكارك وتفضيلاتك لتكون بالشكل الذي تريد",
   image: featuredImage,
-  datePublished: "2022-03-10T10:58:00+03:00",
+  datePublished: "2026-03-10T10:58:00+03:00",
   dateModified: "2023-02-13T22:30:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
@@ -89,7 +89,7 @@ export default function ArchitectDesignerPage() {
           <h1>مصمم معماري - كيف تجد الأفضل ونصائح اخرى مهمّة</h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث فبراير 13، 2023
+            نُشر في مارس 10، 2026 — آخر تحديث فبراير 13، 2023
           </p>
 
           <p className="article-lead">

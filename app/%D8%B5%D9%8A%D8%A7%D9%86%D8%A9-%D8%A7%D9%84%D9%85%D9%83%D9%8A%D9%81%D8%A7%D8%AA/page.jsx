@@ -2,7 +2,7 @@ const pageUrl =
   "https://mawsouq.com/%D8%B5%D9%8A%D8%A7%D9%86%D8%A9-%D8%A7%D9%84%D9%85%D9%83%D9%8A%D9%81%D8%A7%D8%AA";
 
 const featuredImage =
-  "https://mawsouq.com/wp-content/uploads/2022/06/صيانة-المكيفات.webp";
+  "https://mawsouq.com/wp-content/uploads/2026/06/صيانة-المكيفات.webp";
 
 export const metadata = {
   title: "صيانة المكيفات – معدّل اسعار السوق, الضمانات, وغيره (2026)",
@@ -20,7 +20,7 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T11:04:00+03:00",
+    publishedTime: "2026-03-10T11:04:00+03:00",
     modifiedTime: "2026-05-05T12:30:00+03:00",
     images: [
       {
@@ -45,7 +45,7 @@ const articleJsonLd = {
   description:
     "استفسرنا من ٦ شركات مختلفة لنجد لكم اسعار السوق لصيانة وتصليح المكيفات المنزلية في السعودية بارخص الاسعار",
   image: featuredImage,
-  datePublished: "2022-03-10T11:04:00+03:00",
+  datePublished: "2026-03-10T11:04:00+03:00",
   dateModified: "2026-05-05T12:30:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
@@ -79,7 +79,7 @@ export default function AcMaintenancePage() {
           <h1>صيانة المكيفات – معدّل اسعار السوق, الضمانات, وغيره (2026)</h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث مايو 5، 2026
+            نُشر في مارس 10، 2026 — آخر تحديث مايو 5، 2026
           </p>
 
           <p className="article-lead">
@@ -119,7 +119,7 @@ export default function AcMaintenancePage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/06/صيانة-المكيفات.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/06/صيانة-المكيفات.webp"
             alt=""
             title="صيانة المكيفات"
             caption={
@@ -235,7 +235,7 @@ export default function AcMaintenancePage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              كشف وعزل الخزانات – معدّل اسعار السوق, الضمانات, وغيره (2025)
+              كشف وعزل الخزانات – معدّل اسعار السوق, الضمانات, وغيره (2026)
             </a>
 
             <a

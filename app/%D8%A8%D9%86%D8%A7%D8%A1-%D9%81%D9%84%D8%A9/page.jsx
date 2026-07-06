@@ -2,7 +2,7 @@ const pageUrl =
   "https://mawsouq.com/%D8%A8%D9%86%D8%A7%D8%A1-%D9%81%D9%84%D8%A9/";
 
 const featuredImage =
-  "https://mawsouq.com/wp-content/uploads/2022/05/تكلفة-بناء-فيلا-السعودية-copy.webp";
+  "https://mawsouq.com/wp-content/uploads/2026/05/تكلفة-بناء-فيلا-السعودية-copy.webp";
 
 export const metadata = {
   title: "تكلفة بناء فلة في السعودية - سألنا 20 مقاول وهذه اسعار السوق",
@@ -25,8 +25,8 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T11:07:00+03:00",
-    modifiedTime: "2025-02-24T23:04:00+03:00",
+    publishedTime: "2026-03-10T11:07:00+03:00",
+    modifiedTime: "2026-02-24T23:04:00+03:00",
     images: [
       {
         url: featuredImage,
@@ -50,8 +50,8 @@ const articleJsonLd = {
   description:
     "بناء فيلا خاصة بك يتطلب أن تكون على دراية بكل الخصائص التي تحتاجها بمنزلك لضمان الحصول على جودة عالية احدث اسعارتكلفة بناء فلة في السعودية",
   image: featuredImage,
-  datePublished: "2022-03-10T11:07:00+03:00",
-  dateModified: "2025-02-24T23:04:00+03:00",
+  datePublished: "2026-03-10T11:07:00+03:00",
+  dateModified: "2026-02-24T23:04:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
     "@type": "WebPage",
@@ -87,7 +87,7 @@ export default function VillaConstructionCostPage() {
           <h1>تكلفة بناء فلة في السعودية - سألنا 20 مقاول وهذه اسعار السوق</h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث فبراير 24، 2025
+            نُشر في مارس 10، 2026 — آخر تحديث فبراير 24، 2026
           </p>
 
           <p className="article-lead">
@@ -111,7 +111,7 @@ export default function VillaConstructionCostPage() {
           <p>متوسط الأسعار: 130 ريال للمتر</p>
           <p>نطاق الاسعار يتراوح بين 120 و 150 ريال للمتر</p>
           <p>تم الاستفسار مع: 5 شركات</p>
-          <p>آخر تحديث: 15-2-2025</p>
+          <p>آخر تحديث: 15-2-2026</p>
 
           <h3 className="red-heading">
             بناء فيلا في السعودية العظم(مع المواد)
@@ -119,19 +119,19 @@ export default function VillaConstructionCostPage() {
           <p>متوسط الاسعار: 520 ريال للمتر</p>
           <p>نطاق الاسعار يتراوح بين 390 و 610 ريال</p>
           <p>تم الاستفسار مع: 8 شركات</p>
-          <p>آخر تحديث: 15-2-2025</p>
+          <p>آخر تحديث: 15-2-2026</p>
 
           <h3 className="red-heading">بناء فيلا في السعودية التشطيب</h3>
           <p>متوسط الأسعار: 975 ريال للمتر</p>
           <p>نطاق الاسعار يتراوح بين 700 و 1050 ريال</p>
           <p>تم الاستفسار مع: شركتين</p>
-          <p>آخر تحديث: 15-2-2025</p>
+          <p>آخر تحديث: 15-2-2026</p>
 
           <h3 className="red-heading">بناء فيلا في السعودية تسليم مفتاح</h3>
           <p>متوسط الأسعار: 1100 ريال للمتر</p>
           <p>نطاق الاسعار يتراوح بين 950 و 1500 ريال</p>
           <p>تم الاستفسار مع: 4 شركات</p>
-          <p>آخر تحديث: 15-2-2025</p>
+          <p>آخر تحديث: 15-2-2026</p>
 
           <p>
             سوف نقوم بطرح الخيارات الممكنة للحصول على فلة الخاصة بك وسوف نحرص
@@ -140,7 +140,7 @@ export default function VillaConstructionCostPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/تكلفة-بناء-فيلا-السعودية-copy.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/تكلفة-بناء-فيلا-السعودية-copy.webp"
             alt=""
             title="تكلفة بناء فيلا السعودية"
             caption=""

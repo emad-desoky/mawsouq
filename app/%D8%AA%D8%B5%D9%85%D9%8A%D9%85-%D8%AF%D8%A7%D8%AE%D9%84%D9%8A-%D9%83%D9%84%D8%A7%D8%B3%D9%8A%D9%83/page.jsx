@@ -1,7 +1,7 @@
 const pageUrl =
   "https://mawsouq.com/%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%AF%D8%A7%D8%AE%D9%84%D9%8A-%D9%83%D9%84%D8%A7%D8%B3%D9%8A%D9%83";
 
-const featuredImage = "https://mawsouq.com/wp-content/uploads/2022/11/1.png";
+const featuredImage = "https://mawsouq.com/wp-content/uploads/2026/11/1.png";
 
 export const metadata = {
   title: "تصميم داخلي كلاسيك - 20 مثال مع نصائح من مهندس",
@@ -24,8 +24,8 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T10:52:00+03:00",
-    modifiedTime: "2025-02-24T22:17:00+03:00",
+    publishedTime: "2026-03-10T10:52:00+03:00",
+    modifiedTime: "2026-02-24T22:17:00+03:00",
     images: [
       {
         url: featuredImage,
@@ -49,8 +49,8 @@ const articleJsonLd = {
   description:
     "نضع بين أيديكم مجموعةً مميّزة من تصميم داخلي كلاسيك، بالإضافة لنصائح من مهندس مختص في مجال التصميم الداخلي.",
   image: featuredImage,
-  datePublished: "2022-03-10T10:52:00+03:00",
-  dateModified: "2025-02-24T22:17:00+03:00",
+  datePublished: "2026-03-10T10:52:00+03:00",
+  dateModified: "2026-02-24T22:17:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
     "@type": "WebPage",
@@ -175,7 +175,7 @@ const examples = [
 ];
 
 function imageUrl(number) {
-  return `https://mawsouq.com/wp-content/uploads/2022/11/${number}.png`;
+  return `https://mawsouq.com/wp-content/uploads/2026/11/${number}.png`;
 }
 
 export default function ClassicInteriorDesignPage() {
@@ -193,7 +193,7 @@ export default function ClassicInteriorDesignPage() {
           <h1>تصميم داخلي كلاسيك - 20 مثال مع نصائح من مهندس</h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث فبراير 24، 2025
+            نُشر في مارس 10، 2026 — آخر تحديث فبراير 24، 2026
           </p>
 
           <p className="article-lead">

@@ -28,7 +28,7 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T11:01:00+03:00",
+    publishedTime: "2026-03-10T11:01:00+03:00",
     modifiedTime: "2023-02-24T18:46:00+03:00",
     images: [
       {
@@ -55,7 +55,7 @@ const articleJsonLd = {
   description:
     "بعض الأفكار من حول العالم والتي يُمكنك الاستعانة بها في تصميم حدائق والحصول على حديقة تلفت الانتباه وتجعلك متميزًا بمنزلك.",
   image: featuredImage,
-  datePublished: "2022-03-10T11:01:00+03:00",
+  datePublished: "2026-03-10T11:01:00+03:00",
   dateModified: "2023-02-24T18:46:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
@@ -111,7 +111,7 @@ const gardenIdeas = [
     width: 1080,
     height: 1080,
     sourceLabel: "allabout-building.com",
-    sourceHref: "https://www.gardendesign.design/2022/05/blog-post.html",
+    sourceHref: "https://www.gardendesign.design/2026/05/blog-post.html",
   },
   {
     text: "5. في هذا التنسيق، وعلى عكس التصاميم المعتادة، لقد تم استغلال المسافات بين قطع الحجارة وترك العشب يخرج منها، وكما نرى، فإن هذا يٌعطي مظهرًا جديدًا وجميلًا جدًا، كما وأنّه يوّفر من جهد الاعتناء بالعشب، كما وتم استغلال البُقعة لإضافة الأرائك والكراسي، بالإضافة لوجود شاشة تلفاز.",
@@ -200,7 +200,7 @@ const gardenIdeas = [
     height: 680,
     sourceLabel: "safalighting.com",
     sourceHref:
-      "https://safalighting.com/2022/07/03/%D8%AA%D8%B9%D8%B1%D9%81-%D8%B9%D9%84%D9%8A-%D8%A7%D8%B6%D8%A7%D8%A1%D8%A9-%D8%AD%D8%AF%D8%A7%D8%A6%D9%82-%D9%88-%D8%A7%D9%84%D8%A7%D8%B6%D8%A7%D8%A1%D8%A9-%D8%A7%D9%84%D8%AE%D8%A7%D8%B1%D8%AC%D9%8A/",
+      "https://safalighting.com/2026/07/03/%D8%AA%D8%B9%D8%B1%D9%81-%D8%B9%D9%84%D9%8A-%D8%A7%D8%B6%D8%A7%D8%A1%D8%A9-%D8%AD%D8%AF%D8%A7%D8%A6%D9%82-%D9%88-%D8%A7%D9%84%D8%A7%D8%B6%D8%A7%D8%A1%D8%A9-%D8%A7%D9%84%D8%AE%D8%A7%D8%B1%D8%AC%D9%8A/",
   },
   {
     text: "14. لا يجب على الحديقة أن تكون حصرًا على الأشخاص البالغين والمجالس الخاصة بهم، فيٌمكنك دائمًا الاستفادة من المساحة لإعطاء الأطفال بعض الوقت للمرح، وكما نرى في هذا التصميم، يوجد ألعاب لترفيه الأطفال، ويُمكن الاستفادة من الحديقة لجميع الأشخاص والأعمار.",
@@ -314,7 +314,7 @@ export default function GardenDesignPage() {
           <h1>تصميم حدائق - 22 فكرة مع صور</h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث فبراير 24، 2023
+            نُشر في مارس 10، 2026 — آخر تحديث فبراير 24، 2023
           </p>
 
           <p className="article-lead">

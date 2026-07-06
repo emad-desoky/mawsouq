@@ -2,7 +2,7 @@ const pageUrl =
   "https://mawsouq.com/%D9%83%D8%B4%D9%81-%D8%B9%D8%B2%D9%84-%D8%A7%D9%84%D8%AE%D8%B2%D8%A7%D9%86%D8%A7%D8%AA";
 
 const featuredImage =
-  "https://mawsouq.com/wp-content/uploads/2022/05/كشف-عزل-الخزانات-copy.webp";
+  "https://mawsouq.com/wp-content/uploads/2026/05/كشف-عزل-الخزانات-copy.webp";
 
 export const metadata = {
   title: "كشف وعزل الخزانات – معدّل اسعار السوق, الضمانات, وغيره (2026)",
@@ -20,7 +20,7 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T11:07:00+03:00",
+    publishedTime: "2026-03-10T11:07:00+03:00",
     modifiedTime: "2026-05-05T12:36:00+03:00",
     images: [
       {
@@ -45,7 +45,7 @@ const articleJsonLd = {
   description:
     "بالتواصل مع الشركات المتخصصة فى مجال كشف عزل الخزانات وجدنا ان متوسط متوسط الأسعار الخاصة بعزل الخزنات هو 1300 ريال حسب النوع و الغرض منة",
   image: featuredImage,
-  datePublished: "2022-03-10T11:07:00+03:00",
+  datePublished: "2026-03-10T11:07:00+03:00",
   dateModified: "2026-05-05T12:36:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
@@ -82,7 +82,7 @@ export default function TankInsulationPage() {
           <h1>كشف وعزل الخزانات – معدّل اسعار السوق, الضمانات, وغيره (2026)</h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث مايو 5، 2026
+            نُشر في مارس 10، 2026 — آخر تحديث مايو 5، 2026
           </p>
 
           <p className="article-lead">
@@ -192,7 +192,7 @@ export default function TankInsulationPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/كشف-عزل-الخزانات-copy.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/كشف-عزل-الخزانات-copy.webp"
             alt=""
             title="كشف عزل الخزانات"
             caption={

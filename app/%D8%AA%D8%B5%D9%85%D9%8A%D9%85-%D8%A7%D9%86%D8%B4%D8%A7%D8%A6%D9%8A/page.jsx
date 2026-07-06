@@ -2,7 +2,7 @@ const pageUrl =
   "https://mawsouq.com/%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%A7%D9%86%D8%B4%D8%A7%D8%A6%D9%8A";
 
 const featuredImage =
-  "https://mawsouq.com/wp-content/uploads/2022/05/2مخطط-انشائى-سطح-فيلا-scaled.webp";
+  "https://mawsouq.com/wp-content/uploads/2026/05/2مخطط-انشائى-سطح-فيلا-scaled.webp";
 
 export const metadata = {
   title: "تصميم مخطط انشائي - دليلك الشامل",
@@ -28,8 +28,8 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T11:00:00+03:00",
-    modifiedTime: "2025-02-24T22:24:00+03:00",
+    publishedTime: "2026-03-10T11:00:00+03:00",
+    modifiedTime: "2026-02-24T22:24:00+03:00",
     images: [
       {
         url: featuredImage,
@@ -55,8 +55,8 @@ const articleJsonLd = {
   description:
     "قبل شروعك بعملية بناء منزلك الجديد، وبعد تحديدك لجميع الأهداف وحساب الميزانية، فيجب عليك الحصول على تصميم انشائي والمعماري لمنزلك",
   image: featuredImage,
-  datePublished: "2022-03-10T11:00:00+03:00",
-  dateModified: "2025-02-24T22:24:00+03:00",
+  datePublished: "2026-03-10T11:00:00+03:00",
+  dateModified: "2026-02-24T22:24:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
     "@type": "WebPage",
@@ -89,7 +89,7 @@ export default function StructuralDesignPage() {
           <h1>تصميم مخطط انشائي - دليلك الشامل</h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث فبراير 24، 2025
+            نُشر في مارس 10، 2026 — آخر تحديث فبراير 24، 2026
           </p>
         </header>
 
@@ -131,7 +131,7 @@ export default function StructuralDesignPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/2مخطط-انشائى-سطح-فيلا-scaled.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/2مخطط-انشائى-سطح-فيلا-scaled.webp"
             alt="عمل تصميم انشائي"
             title="عمل تصميم انشائي"
             width="2560"
@@ -161,7 +161,7 @@ export default function StructuralDesignPage() {
               <strong>2250 ريال</strong> (600$).
             </li>
             <li>تم الاستفسار من: 3 شركات.</li>
-            <li>آخر تحديث: 29-11-2024.</li>
+            <li>آخر تحديث: 29-11-2026.</li>
           </ul>
 
           <h4>سعر التصميم الانشائي من الشركات الهندسية:</h4>
@@ -175,7 +175,7 @@ export default function StructuralDesignPage() {
               <strong>2500 ريال</strong>.
             </li>
             <li>تم الاستفسار من: 3 شركات.</li>
-            <li>آخر تحديث: 29-11-2024.</li>
+            <li>آخر تحديث: 29-11-2026.</li>
           </ul>
 
           <h3>
@@ -290,7 +290,7 @@ export default function StructuralDesignPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              تكلفة التصميم المعماري في السعوديّة – اسعار السوق (2025)
+              تكلفة التصميم المعماري في السعوديّة – اسعار السوق (2026)
             </a>
 
             <a

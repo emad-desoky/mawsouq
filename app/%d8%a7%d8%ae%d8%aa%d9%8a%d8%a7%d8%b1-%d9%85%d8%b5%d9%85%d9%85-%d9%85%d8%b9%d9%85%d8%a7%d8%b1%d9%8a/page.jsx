@@ -2,7 +2,7 @@ const pageUrl =
   "https://mawsouq.com/%d9%83%d9%8a%d9%81-%d8%aa%d8%ae%d8%aa%d8%a7%d8%b1-%d8%a7%d9%84%d9%85%d8%b5%d9%85%d9%85-%d8%a7%d9%84%d9%85%d8%b9%d9%85%d8%a7%d8%b1%d9%8a-%d8%a7%d9%84%d9%85%d9%86%d8%a7%d8%b3%d8%a8/";
 
 const featuredImage =
-  "https://mawsouq.com/wp-content/uploads/2022/11/مصمم-المعماري.png";
+  "https://mawsouq.com/wp-content/uploads/2026/11/مصمم-المعماري.png";
 
 export const metadata = {
   title: "كيف تختار المصمم المعماري المناسب؟",
@@ -31,8 +31,8 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T10:52:00+03:00",
-    modifiedTime: "2025-02-24T22:15:00+03:00",
+    publishedTime: "2026-03-10T10:52:00+03:00",
+    modifiedTime: "2026-02-24T22:15:00+03:00",
     images: [
       {
         url: featuredImage,
@@ -56,8 +56,8 @@ const articleJsonLd = {
   description:
     "النقاط التي يجب التركيز عليها لكي كيف تختار المصمم المعماري المناسب يُناسب ذوقك وميزانيتك، بالإضافة لبعض النصائح المهمة الأخرى",
   image: featuredImage,
-  datePublished: "2022-03-10T10:52:00+03:00",
-  dateModified: "2025-02-24T22:15:00+03:00",
+  datePublished: "2026-03-10T10:52:00+03:00",
+  dateModified: "2026-02-24T22:15:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
     "@type": "WebPage",
@@ -90,7 +90,7 @@ export default function ChooseArchitecturalDesignerPage() {
           <h1>كيف تختار المصمم المعماري المناسب؟</h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث فبراير 24، 2025
+            نُشر في مارس 10، 2026 — آخر تحديث فبراير 24، 2026
           </p>
 
           <p className="article-lead">
@@ -389,7 +389,7 @@ export default function ChooseArchitecturalDesignerPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              تكلفة التصميم المعماري في السعوديّة – اسعار السوق (2025)
+              تكلفة التصميم المعماري في السعوديّة – اسعار السوق (2026)
             </a>
           </section>
         </div>

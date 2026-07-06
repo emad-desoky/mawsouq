@@ -94,6 +94,94 @@ function getArabicEncodedRewrites() {
   return rewrites;
 }
 
+function encodeDirectArabicUpper(decodedPath) {
+  return decodedPath
+    .split("/")
+    .map((part) => (part ? encodeURIComponent(part) : ""))
+    .join("/");
+}
+
+function encodeDirectArabicLower(decodedPath) {
+  return encodeDirectArabicUpper(decodedPath).toLowerCase();
+}
+
+function getDirectArabicFolderRewrites() {
+  const appDir = path.join(process.cwd(), "app");
+  const rewrites = [];
+  const seen = new Set();
+
+  function addRewrite(source, destination) {
+    if (!source || !destination) return;
+    if (source === destination) return;
+
+    const key = `${source}=>${destination}`;
+    if (seen.has(key)) return;
+
+    seen.add(key);
+    rewrites.push({ source, destination });
+  }
+
+  function addRewriteWithSlash(source, destination) {
+    addRewrite(source, destination);
+    addRewrite(source + "/", destination + "/");
+  }
+
+  function walk(dir, routeParts = []) {
+    if (!fs.existsSync(dir)) return;
+
+    const items = fs.readdirSync(dir, { withFileTypes: true });
+
+    const hasPage = items.some(
+      (item) =>
+        item.isFile() &&
+        ["page.js", "page.jsx", "page.ts", "page.tsx"].includes(item.name),
+    );
+
+    if (hasPage && routeParts.length > 0) {
+      const actualRoute = "/" + routeParts.join("/");
+
+      // DO NOT TOUCH OLD ENCODED FOLDERS
+      const isOldEncodedFolder = routeParts.some((part) =>
+        /%[0-9a-fA-F]{2}/.test(part),
+      );
+
+      // ONLY HANDLE NEW DIRECT ARABIC FOLDERS
+      const isDirectArabicFolder = /[\u0600-\u06FF]/.test(actualRoute);
+
+      if (!isOldEncodedFolder && isDirectArabicFolder) {
+        const upperEncodedRoute = encodeDirectArabicUpper(actualRoute);
+        const lowerEncodedRoute = encodeDirectArabicLower(actualRoute);
+
+        // Browser Arabic encoded URL: /%D8%B9%D9%86...
+        addRewriteWithSlash(upperEncodedRoute, actualRoute);
+
+        // Lowercase encoded URL: /%d8%b9%d9%86...
+        addRewriteWithSlash(lowerEncodedRoute, actualRoute);
+      }
+    }
+
+    for (const item of items) {
+      if (!item.isDirectory()) continue;
+
+      if (item.name === "api") continue;
+      if (item.name.startsWith("_")) continue;
+
+      const isRouteGroup = item.name.startsWith("(") && item.name.endsWith(")");
+      const isSlot = item.name.startsWith("@");
+
+      const nextRouteParts =
+        isRouteGroup || isSlot ? routeParts : [...routeParts, item.name];
+
+      walk(path.join(dir, item.name), nextRouteParts);
+    }
+  }
+
+  walk(appDir);
+
+  console.log("Direct Arabic folder rewrites generated:", rewrites.length);
+
+  return rewrites;
+}
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async redirects() {
@@ -117,7 +205,10 @@ const nextConfig = {
 
   async rewrites() {
     return {
-      beforeFiles: getArabicEncodedRewrites(),
+      beforeFiles: [
+        ...getArabicEncodedRewrites(),
+        ...getDirectArabicFolderRewrites(),
+      ],
     };
   },
 

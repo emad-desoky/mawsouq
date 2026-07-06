@@ -2,7 +2,7 @@ const pageUrl =
   "https://mawsouq.com/%D8%AF%D9%8A%D9%83%D9%88%D8%B1-%D8%A7%D9%84%D8%AA%D9%84%D9%81%D8%A7%D8%B2";
 
 const featuredImage =
-  "https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-39.webp";
+  "https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-39.webp";
 
 export const metadata = {
   title: "ديكور تلفزيون – 30 فكرة ابداع مع صور [2026]",
@@ -20,7 +20,7 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T11:06:00+03:00",
+    publishedTime: "2026-03-10T11:06:00+03:00",
     modifiedTime: "2026-05-05T12:29:00+03:00",
     images: [
       {
@@ -45,7 +45,7 @@ const articleJsonLd = {
   description:
     "يعتبر الحائط المحيط بشاشة التلفاز كحجر الأساس والعنصر الرئيس لمحبي الديكور و الحصول على أفضل شكل للمنطقة المحيطة بشاشة التلفاز.",
   image: featuredImage,
-  datePublished: "2022-03-10T11:06:00+03:00",
+  datePublished: "2026-03-10T11:06:00+03:00",
   dateModified: "2026-05-05T12:29:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
@@ -115,7 +115,7 @@ export default function TvDecorPage() {
           <h1>ديكور تلفزيون – 30 فكرة ابداع مع صور [2026]</h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث مايو 5، 2026
+            نُشر في مارس 10، 2026 — آخر تحديث مايو 5، 2026
           </p>
 
           <p className="article-lead">
@@ -160,7 +160,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-39.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-39.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -172,7 +172,7 @@ export default function TvDecorPage() {
           />
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-40.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-40.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -195,7 +195,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-38.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-38.webp"
             caption={
               <>
                 المصدر:
@@ -207,7 +207,7 @@ export default function TvDecorPage() {
           />
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-37.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-37.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -230,7 +230,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-36.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-36.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -242,7 +242,7 @@ export default function TvDecorPage() {
           />
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-35.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-35.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -269,7 +269,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-34.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-34.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -281,7 +281,7 @@ export default function TvDecorPage() {
           />
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-33.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-33.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -293,7 +293,7 @@ export default function TvDecorPage() {
           />
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-32.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-32.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -315,7 +315,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-31.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-31.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -327,7 +327,7 @@ export default function TvDecorPage() {
           />
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-28.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-28.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -350,7 +350,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-24.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-24.webp"
             caption={
               <>
                 المصدر: <a href="https://9gag.com/gag/a7MALzA?ref=pn">9GaG</a>
@@ -359,7 +359,7 @@ export default function TvDecorPage() {
           />
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-23.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-23.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -380,7 +380,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-30.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-30.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -392,7 +392,7 @@ export default function TvDecorPage() {
           />
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-31.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-31.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -414,7 +414,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-25.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-25.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -426,7 +426,7 @@ export default function TvDecorPage() {
           />
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-26.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-26.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -438,7 +438,7 @@ export default function TvDecorPage() {
           />
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-27.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-27.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -460,7 +460,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-13.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-13.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -484,7 +484,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-11.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-11.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -507,7 +507,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-12.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-12.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -530,7 +530,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-17.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-17.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -552,7 +552,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-15.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-15.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -575,7 +575,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-5.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-5.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -599,7 +599,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-22.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-22.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -621,7 +621,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-18.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-18.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -643,7 +643,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/Projector-vs-TV.jpg"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/Projector-vs-TV.jpg"
             caption={
               <>
                 المصدر:{" "}
@@ -665,7 +665,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-10.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-10.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -688,7 +688,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-16.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-16.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -708,7 +708,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-9.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-9.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -720,7 +720,7 @@ export default function TvDecorPage() {
           />
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-2.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-2.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -741,7 +741,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-21.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-21.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -763,7 +763,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/15427010832568.jpg"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/15427010832568.jpg"
             caption={
               <>
                 المصدر:{" "}
@@ -785,7 +785,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-4.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-4.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -806,7 +806,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-14.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-14.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -828,7 +828,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-7.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-7.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -849,7 +849,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-6.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-6.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -872,7 +872,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-8.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-8.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -895,7 +895,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-20.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-20.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -917,7 +917,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-19.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-19.webp"
             caption={
               <>
                 المصدر:{" "}
@@ -939,7 +939,7 @@ export default function TvDecorPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/ديكور-تلفزيون-1.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/ديكور-تلفزيون-1.webp"
             caption={
               <>
                 المصدر:{" "}

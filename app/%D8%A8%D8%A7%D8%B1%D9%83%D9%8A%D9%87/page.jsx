@@ -1,7 +1,7 @@
 const pageUrl = "https://mawsouq.com/%D8%A8%D8%A7%D8%B1%D9%83%D9%8A%D9%87";
 
 const featuredImage =
-  "https://mawsouq.com/wp-content/uploads/2022/05/الباركية-السعودية-2.webp";
+  "https://mawsouq.com/wp-content/uploads/2026/05/الباركية-السعودية-2.webp";
 
 export const metadata = {
   title: "تركيب الباركيه – دليلك الشامل (2026)",
@@ -25,7 +25,7 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T11:06:00+03:00",
+    publishedTime: "2026-03-10T11:06:00+03:00",
     modifiedTime: "2026-05-05T12:37:00+03:00",
     images: [
       {
@@ -50,7 +50,7 @@ const articleJsonLd = {
   description:
     "بالاستفسار عن أسعار وأنواع الباركيه في المملكة العربية السعودية، ووجدنا أن سعر ألواح الباركيه ف يتراوح من 24 إلى 85 ريال للمتر",
   image: featuredImage,
-  datePublished: "2022-03-10T11:06:00+03:00",
+  datePublished: "2026-03-10T11:06:00+03:00",
   dateModified: "2026-05-05T12:37:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
@@ -87,7 +87,7 @@ export default function ParquetPage() {
           <h1>تركيب الباركيه – دليلك الشامل (2026)</h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث مايو 5، 2026
+            نُشر في مارس 10، 2026 — آخر تحديث مايو 5، 2026
           </p>
 
           <p className="article-lead">
@@ -185,7 +185,7 @@ export default function ParquetPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/الباركية-السعودية-2.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/الباركية-السعودية-2.webp"
             alt=""
             title="الباركيه السعودية"
             caption={
@@ -253,7 +253,7 @@ export default function ParquetPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/الباركية-السعودية-1.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/الباركية-السعودية-1.webp"
             alt=""
             title="الباركيه السعودية"
             caption={

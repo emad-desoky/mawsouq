@@ -4,7 +4,7 @@ const pageUrl =
   "https://mawsouq.com/%d8%a7%d9%84%d8%aa%d8%b5%d9%85%d9%8a%d9%85-%d8%a7%d9%84%d8%a5%d9%86%d8%b4%d8%a7%d8%a6%d9%8a/";
 
 const featuredImage =
-  "https://mawsouq.com/wp-content/uploads/2022/05/مشروع-مجمع-فيللات-دوبلكس-بمكة-بعد-التنفيذ.webp";
+  "https://mawsouq.com/wp-content/uploads/2026/05/مشروع-مجمع-فيللات-دوبلكس-بمكة-بعد-التنفيذ.webp";
 
 export const metadata = {
   title: "ما هو التصميم الانشائي؟- شرح خطوات التنفيذبالتفصيل",
@@ -32,7 +32,7 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-05-03T17:40:00+03:00",
+    publishedTime: "2026-05-03T17:40:00+03:00",
     modifiedTime: "2023-06-17T10:33:00+03:00",
     images: [
       {
@@ -59,7 +59,7 @@ const articleJsonLd = {
   description:
     "التصيم الإنشائي هو الأداة المستخدمة فى تحويل متطلباتك و احلامك فى المبنى المراد انشاؤه من رسومات و خيالات الى واقع تراه امامك سواء بعينيك",
   image: featuredImage,
-  datePublished: "2022-05-03T17:40:00+03:00",
+  datePublished: "2026-05-03T17:40:00+03:00",
   dateModified: "2023-06-17T10:33:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
@@ -96,7 +96,7 @@ export default function StructuralDesignPage() {
           <h1>ما هو التصميم الانشائي؟- شرح خطوات التنفيذبالتفصيل</h1>
 
           <p className="article-date">
-            نُشر في مايو 3، 2022 — آخر تحديث يونيو 17، 2023
+            نُشر في مايو 3، 2026 — آخر تحديث يونيو 17، 2023
           </p>
 
           <p className="article-lead">
@@ -162,7 +162,7 @@ export default function StructuralDesignPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/مشروع-مجمع-فيللات-دوبلكس-بمكة-بعد-التنفيذ.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/مشروع-مجمع-فيللات-دوبلكس-بمكة-بعد-التنفيذ.webp"
             alt="مجمع-فيلات-دوبلكس"
             title="مشروع مجمع فيلات دوبلكس بمكة بعد التنفيذ بمتابعة فريق الموقع"
             caption="منظور ثلاثى الابعاد لمشروع استراحة بالمدينة المنورة من تصميم فريق الموقع"
@@ -198,7 +198,7 @@ export default function StructuralDesignPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/التصميم-الانشائى-مبنى-تحت-الانشاء.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/التصميم-الانشائى-مبنى-تحت-الانشاء.webp"
             alt="مشروع-الاستراحة-أثناء-التنفيذ"
             title="مشروع الاستراحة أثناء التنفيذ بمتابعة فريق الموقع"
             caption="مشروع الاستراحة أثناء التنفيذ بمتابعة فريق الموقع"
@@ -249,14 +249,14 @@ export default function StructuralDesignPage() {
           </h3>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/مخطط-انشائى-سطح-فيلا-scaled.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/مخطط-انشائى-سطح-فيلا-scaled.webp"
             alt="مخطط-انشائى - فيللا سكنية"
             title="مخطط انشائى لتسليح سقف فيللا سكنية"
             caption="مخطط انشائى لتسليح سقف فيللا سكنية"
           />
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/2مخطط-انشائى-سطح-فيلا-scaled.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/2مخطط-انشائى-سطح-فيلا-scaled.webp"
             alt="مخطط-انشائى-سقف-فيلا"
             title="مخطط انشائى لتسليح سقف فيلا سكنية"
             caption="مخطط انشائى لتسليح سقف فيللا سكنية"
@@ -288,7 +288,7 @@ export default function StructuralDesignPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/منظور-ثلاثى-الابعاد-لمشروع-مجمع-فيللات-دوبلكس-بمكة.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/منظور-ثلاثى-الابعاد-لمشروع-مجمع-فيللات-دوبلكس-بمكة.webp"
             alt="مجمع-فيللات-دوبلكس"
             title="منظور ثلاثى الابعاد لمشروع مجمع فيللات دوبلكس بمكة من تصميم فريق الموقع"
             caption="منظور ثلاثى الابعاد لمشروع مجمع فيللات دوبلكس بمكة من تصميم فريق الموقع"
@@ -309,21 +309,21 @@ export default function StructuralDesignPage() {
           </ul>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/منظور-ثلاثى-الابعاد-لمشروع-مجمع-فيللات-دوبلكس-بمكة-2.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/منظور-ثلاثى-الابعاد-لمشروع-مجمع-فيللات-دوبلكس-بمكة-2.webp"
             alt="مجمع-فيللات-دوبلكس"
             title="منظور ثلاثى الابعاد لمشروع مجمع فيلات دوبلكس بمكة من تصميم فريق الموقع"
             caption="منظور ثلاثى الابعاد لمشروع مجمع فيلات دوبلكس بمكة من تصميم فريق الموقع"
           />
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/مشروع-مجمع-فيللات-دوبلكس-بمكة-أثناء-التنفيذ.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/مشروع-مجمع-فيللات-دوبلكس-بمكة-أثناء-التنفيذ.webp"
             alt="فيلات-دوبلكس-أثناء-التنفيذ"
             title="مشروع مجمع فيللات دوبلكس بمكة أثناء التنفيذ بمتابعة فريق الموقع"
             caption="مشروع مجمع فيللات دوبلكس بمكة أثناء التنفيذ بمتابعة فريق الموقع"
           />
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/05/مشروع-مجمع-فيللات-دوبلكس-بمكة-بعد-التنفيذ.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/05/مشروع-مجمع-فيللات-دوبلكس-بمكة-بعد-التنفيذ.webp"
             alt="مجمع-فيلات-دوبلكس"
             title="مشروع مجمع فيلات دوبلكس بمكة بعد التنفيذ بمتابعة فريق الموقع"
             caption="مشروع مجمع فيلات دوبلكس بمكة بعد التنفيذ بمتابعة فريق الموقع"

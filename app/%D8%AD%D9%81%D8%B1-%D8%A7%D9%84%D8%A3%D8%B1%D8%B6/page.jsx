@@ -2,7 +2,7 @@ const pageUrl =
   "https://mawsouq.com/%D8%AD%D9%81%D8%B1-%D8%A7%D9%84%D8%A3%D8%B1%D8%B6";
 
 const featuredImage =
-  "https://mawsouq.com/wp-content/uploads/2022/07/تكلفة-الحفر-فى-السعودية.webp";
+  "https://mawsouq.com/wp-content/uploads/2026/07/تكلفة-الحفر-فى-السعودية.webp";
 
 export const metadata = {
   title: "تكلفة حفر الأرض في السعوديّة – معدّل اسعار السوق [2026]",
@@ -24,7 +24,7 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T11:02:00+03:00",
+    publishedTime: "2026-03-10T11:02:00+03:00",
     modifiedTime: "2026-05-05T12:38:00+03:00",
     images: [
       {
@@ -49,7 +49,7 @@ const articleJsonLd = {
   description:
     "قمنا بالتواصل مع اكثر من شركة لحساب تكلفة الحفر فى السعودية اليك الاسعار و طريقة تنفيذ الحفر فى السعودية بشكل صحيح وانواع الحفريات",
   image: featuredImage,
-  datePublished: "2022-03-10T11:02:00+03:00",
+  datePublished: "2026-03-10T11:02:00+03:00",
   dateModified: "2026-05-05T12:38:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
@@ -83,7 +83,7 @@ export default function ExcavationCostPage() {
           <h1>تكلفة حفر الأرض في السعوديّة – معدّل اسعار السوق [2026]</h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث مايو 5، 2026
+            نُشر في مارس 10، 2026 — آخر تحديث مايو 5، 2026
           </p>
 
           <p className="article-lead">
@@ -127,7 +127,7 @@ export default function ExcavationCostPage() {
           </p>
 
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/07/تكلفة-الحفر-فى-السعودية.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/07/تكلفة-الحفر-فى-السعودية.webp"
             alt=""
             title="تكلفة الحفر فى السعودية"
             caption={

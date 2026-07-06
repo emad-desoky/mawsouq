@@ -4,7 +4,7 @@ const pageUrl =
   "https://mawsouq.com/%d8%aa%d9%83%d9%84%d9%81%d8%a9-%d8%a8%d9%86%d8%a7%d8%a1-%d8%af%d9%88%d8%b1-%d9%88%d8%a7%d8%ad%d8%af/";
 
 const featuredImage =
-  "https://mawsouq.com/wp-content/uploads/2022/03/تكلفة-بناء-دور-واحد-copy-1024x768.webp";
+  "https://mawsouq.com/wp-content/uploads/2026/03/تكلفة-بناء-دور-واحد-copy-1024x768.webp";
 
 export const metadata = {
   title: "تكلفة بناء دور واحد وخطوات البناء بالتفصيل (2026)",
@@ -27,7 +27,7 @@ export const metadata = {
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2022-03-10T14:24:00+03:00",
+    publishedTime: "2026-03-10T14:24:00+03:00",
     modifiedTime: "2026-05-05T12:34:00+03:00",
     images: [
       {
@@ -54,7 +54,7 @@ const articleJsonLd = {
   description:
     "عن طريق موسوق نساعدك على تحديد القيمة التقريبية لحساب تكلفة بناء دور واحد مع تحديد خطوات البناء بالتفصيل لمنزلك الخاص باستخدام حاسبة البناء",
   image: featuredImage,
-  datePublished: "2022-03-10T14:24:00+03:00",
+  datePublished: "2026-03-10T14:24:00+03:00",
   dateModified: "2026-05-05T12:34:00+03:00",
   inLanguage: "ar-SA",
   mainEntityOfPage: {
@@ -93,14 +93,14 @@ export default function OneFloorCostPage() {
           </h1>
 
           <p className="article-date">
-            نُشر في مارس 10، 2022 — آخر تحديث مايو 5، 2026
+            نُشر في مارس 10، 2026 — آخر تحديث مايو 5، 2026
           </p>
 
           <p className="article-lead">
             حيث أن بناء منزل الأحلام الخاص بك من أولويات وأهداف أي شخص في
             الحياة, ابضا يشعر مالك المنزل بالاستقلالية وأنه هو المتحكم في منزله,
             مع منصة موسوق نساعدك على حساب تكلفة بناء دور واحد مع تحديد خطوات
-            البناء بالتفصيل طبقا لأسعار عام 2025 . حيث ان تكلفة بناء دور واحد
+            البناء بالتفصيل طبقا لأسعار عام 2026 . حيث ان تكلفة بناء دور واحد
             تختلف من منزل لأخر طبقا للتصميم المعماري والإنشائي. إلا أنه، يمكننا
             حساب القيمة التقريبية لتكلفة بناء دور واحد المناسبة طبقا لاسعار
             السوق باستخدام خطوات البناء المذكورة بالتفصيل.
@@ -109,7 +109,7 @@ export default function OneFloorCostPage() {
 
         <div className="article-content">
           <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2022/03/تكلفة-بناء-دور-واحد-copy-1024x768.webp"
+            src="https://mawsouq.com/wp-content/uploads/2026/03/تكلفة-بناء-دور-واحد-copy-1024x768.webp"
             alt="تكلفة-بناء-دور-واحد"
             title="تكلفة بناء دور واحد"
             caption=""
