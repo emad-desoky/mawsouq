@@ -26,6 +26,14 @@ export const metadata = {
 const BLOG_ROUTE_FOLDER = "%d8%a7%d9%84%d9%85%d8%af%d9%88%d9%86%d8%a7%d8%aa";
 
 const blogDataBySlug = {
+  "افضل-شركة-تشطيبات-في-السعودية": {
+    title: "أفضل شركة تشطيبات في السعودية 2026",
+    excerpt:
+      "دليل عملي لاختيار شركة تشطيبات موثوقة: مقارنة العروض، بنود العقد، جودة المواد، مراحل التنفيذ، وأخطاء التعاقد قبل الدفع.",
+    category: "التصميم الداخلى",
+    image:
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=90",
+  },
   "التصميم-الإنشائي": {
     title: "التصميم الإنشائي",
     excerpt: "دليل شامل حول التصميم الإنشائي وأهميته في سلامة المشروع.",
@@ -41,6 +49,7 @@ const blogDataBySlug = {
     image:
       "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=90",
   },
+
   "التصميم-المعماري": {
     title: "تكلفة التصميم المعماري في السعودية",
     excerpt: "دليل شامل حول تكلفة التصميم المعماري والعوامل المؤثرة على السعر.",
@@ -299,25 +308,44 @@ function getBlogsFromAppFolders() {
       fs.existsSync(path.join(appDir, folderName, "page.jsx")),
     );
 
-  return folders
-    .map((folderName) => {
-      const slug = decodeSlug(folderName);
+  const folderBlogs = folders.map((folderName) => {
+    const slug = decodeSlug(folderName);
+    const data = blogDataBySlug[slug];
+
+    return {
+      title: data?.title || titleFromSlug(slug),
+      excerpt:
+        data?.excerpt ||
+        "مقال من مدونة موسوق حول التصميم والبناء والخدمات المنزلية.",
+      category: data?.category || "التصميم المعماري",
+      image:
+        data?.image ||
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=90",
+      href: `/${folderName}/`,
+      slug,
+    };
+  });
+
+  const manualBlogSlugs = ["افضل-شركة-تشطيبات-في-السعودية"];
+
+  const manualBlogs = manualBlogSlugs
+    .filter((slug) => !folderBlogs.some((blog) => blog.slug === slug))
+    .map((slug) => {
       const data = blogDataBySlug[slug];
 
       return {
-        title: data?.title || titleFromSlug(slug),
-        excerpt:
-          data?.excerpt ||
-          "مقال من مدونة موسوق حول التصميم والبناء والخدمات المنزلية.",
-        category: data?.category || "التصميم المعماري",
-        image:
-          data?.image ||
-          "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=90",
-        href: `/${folderName}/`,
+        title: data.title,
+        excerpt: data.excerpt,
+        category: data.category,
+        image: data.image,
+        href: `/${encodeURIComponent(slug)}/`,
         slug,
       };
-    })
-    .sort((a, b) => a.title.localeCompare(b.title, "ar"));
+    });
+
+  return [...manualBlogs, ...folderBlogs].sort((a, b) =>
+    a.title.localeCompare(b.title, "ar"),
+  );
 }
 
 export default function BlogsPage() {

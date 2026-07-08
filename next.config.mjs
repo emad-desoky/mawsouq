@@ -205,7 +205,7 @@ const nextConfig = {
 
   async rewrites() {
     return {
-      beforeFiles: [
+      afterFiles: [
         ...getArabicEncodedRewrites(),
         ...getDirectArabicFolderRewrites(),
       ],

@@ -5,6 +5,7 @@ import Image from "next/image";
 
 const categories = [
   "الكل",
+  "أحدث المقالات",
   "التصميم المعماري",
   "التصميم الداخلى",
   "تكاليف البناء",
@@ -51,6 +52,10 @@ function CarouselArrow({ direction, onClick }) {
 export default function BlogsClient({ blogs }) {
   const groups = useMemo(() => {
     return {
+      latest: blogs
+        .filter((blog) => ["افضل-شركة-تشطيبات-في-السعودية"].includes(blog.slug))
+        .slice(0, 6),
+
       featured: [
         blogs.find((blog) =>
           blog.href.includes("%d8%a8%d9%86%d8%a7%d8%a1-%d9%81%d9%84%d8%a9"),
@@ -211,7 +216,13 @@ export default function BlogsClient({ blogs }) {
       >
         {categories.map((category) => (
           <a
-            href={category === "الكل" ? "#all-blogs" : `#${slugify(category)}`}
+            href={
+              category === "الكل"
+                ? "#all-blogs"
+                : category === "أحدث المقالات"
+                  ? "#latest-blogs"
+                  : `#${slugify(category)}`
+            }
             className="shrink-0 rounded-full border border-[color:var(--hairline)] bg-[color:var(--surface-2)] px-5 py-3 text-sm font-black text-[color:var(--ink-muted)] transition duration-300 hover:-translate-y-0.5 hover:border-[color:var(--brand)] hover:bg-[color:var(--brand)] hover:text-white"
             key={category}
           >
@@ -219,7 +230,13 @@ export default function BlogsClient({ blogs }) {
           </a>
         ))}
       </nav>
-
+      <CarouselSection
+        id="latest-blogs"
+        eyebrow="Latest"
+        title="أحدث المقالات"
+        description="آخر المقالات المنشورة على موسوق."
+        posts={groups.latest}
+      />
       <CarouselSection
         id="featured"
         eyebrow="Featured"
