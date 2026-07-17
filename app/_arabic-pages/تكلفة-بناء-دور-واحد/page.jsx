@@ -101,6 +101,7 @@ const priceBands = [
 const examples = [
   {
     area: "100 م²",
+    href: "/تكلفة-بناء-دور-واحد-100-متر/",
     skeleton: "65,000–95,000 ر.س",
     medium: "185,000–260,000 ر.س",
     reserve: "18,500–39,000 ر.س",
@@ -113,12 +114,14 @@ const examples = [
   },
   {
     area: "200 م²",
+    href: "/تكلفة-بناء-دور-واحد-200-متر/",
     skeleton: "130,000–190,000 ر.س",
     medium: "370,000–520,000 ر.س",
     reserve: "37,000–78,000 ر.س",
   },
   {
     area: "300 م²",
+    href: "/تكلفة-بناء-دور-واحد-300-متر/",
     skeleton: "195,000–285,000 ر.س",
     medium: "555,000–780,000 ر.س",
     reserve: "55,500–117,000 ر.س",
@@ -610,7 +613,7 @@ export default function OneFloorCostPage() {
               priority
               fetchPriority="high"
               sizes="(max-width: 1024px) 100vw, 46vw"
-              className="object-contain"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_30%,rgba(3,16,30,0.88))]" />
             <div className="absolute inset-x-5 bottom-5 rounded-[26px] border border-white/15 bg-[#071321]/82 p-5 text-white backdrop-blur-xl md:inset-x-7 md:bottom-7 md:p-6">
@@ -618,8 +621,8 @@ export default function OneFloorCostPage() {
                 أهم قاعدة قبل الحساب
               </p>
               <p className="mt-2 text-lg font-black leading-8 md:text-xl">
-                لا تضرب مساحة الأرض في سعر المتر. استخدم مسطح البناء الحقيقي، ثم
-                أضف البنود غير المشمولة والاحتياطي المالي.
+                لا تضرب مساحة الأرض في سعر المتر. استخدم مسطح البناء الحقيقي،
+                ثم أضف البنود غير المشمولة والاحتياطي المالي.
               </p>
             </div>
           </div>
@@ -750,10 +753,9 @@ export default function OneFloorCostPage() {
                   إضافة دور علوي فوق منزل قائم
                 </h3>
                 <p className="mt-3 text-base font-semibold leading-9 text-[color:var(--ink-muted)]">
-                  لا تبدأ بالسعر. البداية الصحيحة هي فحص إنشائي للأساسات
-                  والأعمدة والبلاطات ثم مراجعة الرخصة. قد لا تحتاج حفرًا جديدًا،
-                  لكن قد تحتاج تدعيمًا وربطًا وحماية للمبنى القائم ونقل خدمات
-                  أثناء العمل.
+                  لا تبدأ بالسعر. البداية الصحيحة هي فحص إنشائي للأساسات والأعمدة
+                  والبلاطات ثم مراجعة الرخصة. قد لا تحتاج حفرًا جديدًا، لكن قد
+                  تحتاج تدعيمًا وربطًا وحماية للمبنى القائم ونقل خدمات أثناء العمل.
                 </p>
               </div>
             </div>
@@ -856,17 +858,15 @@ export default function OneFloorCostPage() {
               title="سعر متر بناء دور واحد في السعودية 2026"
             >
               الجدول التالي يوضح نطاقات تخطيطية، وما يجب أن تسأل عنه قبل اعتبار
-              السعر قابلًا للمقارنة. التقدير النهائي يحتاج مخططات ومواصفات
-              وموقعًا محددًا.
+              السعر قابلًا للمقارنة. التقدير النهائي يحتاج مخططات ومواصفات وموقعًا
+              محددًا.
             </SectionTitle>
 
             <div className="overflow-x-auto rounded-[28px] border border-[color:var(--hairline)]">
               <table className="w-full min-w-[850px] border-collapse text-right">
                 <thead className="bg-[#071321] text-white">
                   <tr>
-                    <th className="px-5 py-4 text-sm font-black">
-                      فئة التنفيذ
-                    </th>
+                    <th className="px-5 py-4 text-sm font-black">فئة التنفيذ</th>
                     <th className="px-5 py-4 text-sm font-black">نطاق المتر</th>
                     <th className="px-5 py-4 text-sm font-black">
                       ما الذي يشمله عادة؟
@@ -981,7 +981,16 @@ export default function OneFloorCostPage() {
                   {examples.map((example) => (
                     <tr key={example.area}>
                       <td className="border-t border-[color:var(--hairline)] px-5 py-4 text-base font-black text-[color:var(--brand)]">
-                        {example.area}
+                        {example.href ? (
+                          <Link
+                            href={example.href}
+                            className="underline decoration-[color:var(--brand)]/35 underline-offset-4 hover:decoration-[color:var(--brand)]"
+                          >
+                            {example.area} — افتح الدليل التفصيلي
+                          </Link>
+                        ) : (
+                          example.area
+                        )}
                       </td>
                       <td className="border-t border-[color:var(--hairline)] px-5 py-4 text-sm font-bold text-[color:var(--ink-muted)]">
                         {example.skeleton}
@@ -1031,7 +1040,14 @@ export default function OneFloorCostPage() {
               <p className="mt-5 text-sm font-bold leading-8 text-[color:var(--ink-muted)]">
                 هذا المثال لا يعني أن 598 ألف ريال سعر نهائي. الهدف هو اختبار
                 قدرتك المالية عند سيناريو محافظ. بعد اكتمال المخططات، استبدل هذه
-                النطاقات بجدول كميات وعروض مفصلة.
+                النطاقات بجدول كميات وعروض مفصلة. راجع أيضًا{" "}
+                <Link
+                  href="/تكلفة-بناء-دور-واحد-200-متر/"
+                  className="font-black text-[color:var(--brand)] underline underline-offset-4"
+                >
+                  حسبة بناء دور واحد 200 متر بالتفصيل
+                </Link>
+                .
               </p>
             </div>
           </section>
@@ -1042,8 +1058,8 @@ export default function OneFloorCostPage() {
               title="كيف تتوزع ميزانية بناء دور واحد؟"
             >
               هذا توزيع بصري إرشادي لمشروع تسليم مفتاح متوسط. النسب تتغير من
-              مشروع لآخر، لكنها تساعدك على اكتشاف العرض الذي يضع رقمًا كبيرًا
-              تحت بند واحد ويخفي بقية البنود.
+              مشروع لآخر، لكنها تساعدك على اكتشاف العرض الذي يضع رقمًا كبيرًا تحت
+              بند واحد ويخفي بقية البنود.
             </SectionTitle>
 
             <div className="space-y-5 rounded-[30px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-6 md:p-8">
@@ -1156,10 +1172,10 @@ export default function OneFloorCostPage() {
               </h3>
               <p className="mt-4 text-base font-semibold leading-9 text-[color:var(--ink-muted)]">
                 لا توجد نسبة ثابتة تصلح لكل مشروع. المدن الكبيرة قد ترتفع فيها
-                تكلفة بعض العمالة أو إدارة الموقع، لكنها توفر موردين ومقاولين
-                أكثر. المدن الأبعد قد تقل فيها أجور معينة، بينما يرتفع النقل أو
-                تقل خيارات المواد. لذلك استخدم معامل المدينة في الحاسبة كتعديل
-                أولي فقط، ثم اطلب عروضًا محلية على نفس المخططات.
+                تكلفة بعض العمالة أو إدارة الموقع، لكنها توفر موردين ومقاولين أكثر.
+                المدن الأبعد قد تقل فيها أجور معينة، بينما يرتفع النقل أو تقل خيارات
+                المواد. لذلك استخدم معامل المدينة في الحاسبة كتعديل أولي فقط، ثم
+                اطلب عروضًا محلية على نفس المخططات.
               </p>
             </div>
           </section>
@@ -1422,6 +1438,7 @@ export default function OneFloorCostPage() {
             ) : null}
           </section>
 
+
           <section id="faq" className="mt-16 scroll-mt-32">
             <SectionTitle
               eyebrow="FAQ"
@@ -1462,8 +1479,8 @@ export default function OneFloorCostPage() {
             </h2>
             <p className="mt-4 max-w-[820px] text-lg font-bold leading-9 text-white/78">
               أرسل المدينة، مسطح الدور، هل المشروع أرضي أم إضافة دور، ونوع
-              التنفيذ المطلوب. كلما كانت المخططات والمواصفات أوضح، أصبحت
-              المقارنة بين عروض المقاولين أدق.
+              التنفيذ المطلوب. كلما كانت المخططات والمواصفات أوضح، أصبحت المقارنة
+              بين عروض المقاولين أدق.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <WhatsAppButton>ابدأ عبر واتساب</WhatsAppButton>

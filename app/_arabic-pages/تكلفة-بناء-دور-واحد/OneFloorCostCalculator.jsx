@@ -55,8 +55,8 @@ function clampNumber(value, min, max) {
   return Math.min(Math.max(parsed, min), max);
 }
 
-export default function OneFloorCostCalculator() {
-  const [area, setArea] = useState(200);
+export default function OneFloorCostCalculator({ initialArea = 200 }) {
+  const [area, setArea] = useState(initialArea);
   const [buildType, setBuildType] = useState("skeletonMaterials");
   const [city, setCity] = useState("riyadh");
   const [reserve, setReserve] = useState(10);

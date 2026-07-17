@@ -70,7 +70,7 @@ export const pillar = {
     "احسب تكلفة بناء دور واحد في السعودية 2026 للعظم أو تسليم المفتاح، مع سعر المتر، أمثلة لمساحات 100 و200 و300 متر، وبنود التكلفة الخفية.",
   excerpt:
     "دليل شامل لحساب ميزانية دور واحد من المساحة المبنية حتى العظم والتشطيب والاحتياطي المالي.",
-  image: "/تكلفه-بناء-دور-واحد.png",
+  image: "/تكلفة_بناء_السعودية_2026.png",
   imageAlt: "تكلفة بناء دور واحد في السعودية وحساب سعر المتر",
   keywords: [
     "تكلفة بناء دور واحد",
@@ -193,11 +193,11 @@ export const futureClusterBlogs = [
       "كم يكلف بناء بيت 100 متر",
       "تكلفة بناء 100 متر عظم",
     ],
-    datePublished: null,
-    dateModified: null,
+    datePublished: "2026-07-17T13:00:00+03:00",
+    dateModified: "2026-07-17T13:00:00+03:00",
     readTime: "9 دقائق قراءة",
     priority: 1,
-    isLive: false,
+    isLive: true,
   },
   {
     slug: "تكلفة-بناء-دور-واحد-200-متر",
@@ -217,11 +217,11 @@ export const futureClusterBlogs = [
       "كم تكلفة بناء 200 متر",
       "بناء بيت 200 متر السعودية",
     ],
-    datePublished: null,
-    dateModified: null,
+    datePublished: "2026-07-17T13:00:00+03:00",
+    dateModified: "2026-07-17T13:00:00+03:00",
     readTime: "10 دقائق قراءة",
     priority: 2,
-    isLive: false,
+    isLive: true,
   },
   {
     slug: "تكلفة-بناء-دور-واحد-300-متر",
@@ -241,11 +241,11 @@ export const futureClusterBlogs = [
       "تكلفة بناء بيت 300 متر",
       "سعر بناء 300 متر السعودية",
     ],
-    datePublished: null,
-    dateModified: null,
+    datePublished: "2026-07-17T13:00:00+03:00",
+    dateModified: "2026-07-17T13:00:00+03:00",
     readTime: "10 دقائق قراءة",
     priority: 3,
-    isLive: false,
+    isLive: true,
   },
   {
     slug: "سعر-متر-العظم-بالمواد-في-السعودية",
@@ -254,7 +254,8 @@ export const futureClusterBlogs = [
     title: "سعر متر العظم بالمواد في السعودية 2026: البنود وطريقة المقارنة",
     description:
       "دليل سعر متر العظم بالمواد في السعودية وما يشمله العرض من حفر وقواعد وخرسانة وحديد وبلك وعزل قبل التعاقد.",
-    excerpt: "يفكك عرض العظم بالمواد ويمنع مقارنة أسعار لا تشمل البنود نفسها.",
+    excerpt:
+      "يفكك عرض العظم بالمواد ويمنع مقارنة أسعار لا تشمل البنود نفسها.",
     href: "/سعر-متر-العظم-بالمواد-في-السعودية/",
     image:
       "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1000&q=88",
