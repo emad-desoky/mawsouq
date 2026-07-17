@@ -26,6 +26,14 @@ export const metadata = {
 const BLOG_ROUTE_FOLDER = "%d8%a7%d9%84%d9%85%d8%af%d9%88%d9%86%d8%a7%d8%aa";
 
 const blogDataBySlug = {
+  "تكلفة-بناء-دور-واحد": {
+    title: "تكلفة بناء دور واحد",
+    excerpt:
+      "تعرف على أهم عناصر تكلفة بناء دور واحد وكيفية تقدير الميزانية بشكل أفضل.",
+    category: "تكاليف البناء",
+    image:
+      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=90",
+  },
   "افضل-شركة-تشطيبات-في-السعودية": {
     title: "أفضل شركة تشطيبات في السعودية 2026",
     excerpt:

@@ -1,5 +1,8 @@
 import { Tajawal } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 import "./globals.css";
+
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -17,7 +20,7 @@ const tajawal = Tajawal({
 export const metadata = {
   title: "موسوق | منصة خدمات التصميم والبناء",
   description:
-    "موسوق منصة  تساعدك في التصميم المعماري والإنشائي وحساب تكلفة البناء واختيار مزودي الخدمات",
+    "موسوق منصة تساعدك في التصميم المعماري والإنشائي وحساب تكلفة البناء واختيار مزودي الخدمات",
   icons: {
     icon: "/mawsouq-logo.png",
     apple: "/mawsouq-logo.png",
@@ -27,8 +30,14 @@ export const metadata = {
 
 export const viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#071321" },
+    {
+      media: "(prefers-color-scheme: light)",
+      color: "#ffffff",
+    },
+    {
+      media: "(prefers-color-scheme: dark)",
+      color: "#071321",
+    },
   ],
 };
 
@@ -45,12 +54,16 @@ export default function RootLayout({ children }) {
           <SmoothScrollProvider>
             <Header />
             <LocalDomainLinkFix />
+
             {children}
+
             <Footer />
             <FloatingButtons />
             <SocialFloatingButtons />
           </SmoothScrollProvider>
         </ThemeProvider>
+
+        <GoogleAnalytics gaId="G-6RSM6BCKSM" />
       </body>
     </html>
   );

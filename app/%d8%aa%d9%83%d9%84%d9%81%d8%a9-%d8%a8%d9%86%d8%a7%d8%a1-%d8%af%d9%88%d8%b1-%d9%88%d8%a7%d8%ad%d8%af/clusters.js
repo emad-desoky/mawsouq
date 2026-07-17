@@ -1,0 +1,405 @@
+/**
+ * ============================================================================
+ * تكلفة بناء دور واحد — TOPIC CLUSTER DATA
+ * ============================================================================
+ *
+ * هذا هو الملف المركزي الوحيد الذي يتم تعديله عند توسيع هذا الـ Topic Cluster.
+ *
+ * لإضافة Cluster جديد:
+ * 1) أضف object جديدًا داخل futureClusterBlogs.
+ * 2) أنشئ الصفحة داخل app/_arabic-pages/<slug>/page.jsx.
+ * 3) غيّر isLive إلى true بعد نشر الصفحة فقط.
+ *
+ * صفحة الـ Pillar تعرض المقالات المنشورة تلقائيًا، ويمكن لأي صفحة Cluster استخدام
+ * getClusterBySlug و getSiblings و pillarUrl لبناء روابط UP وACROSS.
+ * ============================================================================
+ */
+
+export const SITE_URL = "https://mawsouq.com";
+export const BLOG_HUB = "/المدونات/";
+
+export const business = {
+  name: "موسوق",
+  legalName: "منصة موسوق للتصميم والبناء",
+  phone: "+201223328270",
+  displayPhone: "+20 122 332 8270",
+  whatsappNumber: "201223328270",
+  email: "info@mawsouq.com",
+  logo: `${SITE_URL}/mawsouq-logo.png`,
+  serviceArea: [
+    "الرياض",
+    "جدة",
+    "مكة المكرمة",
+    "المدينة المنورة",
+    "الدمام",
+    "الخبر",
+    "القصيم",
+    "الطائف",
+    "أبها",
+    "تبوك",
+  ],
+};
+
+export const routes = {
+  home: "/",
+  about: "/عن-الشركة/",
+  services: "/#services",
+  blogHub: BLOG_HUB,
+  contact: "/#contact",
+  calculator: "/#calculator",
+  architecture: "/التصميم-المعماري/",
+  structuralDesign: "/التصميم-الإنشائي/",
+  contractor: "/مقاول-بناء/",
+  villaBuild: "/بناء-فلة/",
+};
+
+export function whatsappLink(
+  message = "مرحبًا موسوق، أريد حساب تكلفة بناء دور واحد في السعودية.",
+) {
+  return `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(
+    message,
+  )}`;
+}
+
+export const pillar = {
+  slug: "تكلفة-بناء-دور-واحد",
+  category: "تكاليف البناء",
+  metaTitle: "تكلفة بناء دور واحد في السعودية 2026 | حاسبة وسعر المتر",
+  title: "تكلفة بناء دور واحد في السعودية 2026: سعر المتر وحاسبة تقديرية",
+  description:
+    "احسب تكلفة بناء دور واحد في السعودية 2026 للعظم أو تسليم المفتاح، مع سعر المتر، أمثلة لمساحات 100 و200 و300 متر، وبنود التكلفة الخفية.",
+  excerpt:
+    "دليل شامل لحساب ميزانية دور واحد من المساحة المبنية حتى العظم والتشطيب والاحتياطي المالي.",
+  image: "/تكلفه-بناء-دور-واحد.png",
+  imageAlt: "تكلفة بناء دور واحد في السعودية وحساب سعر المتر",
+  keywords: [
+    "تكلفة بناء دور واحد",
+    "كم تكلفة بناء دور واحد",
+    "سعر متر البناء في السعودية",
+    "تكلفة بناء دور واحد 200 متر",
+    "تكلفة بناء دور واحد 300 متر",
+    "تكلفة بناء دور واحد عظم",
+    "تكلفة بناء دور واحد تسليم مفتاح",
+    "حاسبة تكلفة البناء السعودية",
+  ],
+  datePublished: "2026-03-10T14:24:00+03:00",
+  dateModified: "2026-07-17T11:30:00+03:00",
+  readTime: "18 دقيقة قراءة",
+  author: {
+    name: "فريق موسوق",
+    role: "فريق محتوى التصميم والبناء",
+  },
+};
+
+export const pillarUrl = `${SITE_URL}/${encodeURIComponent(pillar.slug)}/`;
+
+export const existingStrongBlogs = [
+  {
+    slug: "بناء-فلة",
+    title: "تكلفة ومراحل بناء فلة في السعودية",
+    excerpt:
+      "دليل يوضح مراحل بناء الفلة من المخطط إلى العظم والتشطيب، ويساعد على فهم الصورة الأكبر للميزانية.",
+    category: "بناء فلل",
+    href: "/بناء-فلة/",
+    image:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=88",
+    imageAlt: "بناء فلة حديثة في السعودية",
+    anchor: "دليل تكلفة بناء فلة في السعودية",
+    isLive: true,
+  },
+  {
+    slug: "مقاول-بناء",
+    title: "كيف تختار مقاول بناء قبل توقيع العقد؟",
+    excerpt:
+      "معايير مقارنة المقاولين، قراءة عروض الأسعار، وجدول الدفعات قبل تنفيذ مشروع دور واحد.",
+    category: "اختيار مقاول",
+    href: "/مقاول-بناء/",
+    image:
+      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1000&q=88",
+    imageAlt: "مقاول بناء يشرف على مشروع سكني",
+    anchor: "طريقة اختيار مقاول بناء موثوق",
+    isLive: true,
+  },
+  {
+    slug: "حفر-الأرض",
+    title: "حفر الأرض وتجهيز الموقع قبل البناء",
+    excerpt:
+      "ما الذي يدخل في الحفر والردم ونقل المخلفات، ولماذا تختلف تكلفة الدور الأرضي عن إضافة دور علوي؟",
+    category: "تجهيز الموقع",
+    href: "/حفر-الأرض/",
+    image:
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=88",
+    imageAlt: "حفر أرض وتجهيز موقع بناء",
+    anchor: "تكلفة حفر الأرض وتجهيز الموقع",
+    isLive: true,
+  },
+  {
+    slug: "التصميم-المعماري",
+    title: "التصميم المعماري قبل حساب تكلفة البناء",
+    excerpt:
+      "المخطط المعماري يحدد المساحات والحركة والواجهات، ولذلك يؤثر مباشرة في كمية المواد وسعر التنفيذ.",
+    category: "تصميم معماري",
+    href: "/التصميم-المعماري/",
+    image:
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=88",
+    imageAlt: "مخطط وتصميم معماري لمنزل دور واحد",
+    anchor: "أهمية التصميم المعماري قبل البناء",
+    isLive: true,
+  },
+  {
+    slug: "التصميم-الإنشائي",
+    title: "التصميم الإنشائي وحساب الأساسات والهيكل",
+    excerpt:
+      "يوضح دور المخطط الإنشائي وفحص التربة والأحمال في ضبط تكلفة الخرسانة والحديد وتجنب التعديلات.",
+    category: "تصميم إنشائي",
+    href: "/التصميم-الإنشائي/",
+    image:
+      "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=88",
+    imageAlt: "تصميم إنشائي وهيكل خرساني لمبنى سكني",
+    anchor: "دليل التصميم الإنشائي للمنازل",
+    isLive: true,
+  },
+  {
+    slug: "افضل-شركة-تشطيبات-في-السعودية",
+    title: "أفضل شركة تشطيبات في السعودية: دليل الاختيار",
+    excerpt:
+      "بعد الانتهاء من العظم، استخدم هذا الدليل لمقارنة شركات التشطيب والبنود والمواد والعقود.",
+    category: "تشطيبات",
+    href: "/افضل-شركة-تشطيبات-في-السعودية/",
+    image:
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1000&q=88",
+    imageAlt: "تشطيبات منزل حديث في السعودية",
+    anchor: "اختيار شركة تشطيبات في السعودية",
+    isLive: true,
+  },
+];
+
+export const futureClusterBlogs = [
+  {
+    slug: "تكلفة-بناء-دور-واحد-100-متر",
+    category: "حسب المساحة",
+    metaTitle: "تكلفة بناء دور واحد 100 متر في السعودية 2026",
+    title: "تكلفة بناء دور واحد 100 متر في السعودية: عظم وتشطيب",
+    description:
+      "حساب تكلفة بناء دور واحد 100 متر في السعودية للعظم وتسليم المفتاح مع مثال ميزانية تفصيلي واحتياطي المصاريف.",
+    excerpt:
+      "مثال مخصص لمساحة بناء 100 متر مع نطاقات العظم والتشطيب والتكاليف غير المباشرة.",
+    href: "/تكلفة-بناء-دور-واحد-100-متر/",
+    image:
+      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1000&q=88",
+    imageAlt: "تكلفة بناء منزل دور واحد مساحة 100 متر",
+    keywords: [
+      "تكلفة بناء دور واحد 100 متر",
+      "كم يكلف بناء بيت 100 متر",
+      "تكلفة بناء 100 متر عظم",
+    ],
+    datePublished: null,
+    dateModified: null,
+    readTime: "9 دقائق قراءة",
+    priority: 1,
+    isLive: false,
+  },
+  {
+    slug: "تكلفة-بناء-دور-واحد-200-متر",
+    category: "حسب المساحة",
+    metaTitle: "تكلفة بناء دور واحد 200 متر في السعودية 2026",
+    title: "تكلفة بناء دور واحد 200 متر: جدول العظم وتسليم المفتاح",
+    description:
+      "اعرف تكلفة بناء دور واحد 200 متر في السعودية 2026 وسعر العظم والتشطيب مع مثال حساب واضح قبل طلب عرض سعر.",
+    excerpt:
+      "الاستعلام الأقرب للتحويل التجاري مع جدول ميزانية لمساحة 200 متر ومقارنة مستويات التنفيذ.",
+    href: "/تكلفة-بناء-دور-واحد-200-متر/",
+    image:
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=88",
+    imageAlt: "تكلفة بناء دور واحد مساحة 200 متر في السعودية",
+    keywords: [
+      "تكلفة بناء دور واحد 200 متر",
+      "كم تكلفة بناء 200 متر",
+      "بناء بيت 200 متر السعودية",
+    ],
+    datePublished: null,
+    dateModified: null,
+    readTime: "10 دقائق قراءة",
+    priority: 2,
+    isLive: false,
+  },
+  {
+    slug: "تكلفة-بناء-دور-واحد-300-متر",
+    category: "حسب المساحة",
+    metaTitle: "تكلفة بناء دور واحد 300 متر في السعودية 2026",
+    title: "تكلفة بناء دور واحد 300 متر في السعودية: أمثلة كاملة",
+    description:
+      "تقدير تكلفة بناء دور واحد 300 متر في السعودية للعظم والتشطيب الاقتصادي والمتوسط والفاخر مع بنود الميزانية.",
+    excerpt:
+      "دليل لمساحة 300 متر يشرح الفرق بين مساحة الأرض ومسطح البناء وكيفية إعداد الاحتياطي.",
+    href: "/تكلفة-بناء-دور-واحد-300-متر/",
+    image:
+      "https://images.unsplash.com/photo-1600585152915-d208bec867a1?auto=format&fit=crop&w=1000&q=88",
+    imageAlt: "تكلفة منزل دور واحد 300 متر",
+    keywords: [
+      "تكلفة بناء دور واحد 300 متر",
+      "تكلفة بناء بيت 300 متر",
+      "سعر بناء 300 متر السعودية",
+    ],
+    datePublished: null,
+    dateModified: null,
+    readTime: "10 دقائق قراءة",
+    priority: 3,
+    isLive: false,
+  },
+  {
+    slug: "سعر-متر-العظم-بالمواد-في-السعودية",
+    category: "العظم",
+    metaTitle: "سعر متر العظم بالمواد في السعودية 2026 | ما الذي يشمله؟",
+    title: "سعر متر العظم بالمواد في السعودية 2026: البنود وطريقة المقارنة",
+    description:
+      "دليل سعر متر العظم بالمواد في السعودية وما يشمله العرض من حفر وقواعد وخرسانة وحديد وبلك وعزل قبل التعاقد.",
+    excerpt: "يفكك عرض العظم بالمواد ويمنع مقارنة أسعار لا تشمل البنود نفسها.",
+    href: "/سعر-متر-العظم-بالمواد-في-السعودية/",
+    image:
+      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1000&q=88",
+    imageAlt: "سعر متر البناء عظم بالمواد في السعودية",
+    keywords: [
+      "سعر متر العظم بالمواد",
+      "تكلفة بناء العظم في السعودية",
+      "متر العظم كم يكلف",
+    ],
+    datePublished: null,
+    dateModified: null,
+    readTime: "11 دقيقة قراءة",
+    priority: 4,
+    isLive: false,
+  },
+  {
+    slug: "تكلفة-بناء-دور-واحد-تسليم-مفتاح",
+    category: "تسليم مفتاح",
+    metaTitle: "تكلفة بناء دور واحد تسليم مفتاح في السعودية 2026",
+    title: "تكلفة بناء دور واحد تسليم مفتاح: اقتصادي أم متوسط أم فاخر؟",
+    description:
+      "مقارنة تكلفة بناء دور واحد تسليم مفتاح في السعودية حسب مستوى التشطيب وما يجب أن يشمله العقد والسعر النهائي.",
+    excerpt:
+      "مقال تجاري يشرح الفروق الحقيقية بين الاقتصادي والمتوسط والفاخر بدل مقارنة رقم المتر فقط.",
+    href: "/تكلفة-بناء-دور-واحد-تسليم-مفتاح/",
+    image:
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=88",
+    imageAlt: "منزل دور واحد تسليم مفتاح في السعودية",
+    keywords: [
+      "تكلفة بناء دور واحد تسليم مفتاح",
+      "سعر متر تسليم مفتاح",
+      "تكلفة تشطيب دور واحد",
+    ],
+    datePublished: null,
+    dateModified: null,
+    readTime: "12 دقيقة قراءة",
+    priority: 5,
+    isLive: false,
+  },
+  {
+    slug: "تكلفة-اضافة-دور-فوق-منزل-قائم",
+    category: "تعلية مبنى",
+    metaTitle: "تكلفة إضافة دور فوق منزل قائم في السعودية 2026",
+    title: "تكلفة إضافة دور فوق منزل قائم: الفحص الإنشائي والرخصة والتنفيذ",
+    description:
+      "قبل تعلية المنزل، تعرف على تكلفة إضافة دور فوق منزل قائم في السعودية وأهمية فحص الأساسات والأعمدة والرخصة.",
+    excerpt:
+      "يغطي نية مختلفة تمامًا عن بناء دور أرضي جديد ويبدأ بالفحص الإنشائي قبل التسعير.",
+    href: "/تكلفة-اضافة-دور-فوق-منزل-قائم/",
+    image:
+      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1000&q=88",
+    imageAlt: "إضافة دور علوي فوق منزل قائم",
+    keywords: [
+      "تكلفة إضافة دور فوق منزل قائم",
+      "تكلفة بناء دور ثاني",
+      "فحص تحمل المبنى لإضافة دور",
+    ],
+    datePublished: null,
+    dateModified: null,
+    readTime: "11 دقيقة قراءة",
+    priority: 6,
+    isLive: false,
+  },
+  {
+    slug: "بنود-عقد-مقاول-بناء-دور-واحد",
+    category: "عقود",
+    metaTitle: "بنود عقد مقاول بناء دور واحد | قائمة فحص قبل التوقيع",
+    title: "بنود عقد مقاول بناء دور واحد التي تمنع التكاليف المفاجئة",
+    description:
+      "قائمة عملية لبنود عقد مقاول بناء دور واحد: نطاق العمل، المواد، الدفعات، المدة، التغييرات، الاستلام، والضمان.",
+    excerpt:
+      "Cluster داعم للتحويل يربط الحساب المالي بقرار التعاقد والعقد المكتوب.",
+    href: "/بنود-عقد-مقاول-بناء-دور-واحد/",
+    image:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=88",
+    imageAlt: "مراجعة عقد مقاول بناء دور واحد",
+    keywords: [
+      "عقد مقاول بناء دور واحد",
+      "بنود عقد البناء",
+      "جدول دفعات المقاول",
+    ],
+    datePublished: null,
+    dateModified: null,
+    readTime: "9 دقائق قراءة",
+    priority: 7,
+    isLive: false,
+  },
+  {
+    slug: "حاسبة-تكلفة-البناء-في-السعودية",
+    category: "حاسبة بناء",
+    metaTitle: "حاسبة تكلفة البناء في السعودية 2026 | عظم وتشطيب",
+    title: "حاسبة تكلفة البناء في السعودية: كيف تستخدم النتيجة بشكل صحيح؟",
+    description:
+      "استخدم حاسبة تكلفة البناء في السعودية لتقدير العظم والتشطيب، ثم تعلم كيف تحول الرقم إلى جدول كميات وعرض سعر قابل للمقارنة.",
+    excerpt:
+      "صفحة أداة مخصصة للاستعلامات الحسابية وتربط المستخدم مباشرة بالـ Pillar وعرض السعر.",
+    href: "/حاسبة-تكلفة-البناء-في-السعودية/",
+    image:
+      "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1000&q=88",
+    imageAlt: "حاسبة تكلفة البناء في السعودية",
+    keywords: [
+      "حاسبة تكلفة البناء السعودية",
+      "برنامج حساب تكلفة البناء",
+      "حساب تكلفة بناء منزل",
+    ],
+    datePublished: null,
+    dateModified: null,
+    readTime: "8 دقائق قراءة",
+    priority: 8,
+    isLive: false,
+  },
+];
+
+export function getClusterBySlug(slug) {
+  return futureClusterBlogs.find((cluster) => cluster.slug === slug) || null;
+}
+
+export function getSiblings(currentSlug, limit = 3) {
+  return futureClusterBlogs
+    .filter(
+      (cluster) => cluster.isLive === true && cluster.slug !== currentSlug,
+    )
+    .sort((a, b) => a.priority - b.priority)
+    .slice(0, limit);
+}
+
+export function getPublishedClusters() {
+  return futureClusterBlogs
+    .filter((cluster) => cluster.isLive === true)
+    .sort((a, b) => a.priority - b.priority);
+}
+
+export function getAllBlogEntries() {
+  return [
+    {
+      url: pillarUrl,
+      lastModified: pillar.dateModified,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    ...getPublishedClusters().map((cluster) => ({
+      url: `${SITE_URL}/${encodeURIComponent(cluster.slug)}/`,
+      lastModified: cluster.dateModified,
+      changeFrequency: "monthly",
+      priority: 0.78,
+    })),
+  ];
+}
