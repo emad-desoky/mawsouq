@@ -1,5 +1,4 @@
-const pageUrl =
-  "https://mawsouq.com/%d8%a7%d9%81%d8%b6%d9%84-%d9%85%d9%83%d8%aa%d8%a8-%d9%87%d9%86%d8%af%d8%b3%d9%8a-%d8%a8%d8%a7%d9%84%d8%af%d9%85%d8%a7%d9%85/";
+const pageUrl = "https://mawsouq.com/افضل-مكتب-هندسي-بالدمام/";
 
 const featuredImage =
   "https://mawsouq.com/wp-content/uploads/2026/11/engineer-office.png";
