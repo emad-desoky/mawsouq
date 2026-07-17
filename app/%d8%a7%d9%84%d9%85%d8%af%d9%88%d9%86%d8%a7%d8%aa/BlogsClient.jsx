@@ -52,10 +52,9 @@ function CarouselArrow({ direction, onClick }) {
 export default function BlogsClient({ blogs }) {
   const groups = useMemo(() => {
     return {
-      latest: blogs
-        .filter((blog) => ["افضل-شركة-تشطيبات-في-السعودية"].includes(blog.slug))
-        .slice(0, 6),
-
+      latest: latestArticleSlugs
+        .map((slug) => blogs.find((blog) => blog.slug === slug))
+        .filter(Boolean),
       featured: [
         blogs.find((blog) =>
           blog.href.includes("%d8%a8%d9%86%d8%a7%d8%a1-%d9%81%d9%84%d8%a9"),
