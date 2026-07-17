@@ -358,7 +358,13 @@ function getBlogsFromAppFolders() {
     };
   });
 
-  const manualBlogSlugs = ["افضل-شركة-تشطيبات-في-السعودية"];
+  const manualBlogSlugs = [
+    "تكلفة-بناء-دور-واحد-300-متر",
+    "تكلفة-بناء-دور-واحد-200-متر",
+    "تكلفة-بناء-دور-واحد-100-متر",
+    "تكلفة-بناء-دور-واحد",
+    "افضل-شركة-تشطيبات-في-السعودية",
+  ];
 
   const manualBlogs = manualBlogSlugs
     .filter((slug) => !folderBlogs.some((blog) => blog.slug === slug))
