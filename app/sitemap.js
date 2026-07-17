@@ -140,7 +140,7 @@ function shouldSkipDirectory(segment) {
   if (segment.startsWith(".")) return true;
 
   // Next.js private folders are not public routes.
-  // Rename app/_arabic-pages to app/(arabic-pages) if you want those pages live.
+  // Rename app/_arabic-pages to app/(arabic-pages) if you want tssshose pages live.
   if (segment.startsWith("_")) return true;
 
   if (SKIP_SEGMENTS.has(segment)) return true;
