@@ -45,7 +45,7 @@ const articles = [
   {
     title: "تكلفة بناء دور واحد",
     description: "خطوات البناء والتكلفة التفصيلية لبناء دور واحد في السعودية.",
-    href: "/%d8%aa%d9%83%d9%84%d9%81%d8%a9-%d8%a8%d9%86%d8%a7%d8%a1-%d8%af%d9%88%d8%b1-%d9%88%d8%a7%d8%ad%d8%af/",
+    href: "/تكلفة-بناء-دور-واحد/",
     category: "تكاليف البناء",
     image:
       "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1600&q=90",

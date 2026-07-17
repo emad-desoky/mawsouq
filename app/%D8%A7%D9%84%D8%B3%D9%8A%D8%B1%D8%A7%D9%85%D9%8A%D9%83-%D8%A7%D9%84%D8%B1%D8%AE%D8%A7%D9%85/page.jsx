@@ -229,7 +229,7 @@ export default function CeramicMarblePage() {
             </a>
 
             <a
-              href="https://mawsouq.com/%d8%aa%d9%83%d9%84%d9%81%d8%a9-%d8%a8%d9%86%d8%a7%d8%a1-%d8%af%d9%88%d8%b1-%d9%88%d8%a7%d8%ad%d8%af/"
+              href="https://mawsouq.com/تكلفة-بناء-دور-واحد/"
               target="_blank"
               rel="noopener noreferrer"
             >
