@@ -15,10 +15,6 @@ function hasEncoded(value) {
   return /%[0-9a-fA-F]{2}/.test(value);
 }
 
-function encodeSegment(segment) {
-  return encodeURIComponent(segment);
-}
-
 function toImportPath(fromFile, toFile) {
   let relative = path
     .relative(path.dirname(fromFile), toFile)
@@ -59,8 +55,12 @@ function findExportedNames(sourceCode) {
 }
 
 function generateWrapper(sourcePageFile, routeParts) {
-  const encodedParts = routeParts.map(encodeSegment);
-  const outputDir = path.join(generatedRoot, ...encodedParts);
+  // IMPORTANT:
+  // Keep generated filesystem segments as real Arabic text.
+  // Do not encodeURIComponent() the folder names here.
+  // Encoding here causes Vercel/Next to encode them again in build artifacts,
+  // which can create ENAMETOOLONG paths for long Arabic slugs.
+  const outputDir = path.join(generatedRoot, ...routeParts);
   const outputPageFile = path.join(outputDir, "page.jsx");
 
   fs.mkdirSync(outputDir, { recursive: true });
@@ -110,6 +110,7 @@ function walk(dir, routeParts = []) {
   }
 }
 
+// Remove every stale encoded wrapper before regenerating clean Arabic folders.
 fs.rmSync(generatedRoot, { recursive: true, force: true });
 
 if (!fs.existsSync(sourceRoot)) {
