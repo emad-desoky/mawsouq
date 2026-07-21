@@ -4,13 +4,10 @@ import path from "path";
 export const dynamic = "force-static";
 
 const SITE_URL = "https://mawsouq.com";
-
-// Since the old WordPress URLs mostly had trailing slash.
-// IMPORTANT: if you do NOT add trailingSlash: true in next.config.js,
-// change this to false.
 const USE_TRAILING_SLASH = true;
 
 const APP_DIR = path.join(process.cwd(), "app");
+const ARABIC_SOURCE_DIR = path.join(APP_DIR, "_arabic-pages");
 
 const PAGE_FILES = new Set(["page.js", "page.jsx", "page.ts", "page.tsx"]);
 
@@ -22,12 +19,74 @@ const SKIP_SEGMENTS = new Set([
   "register",
 ]);
 
+/**
+ * Important Arabic pages added manually as a safety layer.
+ *
+ * This guarantees that:
+ * - Private source folders inside _arabic-pages are represented.
+ * - The long dynamic Arabic route appears in the sitemap.
+ * - Generated wrapper discovery is not the only sitemap source.
+ *
+ * The Map used later prevents duplicates.
+ */
+const MANUAL_ARABIC_ROUTES = [
+  {
+    route: "/تكلفة-بناء-دور-واحد",
+    sourceDirectory: "تكلفة-بناء-دور-واحد",
+  },
+  {
+    route: "/تكلفة-بناء-دور-واحد-100-متر",
+    sourceDirectory: "تكلفة-بناء-دور-واحد-100-متر",
+  },
+  {
+    route: "/تكلفة-بناء-دور-واحد-200-متر",
+    sourceDirectory: "تكلفة-بناء-دور-واحد-200-متر",
+  },
+  {
+    route: "/تكلفة-بناء-دور-واحد-250-متر",
+    sourceDirectory: "تكلفة-بناء-دور-واحد-250-متر",
+  },
+  {
+    route: "/تكلفة-بناء-دور-واحد-300-متر",
+    sourceDirectory: "تكلفة-بناء-دور-واحد-300-متر",
+  },
+  {
+    route: "/تكلفة-بناء-دور-واحد-500-متر",
+    sourceDirectory: "تكلفة-بناء-دور-واحد-500-متر",
+  },
+  {
+    route: "/تكلفة-بناء-دور-واحد-تسليم-مفتاح",
+    sourceDirectory: "تكلفة-بناء-دور-واحد-تسليم-مفتاح",
+  },
+  {
+    route: "/سعر-متر-العظم-بالمواد-في-السعودية",
+    sourceDirectory: "سعر-متر-العظم-بالمواد-في-السعودية",
+  },
+];
+
 const HIGH_PRIORITY_ROUTES = [
   "/",
+
+  // Main pages
+  "/المدونات",
+  "/عن-الشركة",
+  "/خدماتنا",
+  "/اتصل-بنا",
+
+  // Pillar and building-cost clusters
+  "/تكلفة-بناء-دور-واحد",
+  "/تكلفة-بناء-دور-واحد-100-متر",
+  "/تكلفة-بناء-دور-واحد-200-متر",
+  "/تكلفة-بناء-دور-واحد-250-متر",
+  "/تكلفة-بناء-دور-واحد-300-متر",
+  "/تكلفة-بناء-دور-واحد-500-متر",
+  "/تكلفة-بناء-دور-واحد-تسليم-مفتاح",
+  "/سعر-متر-العظم-بالمواد-في-السعودية",
+
+  // Strong existing SEO pages
   "/افضل-شركة-تشطيبات-في-السعودية",
   "/تصاميم-استراحات",
   "/التصميم-المعماري",
-  "/تكلفة-بناء-دور-واحد",
   "/حفر-الأرض",
   "/باركيه",
   "/بناء-فلة",
@@ -60,19 +119,11 @@ const HIGH_PRIORITY_ROUTES = [
   "/تصميم-وتنفيذ-الهياكل-الخرسانية-خدمات",
   "/مكتبة-الوثائق",
   "/تصميم-واجهات-مودرن",
-  "/المدونات",
-  "/عن-الشركة",
-  "/خدماتنا",
-  "/اتصل-بنا",
+
+  // Legal pages
   "/سياسة-الخصوصية",
   "/شروط-الاستخدام",
 ];
-
-const HIGH_PRIORITY_SET = new Set(
-  HIGH_PRIORITY_ROUTES.map((route) =>
-    stripTrailingSlash(normalizeRoute(route)),
-  ),
-);
 
 function safeDecode(value) {
   try {
@@ -85,9 +136,13 @@ function safeDecode(value) {
 function decodeUntilStable(value) {
   let output = value;
 
-  for (let i = 0; i < 3; i += 1) {
+  for (let attempt = 0; attempt < 3; attempt += 1) {
     const decoded = safeDecode(output);
-    if (decoded === output) break;
+
+    if (decoded === output) {
+      break;
+    }
+
     output = decoded;
   }
 
@@ -95,18 +150,40 @@ function decodeUntilStable(value) {
 }
 
 function stripTrailingSlash(value) {
-  if (value === "/") return "/";
+  if (value === "/") {
+    return "/";
+  }
+
   return value.replace(/\/+$/, "");
 }
 
 function withTrailingSlash(value) {
-  if (!USE_TRAILING_SLASH) return value;
-  if (value === "/") return "/";
+  if (!USE_TRAILING_SLASH) {
+    return value;
+  }
+
+  if (value === "/") {
+    return "/";
+  }
+
   return value.endsWith("/") ? value : `${value}/`;
 }
 
+/**
+ * Converts every route to one consistent encoded format.
+ *
+ * Examples:
+ *
+ * /تكلفة-بناء-دور-واحد
+ * becomes:
+ * /%D8%AA%D9%83%D9%84%D9%81%D8%A9...
+ *
+ * Already encoded routes are decoded first and encoded only once.
+ */
 function normalizeRoute(route) {
-  if (!route || route === "/") return "/";
+  if (!route || route === "/") {
+    return "/";
+  }
 
   const cleaned = route
     .replace(/^https?:\/\/[^/]+/i, "")
@@ -122,6 +199,12 @@ function normalizeRoute(route) {
   return `/${segments.join("/")}`;
 }
 
+const HIGH_PRIORITY_SET = new Set(
+  HIGH_PRIORITY_ROUTES.map((route) =>
+    stripTrailingSlash(normalizeRoute(route)),
+  ),
+);
+
 function isRouteGroup(segment) {
   return segment.startsWith("(") && segment.endsWith(")");
 }
@@ -135,33 +218,47 @@ function isDynamicRoute(segment) {
 }
 
 function shouldSkipDirectory(segment) {
-  if (!segment) return true;
-  if (segment.startsWith(".")) return true;
+  if (!segment) {
+    return true;
+  }
 
-  // Next.js private folders are not public routes.
-  // Rename app/_arabic-pages to app/(arabic-pages) if you want tssshose pages live.
-  if (segment.startsWith("_")) return true;
+  if (segment.startsWith(".")) {
+    return true;
+  }
 
-  if (SKIP_SEGMENTS.has(segment)) return true;
-  if (isDynamicRoute(segment)) return true;
+  // Private implementation folders do not create public routes.
+  if (segment.startsWith("_")) {
+    return true;
+  }
+
+  if (SKIP_SEGMENTS.has(segment)) {
+    return true;
+  }
+
+  // Dynamic routes are added manually when needed.
+  if (isDynamicRoute(segment)) {
+    return true;
+  }
 
   return false;
 }
 
-function hasPageFile(items) {
+function findPageFile(items) {
   return items.find((item) => item.isFile() && PAGE_FILES.has(item.name));
 }
 
 function getPriority(route) {
   const cleanRoute = stripTrailingSlash(normalizeRoute(route));
 
-  if (cleanRoute === "/") return 1;
+  if (cleanRoute === "/") {
+    return 1;
+  }
 
   if (HIGH_PRIORITY_SET.has(cleanRoute)) {
     return 0.95;
   }
 
-  const decoded = safeDecode(cleanRoute);
+  const decoded = decodeUntilStable(cleanRoute);
 
   if (
     decoded.includes("المدونات") ||
@@ -189,10 +286,15 @@ function getPriority(route) {
 function getChangeFrequency(route) {
   const cleanRoute = stripTrailingSlash(normalizeRoute(route));
 
-  if (cleanRoute === "/") return "daily";
-  if (HIGH_PRIORITY_SET.has(cleanRoute)) return "weekly";
+  if (cleanRoute === "/") {
+    return "daily";
+  }
 
-  const decoded = safeDecode(cleanRoute);
+  if (HIGH_PRIORITY_SET.has(cleanRoute)) {
+    return "weekly";
+  }
+
+  const decoded = decodeUntilStable(cleanRoute);
 
   if (
     decoded.includes("المدونات") ||
@@ -206,41 +308,76 @@ function getChangeFrequency(route) {
   return "monthly";
 }
 
+function getManualRouteLastModified(sourceDirectory) {
+  const directory = path.join(ARABIC_SOURCE_DIR, sourceDirectory);
+
+  if (!fs.existsSync(directory)) {
+    return new Date("2026-07-21T00:00:00.000Z");
+  }
+
+  const files = fs.readdirSync(directory, {
+    withFileTypes: true,
+  });
+
+  const pageFile = findPageFile(files);
+
+  if (!pageFile) {
+    return new Date("2026-07-21T00:00:00.000Z");
+  }
+
+  const pagePath = path.join(directory, pageFile.name);
+
+  return fs.statSync(pagePath).mtime;
+}
+
 function collectRoutes() {
   const routes = new Map();
 
   function addRoute(route, lastModified) {
     const normalized = normalizeRoute(route);
 
-    if (!normalized) return;
+    if (!normalized) {
+      return;
+    }
 
     routes.set(normalized, {
       route: normalized,
-      lastModified,
+      lastModified:
+        lastModified instanceof Date ? lastModified : new Date(lastModified),
     });
   }
 
   function walk(directory, routeParts = []) {
-    if (!fs.existsSync(directory)) return;
+    if (!fs.existsSync(directory)) {
+      return;
+    }
 
-    const items = fs.readdirSync(directory, { withFileTypes: true });
-    const pageFile = hasPageFile(items);
+    const items = fs.readdirSync(directory, {
+      withFileTypes: true,
+    });
+
+    const pageFile = findPageFile(items);
 
     if (pageFile) {
       const route = routeParts.length === 0 ? "/" : `/${routeParts.join("/")}`;
 
       const pagePath = path.join(directory, pageFile.name);
+
       const stats = fs.statSync(pagePath);
 
       addRoute(route, stats.mtime);
     }
 
     for (const item of items) {
-      if (!item.isDirectory()) continue;
+      if (!item.isDirectory()) {
+        continue;
+      }
 
       const segment = item.name;
 
-      if (shouldSkipDirectory(segment)) continue;
+      if (shouldSkipDirectory(segment)) {
+        continue;
+      }
 
       const nextRouteParts =
         isRouteGroup(segment) || isParallelRoute(segment)
@@ -251,19 +388,36 @@ function collectRoutes() {
     }
   }
 
+  // Discover normal static routes and generated wrappers.
   walk(APP_DIR);
 
-  return Array.from(routes.values()).sort((a, b) => {
-    if (a.route === "/") return -1;
-    if (b.route === "/") return 1;
+  // Guarantee inclusion of the pillar and every cost cluster.
+  for (const item of MANUAL_ARABIC_ROUTES) {
+    addRoute(item.route, getManualRouteLastModified(item.sourceDirectory));
+  }
 
-    const aHigh = HIGH_PRIORITY_SET.has(stripTrailingSlash(a.route));
-    const bHigh = HIGH_PRIORITY_SET.has(stripTrailingSlash(b.route));
+  return Array.from(routes.values()).sort((first, second) => {
+    if (first.route === "/") {
+      return -1;
+    }
 
-    if (aHigh && !bHigh) return -1;
-    if (!aHigh && bHigh) return 1;
+    if (second.route === "/") {
+      return 1;
+    }
 
-    return a.route.localeCompare(b.route, "ar");
+    const firstHigh = HIGH_PRIORITY_SET.has(stripTrailingSlash(first.route));
+
+    const secondHigh = HIGH_PRIORITY_SET.has(stripTrailingSlash(second.route));
+
+    if (firstHigh && !secondHigh) {
+      return -1;
+    }
+
+    if (!firstHigh && secondHigh) {
+      return 1;
+    }
+
+    return first.route.localeCompare(second.route, "ar");
   });
 }
 
