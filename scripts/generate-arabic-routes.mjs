@@ -11,11 +11,14 @@ const longRouteRoot = path.join(appDir, "(generated-arabic-long-route)");
 const PAGE_FILES = ["page.js", "page.jsx", "page.ts", "page.tsx"];
 
 /**
- * These slugs keep their exact public URL, but use one short dynamic
- * filesystem route to avoid Vercel's ENAMETOOLONG build error.
+ * Keep long Arabic URLs exactly as they are publicly.
  *
- * No redirect is created.
- * The slug and canonical remain unchanged.
+ * These pages use one short dynamic filesystem route so Vercel does not
+ * generate an excessively long encoded filename.
+ *
+ * No redirect.
+ * No slug change.
+ * No canonical change.
  */
 const LONG_DYNAMIC_SLUGS = new Set(["سعر-متر-العظم-بالمواد-في-السعودية"]);
 
@@ -71,6 +74,15 @@ function findExportedNames(sourceCode) {
   return names;
 }
 
+/**
+ * Generates the normal encoded wrapper folders used by the existing website.
+ *
+ * Example source:
+ * app/_arabic-pages/تكلفة-بناء-دور-واحد/page.jsx
+ *
+ * Generated wrapper:
+ * app/(generated-arabic-routes)/%D8%AA%D9%83.../page.jsx
+ */
 function generateEncodedWrapper(sourcePageFile, routeParts) {
   const encodedParts = routeParts.map(encodeSegment);
 
@@ -101,6 +113,15 @@ function generateEncodedWrapper(sourcePageFile, routeParts) {
   console.log(`Generated encoded Arabic route: /${routeParts.join("/")}`);
 }
 
+/**
+ * Generates one dynamic route for unusually long Arabic slugs.
+ *
+ * Public URL remains:
+ * /سعر-متر-العظم-بالمواد-في-السعودية/
+ *
+ * Filesystem route remains short:
+ * app/(generated-arabic-long-route)/[slug]/page.jsx
+ */
 function generateLongDynamicRoute(longRoutes) {
   if (longRoutes.length === 0) {
     return;
@@ -127,28 +148,40 @@ function generateLongDynamicRoute(longRoutes) {
     );
 
     metadataCases.push(`
-    case ${JSON.stringify(route.slug)}:
+    case ${JSON.stringify(route.slug)}: {
+      const normalizedParams = {
+        ...resolvedParams,
+        slug: resolvedSlug,
+      };
+
       if (
         typeof Module${index}.generateMetadata ===
         "function"
       ) {
         return Module${index}.generateMetadata({
-          params,
+          params: Promise.resolve(normalizedParams),
           parent,
         });
       }
 
       return Module${index}.metadata ?? {};
+    }
 `);
 
     pageCases.push(`
-    case ${JSON.stringify(route.slug)}:
+    case ${JSON.stringify(route.slug)}: {
+      const normalizedParams = {
+        ...resolvedParams,
+        slug: resolvedSlug,
+      };
+
       return (
         <Page${index}
-          params={params}
+          params={Promise.resolve(normalizedParams)}
           searchParams={searchParams}
         />
       );
+    }
 `);
   });
 
@@ -156,13 +189,51 @@ function generateLongDynamicRoute(longRoutes) {
 
 export const dynamic = "force-dynamic";
 
+/**
+ * Next.js or Vercel may provide an Arabic parameter as:
+ *
+ * Arabic:
+ * سعر-متر-العظم-بالمواد-في-السعودية
+ *
+ * Encoded:
+ * %D8%B3%D8%B9%D8%B1...
+ *
+ * Or double encoded:
+ * %25D8%25B3%25D8%25B9...
+ *
+ * Decode repeatedly before matching the route.
+ */
+function decodeRouteSlug(value = "") {
+  let result = String(value);
+
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    try {
+      const decoded = decodeURIComponent(result);
+
+      if (decoded === result) {
+        break;
+      }
+
+      result = decoded;
+    } catch {
+      break;
+    }
+  }
+
+  return result.normalize("NFC");
+}
+
 export async function generateMetadata({
   params,
   parent,
 }) {
   const resolvedParams = await params;
 
-  switch (resolvedParams?.slug) {
+  const resolvedSlug = decodeRouteSlug(
+    resolvedParams?.slug,
+  );
+
+  switch (resolvedSlug) {
 ${metadataCases.join("\n")}
     default:
       return {};
@@ -175,7 +246,11 @@ export default async function LongArabicRoute({
 }) {
   const resolvedParams = await params;
 
-  switch (resolvedParams?.slug) {
+  const resolvedSlug = decodeRouteSlug(
+    resolvedParams?.slug,
+  );
+
+  switch (resolvedSlug) {
 ${pageCases.join("\n")}
     default:
       notFound();
@@ -221,9 +296,17 @@ function walk(directory, routeParts = [], longRoutes = []) {
   }
 
   for (const item of items) {
-    if (!item.isDirectory()) continue;
-    if (item.name.startsWith("_")) continue;
-    if (item.name.startsWith("@")) continue;
+    if (!item.isDirectory()) {
+      continue;
+    }
+
+    if (item.name.startsWith("_")) {
+      continue;
+    }
+
+    if (item.name.startsWith("@")) {
+      continue;
+    }
 
     if (item.name.startsWith("(") && item.name.endsWith(")")) {
       continue;
@@ -240,8 +323,10 @@ function walk(directory, routeParts = [], longRoutes = []) {
 }
 
 /**
- * Remove only generated wrappers.
- * The real articles in app/_arabic-pages are never deleted.
+ * Delete generated wrappers only.
+ *
+ * This never deletes the real articles inside:
+ * app/_arabic-pages/
  */
 fs.rmSync(generatedRoot, {
   recursive: true,
