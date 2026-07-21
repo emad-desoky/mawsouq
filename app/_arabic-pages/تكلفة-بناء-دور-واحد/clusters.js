@@ -83,7 +83,7 @@ export const pillar = {
     "حاسبة تكلفة البناء السعودية",
   ],
   datePublished: "2026-03-10T14:24:00+03:00",
-  dateModified: "2026-07-17T11:30:00+03:00",
+  dateModified: "2026-07-21T10:40:00+03:00",
   readTime: "18 دقيقة قراءة",
   author: {
     name: "فريق موسوق",
@@ -193,6 +193,11 @@ export const futureClusterBlogs = [
       "كم يكلف بناء بيت 100 متر",
       "تكلفة بناء 100 متر عظم",
     ],
+    relatedSlugs: [
+      "تكلفة-بناء-دور-واحد-200-متر",
+      "سعر-متر-العظم-بالمواد-في-السعودية",
+      "تكلفة-بناء-دور-واحد-تسليم-مفتاح",
+    ],
     datePublished: "2026-07-17T13:00:00+03:00",
     dateModified: "2026-07-17T13:00:00+03:00",
     readTime: "9 دقائق قراءة",
@@ -216,6 +221,11 @@ export const futureClusterBlogs = [
       "تكلفة بناء دور واحد 200 متر",
       "كم تكلفة بناء 200 متر",
       "بناء بيت 200 متر السعودية",
+    ],
+    relatedSlugs: [
+      "تكلفة-بناء-دور-واحد-250-متر",
+      "سعر-متر-العظم-بالمواد-في-السعودية",
+      "تكلفة-بناء-دور-واحد-تسليم-مفتاح",
     ],
     datePublished: "2026-07-17T13:00:00+03:00",
     dateModified: "2026-07-17T13:00:00+03:00",
@@ -241,10 +251,75 @@ export const futureClusterBlogs = [
       "تكلفة بناء بيت 300 متر",
       "سعر بناء 300 متر السعودية",
     ],
+    relatedSlugs: [
+      "تكلفة-بناء-دور-واحد-250-متر",
+      "تكلفة-بناء-دور-واحد-500-متر",
+      "تكلفة-بناء-دور-واحد-تسليم-مفتاح",
+    ],
     datePublished: "2026-07-17T13:00:00+03:00",
     dateModified: "2026-07-17T13:00:00+03:00",
     readTime: "10 دقائق قراءة",
     priority: 3,
+    isLive: true,
+  },
+  {
+    slug: "تكلفة-بناء-دور-واحد-250-متر",
+    category: "حسب المساحة",
+    metaTitle: "تكلفة بناء دور واحد 250 متر في السعودية 2026",
+    title: "تكلفة بناء دور واحد 250 متر في السعودية: عظم وتشطيب",
+    description:
+      "احسب تكلفة بناء دور واحد 250 متر في السعودية 2026 للعظم والتشطيب الاقتصادي والمتوسط والفاخر مع احتياطي الميزانية وبنود عرض السعر.",
+    excerpt:
+      "حسبة مطلوبة لمساحة 250 متر مع جدول العظم والتشطيب وميزانية آمنة قبل التواصل مع المقاولين.",
+    href: "/تكلفة-بناء-دور-واحد-250-متر/",
+    image: "/images/blog/one-floor-cost-250m-saudi-2026.webp",
+    imageAlt: "تكلفة بناء دور واحد 250 متر في السعودية",
+    keywords: [
+      "تكلفة بناء دور واحد 250 متر",
+      "تكلفة بناء منزل 250 متر",
+      "تكلفة بناء منزل 250 متر في السعودية",
+      "كم يكلف بناء 250 متر",
+    ],
+    relatedSlugs: [
+      "تكلفة-بناء-دور-واحد-200-متر",
+      "تكلفة-بناء-دور-واحد-300-متر",
+      "سعر-متر-العظم-بالمواد-في-السعودية",
+      "تكلفة-بناء-دور-واحد-تسليم-مفتاح",
+    ],
+    datePublished: "2026-07-21T10:00:00+03:00",
+    dateModified: "2026-07-21T10:00:00+03:00",
+    readTime: "12 دقيقة قراءة",
+    priority: 4,
+    isLive: true,
+  },
+  {
+    slug: "تكلفة-بناء-دور-واحد-500-متر",
+    category: "حسب المساحة",
+    metaTitle: "تكلفة بناء دور واحد 500 متر في السعودية 2026",
+    title: "تكلفة بناء دور واحد 500 متر في السعودية: عظم وتشطيب",
+    description:
+      "تقدير تكلفة بناء دور واحد 500 متر في السعودية للعظم وتسليم المفتاح مع الاحتياطي والأعمال الخارجية وخطة مقارنة عروض المقاولين.",
+    excerpt:
+      "صفحة عالية القيمة للمشاريع الكبيرة توضح ميزانية 500 متر والعظم والتشطيب والتدفق النقدي.",
+    href: "/تكلفة-بناء-دور-واحد-500-متر/",
+    image: "/images/blog/one-floor-cost-500m-saudi-2026.webp",
+    imageAlt: "تكلفة بناء دور واحد مساحة 500 متر في السعودية",
+    keywords: [
+      "كم تكلفة بناء دور واحد مساحة 500",
+      "تكلفة بناء دور واحد 500 متر",
+      "كم تكلفة بناء فيلا 500 متر",
+      "تكلفة بناء 500 متر عظم",
+    ],
+    relatedSlugs: [
+      "تكلفة-بناء-دور-واحد-300-متر",
+      "تكلفة-بناء-دور-واحد-250-متر",
+      "سعر-متر-العظم-بالمواد-في-السعودية",
+      "تكلفة-بناء-دور-واحد-تسليم-مفتاح",
+    ],
+    datePublished: "2026-07-21T10:10:00+03:00",
+    dateModified: "2026-07-21T10:10:00+03:00",
+    readTime: "13 دقيقة قراءة",
+    priority: 5,
     isLive: true,
   },
   {
@@ -257,19 +332,24 @@ export const futureClusterBlogs = [
     excerpt:
       "يفكك عرض العظم بالمواد ويمنع مقارنة أسعار لا تشمل البنود نفسها.",
     href: "/سعر-متر-العظم-بالمواد-في-السعودية/",
-    image:
-      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1000&q=88",
+    image: "/images/blog/skeleton-with-materials-saudi-2026.webp",
     imageAlt: "سعر متر البناء عظم بالمواد في السعودية",
     keywords: [
       "سعر متر العظم بالمواد",
       "تكلفة بناء العظم في السعودية",
       "متر العظم كم يكلف",
     ],
-    datePublished: null,
-    dateModified: null,
-    readTime: "11 دقيقة قراءة",
-    priority: 4,
-    isLive: false,
+    relatedSlugs: [
+      "تكلفة-بناء-دور-واحد-تسليم-مفتاح",
+      "تكلفة-بناء-دور-واحد-250-متر",
+      "تكلفة-بناء-دور-واحد-500-متر",
+      "تكلفة-بناء-دور-واحد-200-متر",
+    ],
+    datePublished: "2026-07-21T10:20:00+03:00",
+    dateModified: "2026-07-21T10:20:00+03:00",
+    readTime: "13 دقيقة قراءة",
+    priority: 6,
+    isLive: true,
   },
   {
     slug: "تكلفة-بناء-دور-واحد-تسليم-مفتاح",
@@ -281,19 +361,24 @@ export const futureClusterBlogs = [
     excerpt:
       "مقال تجاري يشرح الفروق الحقيقية بين الاقتصادي والمتوسط والفاخر بدل مقارنة رقم المتر فقط.",
     href: "/تكلفة-بناء-دور-واحد-تسليم-مفتاح/",
-    image:
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=88",
+    image: "/images/blog/turnkey-one-floor-saudi-2026.webp",
     imageAlt: "منزل دور واحد تسليم مفتاح في السعودية",
     keywords: [
       "تكلفة بناء دور واحد تسليم مفتاح",
       "سعر متر تسليم مفتاح",
       "تكلفة تشطيب دور واحد",
     ],
-    datePublished: null,
-    dateModified: null,
-    readTime: "12 دقيقة قراءة",
-    priority: 5,
-    isLive: false,
+    relatedSlugs: [
+      "سعر-متر-العظم-بالمواد-في-السعودية",
+      "تكلفة-بناء-دور-واحد-250-متر",
+      "تكلفة-بناء-دور-واحد-500-متر",
+      "تكلفة-بناء-دور-واحد-200-متر",
+    ],
+    datePublished: "2026-07-21T10:30:00+03:00",
+    dateModified: "2026-07-21T10:30:00+03:00",
+    readTime: "14 دقيقة قراءة",
+    priority: 7,
+    isLive: true,
   },
   {
     slug: "تكلفة-اضافة-دور-فوق-منزل-قائم",
@@ -316,7 +401,7 @@ export const futureClusterBlogs = [
     datePublished: null,
     dateModified: null,
     readTime: "11 دقيقة قراءة",
-    priority: 6,
+    priority: 8,
     isLive: false,
   },
   {
@@ -340,7 +425,7 @@ export const futureClusterBlogs = [
     datePublished: null,
     dateModified: null,
     readTime: "9 دقائق قراءة",
-    priority: 7,
+    priority: 9,
     isLive: false,
   },
   {
@@ -364,7 +449,7 @@ export const futureClusterBlogs = [
     datePublished: null,
     dateModified: null,
     readTime: "8 دقائق قراءة",
-    priority: 8,
+    priority: 10,
     isLive: false,
   },
 ];
@@ -374,12 +459,22 @@ export function getClusterBySlug(slug) {
 }
 
 export function getSiblings(currentSlug, limit = 3) {
-  return futureClusterBlogs
+  const current = getClusterBySlug(currentSlug);
+  const published = futureClusterBlogs
     .filter(
       (cluster) => cluster.isLive === true && cluster.slug !== currentSlug,
     )
-    .sort((a, b) => a.priority - b.priority)
-    .slice(0, limit);
+    .sort((a, b) => a.priority - b.priority);
+
+  const curated = (current?.relatedSlugs || [])
+    .map((slug) => published.find((cluster) => cluster.slug === slug))
+    .filter(Boolean);
+
+  const fallback = published.filter(
+    (cluster) => !curated.some((item) => item.slug === cluster.slug),
+  );
+
+  return [...curated, ...fallback].slice(0, limit);
 }
 
 export function getPublishedClusters() {
