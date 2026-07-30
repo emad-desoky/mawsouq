@@ -1,7 +1,7 @@
 import { Tajawal } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
-import "./globals.css";
+import "../globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/Header";
