@@ -1,90 +1,29 @@
 import { notFound } from "next/navigation";
-import Page0, * as Module0 from "@/app/_arabic-pages/سعر-متر-العظم-بالمواد-في-السعودية/page.jsx";
+import LongArabicPage, { metadata as sourceMetadata } from "@/app/_arabic-pages/سعر-متر-العظم-بالمواد-في-السعودية/page.jsx";
 
+const LONG_ROUTE_SLUG = "سعر-متر-العظم-بالمواد-في-السعودية";
+
+// Keep the public Arabic URL unchanged, but render it through one short
+// filesystem function so Vercel does not create an overlong prerender path.
 export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+export const metadata = sourceMetadata;
 
-/**
- * Next.js or Vercel may provide an Arabic parameter as:
- *
- * Arabic:
- * سعر-متر-العظم-بالمواد-في-السعودية
- *
- * Encoded:
- * %D8%B3%D8%B9%D8%B1...
- *
- * Or double encoded:
- * %25D8%25B3%25D8%25B9...
- *
- * Decode repeatedly before matching the route.
- */
-function decodeRouteSlug(value = "") {
-  let result = String(value);
-
-  for (let attempt = 0; attempt < 3; attempt += 1) {
-    try {
-      const decoded = decodeURIComponent(result);
-
-      if (decoded === result) {
-        break;
-      }
-
-      result = decoded;
-    } catch {
-      break;
-    }
-  }
-
-  return result.normalize("NFC");
-}
-
-export async function generateMetadata({ params, parent }) {
+export default async function LongArabicRoute({ params }) {
   const resolvedParams = await params;
+  const rawSlug = resolvedParams?.slug || "";
 
-  const resolvedSlug = decodeRouteSlug(resolvedParams?.slug);
-
-  switch (resolvedSlug) {
-    case "سعر-متر-العظم-بالمواد-في-السعودية": {
-      const normalizedParams = {
-        ...resolvedParams,
-        slug: resolvedSlug,
-      };
-
-      if (typeof Module0.generateMetadata === "function") {
-        return Module0.generateMetadata({
-          params: Promise.resolve(normalizedParams),
-          parent,
-        });
-      }
-
-      return Module0.metadata ?? {};
-    }
-
-    default:
-      return {};
+  let decodedSlug = rawSlug;
+  try {
+    decodedSlug = decodeURIComponent(rawSlug);
+  } catch {
+    // Next.js normally supplies a decoded param. Keep the raw value if a
+    // malformed escape sequence is ever received.
   }
-}
 
-export default async function LongArabicRoute({ params, searchParams }) {
-  const resolvedParams = await params;
-
-  const resolvedSlug = decodeRouteSlug(resolvedParams?.slug);
-
-  switch (resolvedSlug) {
-    case "سعر-متر-العظم-بالمواد-في-السعودية": {
-      const normalizedParams = {
-        ...resolvedParams,
-        slug: resolvedSlug,
-      };
-
-      return (
-        <Page0
-          params={Promise.resolve(normalizedParams)}
-          searchParams={searchParams}
-        />
-      );
-    }
-
-    default:
-      notFound();
+  if (decodedSlug !== LONG_ROUTE_SLUG) {
+    notFound();
   }
+
+  return <LongArabicPage />;
 }
