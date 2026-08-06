@@ -256,7 +256,7 @@ function ContentSection({ section }) {
 }
 
 function RelatedGuides({ article }) {
-  const related = article.role === "pillar" ? clusters : [pillar, ...getSiblings(article.slug, 3)];
+  const related = article.role === "pillar" ? clusters : [pillar, ...getSiblings(article.slug, 5)];
 
   return (
     <section id="related-guides" className="scroll-mt-32 py-10">
@@ -337,11 +337,11 @@ function SourceSection({ sources }) {
 
 function DesktopSidebar({ article }) {
   const links = article.toc || [];
-  const related = article.role === "pillar" ? clusters : [pillar, ...getSiblings(article.slug, 2)];
+  const related = article.role === "pillar" ? clusters : [pillar, ...getSiblings(article.slug, 4)];
   const whatsapp = whatsappLink(article.whatsappMessage);
 
   return (
-    <aside className="hidden self-start lg:sticky lg:top-[calc(var(--nav-height)+24px)] lg:block">
+    <aside className="hidden self-start lg:sticky lg:top-[calc(var(--nav-height)+24px)] lg:block lg:max-h-[calc(100vh-var(--nav-height)-32px)] lg:overflow-y-auto lg:pr-1">
       <div className="space-y-5">
         <nav aria-label="Article table of contents" className="rounded-[28px] border border-[color:var(--hairline)] bg-[color:var(--surface)] p-5 shadow-[var(--card-shadow)]">
           <p className="text-xs font-black uppercase tracking-[0.18em] text-[#2f86f6]">On this page</p>

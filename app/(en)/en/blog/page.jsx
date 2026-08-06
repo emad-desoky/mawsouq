@@ -25,14 +25,14 @@ export const metadata = {
   openGraph: {
     title: "Latest Saudi Construction Guides | Mawsooq",
     description:
-      "Current English guides for planning residential construction projects in Saudi Arabia.",
+      "Current English guides, calculators and cost-planning articles for residential construction projects in Saudi Arabia.",
     url: pageUrl,
     siteName: "Mawsooq",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: `${SITE_URL}/images/blog/build-house-saudi-arabia-2026.webp`,
+        url: `${SITE_URL}/images/blog/construction-cost-calculator-saudi-arabia.png`,
         width: 1200,
         height: 630,
         alt: "Mawsooq Saudi construction guides",
@@ -43,8 +43,8 @@ export const metadata = {
     card: "summary_large_image",
     title: "Latest Saudi Construction Guides | Mawsooq",
     description:
-      "Costs, permits, contractor selection and timelines for Saudi house projects.",
-    images: [`${SITE_URL}/images/blog/build-house-saudi-arabia-2026.webp`],
+      "Costs, calculators, permits, contractor selection and timelines for Saudi house projects.",
+    images: [`${SITE_URL}/images/blog/construction-cost-calculator-saudi-arabia.png`],
   },
 };
 
@@ -141,7 +141,7 @@ export default function EnglishBlogHubPage() {
 
             <div className="relative min-h-[320px] lg:min-h-[540px]">
               <Image
-                src="/images/blog/build-house-saudi-arabia-2026.webp"
+                src="/images/blog/construction-cost-calculator-saudi-arabia.png"
                 alt="Mawsooq guide to building a house in Saudi Arabia"
                 fill
                 priority

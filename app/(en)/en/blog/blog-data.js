@@ -6,7 +6,7 @@
 
 export const SITE_URL = "https://mawsouq.com";
 export const BLOG_BASE = "/en/blog";
-export const DATA_AS_OF = "2026-07-30";
+export const DATA_AS_OF = "2026-08-06";
 
 export const business = {
   name: "Mawsooq",
@@ -609,6 +609,776 @@ export const clusters = [
     ],
     faqs:[["How long does it take to build a house in Saudi Arabia?","A mid-size private house may take roughly 12–24 months for construction after approvals, while the full journey including design and permits can extend to about 15–30 months. Size, complexity, location, contractor resources, procurement and owner decisions can move the programme substantially."],["Can a villa be built in four months?","Four months may be possible for a limited finishing package on a structure that is already complete and fully coordinated. It is not a credible total duration for design, permit, foundations, structure, MEP, finishes, testing and handover from a bare plot."],["What stage causes the most delay?","There is no single stage for every project. Common critical areas include incomplete design coordination, permit responses, structural cycle planning, long-lead windows or HVAC equipment, and late finish selections. A logic-linked programme should show which activity controls the finish date."],["How can the owner keep the project on schedule?","Freeze the brief, approve drawings and samples on time, avoid verbal changes, maintain funding against the agreed payment schedule and use regular progress meetings with an action log. Owner decisions should have dates and named responsibility just like contractor activities."]],
     sources:[officialSources.baladyPermit,officialSources.sbc],
+  },
+
+
+  {
+    slug: "construction-cost-calculator-saudi-arabia",
+    role: "cluster",
+    category: "Cost Planning Calculator",
+    primaryKeyword: "construction cost calculator Saudi Arabia",
+    metaTitle: "Construction Cost Calculator Saudi Arabia (2026)",
+    title: "Construction Cost Calculator Saudi Arabia: Estimate Your House Budget in 2026",
+    description:
+      "Use a practical construction cost calculator framework for Saudi Arabia. Estimate your house or villa budget by area, scope, finish level and city.",
+    excerpt:
+      "A high-intent budgeting guide that explains how to estimate construction cost in Saudi Arabia before you request contractor quotations.",
+    image: "/images/blog/construction-cost-calculator-saudi-arabia.png",
+    imageAlt: "Construction cost calculator Saudi Arabia",
+    datePublished: "2026-08-06",
+    dateModified: "2026-08-06",
+    readTime: "11 min read",
+    author: "Mawsooq Editorial Team",
+    whatsappMessage:
+      "Hello Mawsooq, I want help estimating my Saudi house construction budget using the calculator approach.",
+    highlights: [
+      { value: "4 inputs", label: "drive most early estimates" },
+      { value: "3 scopes", label: "shell, finished and turnkey" },
+      { value: "WhatsApp", label: "quick path to a real estimate discussion" },
+    ],
+    takeaways: [
+      "A useful calculator starts with built-up area, city, scope and finish level.",
+      "Planning rates should become a measured estimate before signing a construction contract.",
+      "Design fees, permits, utilities, external works and VAT should remain visible as separate lines.",
+      "The calculator page should convert visitors into qualified quote requests, not just display a number.",
+    ],
+    toc: [
+      ["quick-answer", "Quick answer"],
+      ["calculator-inputs", "The inputs that matter"],
+      ["calculation-model", "How to calculate"],
+      ["example", "Worked example"],
+      ["city-adjustments", "City adjustments"],
+      ["quote-ready", "When the estimate is ready for quotation"],
+      ["mistakes", "Common mistakes"],
+      ["faqs", "FAQs"],
+    ],
+    sections: [
+      {
+        id: "quick-answer",
+        title: "Quick answer: what should a Saudi construction cost calculator include?",
+        paragraphs: [
+          "A practical construction cost calculator for Saudi Arabia should combine total built-up area, city, scope level and finish quality, then add separate allowances for professional fees, permits, utility connections, external works, VAT and contingency. If a calculator gives a single number without showing assumptions, it is not decision-grade.",
+          "This guide supports buyers who search for a fast estimate but still want a trustworthy framework. Use it to create an early planning budget, then compare the result against live contractor quotations and the more detailed Mawsooq guides on square-metre cost, villa cost and Riyadh budgeting.",
+        ],
+        callout: {
+          title: "Intent behind this page",
+          text: "Visitors searching for a construction cost calculator are often close to a live project. Make the page useful enough to build trust, then offer a direct WhatsApp CTA for a scoped estimate.",
+        },
+        image: {
+          src: "/images/blog/construction-cost-calculator-saudi-arabia.png",
+          alt: "Saudi construction cost calculator concept",
+        },
+      },
+      {
+        id: "calculator-inputs",
+        title: "The four inputs that matter most",
+        paragraphs: [
+          "Most inaccurate estimates fail before the math starts. Owners may use plot area instead of built-up area, mix shell pricing with turnkey expectations or ignore city and logistics differences. Fix the inputs first and the output becomes far more useful.",
+        ],
+        checklist: [
+          "Total built-up area for all constructed floors",
+          "City or project location",
+          "Execution scope: shell, finished or turnkey",
+          "Target finish quality: controlled, standard or premium",
+          "Separate line for design, supervision and authority costs",
+          "Contingency and VAT treatment clearly shown",
+        ],
+      },
+      {
+        id: "calculation-model",
+        title: "A clean calculation model you can actually use",
+        paragraphs: [
+          "The simplest useful structure is to calculate the construction package first, then add the related project costs that many online tools hide. This keeps the total visible and prevents false comparisons between incomplete offers.",
+        ],
+        table: {
+          caption: "Recommended calculator structure for early planning",
+          headers: ["Line item", "How to think about it", "Why it matters"],
+          rows: [
+            ["Construction base", "Built-up area × selected rate", "Forms the main cost allowance"],
+            ["Professional fees", "Design, engineering and supervision", "Needed before and during construction"],
+            ["Authority and utility items", "Permits, testing and service coordination", "Often omitted from ads"],
+            ["External works", "Boundary walls, paving, gates and landscape", "Frequently missing from contractor headlines"],
+            ["Contingency", "Allowance for uncertainty", "Protects the owner during early planning"],
+            ["VAT", "Confirm if included or added", "Changes the payable total"],
+          ],
+        },
+        bars: [
+          { label: "Construction base", value: 70 },
+          { label: "Professional and authority items", value: 8 },
+          { label: "External works", value: 10 },
+          { label: "Contingency and VAT visibility", value: 12 },
+        ],
+      },
+      {
+        id: "example",
+        title: "Worked example: standard family house budget",
+        paragraphs: [
+          "Assume a family plans a 320 m² total built-up area home in a major Saudi city and uses a standard finish assumption. At an illustrative planning band of SAR 1,300–1,850 per built square metre, the construction base lands at roughly SAR 416,000–592,000. The owner then adds design, supervision, authority-related costs, external works and contingency as visible lines rather than hiding them inside a vague total.",
+        ],
+        steps: [
+          { title: "1. Confirm total built area", text: "Add every constructed floor and note how service and roof areas are treated." },
+          { title: "2. Select a realistic scope", text: "Decide whether the estimate is shell-only, finished or turnkey." },
+          { title: "3. Apply the planning rate", text: "Use a realistic range for the chosen quality level and location." },
+          { title: "4. Add separate allowances", text: "Keep design, permits, utilities and external works outside the base construction line." },
+          { title: "5. Add contingency and tax clarity", text: "Protect the budget and confirm whether VAT is included or added later." },
+          { title: "6. Convert it into a quote brief", text: "Use the result to start a structured WhatsApp discussion or tender process." },
+        ],
+      },
+      {
+        id: "city-adjustments",
+        title: "Why city adjustments should be visible",
+        paragraphs: [
+          "Two houses with the same area and finish level can still land at different cost levels because labour availability, logistics, site context and supplier competition vary by city. Riyadh, Jeddah, Dammam and secondary cities should not be treated as identical markets.",
+        ],
+        table: {
+          caption: "Practical city considerations for calculator users",
+          headers: ["Factor", "What changes", "Action for the owner"],
+          rows: [
+            ["Supplier access", "Product choice and delivery timing", "Check whether preferred brands are locally available"],
+            ["Labour and subcontractor depth", "Programme risk and trade pricing", "Compare contractor resource plans"],
+            ["Site access", "Temporary works and logistics", "Share plot location and constraints early"],
+            ["Competitive environment", "Quotation spread", "Collect comparable offers from the same scope"],
+          ],
+        },
+      },
+      {
+        id: "quote-ready",
+        title: "When the estimate is ready to become a real quotation",
+        paragraphs: [
+          "A calculator is for feasibility. A quote is for commitment. The gap between them closes when the owner has a clear brief, design information, scope definition and a list of inclusions and exclusions that every bidder follows.",
+        ],
+        checklist: [
+          "Room schedule and area statement ready",
+          "Scope split into shell, finish and optional items",
+          "Known exclusions identified clearly",
+          "Target quality level defined in writing",
+          "Contractor offers requested on the same drawings and assumptions",
+          "WhatsApp brief prepared with city, area, floors and finish level",
+        ],
+      },
+      {
+        id: "mistakes",
+        title: "Common calculator mistakes that mislead owners",
+        bullets: [
+          "Using plot area instead of built-up area",
+          "Comparing shell cost with turnkey expectations",
+          "Ignoring external works and utility coordination",
+          "Treating a planning tool like a signed contractor offer",
+          "Assuming the same rate applies to every Saudi city",
+          "Forgetting to confirm whether VAT is included",
+        ],
+      },
+    ],
+    faqs: [
+      ["What is the best way to estimate construction cost in Saudi Arabia?", "Start with total built-up area, select a realistic cost band for the city and quality level, then add professional fees, authority items, external works, VAT and contingency as separate lines. This is more useful than relying on one vague headline number."],
+      ["Can a construction cost calculator replace contractor quotations?", "No. A calculator is a planning tool. It helps with feasibility and budgeting, but a real contractor quotation should be based on drawings, defined scope, inclusions, exclusions and commercial terms."],
+      ["What information should I send Mawsooq on WhatsApp for a better estimate?", "Send your city, plot size, total expected built-up area, number of floors, desired finish level and whether you are planning shell, finished or turnkey execution. This allows a much more relevant discussion."],
+      ["Does the calculator include design and permit costs?", "It should show them separately. Good budgeting pages keep design, engineering, supervision, authority-related costs and utilities visible so owners can see the full project cost."],
+    ],
+    sources: [officialSources.gastat, officialSources.zatca, officialSources.baladyPermit],
+  },
+  {
+    slug: "turnkey-house-construction-cost-saudi-arabia",
+    role: "cluster",
+    category: "Turnkey Construction",
+    primaryKeyword: "turnkey house construction cost Saudi Arabia",
+    metaTitle: "Turnkey House Construction Cost Saudi Arabia (2026)",
+    title: "Turnkey House Construction Cost in Saudi Arabia: What Is Included in 2026?",
+    description:
+      "Planning a turnkey build in Saudi Arabia? Compare what turnkey usually includes, what contractors may exclude and how to budget the total project cost.",
+    excerpt:
+      "A commercial-intent guide for owners comparing turnkey construction offers, inclusions, exclusions and contract structure.",
+    image: "/images/blog/turnkey-house-construction-cost-saudi-arabia.png",
+    imageAlt: "Turnkey house construction cost in Saudi Arabia",
+    datePublished: "2026-08-05",
+    dateModified: "2026-08-06",
+    readTime: "12 min read",
+    author: "Mawsooq Editorial Team",
+    whatsappMessage:
+      "Hello Mawsooq, I want help reviewing a turnkey house construction offer in Saudi Arabia.",
+    highlights: [
+      { value: "Turnkey", label: "buyer intent with high conversion value" },
+      { value: "Scope", label: "matters more than the headline price" },
+      { value: "Contract", label: "must define inclusions and exclusions" },
+    ],
+    takeaways: [
+      "Turnkey pricing is only comparable when the included scope is defined clearly.",
+      "Owners should confirm whether kitchens, HVAC, external works and approvals are included or separate.",
+      "A higher turnkey offer may be better value if it carries fewer hidden exclusions.",
+      "WhatsApp lead capture works best when the owner sends the offer summary and expected handover level.",
+    ],
+    toc: [
+      ["quick-answer", "Quick answer"],
+      ["included", "What turnkey usually includes"],
+      ["excluded", "What is often excluded"],
+      ["ranges", "Illustrative cost ranges"],
+      ["contracts", "How to review the contract"],
+      ["compare-offers", "How to compare offers"],
+      ["mistakes", "Common mistakes"],
+      ["faqs", "FAQs"],
+    ],
+    sections: [
+      {
+        id: "quick-answer",
+        title: "Quick answer: what does turnkey really mean?",
+        paragraphs: [
+          "In Saudi residential construction, turnkey normally means the owner receives a completed and usable home rather than a shell or semi-finished structure. However, the exact level of completion varies by contractor. Some turnkey offers include most finishes and essential systems but exclude kitchens, specialist joinery, landscaping or major utility service items.",
+          "That is why this query has strong buyer intent. The visitor is not looking for inspiration; they want clarity about what they will receive for the price. The right SEO page answers that directly and gives the owner a clean checklist for reviewing offers.",
+        ],
+        image: {
+          src: "/images/blog/turnkey-house-construction-cost-saudi-arabia.png",
+          alt: "Turnkey villa handover concept in Saudi Arabia",
+        },
+      },
+      {
+        id: "included",
+        title: "What turnkey construction usually includes",
+        paragraphs: [
+          "A typical turnkey proposal covers the structure, envelope, internal finishes, electrical and plumbing systems, waterproofing, sanitary fixtures, painting and standard completion items needed for handover. But the only trustworthy version is the written one attached to the offer or contract.",
+        ],
+        table: {
+          caption: "Typical turnkey inclusions to verify in writing",
+          headers: ["Package", "Usually included", "Owner should verify"],
+          rows: [
+            ["Structure", "Foundations, frame and roof", "Structural scope and any optional features"],
+            ["Building envelope", "External walls, windows and waterproofing", "Window specification and façade materials"],
+            ["MEP", "Electrical, plumbing and basic service systems", "Equipment brands and capacities"],
+            ["Internal finishes", "Tiles, paint, ceilings, doors and sanitary items", "Exact brands, allowances and rooms covered"],
+            ["Testing and handover", "Basic commissioning and close-out", "Required documents, warranties and snagging process"],
+          ],
+        },
+      },
+      {
+        id: "excluded",
+        title: "What many turnkey offers still exclude",
+        paragraphs: [
+          "The largest pricing surprises often sit outside the advertised turnkey number. Exclusions are not necessarily bad, but they must be visible so the owner can compare full project cost rather than incomplete contractor headlines.",
+        ],
+        checklist: [
+          "Kitchen and fitted joinery packages",
+          "Full HVAC equipment or premium system upgrades",
+          "Boundary walls, gates, paving and landscaping",
+          "Utility company fees and some connection items",
+          "Loose furniture, curtains and appliances",
+          "Pool, lift, smart-home and solar upgrades",
+          "VAT treatment if the offer does not state it clearly",
+        ],
+      },
+      {
+        id: "ranges",
+        title: "Illustrative turnkey planning ranges",
+        paragraphs: [
+          "Turnkey cost usually sits above finished construction because it pulls more packages into one contractor responsibility. Exact levels depend on specification, city, site conditions and how much is genuinely included.",
+        ],
+        table: {
+          caption: "Illustrative turnkey planning ranges in Saudi Arabia",
+          headers: ["Level", "Indicative range", "Typical expectation"],
+          rows: [
+            ["Controlled turnkey", "SAR 1,450–1,900/m²", "Disciplined selections and limited complexity"],
+            ["Standard family turnkey", "SAR 1,900–2,500/m²", "Balanced finishes and common systems"],
+            ["Premium turnkey", "SAR 2,600–3,800+/m²", "Higher-end materials and more custom items"],
+          ],
+        },
+        bars: [
+          { label: "Core construction", value: 58 },
+          { label: "Systems and equipment", value: 18 },
+          { label: "Finishes and joinery", value: 16 },
+          { label: "External works and completion items", value: 8 },
+        ],
+      },
+      {
+        id: "contracts",
+        title: "How to review the turnkey contract before signing",
+        paragraphs: [
+          "A turnkey contract should define deliverables, included brands or quality level, completion milestones, variation rules, defect liability and handover conditions. This is especially important because turnkey deals feel simple on the surface but can hide scope gaps inside undefined wording.",
+        ],
+        steps: [
+          { title: "1. Match the drawings to the contract", text: "Make sure the written offer reflects the same design package and issue date." },
+          { title: "2. Highlight exclusions", text: "Do not allow important exclusions to remain hidden in small print." },
+          { title: "3. Confirm material standards", text: "Use named standards, allowances or specifications instead of vague promises." },
+          { title: "4. Link payments to progress", text: "Tie payment stages to inspected outputs, not dates alone." },
+          { title: "5. Protect handover", text: "Define snagging, documents, warranties and retention clearly." },
+        ],
+      },
+      {
+        id: "compare-offers",
+        title: "How to compare two turnkey offers fairly",
+        paragraphs: [
+          "If one offer is lower, ask why. It may be more efficient, but it may also exclude items that the more expensive offer includes. Owners should normalise both offers to the same scope before judging price alone.",
+        ],
+        checklist: [
+          "Same drawings and built-up area basis",
+          "Same inclusions for MEP and HVAC",
+          "Same approach to kitchens and joinery",
+          "Same external works assumptions",
+          "Same VAT treatment and commercial conditions",
+          "Same handover quality and defect liability period",
+        ],
+      },
+      {
+        id: "mistakes",
+        title: "Turnkey mistakes owners should avoid",
+        bullets: [
+          "Assuming turnkey always includes everything",
+          "Choosing the lowest offer before checking exclusions",
+          "Ignoring the difference between standard and premium material assumptions",
+          "Not asking how changes will be priced during the project",
+          "Failing to document handover requirements and snagging",
+        ],
+      },
+    ],
+    faqs: [
+      ["Is turnkey construction more expensive than standard contracting?", "It can be, because more responsibility and completion scope sit with one contractor. However, a well-defined turnkey package may save coordination effort and reduce hidden extras if the scope is genuinely clear."],
+      ["Does turnkey include kitchens and air conditioning?", "Sometimes, but not always. Owners should verify both items in writing because they are common sources of cost differences between offers."],
+      ["How should I compare turnkey quotes in Saudi Arabia?", "Request comparable scope, confirm inclusions and exclusions, check VAT treatment, review the material standard and make sure the same drawings are priced by each bidder."],
+      ["What should I send Mawsooq if I want help reviewing a turnkey offer?", "Share the city, built-up area, the contractor summary, stated inclusions, exclusions and your expected handover level. That makes the review conversation much more precise."],
+    ],
+    sources: [officialSources.gastat, officialSources.zatca, officialSources.residentialCode],
+  },
+  {
+    slug: "cost-to-build-200-sqm-house-saudi-arabia",
+    role: "cluster",
+    category: "200 sqm House Cost",
+    primaryKeyword: "cost to build a 200 sqm house in Saudi Arabia",
+    metaTitle: "Cost to Build a 200 sqm House in Saudi Arabia (2026)",
+    title: "Cost to Build a 200 sqm House in Saudi Arabia: A 2026 Example Budget",
+    description:
+      "See a practical 200 sqm house cost example for Saudi Arabia. Compare shell, finished and turnkey scenarios with clear assumptions and common exclusions.",
+    excerpt:
+      "A focused lead-generation article for one of the most commercial long-tail construction budget queries in English.",
+    image: "/images/blog/cost-to-build-200-sqm-house-saudi-arabia.png",
+    imageAlt: "Cost to build a 200 sqm house in Saudi Arabia",
+    datePublished: "2026-08-04",
+    dateModified: "2026-08-06",
+    readTime: "10 min read",
+    author: "Mawsooq Editorial Team",
+    whatsappMessage:
+      "Hello Mawsooq, I am planning a 200 sqm house in Saudi Arabia and want a budget estimate.",
+    highlights: [
+      { value: "200 sqm", label: "specific long-tail query with buyer intent" },
+      { value: "3 scenarios", label: "shell, finished and turnkey" },
+      { value: "Example", label: "easy for clients to compare with their case" },
+    ],
+    takeaways: [
+      "A 200 sqm page should use one clear worked example, not a vague generic range.",
+      "The biggest shifts come from scope, finish level, city and design complexity.",
+      "Small area changes can still move the budget materially when rates change by only a little per square metre.",
+      "This page performs best when it pushes visitors toward a WhatsApp discussion with their area and city.",
+    ],
+    toc: [
+      ["quick-answer", "Quick answer"],
+      ["area-definition", "How 200 sqm is measured"],
+      ["cost-scenarios", "Budget scenarios"],
+      ["breakdown", "Budget breakdown"],
+      ["city-variation", "City variation"],
+      ["control-cost", "How to control cost"],
+      ["mistakes", "Common mistakes"],
+      ["faqs", "FAQs"],
+    ],
+    sections: [
+      {
+        id: "quick-answer",
+        title: "Quick answer: how much can a 200 sqm house cost?",
+        paragraphs: [
+          "A 200 sqm house in Saudi Arabia can sit in very different cost bands depending on whether the owner wants a shell build, a finished house or a more complete turnkey package. For early planning only, many owners start by comparing multiple scenarios rather than treating one rate as a fixed answer.",
+          "This page works because it is specific. A buyer searching for 200 sqm cost usually has a real project in mind, not general curiosity. The page should therefore deliver a worked example, visible assumptions and a clear CTA for a tailored estimate.",
+        ],
+        image: {
+          src: "/images/blog/cost-to-build-200-sqm-house-saudi-arabia.png",
+          alt: "200 sqm house cost planning visual",
+        },
+      },
+      {
+        id: "area-definition",
+        title: "First define what 200 sqm means",
+        paragraphs: [
+          "Some owners mean a single 200 sqm floor. Others mean a total built-up area of 200 sqm spread across two levels. The difference matters because cost planning should be based on the total constructed area and the project form, not only the headline number.",
+        ],
+        checklist: [
+          "Confirm whether 200 sqm means one floor or total built area",
+          "Check if covered parking, roof rooms or service areas are included",
+          "Separate optional external structures from the house budget",
+          "Confirm the scope: shell, finished or turnkey",
+        ],
+      },
+      {
+        id: "cost-scenarios",
+        title: "Illustrative 200 sqm budget scenarios",
+        paragraphs: [
+          "The example below uses early planning logic and should not be treated as a contractor commitment. Its role is to help owners visualise the budget spread across multiple levels of completion.",
+        ],
+        table: {
+          caption: "Illustrative planning scenarios for a 200 sqm house",
+          headers: ["Scope", "Indicative range", "What it typically means"],
+          rows: [
+            ["Shell", "SAR 180k–250k", "Structure and basic building envelope"],
+            ["Finished", "SAR 260k–370k", "Typical residential completion without every optional package"],
+            ["Turnkey", "SAR 290k–500k+", "More complete delivery with broader responsibility"],
+          ],
+        },
+      },
+      {
+        id: "breakdown",
+        title: "How the 200 sqm budget usually breaks down",
+        paragraphs: [
+          "A compact house still needs structure, systems, finishes and external completion items. Breaking the example into packages helps the owner see where value engineering can happen without hiding major omissions.",
+        ],
+        bars: [
+          { label: "Structure and envelope", value: 40 },
+          { label: "MEP systems", value: 21 },
+          { label: "Finishes", value: 26 },
+          { label: "External works and allowances", value: 13 },
+        ],
+      },
+      {
+        id: "city-variation",
+        title: "Why the same 200 sqm house can cost more in one city than another",
+        paragraphs: [
+          "Location affects supplier access, contractor competition, site logistics and sometimes the expected specification. Riyadh, Jeddah, Dammam and smaller markets should be budgeted with local context in mind rather than one universal rate.",
+        ],
+        table: {
+          caption: "City questions to ask before relying on a 200 sqm estimate",
+          headers: ["Question", "Why it matters"],
+          rows: [
+            ["Where is the plot?", "It affects logistics and available contractor depth."],
+            ["Is the design simple or custom?", "More glazing, spans or special features change the rate."],
+            ["What level of finish is expected?", "Premium finishes push cost faster on small homes."],
+            ["Are external works included?", "Boundary walls and paving can be significant relative to the house size."],
+          ],
+        },
+      },
+      {
+        id: "control-cost",
+        title: "How to keep a 200 sqm project on budget",
+        paragraphs: [
+          "Smaller homes do not automatically stay cheap. Over-design, repeated changes and premium upgrades can push the effective rate sharply higher. Budget discipline should start at concept stage.",
+        ],
+        steps: [
+          { title: "1. Freeze the room schedule", text: "Keep the brief stable before engineering and tendering." },
+          { title: "2. Track area carefully", text: "Small additions can move the total more than expected." },
+          { title: "3. Separate wants from needs", text: "Keep optional upgrades visible rather than letting them blend into the base budget." },
+          { title: "4. Compare like-for-like quotes", text: "Use the same scope and assumptions for every bidder." },
+          { title: "5. Use WhatsApp for a scoped review", text: "Send the city, plan concept and finish target for a more useful discussion." },
+        ],
+      },
+      {
+        id: "mistakes",
+        title: "Common 200 sqm budgeting mistakes",
+        bullets: [
+          "Assuming 200 sqm always means the same layout",
+          "Ignoring external works because the house itself is compact",
+          "Using a premium finish aspiration with an economy budget",
+          "Failing to confirm whether the estimate is shell, finished or turnkey",
+        ],
+      },
+    ],
+    faqs: [
+      ["How much does a 200 sqm house cost in Saudi Arabia?", "It depends on scope and finish level. For early planning, a shell scenario may sit around SAR 180k–250k, a finished house around SAR 260k–370k and turnkey scenarios can move higher depending on inclusions and quality level."],
+      ["Is 200 sqm considered a small house budget?", "It is a moderate size, but the budget still varies significantly based on design complexity, city, systems and finish quality. Compact homes can still become expensive if the specification is high."],
+      ["What is the best way to get a more accurate 200 sqm estimate?", "Share the city, total built-up area definition, number of floors, target finish level and any known special features. This lets Mawsooq frame the budget more precisely."],
+      ["Should I compare this page with the square-metre guide?", "Yes. The square-metre guide explains the rate logic, while this page translates that logic into one focused 200 sqm example."],
+    ],
+    sources: [officialSources.gastat, officialSources.zatca],
+  },
+  {
+    slug: "house-construction-cost-riyadh",
+    role: "cluster",
+    category: "Riyadh Construction Cost",
+    primaryKeyword: "house construction cost Riyadh",
+    metaTitle: "House Construction Cost Riyadh (2026)",
+    title: "House Construction Cost in Riyadh: 2026 Budget Guide for Real Projects",
+    description:
+      "Estimate house construction cost in Riyadh with a practical guide covering budget ranges, scope, local factors and quote comparison for real clients.",
+    excerpt:
+      "A city-specific cost guide built to capture Riyadh-based construction enquiries with clear commercial intent.",
+    image: "/images/blog/house-construction-cost-riyadh.png",
+    imageAlt: "House construction cost in Riyadh",
+    datePublished: "2026-08-03",
+    dateModified: "2026-08-06",
+    readTime: "11 min read",
+    author: "Mawsooq Editorial Team",
+    whatsappMessage:
+      "Hello Mawsooq, I have a project in Riyadh and want help estimating my house construction budget.",
+    highlights: [
+      { value: "Riyadh", label: "high local-intent query" },
+      { value: "Budget", label: "built around real client decisions" },
+      { value: "Local factors", label: "make city pages more useful and searchable" },
+    ],
+    takeaways: [
+      "A Riyadh-specific page can attract local enquiries better than a generic national article alone.",
+      "The right page explains why local supplier access, logistics and market context matter.",
+      "City pages should still link back to the broader cost, permit and contractor guides.",
+      "The best CTA asks for location, built-up area and intended handover level.",
+    ],
+    toc: [
+      ["quick-answer", "Quick answer"],
+      ["why-riyadh", "Why Riyadh is different"],
+      ["budget-ranges", "Budget ranges"],
+      ["local-factors", "Local factors"],
+      ["breakdown", "Where the money goes"],
+      ["quote-check", "How to compare offers"],
+      ["mistakes", "Common mistakes"],
+      ["faqs", "FAQs"],
+    ],
+    sections: [
+      {
+        id: "quick-answer",
+        title: "Quick answer: how should you budget a house in Riyadh?",
+        paragraphs: [
+          "Budget a Riyadh house project by total built-up area, scope level and finish quality, then adjust for local delivery conditions, contractor market conditions and project-specific requirements. City-specific pages are useful because they let the owner think about their real market rather than a generic national average.",
+          "This page complements the broader Saudi square-metre guide and the villa cost guide. It narrows the conversation to Riyadh and works especially well for local lead generation because the search intent is strong and location specific.",
+        ],
+        image: {
+          src: "/images/blog/house-construction-cost-riyadh.png",
+          alt: "Riyadh construction cost planning visual",
+        },
+      },
+      {
+        id: "why-riyadh",
+        title: "Why Riyadh deserves its own budgeting page",
+        paragraphs: [
+          "Riyadh is one of the Kingdom's biggest and most competitive construction markets, with active residential demand, broad supplier access and a large contractor ecosystem. That does not guarantee low cost, but it does mean the owner has options and should compare offers carefully.",
+        ],
+        checklist: [
+          "Share the district or broad project location",
+          "Confirm whether access, logistics or compound rules affect the site",
+          "Clarify if the design is a villa, duplex or family house",
+          "State whether the goal is shell, finished or turnkey delivery",
+          "Ask every bidder to price the same issued documents",
+        ],
+      },
+      {
+        id: "budget-ranges",
+        title: "Illustrative planning ranges for Riyadh",
+        paragraphs: [
+          "The table below is for early planning and should be replaced by project-specific quotations. Its main role is to help owners think in structured bands rather than one misleading headline number.",
+        ],
+        table: {
+          caption: "Illustrative Riyadh house-planning bands",
+          headers: ["Planning level", "Indicative range", "Typical use"],
+          rows: [
+            ["Controlled / economy", "SAR 950–1,300/m²", "Early feasibility for disciplined designs"],
+            ["Standard family home", "SAR 1,350–1,950/m²", "Most practical planning conversations"],
+            ["Premium custom home", "SAR 2,050–3,600+/m²", "Higher-end architecture and systems"],
+          ],
+        },
+      },
+      {
+        id: "local-factors",
+        title: "Local factors that affect cost in Riyadh",
+        paragraphs: [
+          "City pages become valuable when they explain the real cost drivers. In Riyadh, the owner should think about design ambition, façade materials, HVAC strategy, site access, external works and the quality level expected in the target neighbourhood.",
+        ],
+        table: {
+          caption: "Riyadh-specific cost considerations",
+          headers: ["Factor", "Why it matters in Riyadh", "What to do"],
+          rows: [
+            ["Neighbourhood expectation", "Drives façade, finish and specification level", "Set the target market and lifestyle outcome early"],
+            ["Supplier depth", "Affects brand choice and competitive pricing", "Request equivalent products clearly in the scope"],
+            ["Contractor spread", "Creates large quotation differences", "Normalise all offers to the same scope"],
+            ["Heat and services strategy", "Influences HVAC and building envelope decisions", "Align mechanical and architectural decisions early"],
+          ],
+        },
+      },
+      {
+        id: "breakdown",
+        title: "Where the money usually goes in a Riyadh house project",
+        paragraphs: [
+          "The package breakdown below is illustrative, but it helps owners understand where value engineering decisions can have the biggest effect.",
+        ],
+        bars: [
+          { label: "Structure and envelope", value: 36 },
+          { label: "Mechanical, electrical and plumbing", value: 24 },
+          { label: "Internal finishes", value: 24 },
+          { label: "External works and allowances", value: 16 },
+        ],
+      },
+      {
+        id: "quote-check",
+        title: "How to compare Riyadh contractor offers without confusion",
+        paragraphs: [
+          "Riyadh gives owners choice, but more choice only helps if the offers are comparable. Ask each bidder to confirm the same scope, the same inclusions and the same tax treatment.",
+        ],
+        steps: [
+          { title: "1. Issue one controlled scope", text: "Every contractor should receive the same drawings and assumptions." },
+          { title: "2. Highlight exclusions", text: "External works, HVAC, kitchens and specialist items should be visible." },
+          { title: "3. Check programme logic", text: "A low price with an unrealistic programme can create later risk." },
+          { title: "4. Confirm quality level", text: "Do not compare two offers with different material standards as if they were equal." },
+          { title: "5. Use Mawsooq as a filter", text: "Bring the best candidates into a more focused discussion on WhatsApp." },
+        ],
+      },
+      {
+        id: "mistakes",
+        title: "Common Riyadh budgeting mistakes",
+        bullets: [
+          "Using a national average without city context",
+          "Ignoring neighbourhood-specific finish expectations",
+          "Assuming every Riyadh contractor is pricing the same scope",
+          "Forgetting external works and service-related items",
+          "Focusing only on price instead of scope and handover quality",
+        ],
+      },
+    ],
+    faqs: [
+      ["How much does it cost to build a house in Riyadh?", "It depends on built-up area, scope and finish level. For early planning, many projects fall into broad bands that range from controlled designs to premium custom homes, but the result should always be verified with current quotations."],
+      ["Why create a Riyadh-specific page instead of relying on the national guide?", "Because local-intent users search by city. A Riyadh page lets Mawsooq talk directly about the local market and attract higher-conversion enquiries."],
+      ["What should I send Mawsooq for a Riyadh estimate?", "Send the project location in Riyadh, expected built-up area, number of floors, preferred scope and target finish level. If you have drawings or a brief, mention that too."],
+      ["Can Riyadh quotes differ a lot for the same house?", "Yes. Differences in scope, exclusions, quality level, contractor resources and pricing assumptions can create a wide spread. Normalising the offers is essential."],
+    ],
+    sources: [officialSources.gastat, officialSources.baladyPermit, officialSources.zatca],
+  },
+  {
+    slug: "architectural-design-cost-saudi-arabia",
+    role: "cluster",
+    category: "Architectural Design",
+    primaryKeyword: "architectural design cost Saudi Arabia",
+    metaTitle: "Architectural Design Cost Saudi Arabia (2026)",
+    title: "Architectural Design Cost in Saudi Arabia: Fees, Scope and What You Get",
+    description:
+      "Understand architectural design cost in Saudi Arabia, what design fees can include and how better design decisions protect your construction budget.",
+    excerpt:
+      "A strong commercial-support guide for owners who need architectural design before permits, tendering and construction execution.",
+    image: "/images/blog/architectural-design-cost-saudi-arabia.png",
+    imageAlt: "Architectural design cost in Saudi Arabia",
+    datePublished: "2026-08-02",
+    dateModified: "2026-08-06",
+    readTime: "12 min read",
+    author: "Mawsooq Editorial Team",
+    whatsappMessage:
+      "Hello Mawsooq, I want help understanding design fees and architectural scope for my Saudi house project.",
+    highlights: [
+      { value: "Design", label: "shapes the budget before construction starts" },
+      { value: "Fees", label: "should be tied to deliverables and revisions" },
+      { value: "Scope", label: "matters more than one low headline price" },
+    ],
+    takeaways: [
+      "Architectural design cost should be reviewed together with deliverables, coordination and revision scope.",
+      "A cheaper design service may cost more later if it creates rework, permit delays or poor coordination.",
+      "This article supports design-service enquiries and links naturally into permit, cost and contractor topics.",
+      "The strongest CTA asks for project type, plot, city and whether the owner already has a brief or concept.",
+    ],
+    toc: [
+      ["quick-answer", "Quick answer"],
+      ["what-included", "What design fees can include"],
+      ["pricing-models", "Pricing models"],
+      ["fee-bands", "Illustrative fee bands"],
+      ["deliverables", "Expected deliverables"],
+      ["choose-designer", "How to choose the right designer"],
+      ["budget-impact", "How design affects construction cost"],
+      ["faqs", "FAQs"],
+    ],
+    sections: [
+      {
+        id: "quick-answer",
+        title: "Quick answer: what should you expect from architectural design fees?",
+        paragraphs: [
+          "Architectural design cost in Saudi Arabia should be judged by deliverables, coordination depth, revision process and permit readiness—not by a low number alone. Owners need architecture because it protects the whole project: space planning, compliance, better budgeting and cleaner tendering all depend on it.",
+          "This is a valuable commercial page because design enquiries often lead to wider project work. The article should therefore explain the business value of good design while also helping the reader compare fee proposals responsibly.",
+        ],
+        image: {
+          src: "/images/blog/architectural-design-cost-saudi-arabia.png",
+          alt: "Architectural design workspace for Saudi Arabia",
+        },
+      },
+      {
+        id: "what-included",
+        title: "What architectural design fees can include",
+        paragraphs: [
+          "The scope can vary from a simple concept study to a coordinated package that supports permits and construction pricing. Owners should ask which stages are included and which consultant roles still need to be added separately.",
+        ],
+        table: {
+          caption: "Design-scope items owners should verify",
+          headers: ["Stage or item", "What it may include", "Why it matters"],
+          rows: [
+            ["Concept design", "Space planning, massing and initial layout options", "Sets the direction and controls area growth"],
+            ["Developed design", "Refined plans, elevations and key decisions", "Improves cost planning and approvals"],
+            ["Permit support", "Submission-ready information for the engineering workflow", "Helps move the project legally forward"],
+            ["Tender package", "Issued drawings and specifications for pricing", "Makes contractor offers more comparable"],
+            ["Site support or author review", "Clarifications during execution", "Reduces misinterpretation and rework"],
+          ],
+        },
+      },
+      {
+        id: "pricing-models",
+        title: "Common pricing models for design services",
+        paragraphs: [
+          "Design fees may be structured per square metre, as a lump sum, as stage-based payments or as a more customised proposal depending on project size and scope. There is no one universal model, so owners should compare deliverables and revision terms alongside price.",
+        ],
+        bullets: [
+          "Per-square-metre design pricing for simpler early comparisons",
+          "Lump-sum design proposals for a defined scope",
+          "Stage-based payments aligned with concept, developed and permit phases",
+          "Separate pricing for extra revisions or major scope changes",
+        ],
+      },
+      {
+        id: "fee-bands",
+        title: "Illustrative design fee bands for planning conversations",
+        paragraphs: [
+          "These are not official market rules. They are planning illustrations to help owners think about fee logic and scope discussion.",
+        ],
+        table: {
+          caption: "Illustrative design fee planning examples",
+          headers: ["Scope level", "Indicative approach", "Typical use"],
+          rows: [
+            ["Concept-focused", "Lower-fee early package", "Initial planning and space testing"],
+            ["Permit and coordination package", "Mid-range professional fee", "Owners preparing for approvals and cost planning"],
+            ["Extended design and tender support", "Higher-fee broader service", "Projects needing deeper detail and pricing readiness"],
+          ],
+        },
+      },
+      {
+        id: "deliverables",
+        title: "Expected deliverables before you say yes",
+        paragraphs: [
+          "A design proposal is only clear when it names the outputs. Ask what drawings, schedules, visuals, meetings and revision rounds are included. If the proposal is too vague, later disagreements become likely.",
+        ],
+        checklist: [
+          "Room schedule and area statement",
+          "Floor plans, elevations and key sections",
+          "Clear list of revision rounds",
+          "Coordination expectations with structural and MEP disciplines",
+          "Permit-related support defined in writing",
+          "Tender or construction-stage scope if included",
+        ],
+      },
+      {
+        id: "choose-designer",
+        title: "How to choose the right architectural designer",
+        paragraphs: [
+          "The best designer is not only the cheapest or the most visually impressive. The right fit understands the family brief, area discipline, local compliance and the owner's budget reality.",
+        ],
+        steps: [
+          { title: "1. Check project fit", text: "Review whether the designer handles the type and scale of project you want." },
+          { title: "2. Review process clarity", text: "Good designers explain deliverables, stages and decisions clearly." },
+          { title: "3. Ask about coordination", text: "Architecture should work with structural and MEP thinking, not in isolation." },
+          { title: "4. Compare revision policy", text: "Understand how major changes are handled after concept approval." },
+          { title: "5. Align the fee with value", text: "Judge price together with scope, not by price alone." },
+        ],
+      },
+      {
+        id: "budget-impact",
+        title: "How design decisions shape the final construction budget",
+        paragraphs: [
+          "Good design saves money by controlling area growth, reducing waste, improving circulation, clarifying structural logic and helping contractors price more accurately. Poor design can inflate budget through complexity, rework or preventable changes later in the process.",
+        ],
+        bars: [
+          { label: "Area efficiency", value: 28 },
+          { label: "Coordination quality", value: 24 },
+          { label: "Specification clarity", value: 22 },
+          { label: "Tender accuracy", value: 14 },
+          { label: "Reduced rework", value: 12 },
+        ],
+        note: "This visual shows where design quality creates budget value. It is an explanatory framework, not a project-specific calculation.",
+      },
+    ],
+    faqs: [
+      ["How much does architectural design cost in Saudi Arabia?", "The fee varies with scope, project size, complexity and the level of coordination or permit support required. Owners should compare deliverables and revision scope, not just the headline number."],
+      ["Should I choose the lowest design fee?", "Not automatically. A very low fee may exclude coordination, revisions or permit-ready deliverables, which can create extra cost later in the project."],
+      ["What should be included in a design proposal?", "A good proposal should identify the stages, deliverables, revision rounds, coordination expectations and whether permit or tender support is included."],
+      ["Why is this topic important for Mawsooq's blog strategy?", "Because design is an early, high-intent service. People searching this topic often become strong leads for broader project support when the page answers clearly and offers a direct CTA."],
+    ],
+    sources: [officialSources.baladyPermit, officialSources.sbc, officialSources.residentialCode],
   },
 
 ];

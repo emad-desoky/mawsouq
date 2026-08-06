@@ -6,7 +6,6 @@ import Image from "next/image";
 const footerLinks = {
   services: [
     { href: "/en/#architectural-design", label: "Our Services" },
-    { href: "/en/#architectural-design", label: "Architectural Design" },
     { href: "/en/#cost-calculator", label: "Cost Calculator" },
   ],
   company: [
@@ -105,14 +104,16 @@ export default function EnglishFooter() {
                 <div className="text-2xl font-black tracking-tight">
                   Mawsooq
                 </div>
-                <div className="text-sm text-white/55">Design & Construction</div>
+                <div className="text-sm text-white/55">
+                  Design & Construction
+                </div>
               </div>
             </Link>
 
             <p className="max-w-sm text-sm leading-8 text-white/70">
-              An Arab platform that simplifies the project journey from concept to delivery using
-              technology and clearer, more professional design and construction services.
-              
+              An Arab platform that simplifies the project journey from concept
+              to delivery using technology and clearer, more professional design
+              and construction services.
             </p>
           </div>
 
@@ -165,8 +166,8 @@ export default function EnglishFooter() {
                     Address
                   </p>
                   <p className="max-w-[280px] text-sm leading-7 text-white/75">
-                    Safwat Al Mostakbal Project No. 215, Sporting, Port Said Main Street,
-                    Ground Floor, Sidi Gaber, Alexandria, Egypt
+                    Safwat Al Mostakbal Project No. 215, Sporting, Port Said
+                    Main Street, Ground Floor, Sidi Gaber, Alexandria, Egypt
                   </p>
                 </div>
               </div>
@@ -216,9 +217,7 @@ export default function EnglishFooter() {
                   <MailIcon />
                 </div>
                 <div>
-                  <p className="mb-1 text-xs font-bold text-white/45">
-                    Email
-                  </p>
+                  <p className="mb-1 text-xs font-bold text-white/45">Email</p>
                   <a
                     href="mailto:info@mawsouq.com"
                     className="text-sm text-white/75 transition hover:text-white"
