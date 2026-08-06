@@ -1,661 +1,573 @@
-const pageUrl =
-  "https://mawsouq.com/%D8%AA%D8%B5%D8%A7%D9%85%D9%8A%D9%85-%D8%A7%D8%B3%D8%AA%D8%B1%D8%A7%D8%AD%D8%A7%D8%AA";
+import Link from "next/link";
+import {
+  ArrowLeft,
+  CheckCircle2,
+  Clock3,
+  ExternalLink,
+  FileText,
+  ImageIcon,
+  MessageCircle,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 
-const featuredImage =
-  "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية1-copy.webp";
+import ResthouseWhatsAppBrief from "@/components/ar/resthouse/ResthouseWhatsAppBrief";
+import {
+  SITE_URL,
+  clusters,
+  officialSources,
+  pillar,
+  resortIdeas,
+  routes,
+  whatsappLink,
+} from "@/app/_arabic-pages/_resthouse-cluster/resthouse-data";
+
+const pageUrl = `${SITE_URL}/${pillar.slug}/`;
+const whatsapp = whatsappLink(pillar.whatsappMessage);
 
 export const metadata = {
-  title: "تصميم استراحات راقية - 30 فكرة رائعة مع صور",
-  description:
-    "عرض مجموعة واسعة من تصاميم استراحات راقية 2021 بالصور لكي تأخذ فكرة عن المكان الذي قد تزوره في عطلتك القادمة، أو إن كنت ترغب ببناء استراحة",
+  title: pillar.metaTitle,
+  description: pillar.description,
+  keywords: [
+    "تصاميم استراحات",
+    "تصاميم استراحات راقية",
+    "تصميم استراحة",
+    "مخطط استراحة",
+    "تصميم استراحة مودرن",
+    "تصميم استراحة صغيرة",
+    "استراحة عائلية",
+    "تصميم استراحات في السعودية",
+  ],
   alternates: {
     canonical: pageUrl,
   },
-  keywords: [
-    "تصاميم استراحات",
-    "تصاميم الاستراحات",
-    "استراحة راقية",
-    "الاستراحات الراقية",
-    "تصاميم مودرن",
-    "بركة سباحة",
-    "تصميم استراحات راقية جدا",
-    "مظهر الإستراحة الداخلي",
-  ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "تصميم استراحات راقية - 30 فكرة رائعة مع صور",
-    description:
-      "عرض مجموعة واسعة من تصاميم استراحات راقية 2021 بالصور لكي تأخذ فكرة عن المكان الذي قد تزوره في عطلتك القادمة، أو إن كنت ترغب ببناء استراحة",
+    type: "article",
+    title: pillar.metaTitle,
+    description: pillar.description,
     url: pageUrl,
     siteName: "موسوق",
     locale: "ar_SA",
-    type: "article",
-    publishedTime: "2026-03-10T10:54:00+03:00",
-    modifiedTime: "2026-09-15T17:41:00+03:00",
+    publishedTime: pillar.datePublished,
+    modifiedTime: pillar.dateModified,
     images: [
       {
-        url: featuredImage,
-        alt: "تصاميم الاستراحات",
+        url: pillar.image,
+        width: 1200,
+        height: 630,
+        alt: pillar.imageAlt,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "تصميم استراحات راقية - 30 فكرة رائعة مع صور",
-    description:
-      "عرض مجموعة واسعة من تصاميم استراحات راقية 2021 بالصور لكي تأخذ فكرة عن المكان الذي قد تزوره في عطلتك القادمة، أو إن كنت ترغب ببناء استراحة",
-    images: [featuredImage],
+    title: pillar.metaTitle,
+    description: pillar.description,
+    images: [pillar.image],
   },
 };
 
-const articleJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  headline: "تصميم استراحات راقية - 30 فكرة رائعة مع صور",
-  description:
-    "عرض مجموعة واسعة من تصاميم استراحات راقية 2021 بالصور لكي تأخذ فكرة عن المكان الذي قد تزوره في عطلتك القادمة، أو إن كنت ترغب ببناء استراحة",
-  image: featuredImage,
-  datePublished: "2026-03-10T10:54:00+03:00",
-  dateModified: "2026-09-15T17:41:00+03:00",
-  inLanguage: "ar-SA",
-  mainEntityOfPage: {
-    "@type": "WebPage",
-    "@id": pageUrl,
-  },
-  author: {
-    "@type": "Organization",
-    name: "موسوق",
-    url: "https://mawsouq.com",
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "موسوق",
-    url: "https://mawsouq.com",
-  },
-};
-
-const resortIdeas = [
-  {
-    text: "1- هذه الاستراحة تقع بين الأشجار وتصميمها مناسب جدًا للعائلات الصغيرة أو الأصدقاء، وهي استراحة راقية جدا وتعتبر من تصاميم مودرن، كما أن الاستراحة تمزج بين الطابعين التقليدي والعصري في نفس الوقت.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية1-copy.webp",
-    sourceLabel: "Decoist",
-    sourceHref:
-      "https://www.decoist.com/modern-forest-chalet-ukraine/?chrome=1",
-  },
-  {
-    text: "2- تصميم كبير جدا وهو مناسب للعائلات الكبيرة ويحتوي على بركة سباحة كبيرة مع مساحة تصميم كبيرة أيضًا، يمكن أن تكون هذه الاستراحة مناسبة جدًا في فصل الصيف أو فصل الشتاء.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية2-copy.webp",
-    sourceLabel: "ultimateluxurychalets",
-    sourceHref:
-      "https://www.ultimateluxurychalets.com/blog/10-of-the-best-ultimate-luxury-chalets-with-a-swimming-pool/mont-tremblant/",
-  },
-  {
-    text: "3- تصميم استراحة صغير جدا، وتعتبر هذه استراحة مثالية لقضاء أجمل اوقات الصيف مع العائلة والأصدقاء، كما أن بركة السباحة متوافقة بشكل كبير مع الاستراحة نفسها.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية3-copy.webp",
-    sourceLabel: "Pinterest",
-    sourceHref: "https://www.pinterest.com/pin/124974958386657257/",
-  },
-  {
-    text: "4- تصميم استراحة صغيرة أيضًا ولعل ذلك أهم ما يميز هذا التصميم، فهذه مساحة مناسبة للعديد من الزوار، كما ونُلاحظ مظهر الإستراحة الداخلي الظاهر للخارج ويظهر فيه الأثاث.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية4-copy.webp",
-    sourceLabel: "Bali-contractor",
-    sourceHref: "https://bali-contractor.com/feature/1-story-villa/",
-  },
-  {
-    text: "5- تصميم تقليدي يشبه الكوخ، وهذا أحد التصاميم التي يمكنك إيجادها في العديد من الدول الساحلية، وقد تكون مساحة مثل هذه الإستراحة كبيرة أو صغيرة، وهي جميلة في كل الحالات.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية5-copy.webp",
-    sourceLabel: "Agoda",
-    sourceHref:
-      "https://www.agoda.com/villa-mi-amor-traditional-and-modern-balinese-2-br/hotel/bali-id.html?cid=1844104",
-  },
-  {
-    text: "6- تصميم مودرن بامتياز، ويمكننا ملاحظة الأثاث بداخل الإستراحة لتكون متكاملة للزائرين ولقضاء أفضل الأوقات، وهناك مظهر جمالي آخر متمثل في بركة السباحة وكون الاستراحة مفتوحة على الحديقة.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية6-copy.webp",
-    sourceLabel: "Vilondo",
-    sourceHref: "https://www.vilondo.com/villas/bali/seminyak/amarin-seminyak/",
-  },
-  {
-    text: "7- تعتبر هذه من تصميم استراحات راقية جدا، وهي استراحة مناسبة جدًا لقضاء العطلة الصيفيّة، يمكن استغلالها بشكل مثالي أيضًا، حيث يفضل بعض الزوار الاستمتاع ببعض الخصوصية من خلال اختيار تصميم صغير كهذا.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية7-copy.webp",
-    sourceLabel: "balivillaescapes",
-    sourceHref:
-      "https://balivillaescapes.com.au/?villas=villa-jepun-3-bedroom-at-the-residence",
-  },
-  {
-    text: "8- يتميز هذا التصميم بالشكل التقليدي للاستراحة والشبيه بالكوخ ولكنها لا تزال استراحة راقية ولها تصميم قوي وملفت للانتباه.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية8-copy.webp",
-    sourceLabel: "Villabugis",
-    sourceHref:
-      "https://villabugis.com/our-villas/villa-intan-5-bedroom-villa-seminyak",
-  },
-  {
-    text: "9- تكون الاستراحات الراقية بالعادة بسيطة التصميم ولكن تشمل جميع محتويات الرفاهية اللازمة لقضاء أفضل وقت، وهذا ما نراه في تصميم هذه الاستراحة، كما ونلاحظ وجود الأثاث في الخارج.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية9-copy.webp",
-    sourceLabel: "Pinterest",
-    sourceHref: "https://www.pinterest.com/pin/317433473713765668/",
-  },
-  {
-    text: "10- أكثر ما يلف الانتباه في هذا التصميم هو ديكور الاستراحة الداخلي الذي يشبه المنزل المثالي مع وجود بركة سباحة والعديد من العناصر الجمالية الأخرى.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية10-copy.webp",
-    sourceLabel: "Domain",
-    sourceHref:
-      "https://www.domain.com.au/news/suite-escape-why-australias-resortstyle-homes-are-luring-more-buyers-20170727-gxanzx/",
-  },
-  {
-    text: "11- يمتاز ديكور هذه الاستراحة بوجود الأسقف القرميدية الرائعة الي تكسب الاستراحة شكل تقليدي مع لمسة مودرن، وهي من التصاميم التي يبحث عنها العديد من الزوار.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية11-copy.webp",
-    sourceLabel: "news-realas",
-    sourceHref:
-      "https://news.realas.com/resort-style-living-give-home-wow-factor/",
-  },
-  {
-    text: "12- تصاميم الاستراحات تكون أحيانًا متماثلة في بعض المناطق، ونرى هنا تصميم على شكل أكواخ صغيرة، وهذه استراحة مناسبة للعائلات الكبيرة، يمكن أخذ صور كثيرة هنا في الحديقة.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية12-copy.webp",
-    sourceLabel: "therealestateconversation",
-    sourceHref:
-      "https://www.therealestateconversation.com.au/properties/2019/03/29/8-spectacular-australian-resort-style-homes/1553832000",
-  },
-  {
-    text: "13- لا تحتوي جميع الاستراحات على بركة، وهو أمر طبيعي جدا، حيث أن بعض الاستراحات عبارة عن فلل وهي عائلية تشبه المنزل ويمكنك النوم بهدوء فيها.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية13-copy.webp",
-    sourceLabel: "cdn.asiatatler",
-    sourceHref:
-      "https://cdn.asiatatler.com/asiatatler/i/th/2017/2/11084801-main-gardenimg-4812_cover.jpg",
-  },
-  {
-    text: "14- تصميم راقي جدا وعصري مع طابق تقليدي متمثل في شكل الكوخ، وهو هادئ جدًا ومناسب لقضاء العطلة.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية14-copy.webp",
-    sourceLabel: "idesignarch",
-    sourceHref:
-      "https://www.idesignarch.com/wp-content/uploads/Jumeirah-Vittaveli_1.jpg",
-  },
-  {
-    text: "15- تصميم استراحة مودرن 2021 بامتياز، ويمكننا ملاحظة ذلك من خلال شكل التصميم الخارجي والديكور الداخلي أيضًا، بالرغم من أنها استراحة صغيرة الحجم.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية15-copy.webp",
-    sourceLabel: "cdn-luxuo",
-    sourceHref: "https://cdn.luxuo.com/2017/03/Iniala-Beach-House.jpg",
-  },
-  {
-    text: "16- بعض الاستراحات هي عبارة عن فلل صغيرة، وهو أمر طبيعي نظرًا لأن كلاهما راقي ويوفر الرفاهية للقاطنين.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية16-copy.webp",
-    sourceLabel: "Booking",
-    sourceHref: "https://www.booking.com/hotel/hr/luxury-villa-emilly.ar.html",
-  },
-  {
-    text: "17- تصميم استراحة استوائي بامتياز، ويمكننا ملاحظة وجود الأكواخ الصغيرة حول البركة مع وجود مظلات يتم استخدامها بواسطة الزوار للاسترخاء تحت أشعة الشمس وأخذ صور مثالية.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية17-copy.webp",
-    sourceLabel: "Sabandari",
-    sourceHref: "https://www.sabandari.com/",
-  },
-  {
-    text: "18- أحد صور توظيف تصميم استراحات مودرن على أرض الواقع، ويمكننا رؤية التصميم الذي يدمج بين لمسة تقليدية وطابع مودرن.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية18-copy.webp",
-    sourceLabel: "Kasahotels",
-    sourceHref: "https://www.kasahotels.com/",
-  },
-  {
-    text: "19- قد يبدو مخطط هذه الاستراحة غريبًا على الورق، ولكن الابداع يكمن في تصميم الشكل الحقيقي للاستراحة.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية19-copy.webp",
-    sourceLabel: "Inhabitat",
-    sourceHref:
-      "https://inhabitat.com/costa-rica-eco-resort-combines-jungle-yoga-with-sustainable-design/nalu-hotel-by-studio-saxe-4/",
-  },
-  {
-    text: "20- في المناطق الواسعة والتي تتمتع بالخصوصية تجد تصميم استراحات عصرية مثل هذه، والتي تتمتع بجميع مزايا أي فلل نراها حولنا.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية20-copy.webp",
-    sourceLabel: "Studiosaxe",
-    sourceHref: "https://studiosaxe.com/projects/ocean-eye/",
-  },
-  {
-    text: "21- بدلًا من قضاء الصيف في المنزل، يمكنك زيارة مثل هذه الاستراحات والحصول على أفضل تجربة ممكنة.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية21-copy.webp",
-    sourceLabel: "Anywhere",
-    sourceHref:
-      "https://www.anywhere.com/costa-rica/destinations/mal-pais/hotels",
-  },
-  {
-    text: "22- تصميم استراحة تقليدي ورائع في نفس الوقت، حيث أنه يقع في منطقة طبيعية خلابة بين الأشجار.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية22-copy.webp",
-    sourceLabel: "Tripadvisor",
-    sourceHref:
-      "https://www.tripadvisor.fr/Hotel_Review-g313829-d2099962-Reviews-Kalon_Surf_Surf_Coaching_Resort-Dominical_Province_of_Puntarenas.html",
-  },
-  {
-    text: "23- تصميم استراحة صغيرة ولكنه مودرن بامتياز، حيث أن بعض أجمل التصاميم تكون صغيرة بالعادة.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية23-copy.webp",
-    sourceLabel: "dsgntalk",
-    sourceHref:
-      "https://dsgntalk.com/2019/01/03/rakta-studio-menghadirkan-nuansa-resort-pada-rumah-di-tengah-kota-bandung/",
-  },
-  {
-    text: "24- يمكنك إيجاد أفضل تصميم استراحات في مناطق استوائيّة في بعض الجزر حول العالم، وهذا التصميم هو أفضل برهان.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية24-copy-1.webp",
-    sourceLabel: "Pinterest",
-    sourceHref: "https://www.pinterest.com/pin/237001999116114142/",
-  },
-  {
-    text: "25- تصميم بسيط وبنفس الوقت مودرن، ويقع في منطقة مثالية بين الأشجار، ويمكنك رؤية العديد من صور تصميم استراحات طبيعية عبر الانترنت.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية26-copy.webp",
-    sourceLabel: "Americanspa",
-    sourceHref:
-      "https://www.americanspa.com/news/six-senses-hotels-resorts-spas-joins-intercontinental-hotel-group-portfolio",
-  },
-  {
-    text: "26- من تصميم طبيعي إلى آخر، من منا لا يحب الطبيعة الخلابة؟ ويمكننا هنا رؤية تصميم استراحة رائع وعلى شكل كوخ بين الأشجار.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية27-copy.webp",
-    sourceLabel: "Pinterest",
-    sourceHref:
-      "https://www.pinterest.com/sallyscooper/best-new-hotels-2018-2019/",
-  },
-  {
-    text: "27- تصميم استراحة مودرن بامتياز ويعكس جميع صور الابداع والراحة في تصميم واحد، تعتبر هذه استراحة عصرية وتقع في منطقة مثالية.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية28-copy.webp",
-    sourceLabel: "theculturetrip",
-    sourceHref:
-      "https://theculturetrip.com/asia/maldives/articles/best-resorts-in-the-maldives/",
-  },
-  {
-    text: "28- استراحة تتميز بالخصوصية لوجود الجدار الخشبي حول المحيط، وهي تعتبر أحد أجمل استراحات العائلات لجميع الأوقات في السنة.",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية29-copy.webp",
-    sourceLabel: "prestigeonline",
-    sourceHref:
-      "https://www.prestigeonline.com/id/travel/hotels-resorts/safe-cocoons-luxury-hotels-and-resorts-in-indochina-for-travel-post-covid-19/",
-  },
-  {
-    text: "29- تصميم استراحة يعكس أحد صور الجمال الطبيعي الخلاب مع وجود لمسات من صور الإبداع العصري",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية30-copy.webp",
-    width: 1111,
-    height: 736,
-    sourceLabel: "ministryofvillas",
-    sourceHref: "https://www.ministryofvillas.com/villas/villa-alamanda/",
-  },
-  {
-    text: "30- تصميم استراحة بسيط ولكنه مناسب جدًا للعائلات الكبيرة، ويتميز بكونه تصميم استراحات راقية ويقع بين مجموعة من المنازل أعلى التلة",
-    src: "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية31-copy.webp",
-    sourceLabel: "Pinterest",
-    sourceHref: "https://www.pinterest.at/pin/49117452163072681/",
-  },
+const faqs = [
+  [
+    "ما أفضل تصاميم استراحات راقية للعائلات؟",
+    "أفضل تصميم استراحة عائلية هو الذي يفصل الخصوصية عن استقبال الضيوف، ويربط الصالة أو المجلس بحديقة أو جلسة خارجية، ويوفر مطبخًا وخدمات في مواقع عملية. لا يوجد شكل واحد مناسب للجميع؛ الاختيار يعتمد على مساحة الأرض وعدد المستخدمين وطبيعة المناسبات.",
+  ],
+  [
+    "كيف أختار مخطط استراحة مناسبًا لأرضي؟",
+    "ابدأ بأبعاد الأرض والواجهات والمداخل والاشتراطات، ثم حدد الاستخدام وعدد المستخدمين والمسبح والجلسات المطلوبة. بعد ذلك يمكن مقارنة المخططات المرجعية وتعديل الأنسب منها ضمن تصميم مخصص ومتوافق مع المشروع.",
+  ],
+  [
+    "هل يمكن تصميم استراحة صغيرة بشكل راقٍ؟",
+    "نعم. الاستراحة الصغيرة يمكن أن تبدو أوسع وأكثر راحة عند تقليل الممرات، واستخدام فراغ رئيسي متعدد الاستخدام، وربط الداخل بالخارج، واختيار أثاث وخامات مناسبة للمقاس. جودة التوزيع أهم من كثرة الغرف.",
+  ],
+  [
+    "ما العناصر التي ترفع تكلفة تصميم وتنفيذ الاستراحة؟",
+    "تزداد التكلفة عادةً مع زيادة مساحة البناء، وتعقيد الكتلة والواجهة، وكثرة دورات المياه، والمسبح، واللاندسكيب، والأنظمة الخاصة، والتغييرات أثناء التنفيذ. التخطيط المبكر يساعد على فصل الأساسيات عن الإضافات.",
+  ],
+  [
+    "هل أحتاج مكتبًا هندسيًا قبل بناء الاستراحة؟",
+    "تتطلب إجراءات رخصة البناء والتصاميم التنفيذية التعامل مع مكتب هندسي مؤهل حسب متطلبات المشروع والجهات المختصة. منصة بلدي توضح أن المكتب المصمم يُفوض لإعداد التصاميم المعمارية والإنشائية واستكمال الطلب والملفات المطلوبة.",
+  ],
+  [
+    "كيف أتواصل مع موسوق لتصميم استراحة؟",
+    "أرسل عبر واتساب المدينة، أبعاد الأرض، طبيعة الاستخدام، عدد المستخدمين، النمط المفضل، وهل تحتاج مسبحًا أو مجلسًا منفصلًا. هذه المعلومات تساعد على بدء محادثة واضحة حول نطاق التصميم والخطوة التالية.",
+  ],
 ];
 
-export default function ResortDesignsPage() {
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": `${pageUrl}#article`,
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": pageUrl,
+      },
+      headline: pillar.title,
+      description: pillar.description,
+      image: {
+        "@type": "ImageObject",
+        url: pillar.image,
+        width: 1200,
+        height: 630,
+      },
+      author: {
+        "@type": "Organization",
+        name: pillar.author,
+        url: `${SITE_URL}/عن-الشركة/`,
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "موسوق",
+        url: `${SITE_URL}/`,
+        logo: {
+          "@type": "ImageObject",
+          url: `${SITE_URL}/mawsouq-logo.png`,
+        },
+      },
+      datePublished: pillar.datePublished,
+      dateModified: pillar.dateModified,
+      inLanguage: "ar-SA",
+      articleSection: pillar.category,
+      keywords: "تصاميم استراحات، تصميم استراحة، مخطط استراحة، استراحات راقية، تصميم استراحة مودرن",
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${pageUrl}#breadcrumb`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "الرئيسية",
+          item: `${SITE_URL}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "المدونات",
+          item: `${SITE_URL}/المدونات/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: pillar.title,
+          item: pageUrl,
+        },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${pageUrl}#faq`,
+      mainEntity: faqs.map(([question, answer]) => ({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: answer,
+        },
+      })),
+    },
+  ],
+};
+
+const toc = [
+  ["quick-answer", "ملخص سريع قبل اختيار التصميم"],
+  ["design-types", "أنواع تصاميم الاستراحات"],
+  ["choose-design", "كيف تختار التصميم المناسب؟"],
+  ["before-plan", "قرارات يجب حسمها قبل المخطط"],
+  ["gallery", "30 فكرة وصورة للاستراحات"],
+  ["cluster-guides", "أدلة تفصيلية مرتبطة"],
+  ["engineering", "الرخصة والتنسيق الهندسي"],
+  ["faqs", "الأسئلة الشائعة"],
+];
+
+export default function ResortDesignsPillarPage() {
   return (
-    <main className="article-page">
+    <main className="rest-pillar-page" dir="rtl" lang="ar-SA">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <article className="article-shell">
-        <header className="article-hero">
-          <div className="article-label">التصميم المعمارى</div>
+      <div className="rest-pillar-glow" />
+      <div className="rest-pillar-container">
+        <nav aria-label="مسار التنقل" className="rest-breadcrumbs">
+          <Link href={routes.home}>الرئيسية</Link>
+          <span>›</span>
+          <Link href={routes.blogHub}>المدونات</Link>
+          <span>›</span>
+          <strong aria-current="page">تصاميم استراحات</strong>
+        </nav>
 
-          <h1>تصميم استراحات راقية - 30 فكرة رائعة مع صور</h1>
-
-          <p className="article-date">
-            نُشر في مارس 10، 2026 — آخر تحديث سبتمبر 15، 2026
-          </p>
-
-          <p className="article-lead">
-            نقدم لك افضل تصاميم استراحات باقتراب فصل الصيف 2026 والجو المشمس
-            والدافئ، يتوجه الكثير من الأشخاص والعائلات لقضاء العطلة الصيفيّة في
-            أماكن مثيرة للاهتمام على الشاطئ أو في الأماكن السياحية.
-          </p>
-
-          <p className="article-lead second-lead">
-            أحد أكثر الأماكن تفضيلًا وزيارة في فصل الصيف هي الاستراحات، حيث أنها
-            تُعطي الزائرين جوًا مفعمًا بالحريّة والخصوصيّة في نفس الوقت وأخذ صور
-            كثيرة، وأصبح التوجه نحو الاستراحات الراقية هذه الأيام كبيرًا جدًا.
-          </p>
-
-          <p className="article-lead second-lead">
-            هناك الكثير من الأنشطة التي يمكن قضاؤها هناك، وأهمها السباحة
-            والاستمتاع بأشعة الشمس، والعديد من الأنشطة التي يمكنك القيام بها مع
-            عائلتك أو أصدقائك.
-          </p>
-
-          <p className="article-lead second-lead">
-            سوف نقوم في هذا المقال بعرض مجموعة واسعة من تصاميم استراحات راقية
-            2026بالصور لكي تأخذ فكرة عن المكان الذي قد تزوره في عطلتك القادمة،
-            أو حتى إن كنت ترغب ببناء استراحة لاستخدامك الشخصي.
-          </p>
-        </header>
-
-        <div className="article-content">
-          <div className="ideas-list">
-            {resortIdeas.map((idea, index) => (
-              <section className="idea-card" key={idea.src}>
-                <p className="idea-text">{idea.text}</p>
-
-                <ArticleImage
-                  src={idea.src}
-                  alt="تصاميم الاستراحات"
-                  title="تصميم استراحات راقية - 30 فكرة رائعة مع صور"
-                  width={idea.width}
-                  height={idea.height}
-                />
-
-                <p className="source-line">
-                  المصدر:{" "}
-                  <a
-                    href={idea.sourceHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {idea.sourceLabel}
-                  </a>
-                </p>
-              </section>
-            ))}
+        <header className="rest-hero">
+          <div className="rest-hero-copy">
+            <span className="rest-eyebrow">دليل تصميم الاستراحات في السعودية 2026</span>
+            <h1>{pillar.title}</h1>
+            <p className="rest-hero-lead">
+              نقدم لك مجموعة واسعة من <strong>تصاميم استراحات راقية</strong> بالصور،
+              مع طريقة عملية لاختيار المخطط والمساحة والنمط المناسب قبل أن تطلب
+              التصميم أو تبدأ التنفيذ.
+            </p>
+            <p className="rest-hero-support">
+              احتفظنا بالأفكار والصور التي حققت ظهورًا جيدًا في Google، ثم أضفنا
+              هيكلًا أوضح يساعدك على تحويل الإلهام إلى قرار: استراحة عائلية أم
+              مناسبات؟ مودرن أم ريفية؟ بمسبح أم بدون؟ وما المعلومات التي يحتاجها
+              المصمم قبل البدء؟
+            </p>
+            <div className="rest-hero-actions">
+              <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="rest-main-cta">
+                <MessageCircle size={20} /> أرسل أرضك واطلب توجيهًا للتصميم
+              </a>
+              <a href="#gallery" className="rest-alt-cta">
+                <ImageIcon size={19} /> شاهد 30 فكرة بالصور
+              </a>
+            </div>
+            <div className="rest-hero-meta">
+              <span><Clock3 size={16} />{pillar.readTime}</span>
+              <span>آخر تحديث حقيقي: 6 أغسطس 2026</span>
+            </div>
           </div>
 
-          <section className="summary-box">
-            <p>
-              يمكنك العثور على تصميم استراحة مثالي لك ولعائلتك لقضاء العطلات أو
-              حتى السكن والإقامة فيها بسهولة،
-            </p>
+          <figure className="rest-hero-media">
+            <img
+              src={pillar.image}
+              alt={pillar.imageAlt}
+              width="1200"
+              height="800"
+              loading="eager"
+              fetchPriority="high"
+            />
+            <figcaption>فكرة استراحة راقية تربط الفراغ الداخلي بالطبيعة والجلسات الخارجية.</figcaption>
+          </figure>
+        </header>
 
-            <p>
-              حيث أن كل ما عليك فعله هو البحث عن النواحي التي تعمل بشكل مناسب مع
-              احتياجات عائلتك،
-            </p>
+        <section className="rest-conversion-strip" aria-label="دعوة للتواصل">
+          <div>
+            <strong>لديك أرض أو مخطط مبدئي؟</strong>
+            <span>أرسل المدينة والمساحة والاستخدام المطلوب لنبدأ من معلومات واضحة.</span>
+          </div>
+          <a href={whatsapp} target="_blank" rel="noopener noreferrer">
+            تحدث مع فريق موسوق <ArrowLeft size={18} />
+          </a>
+        </section>
 
-            <p>
-              من حجم الاستراحة وتفاصيلها الداخليّة، وحتى المرفقات الخارجيّة
-              والكماليّات مثل بركة السباحة أو الحديقة.
-            </p>
+        <section className="rest-snapshot" aria-label="ملخص الدليل">
+          <article><strong>30</strong><span>فكرة وصورة محفوظة من المحتوى الأصلي</span></article>
+          <article><strong>5</strong><span>أدلة فرعية تغطي أهم نوايا البحث</span></article>
+          <article><strong>قرار أول</strong><span>حدد الاستخدام قبل شكل الواجهة</span></article>
+          <article><strong>واتساب</strong><span>CTA مرتبط مباشرة بتفاصيل مشروعك</span></article>
+        </section>
 
-            <p>
-              هناك العديد من التصاميم والاستراحات العصريّة التي يمكنك العثور
-              عليها،
-            </p>
+        <details className="rest-mobile-toc">
+          <summary>محتويات الدليل</summary>
+          <ol>{toc.map(([id, label]) => <li key={id}><a href={`#${id}`}>{label}</a></li>)}</ol>
+        </details>
 
-            <p>
-              وقد قمنا بإعطائك نبذة واسعة عن بعض أنواع التصاميم التي يمكنك البحث
-              عنها، وكلٌ منها يحتوي على مميّزاته الخاصة.
-            </p>
-          </section>
+        <div className="rest-main-grid">
+          <article className="rest-article">
+            <section id="quick-answer" className="rest-section rest-quick-answer">
+              <div className="rest-section-heading">
+                <span className="rest-eyebrow">ملخص سريع</span>
+                <h2>قبل مشاهدة الصور: ما الذي يجعل تصميم الاستراحة ناجحًا؟</h2>
+              </div>
 
-          <section className="related-box">
-            <h2>مقالات ذات صلة :</h2>
+              <div className="rest-answer-box">
+                <Sparkles size={26} />
+                <p>
+                  تصميم الاستراحة الناجح لا يبدأ من الواجهة؛ يبدأ من الاستخدام.
+                  حدد عدد المستخدمين، نوع التجمعات، الخصوصية، المسبح، الجلسات
+                  الخارجية ومواقف السيارات، ثم اختر النمط الذي يخدم هذه القرارات.
+                </p>
+              </div>
 
-            <a
-              href="https://mawsouq.com/%d8%b5%d9%8a%d8%a7%d9%86%d8%a9-%d8%a7%d9%84%d9%85%d9%83%d9%8a%d9%81%d8%a7%d8%aa/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              صيانة المكيفات – معدّل اسعار السوق, الضمانات, وغيره (2026)
-            </a>
+              <ul className="rest-key-list">
+                <li><CheckCircle2 size={21} />الاستراحة العائلية تحتاج خصوصية وربطًا جيدًا بين الداخل والحديقة.</li>
+                <li><CheckCircle2 size={21} />استراحة المناسبات تحتاج مواقف وخدمات ودورات مياه ومسارات تشغيل واضحة.</li>
+                <li><CheckCircle2 size={21} />الاستراحة الصغيرة تستفيد من الفراغات المرنة وتقليل الممرات.</li>
+                <li><CheckCircle2 size={21} />المسبح يجب أن يظهر في المخطط منذ البداية مع الخدمات والسلامة والخصوصية.</li>
+                <li><CheckCircle2 size={21} />المخطط المرجعي من الإنترنت لا يُنفذ قبل مطابقته مع الأرض والاشتراطات.</li>
+              </ul>
 
-            <a
-              href="https://mawsouq.com/%d9%81%d9%84%d9%84-%d9%85%d9%88%d8%af%d8%b1%d9%86/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              تصاميم فلل مودرن - 30 فكرة وصورة (مع نصائح من مهندس)
-            </a>
+              <div className="rest-inline-form">
+                <ResthouseWhatsAppBrief articleTitle={pillar.title} />
+              </div>
+            </section>
 
-            <a
-              href="https://mawsouq.com/%d9%85%d8%ae%d8%b7%d8%b7-%d8%af%d9%88%d8%b1-%d8%a7%d8%b1%d8%b6%d9%8a/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              مخطط دور أرضي كامل - 16 فكرة
-            </a>
+            <section id="design-types" className="rest-section">
+              <span className="rest-eyebrow">اختيار النمط</span>
+              <h2>أنواع تصاميم الاستراحات حسب الاستخدام</h2>
+              <p>
+                الصور تساعدك على تحديد الذوق، لكن نوع الاستراحة يحدد البرنامج
+                المعماري. اختر الفئة الأقرب إلى استخدامك، ثم عدّلها حسب الأسرة
+                والأرض والميزانية.
+              </p>
 
-            <a
-              href="https://mawsouq.com/%d9%88%d8%a7%d8%ac%d9%87%d8%a7%d8%aa-%d9%85%d9%86%d8%a7%d8%b2%d9%84-%d8%ad%d8%af%d9%8a%d8%ab%d8%a9/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              واجهات منازل حديثة - 31 فكرة رائعة مع صور
-            </a>
+              <div className="rest-type-grid">
+                <article>
+                  <span>01</span><h3>استراحة عائلية خاصة</h3>
+                  <p>صالة أو مجلس عائلي، حديقة خاصة، مطبخ عملي، غرفة مرنة وخصوصية عالية.</p>
+                </article>
+                <article>
+                  <span>02</span><h3>استراحة للضيوف</h3>
+                  <p>مجلس واضح ومدخل مستقل وخدمات قريبة دون كشف مناطق العائلة.</p>
+                </article>
+                <article>
+                  <span>03</span><h3>استراحة مناسبات</h3>
+                  <p>سعة أكبر، مواقف، دورات مياه، تحضير وخدمة ومسارات تشغيل منظمة.</p>
+                </article>
+                <article>
+                  <span>04</span><h3>استراحة صغيرة</h3>
+                  <p>فراغ متعدد الاستخدام وامتداد خارجي بدل كثرة الغرف والممرات.</p>
+                </article>
+                <article>
+                  <span>05</span><h3>استراحة بمسبح</h3>
+                  <p>مسبح آمن وخاص مع جلسة مظللة ودش ودورة مياه وخدمات مدروسة.</p>
+                </article>
+                <article>
+                  <span>06</span><h3>استراحة تجارية</h3>
+                  <p>التشغيل والصيانة والسعة والاشتراطات وتجربة الزائر تصبح عوامل أساسية.</p>
+                </article>
+              </div>
+            </section>
 
-            <a
-              href="https://mawsouq.com/%d8%aa%d8%b5%d9%85%d9%8a%d9%85-%d9%85%d8%b9%d9%85%d8%a7%d8%b1%d9%8a-%d8%b9%d9%86-%d8%a8%d8%b9%d8%af/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              تصميم معماري عن بعد - دليلك الشامل
-            </a>
-          </section>
+            <section id="choose-design" className="rest-section">
+              <span className="rest-eyebrow">إطار قرار عملي</span>
+              <h2>كيف تختار تصميم استراحة مناسبًا بدل اختيار صورة جميلة فقط؟</h2>
+              <p>
+                قارن الأفكار باستخدام معايير ثابتة. هذا يقلل التردد ويجعل المحادثة
+                مع المصمم أسرع وأكثر دقة.
+              </p>
+
+              <div className="rest-table-wrap">
+                <table>
+                  <caption>معايير اختيار تصميم الاستراحة</caption>
+                  <thead><tr><th scope="col">المعيار</th><th scope="col">ماذا تفحص؟</th><th scope="col">لماذا مهم؟</th></tr></thead>
+                  <tbody>
+                    <tr><td>الاستخدام</td><td>عائلة، ضيوف، مناسبات أو نشاط تجاري</td><td>يحدد توزيع الفراغات والخدمات</td></tr>
+                    <tr><td>مساحة الأرض</td><td>الأبعاد والواجهة والارتدادات</td><td>تحدد الجزء القابل للبناء والفناء</td></tr>
+                    <tr><td>الخصوصية</td><td>المداخل والرؤية من الشارع والجيران</td><td>تؤثر في راحة الاستخدام</td></tr>
+                    <tr><td>المسبح</td><td>الموقع، الشمس، المعدات والحركة</td><td>يصعب إضافته جيدًا بعد اكتمال التصميم</td></tr>
+                    <tr><td>التشغيل</td><td>المطبخ والخدمة والتنظيف والصيانة</td><td>يحدد سهولة استخدام الاستراحة يوميًا</td></tr>
+                    <tr><td>الميزانية</td><td>المساحة والأولويات والإضافات</td><td>تمنع تصميم مشروع أكبر من القدرة المالية</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="rest-design-links">
+                <Link href={routes.architecture}>التصميم المعماري للمشروع</Link>
+                <Link href={routes.gardens}>تصميم الحديقة والجلسات الخارجية</Link>
+                <Link href={routes.modernVillas}>أفكار فلل مودرن للواجهات والكتل</Link>
+                <Link href={routes.remoteDesign}>طلب تصميم معماري عن بعد</Link>
+              </div>
+            </section>
+
+            <section id="before-plan" className="rest-section">
+              <span className="rest-eyebrow">قبل رسم المخطط</span>
+              <h2>6 قرارات اختصرها قبل التواصل مع المصمم</h2>
+              <div className="rest-process-grid">
+                {[
+                  ["الاستخدام الأساسي", "اكتب الجملة التي تشرح لماذا تبني الاستراحة ومن سيستخدمها."],
+                  ["عدد المستخدمين", "حدد الاستخدام اليومي وأقصى عدد متوقع في المناسبات."],
+                  ["الفراغات الضرورية", "افصل بين الاحتياجات الأساسية والرغبات القابلة للتأجيل."],
+                  ["النمط المفضل", "اجمع 3 إلى 5 صور توضح ما يعجبك بدل عشرات الصور المتعارضة."],
+                  ["المسبح والخارج", "حدد وجود المسبح والجلسات والمواقف والحديقة منذ البداية."],
+                  ["الميزانية والأولوية", "حدد سقفًا تقريبيًا وأين تريد إنفاق الجزء الأكبر من الميزانية."],
+                ].map(([title, text], index) => (
+                  <article key={title}>
+                    <span>{index + 1}</span><div><h3>{title}</h3><p>{text}</p></div>
+                  </article>
+                ))}
+              </div>
+
+              <aside className="rest-whatsapp-callout">
+                <div>
+                  <MessageCircle size={28} />
+                  <div><h3>لا تعرف من أين تبدأ؟</h3><p>استخدم نموذج brief أعلاه أو أرسل صورة الأرض وأفكارك مباشرة.</p></div>
+                </div>
+                <a href={whatsapp} target="_blank" rel="noopener noreferrer">ابدأ المحادثة عبر واتساب</a>
+              </aside>
+            </section>
+
+            <section id="gallery" className="rest-section rest-gallery-section">
+              <span className="rest-eyebrow">المحتوى الأصلي محفوظ ومُنظم</span>
+              <h2>30 فكرة من تصاميم استراحات راقية بالصور</h2>
+              <p>
+                استخدم الصور التالية كمراجع بصرية للأسلوب والكتلة وربط الداخل
+                بالخارج. لا تنفذ أي صورة كما هي؛ استخرج منها العنصر الذي يعجبك
+                ثم عدله حسب أرضك واحتياجاتك.
+              </p>
+
+              <div className="rest-gallery-grid">
+                {resortIdeas.map((idea, index) => (
+                  <article className="rest-idea-card" key={idea.src}>
+                    <div className="rest-idea-number">فكرة {index + 1}</div>
+                    <figure>
+                      <img
+                        src={idea.src}
+                        alt={`تصميم استراحة راقية رقم ${index + 1}`}
+                        title="تصاميم استراحات راقية"
+                        width={idea.width || 1200}
+                        height={idea.height || 800}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </figure>
+                    <p>{idea.text}</p>
+                    <a href={idea.sourceHref} target="_blank" rel="noopener noreferrer">
+                      مصدر الصورة: {idea.sourceLabel}<ExternalLink size={15} />
+                    </a>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section id="cluster-guides" className="rest-section">
+              <span className="rest-eyebrow">شبكة Topic Cluster</span>
+              <h2>أدلة تفصيلية مرتبطة بتصميم الاستراحات</h2>
+              <p>
+                هذا الدليل يملك الاستعلام العام <strong>تصاميم استراحات</strong>.
+                المقالات التالية تتعمق في نوايا محددة حتى لا تتنافس الصفحات مع
+                بعضها، بل تدعم الصفحة الركائزية وتجيب عن قرارات مختلفة.
+              </p>
+
+              <div className="rest-cluster-grid">
+                {clusters.map((cluster) => (
+                  <Link href={`/${cluster.slug}/`} key={cluster.slug}>
+                    <figure><img src={cluster.image} alt={cluster.imageAlt} width="800" height="520" loading="lazy" /></figure>
+                    <div>
+                      <span>{cluster.category}</span>
+                      <h3>{cluster.title}</h3>
+                      <p>{cluster.excerpt}</p>
+                      <strong>افتح الدليل <ArrowLeft size={17} /></strong>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </section>
+
+            <section id="engineering" className="rest-section">
+              <span className="rest-eyebrow">من الفكرة إلى مشروع قابل للتنفيذ</span>
+              <h2>الرخصة والتنسيق الهندسي قبل بناء الاستراحة</h2>
+              <p>
+                توضح منصة بلدي أن إصدار رخصة البناء يتضمن تفويض مكتب هندسي مصمم
+                لإعداد التصاميم المعمارية والإنشائية واستكمال بيانات وملفات الطلب.
+                كما يعرّف المركز السعودي لكود البناء الكود بأنه مجموعة اشتراطات
+                ومتطلبات مرتبطة بالبناء والتشييد بهدف السلامة والصحة العامة.
+              </p>
+              <p>
+                لذلك لا يكفي اختيار صورة أو مخطط عام. المشروع يحتاج إلى مراجعة
+                استخدام الأرض، المتطلبات البلدية، التصميم المعماري، التصميم
+                الإنشائي، وخدمات الكهرباء والسباكة والتكييف، مع متطلبات إضافية
+                للمسابح أو الأنشطة التجارية بحسب الحالة.
+              </p>
+
+              <div className="rest-official-links">
+                {[officialSources.baladyPermit, officialSources.saudiCode, officialSources.buildingCodes2024].map((source) => (
+                  <a href={source.url} target="_blank" rel="noopener noreferrer" key={source.url}>
+                    <ShieldCheck size={19} />{source.label}<ExternalLink size={16} />
+                  </a>
+                ))}
+              </div>
+            </section>
+
+            <section id="faqs" className="rest-section rest-faq-section">
+              <span className="rest-eyebrow">أسئلة يبحث عنها أصحاب الأراضي</span>
+              <h2>الأسئلة الشائعة حول تصاميم الاستراحات</h2>
+              <div>
+                {faqs.map(([question, answer]) => (
+                  <details key={question}>
+                    <summary>{question}</summary>
+                    <p>{answer}</p>
+                  </details>
+                ))}
+              </div>
+            </section>
+
+            <section className="rest-final-cta">
+              <span className="rest-eyebrow">جاهز لتنظيم فكرتك؟</span>
+              <h2>أرسل تفاصيل الأرض واحصل على محادثة تصميم أكثر دقة</h2>
+              <p>
+                اذكر المدينة، مساحة الأرض، الاستخدام، عدد المستخدمين، النمط
+                المفضل، وهل تحتاج مسبحًا. هذه المعلومات تختصر الطريق من صور
+                الاستراحات إلى brief واضح للمشروع.
+              </p>
+              <div>
+                <a href={whatsapp} target="_blank" rel="noopener noreferrer"><MessageCircle size={20} /> تواصل مع موسوق عبر واتساب</a>
+                <Link href={routes.about}>تعرف على موسوق</Link>
+              </div>
+            </section>
+          </article>
+
+          <aside className="rest-sidebar">
+            <div className="rest-sidebar-inner">
+              <nav aria-label="فهرس الدليل" className="rest-side-card rest-toc">
+                <span className="rest-eyebrow">في هذا الدليل</span>
+                <ol>{toc.map(([id, label]) => <li key={id}><a href={`#${id}`}>{label}</a></li>)}</ol>
+              </nav>
+
+              <ResthouseWhatsAppBrief articleTitle={pillar.title} compact />
+
+              <div className="rest-side-card">
+                <span className="rest-eyebrow">أدلة التصميم</span>
+                <div className="rest-side-links">
+                  {clusters.map((cluster) => <Link href={`/${cluster.slug}/`} key={cluster.slug}>{cluster.title}</Link>)}
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
-      </article>
+      </div>
 
-      <style>{`
-        .article-page {
-          direction: rtl;
-          background:
-            radial-gradient(circle at 85% 12%, rgba(47, 134, 246, 0.12), transparent 32%),
-            linear-gradient(180deg, var(--surface-2), var(--page));
-          padding: calc(var(--nav-height) + 40px) 0 72px;
-        }
+      <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="rest-mobile-cta">
+        <MessageCircle size={20} /> أرسل تفاصيل استراحتك عبر واتساب
+      </a>
 
-        .article-shell {
-          width: min(100% - 32px, 1040px);
-          margin-inline: auto;
-          overflow: hidden;
-          border: 1px solid var(--hairline);
-          border-radius: 34px;
-          background: var(--surface);
-          box-shadow: var(--card-shadow);
-        }
-
-        .article-hero {
-          padding: clamp(30px, 5vw, 64px);
-          border-bottom: 1px solid var(--hairline);
-          background:
-            radial-gradient(circle at 15% 20%, rgba(47, 134, 246, 0.12), transparent 34%),
-            linear-gradient(135deg, var(--surface), var(--surface-2));
-        }
-
-        .article-label {
-          width: max-content;
-          max-width: 100%;
-          margin-bottom: 18px;
-          padding: 8px 16px;
-          border: 1px solid var(--hairline);
-          border-radius: 999px;
-          background: var(--surface);
-          color: var(--brand);
-          font-size: 14px;
-          font-weight: 900;
-        }
-
-        .article-hero h1 {
-          margin: 0;
-          color: var(--ink);
-          font-size: clamp(32px, 5vw, 56px);
-          line-height: 1.25;
-          letter-spacing: -0.04em;
-          font-weight: 950;
-        }
-
-        .article-date {
-          margin: 18px 0 0;
-          color: var(--ink-faint);
-          font-size: 14px;
-          font-weight: 800;
-        }
-
-        .article-lead {
-          max-width: 900px;
-          margin: 26px 0 0;
-          color: var(--ink);
-          font-size: clamp(17px, 2vw, 21px);
-          line-height: 2;
-          font-weight: 800;
-        }
-
-        .second-lead {
-          margin-top: 14px;
-        }
-
-        .article-content {
-          padding: clamp(28px, 5vw, 60px);
-        }
-
-        .article-content p {
-          margin: 0 0 22px;
-          color: var(--ink-muted);
-          font-size: 18px;
-          line-height: 2.15;
-          font-weight: 500;
-        }
-
-        .article-content h2 {
-          margin: 52px 0 20px;
-          color: var(--brand);
-          font-size: clamp(25px, 3.2vw, 38px);
-          line-height: 1.45;
-          font-weight: 950;
-          letter-spacing: -0.025em;
-        }
-
-        .article-content a,
-        .article-figure a {
-          color: var(--brand);
-          font-weight: 900;
-          text-decoration: underline;
-          text-underline-offset: 5px;
-          overflow-wrap: anywhere;
-        }
-
-        .ideas-list {
-          display: grid;
-          gap: 34px;
-        }
-
-        .idea-card,
-        .summary-box {
-          padding: clamp(20px, 4vw, 34px);
-          border: 1px solid var(--hairline);
-          border-radius: 28px;
-          background:
-            radial-gradient(circle at 12% 12%, rgba(47, 134, 246, 0.08), transparent 32%),
-            var(--surface-2);
-        }
-
-        .idea-text {
-          color: var(--ink) !important;
-          font-size: clamp(17px, 2vw, 21px) !important;
-          line-height: 2 !important;
-          font-weight: 850 !important;
-        }
-
-        .source-line {
-          margin: 16px 0 0 !important;
-          color: var(--ink-faint) !important;
-          text-align: center;
-          font-size: 14px !important;
-          line-height: 1.8 !important;
-          font-weight: 800 !important;
-        }
-
-        .article-figure {
-          margin: 24px auto 0;
-          overflow: hidden;
-          border: 1px solid var(--hairline);
-          border-radius: 24px;
-          background: var(--surface);
-          box-shadow: 0 18px 55px rgba(16, 32, 51, 0.08);
-        }
-
-        .article-figure img {
-          display: block;
-          width: 100%;
-          height: auto;
-          background: var(--surface-2);
-        }
-
-        .summary-box {
-          margin-top: 54px;
-        }
-
-        .summary-box p:last-child {
-          margin-bottom: 0;
-        }
-
-        .related-box {
-          margin-top: 60px;
-          padding: clamp(22px, 4vw, 34px);
-          border: 1px solid var(--hairline);
-          border-radius: 28px;
-          background:
-            radial-gradient(circle at 10% 20%, rgba(47, 134, 246, 0.1), transparent 34%),
-            var(--surface-2);
-        }
-
-        .related-box h2 {
-          margin-top: 0;
-        }
-
-        .related-box a {
-          display: block;
-          margin-top: 14px;
-          padding: 15px 18px;
-          border: 1px solid var(--hairline);
-          border-radius: 18px;
-          background: var(--surface);
-          color: var(--brand);
-          text-decoration: none;
-          box-shadow: 0 10px 28px rgba(16, 32, 51, 0.045);
-          transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .related-box a:hover {
-          transform: translateY(-2px);
-          border-color: var(--brand-bright);
-        }
-
-        @media (max-width: 1023px) {
-          .article-page {
-            padding-top: calc(var(--nav-height) + 28px);
-          }
-        }
-
-        @media (max-width: 640px) {
-          .article-page {
-            padding: calc(var(--nav-height) + 20px) 0 48px;
-          }
-
-          .article-shell {
-            width: min(100% - 20px, 1040px);
-            border-radius: 24px;
-          }
-
-          .article-content p,
-          .idea-text {
-            font-size: 16px !important;
-            line-height: 2 !important;
-          }
-
-          .article-lead {
-            font-size: 16px;
-            line-height: 2;
-          }
-
-          .idea-card,
-          .summary-box,
-          .article-figure,
-          .related-box {
-            border-radius: 20px;
-          }
-        }
-      `}</style>
+      <style>{styles}</style>
     </main>
   );
 }
 
-function ArticleImage({ src, alt, title, width, height }) {
-  return (
-    <figure className="article-figure">
-      <img
-        src={src}
-        alt={alt}
-        title={title}
-        width={width}
-        height={height}
-        loading="lazy"
-      />
-    </figure>
-  );
-}
+const styles = `
+  .rest-pillar-page{position:relative;min-height:100vh;padding:calc(var(--nav-height) + 28px) 0 100px;background:var(--page);color:var(--ink);font-family:var(--font-tajawal),sans-serif;overflow:clip}
+  .rest-pillar-glow{position:absolute;inset:0 0 auto;height:850px;background:radial-gradient(circle at 83% 8%,rgba(47,134,246,.19),transparent 35%),linear-gradient(180deg,var(--surface-2),transparent);pointer-events:none}
+  .rest-pillar-container{position:relative;z-index:1;width:min(calc(100% - 28px),1460px);margin-inline:auto}
+  .rest-breadcrumbs{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:18px;color:var(--ink-faint);font-size:13px;font-weight:850}.rest-breadcrumbs a{color:var(--brand);text-decoration:none}.rest-breadcrumbs strong{color:var(--ink)}
+  .rest-hero{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);overflow:hidden;border:1px solid var(--hairline-strong);border-radius:38px;background:var(--surface);box-shadow:var(--card-shadow)}
+  .rest-hero-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(30px,5vw,72px)}.rest-eyebrow{display:inline-flex;width:max-content;max-width:100%;color:var(--brand);font-size:12px;font-weight:950;letter-spacing:.03em}
+  .rest-hero h1{margin:18px 0 0;color:var(--ink);font-size:clamp(38px,5.3vw,68px);line-height:1.18;letter-spacing:-.055em;font-weight:950}.rest-hero-lead{margin:24px 0 0;color:var(--ink);font-size:clamp(18px,2vw,22px);line-height:1.95;font-weight:800}.rest-hero-support{margin:13px 0 0;color:var(--ink-muted);font-size:16px;line-height:1.95;font-weight:650}
+  .rest-hero-actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:28px}.rest-main-cta,.rest-alt-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:12px 22px;border-radius:999px;text-decoration:none;font-size:14px;font-weight:950;transition:.2s ease}.rest-main-cta{background:#20c96b;color:#062818;box-shadow:0 16px 45px rgba(32,201,107,.23)}.rest-alt-cta{border:1px solid var(--hairline-strong);background:var(--surface-2);color:var(--ink)}.rest-main-cta:hover,.rest-conversion-strip a:hover,.rest-final-cta a:hover{transform:translateY(-2px)}
+  .rest-hero-meta{display:flex;flex-wrap:wrap;gap:17px;margin-top:22px;color:var(--ink-faint);font-size:13px;font-weight:800}.rest-hero-meta span{display:inline-flex;align-items:center;gap:6px}
+  .rest-hero-media{position:relative;min-height:600px;margin:0;background:#071321}.rest-hero-media img{display:block;width:100%;height:100%;object-fit:cover}.rest-hero-media figcaption{position:absolute;right:16px;left:16px;bottom:16px;padding:12px 15px;border:1px solid rgba(255,255,255,.14);border-radius:15px;background:rgba(7,19,33,.72);backdrop-filter:blur(12px);color:#fff;font-size:12px;line-height:1.7;font-weight:750}
+  .rest-conversion-strip{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:16px;padding:20px 24px;border-radius:23px;background:#071321;color:#fff;box-shadow:0 18px 55px rgba(7,19,33,.2)}.rest-conversion-strip strong,.rest-conversion-strip span{display:block}.rest-conversion-strip strong{font-size:20px;font-weight:950}.rest-conversion-strip span{margin-top:4px;color:rgba(255,255,255,.7);font-size:13px;font-weight:700}.rest-conversion-strip a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 20px;border-radius:999px;background:#20c96b;color:#062818;text-decoration:none;font-size:14px;font-weight:950;transition:.2s ease}
+  .rest-snapshot{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}.rest-snapshot article{padding:20px;border:1px solid var(--hairline);border-radius:22px;background:var(--surface);box-shadow:var(--card-shadow)}.rest-snapshot strong{display:block;color:var(--brand);font-size:25px;font-weight:950}.rest-snapshot span{display:block;margin-top:7px;color:var(--ink-muted);font-size:13px;line-height:1.7;font-weight:750}
+  .rest-main-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:24px;align-items:start;margin-top:24px}.rest-article{min-width:0;padding:clamp(22px,4vw,46px);border:1px solid var(--hairline);border-radius:32px;background:var(--surface);box-shadow:var(--card-shadow)}
+  .rest-section{padding:44px 0;border-bottom:1px solid var(--hairline);scroll-margin-top:130px}.rest-section h2{margin:8px 0 0;color:var(--ink);font-size:clamp(30px,4vw,45px);line-height:1.38;letter-spacing:-.038em;font-weight:950}.rest-section>p{margin:18px 0 0;color:var(--ink-muted);font-size:17px;line-height:2;font-weight:650}
+  .rest-answer-box{display:flex;gap:13px;margin-top:24px;padding:23px;border:1px solid rgba(47,134,246,.28);border-radius:23px;background:rgba(47,134,246,.08)}.rest-answer-box svg{flex:0 0 auto;color:var(--brand)}.rest-answer-box p{margin:0;color:var(--ink);font-size:17px;line-height:1.95;font-weight:800}.rest-key-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:22px 0 0;padding:0;list-style:none}.rest-key-list li{display:flex;gap:9px;align-items:flex-start;padding:15px;border-radius:17px;background:var(--surface-2);color:var(--ink-muted);font-size:14px;line-height:1.8;font-weight:750}.rest-key-list svg{flex:0 0 auto;margin-top:4px;color:var(--brand)}.rest-inline-form{margin-top:24px}
+  .rest-type-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin-top:26px}.rest-type-grid article{padding:20px;border:1px solid var(--hairline);border-radius:21px;background:var(--surface-2)}.rest-type-grid article>span{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--brand);color:#fff;font-size:12px;font-weight:950}.rest-type-grid h3{margin:14px 0 0;color:var(--ink);font-size:19px;font-weight:950}.rest-type-grid p{margin:8px 0 0;color:var(--ink-muted);font-size:14px;line-height:1.8;font-weight:700}
+  .rest-table-wrap{margin-top:26px;overflow-x:auto;border:1px solid var(--hairline);border-radius:23px;box-shadow:var(--card-shadow)}.rest-table-wrap table{width:100%;min-width:760px;border-collapse:collapse;text-align:right}.rest-table-wrap caption{padding:16px 18px;background:var(--surface-2);color:var(--ink);text-align:right;font-weight:950}.rest-table-wrap th{padding:15px 18px;background:#071321;color:#fff}.rest-table-wrap td{padding:15px 18px;border-top:1px solid var(--hairline);color:var(--ink-muted);font-size:14px;line-height:1.8;font-weight:700}.rest-table-wrap tr:nth-child(even) td{background:var(--surface-2)}.rest-table-wrap td:first-child{color:var(--ink);font-weight:950}
+  .rest-design-links{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}.rest-design-links a{padding:11px 15px;border:1px solid var(--hairline);border-radius:999px;background:var(--surface-2);color:var(--brand);font-size:13px;font-weight:900;text-decoration:none}
+  .rest-process-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:25px}.rest-process-grid article{display:flex;gap:13px;padding:19px;border:1px solid var(--hairline);border-radius:20px;background:var(--surface-2)}.rest-process-grid article>span{display:grid;place-items:center;flex:0 0 auto;width:36px;height:36px;border-radius:50%;background:var(--brand);color:#fff;font-weight:950}.rest-process-grid h3{margin:0;color:var(--ink);font-size:17px;font-weight:950}.rest-process-grid p{margin:7px 0 0;color:var(--ink-muted);font-size:14px;line-height:1.75;font-weight:700}
+  .rest-whatsapp-callout{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:24px;padding:24px;border-radius:24px;background:linear-gradient(135deg,#071321,#0b5bb8);color:#fff}.rest-whatsapp-callout>div{display:flex;gap:13px;align-items:flex-start}.rest-whatsapp-callout h3{margin:0;font-size:20px;font-weight:950}.rest-whatsapp-callout p{margin:6px 0 0;color:rgba(255,255,255,.7);font-size:13px;line-height:1.7;font-weight:700}.rest-whatsapp-callout a{flex:0 0 auto;padding:12px 18px;border-radius:999px;background:#20c96b;color:#062818;font-size:13px;font-weight:950;text-decoration:none}
+  .rest-gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px;margin-top:28px}.rest-idea-card{overflow:hidden;border:1px solid var(--hairline);border-radius:25px;background:var(--surface-2);box-shadow:var(--card-shadow)}.rest-idea-number{padding:13px 16px;color:var(--brand);font-size:13px;font-weight:950}.rest-idea-card figure{margin:0;overflow:hidden;aspect-ratio:16/10;background:#071321}.rest-idea-card img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .55s ease}.rest-idea-card:hover img{transform:scale(1.035)}.rest-idea-card>p{margin:0;padding:17px;color:var(--ink-muted);font-size:14px;line-height:1.9;font-weight:700}.rest-idea-card>a{display:flex;align-items:center;justify-content:space-between;gap:9px;margin:0 17px 17px;padding-top:12px;border-top:1px solid var(--hairline);color:var(--brand);font-size:12px;font-weight:900;text-decoration:none}
+  .rest-cluster-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-top:27px}.rest-cluster-grid>a{overflow:hidden;border:1px solid var(--hairline);border-radius:24px;background:var(--surface-2);text-decoration:none;transition:.2s ease}.rest-cluster-grid>a:hover{transform:translateY(-3px);border-color:rgba(47,134,246,.48)}.rest-cluster-grid figure{margin:0;aspect-ratio:16/9;overflow:hidden}.rest-cluster-grid img{width:100%;height:100%;object-fit:cover}.rest-cluster-grid>a>div{padding:19px}.rest-cluster-grid span{color:var(--brand);font-size:12px;font-weight:950}.rest-cluster-grid h3{margin:9px 0 0;color:var(--ink);font-size:21px;line-height:1.55;font-weight:950}.rest-cluster-grid p{margin:9px 0;color:var(--ink-muted);font-size:14px;line-height:1.8;font-weight:700}.rest-cluster-grid strong{display:inline-flex;align-items:center;gap:7px;color:var(--brand);font-size:13px}
+  .rest-official-links{display:grid;gap:9px;margin-top:22px}.rest-official-links a{display:flex;align-items:center;gap:9px;padding:14px 16px;border:1px solid var(--hairline);border-radius:16px;background:var(--surface-2);color:var(--ink);font-size:14px;font-weight:900;text-decoration:none}.rest-official-links a svg:first-child{color:var(--brand)}.rest-official-links a svg:last-child{margin-right:auto;color:var(--ink-faint)}
+  .rest-faq-section>div{display:grid;gap:10px;margin-top:24px}.rest-faq-section details{padding:18px 20px;border:1px solid var(--hairline);border-radius:19px;background:var(--surface-2)}.rest-faq-section details[open]{border-color:rgba(47,134,246,.5)}.rest-faq-section summary{cursor:pointer;color:var(--ink);font-size:16px;line-height:1.7;font-weight:950}.rest-faq-section details p{margin:14px 0 0;padding-top:14px;border-top:1px solid var(--hairline);color:var(--ink-muted);font-size:14px;line-height:1.9;font-weight:700}
+  .rest-final-cta{margin-top:38px;padding:clamp(28px,5vw,45px);border-radius:28px;background:#071321;color:#fff}.rest-final-cta h2{margin:10px 0 0;font-size:clamp(31px,4vw,46px);line-height:1.35;font-weight:950}.rest-final-cta p{max-width:780px;margin:15px 0 0;color:rgba(255,255,255,.73);font-size:16px;line-height:1.9;font-weight:700}.rest-final-cta>div{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.rest-final-cta a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:12px 21px;border-radius:999px;background:#20c96b;color:#062818;font-size:14px;font-weight:950;text-decoration:none;transition:.2s ease}.rest-final-cta a+ a{border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);color:#fff}
+  .rest-sidebar-inner{position:sticky;top:calc(var(--nav-height) + 20px);display:grid;gap:14px;max-height:calc(100vh - var(--nav-height) - 28px);overflow-y:auto;padding-left:3px;overscroll-behavior:contain}.rest-sidebar-inner::-webkit-scrollbar{width:5px}.rest-sidebar-inner::-webkit-scrollbar-thumb{background:rgba(47,134,246,.34);border-radius:999px}.rest-side-card,.resthouse-lead-card{padding:20px;border:1px solid var(--hairline);border-radius:24px;background:var(--surface);box-shadow:var(--card-shadow)}.rest-toc ol{display:grid;gap:3px;margin:13px 0 0;padding:0;list-style:none}.rest-toc a{display:block;padding:8px 10px;border-radius:10px;color:var(--ink-muted);font-size:13px;line-height:1.65;font-weight:850;text-decoration:none}.rest-toc a:hover{background:rgba(47,134,246,.09);color:var(--brand)}.rest-side-links{display:grid;gap:8px;margin-top:13px}.rest-side-links a{padding:10px 11px;border-radius:12px;background:var(--surface-2);color:var(--ink);font-size:13px;line-height:1.65;font-weight:900;text-decoration:none}.rest-side-links a:hover{color:var(--brand)}
+  .resthouse-lead-heading{display:flex;gap:10px;align-items:flex-start}.resthouse-lead-icon{display:grid;place-items:center;flex:0 0 auto;width:41px;height:41px;border-radius:14px;background:rgba(32,201,107,.14);color:#12a958}.resthouse-lead-heading strong{display:block;color:var(--ink);font-size:17px;font-weight:950}.resthouse-lead-heading p{margin:5px 0 0;color:var(--ink-muted);font-size:12px;line-height:1.65;font-weight:700}.resthouse-lead-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:16px}.resthouse-lead-fields label{display:grid;gap:5px}.resthouse-lead-fields label>span{font-size:11px;color:var(--ink-faint);font-weight:900}.resthouse-lead-fields input,.resthouse-lead-fields select{width:100%;min-width:0;height:42px;padding:0 10px;border:1px solid var(--hairline);border-radius:11px;background:var(--surface-2);color:var(--ink);font-family:inherit;font-size:12px;font-weight:750;outline:none}.resthouse-lead-fields input:focus,.resthouse-lead-fields select:focus{border-color:var(--brand)}.lead-field-full{grid-column:1/-1}.resthouse-whatsapp-submit{display:flex;align-items:center;justify-content:center;gap:8px;min-height:47px;margin-top:12px;padding:10px 14px;border-radius:999px;background:#20c96b;color:#062818;font-size:13px;font-weight:950;text-decoration:none}.resthouse-lead-note{margin:8px 0 0;color:var(--ink-faint);font-size:10px;line-height:1.6;font-weight:700}.is-compact .resthouse-lead-fields{grid-template-columns:1fr}.is-compact .lead-field-full{grid-column:auto}
+  .rest-mobile-toc{display:none;margin-top:16px;padding:18px;border:1px solid var(--hairline);border-radius:20px;background:var(--surface)}.rest-mobile-toc summary{cursor:pointer;color:var(--ink);font-weight:950}.rest-mobile-toc ol{display:grid;gap:8px;margin:14px 0 0}.rest-mobile-toc a{color:var(--brand);font-weight:850;text-decoration:none}.rest-mobile-cta{display:none}
+  @media(max-width:1100px){.rest-pillar-page{overflow:visible}.rest-hero{grid-template-columns:1fr}.rest-hero-copy{order:2}.rest-hero-media{order:1;min-height:400px}.rest-main-grid{grid-template-columns:1fr}.rest-sidebar{display:none}.rest-mobile-toc{display:block}.rest-snapshot{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:760px){.rest-pillar-page{padding:calc(var(--nav-height) + 18px) 0 112px}.rest-pillar-container{width:min(calc(100% - 18px),1460px)}.rest-hero{border-radius:25px}.rest-hero-copy{padding:26px 20px}.rest-hero h1{font-size:37px}.rest-hero-media{min-height:280px}.rest-hero-actions{flex-direction:column}.rest-main-cta,.rest-alt-cta{width:100%}.rest-conversion-strip{align-items:stretch;flex-direction:column;padding:19px}.rest-conversion-strip a{width:100%}.rest-snapshot{grid-template-columns:1fr;gap:9px}.rest-snapshot article{padding:16px;border-radius:18px}.rest-article{padding:18px;border-radius:24px}.rest-key-list,.rest-type-grid,.rest-process-grid,.rest-gallery-grid,.rest-cluster-grid{grid-template-columns:1fr}.rest-section{padding:36px 0}.rest-section h2{font-size:30px}.rest-whatsapp-callout{align-items:stretch;flex-direction:column}.rest-whatsapp-callout a{width:100%;text-align:center}.rest-mobile-cta{position:fixed;z-index:90;right:12px;left:12px;bottom:max(78px,calc(env(safe-area-inset-bottom) + 78px));display:flex;align-items:center;justify-content:center;gap:8px;min-height:55px;border-radius:999px;background:#20c96b;color:#062818;font-size:14px;font-weight:950;text-decoration:none;box-shadow:0 18px 50px rgba(0,0,0,.25)}.rest-table-wrap table{min-width:640px}.resthouse-lead-fields{grid-template-columns:1fr}.lead-field-full{grid-column:auto}}
+`;

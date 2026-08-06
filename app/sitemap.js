@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { getAllEnglishBlogEntries } from "./(en)/en/blog/blog-data";
+import { getAllResthouseEntries } from "./_arabic-pages/_resthouse-cluster/resthouse-data";
 
 export const dynamic = "force-static";
 
@@ -287,6 +288,13 @@ export default function sitemap() {
   // Dynamic English blog routes are not discoverable by the filesystem walker,
   // so the topic-cluster data file supplies their canonical sitemap entries.
   for (const entry of getAllEnglishBlogEntries()) {
+    entries.set(entry.url, entry);
+  }
+
+  // The Arabic resthouse pillar keeps its existing public URL, while the five
+  // new cluster routes are generated from app/_arabic-pages at build time.
+  // Their canonical entries come from the shared cluster data file.
+  for (const entry of getAllResthouseEntries()) {
     entries.set(entry.url, entry);
   }
 

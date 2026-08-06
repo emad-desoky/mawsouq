@@ -3,6 +3,19 @@
 import { useMemo, useRef } from "react";
 import Image from "next/image";
 
+
+const latestArticleSlugs = [
+  "مخطط-استراحة-جاهز",
+  "تصميم-استراحة-صغيرة",
+  "تصميم-استراحة-غير-مكلفة-في-السعودية",
+  "تصميم-استراحة-مودرن",
+  "مخطط-استراحة-صغيرة-بمسبح",
+  "تصاميم-استراحات",
+  "تكلفة-بناء-دور-واحد-500-متر",
+  "تكلفة-بناء-دور-واحد-300-متر",
+  "افضل-شركة-تشطيبات-في-السعودية",
+];
+
 const categories = [
   "الكل",
   "أحدث المقالات",
@@ -15,17 +28,6 @@ const categories = [
   "حفر الاساسات",
   "هدم مبانى",
   "خدمات المنازل",
-];
-
-const latestArticleSlugs = [
-  "تكلفة-بناء-دور-واحد-تسليم-مفتاح",
-  "سعر-متر-العظم-بالمواد-في-السعودية",
-  "تكلفة-بناء-دور-واحد-500-متر",
-  "تكلفة-بناء-دور-واحد-250-متر",
-  "تكلفة-بناء-دور-واحد-300-متر",
-  "تكلفة-بناء-دور-واحد-200-متر",
-  "تكلفة-بناء-دور-واحد-100-متر",
-  "تكلفة-بناء-دور-واحد",
 ];
 
 function ArrowIcon({ className = "" }) {
@@ -65,7 +67,9 @@ export default function BlogsClient({ blogs }) {
     return {
       latest: latestArticleSlugs
         .map((slug) => blogs.find((blog) => blog.slug === slug))
-        .filter(Boolean),
+        .filter(Boolean)
+        .slice(0, 9),
+
       featured: [
         blogs.find((blog) =>
           blog.href.includes("%d8%a8%d9%86%d8%a7%d8%a1-%d9%81%d9%84%d8%a9"),

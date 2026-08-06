@@ -1,9 +1,9 @@
 import fs from "fs";
 import path from "path";
 import BlogsClient from "./BlogsClient";
+import { pillar as resthousePillar, clusters as resthouseClusters } from "@/app/_arabic-pages/_resthouse-cluster/resthouse-data";
 
-const pageUrl =
-  "https://mawsouq.com/%d8%a7%d9%84%d9%85%d8%af%d9%88%d9%86%d8%a7%d8%aa/";
+const pageUrl = "https://mawsouq.com/المدونات/";
 
 export const metadata = {
   title: "المدونات | موسوق",
@@ -25,67 +25,20 @@ export const metadata = {
 
 const BLOG_ROUTE_FOLDER = "%d8%a7%d9%84%d9%85%d8%af%d9%88%d9%86%d8%a7%d8%aa";
 
+
+const resthouseBlogDataBySlug = Object.fromEntries(
+  [resthousePillar, ...resthouseClusters].map((article) => [
+    article.slug,
+    {
+      title: article.title,
+      excerpt: article.excerpt,
+      category: "التصميم المعماري",
+      image: article.image,
+    },
+  ]),
+);
+
 const blogDataBySlug = {
-  "تكلفة-بناء-دور-واحد": {
-    title: "تكلفة بناء دور واحد",
-    excerpt:
-      "تعرف على أهم عناصر تكلفة بناء دور واحد وكيفية تقدير الميزانية بشكل أفضل.",
-    category: "تكاليف البناء",
-    image:
-      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=90",
-  },
-  "تكلفة-بناء-دور-واحد-100-متر": {
-    title: "تكلفة بناء دور واحد 100 متر في السعودية",
-    excerpt:
-      "حسبة تفصيلية للعظم والتشطيب والاحتياطي لبيت صغير بمسطح بناء 100 متر.",
-    category: "تكاليف البناء",
-    image:
-      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=90",
-  },
-  "تكلفة-بناء-دور-واحد-200-متر": {
-    title: "تكلفة بناء دور واحد 200 متر في السعودية",
-    excerpt:
-      "جدول تكلفة العظم وتسليم المفتاح لمساحة 200 متر مع حاسبة وبنود عرض السعر.",
-    category: "تكاليف البناء",
-    image:
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=90",
-  },
-  "تكلفة-بناء-دور-واحد-300-متر": {
-    title: "تكلفة بناء دور واحد 300 متر في السعودية",
-    excerpt:
-      "ميزانية مشروع عائلي 300 متر للعظم والتشطيب مع أثر الواجهات والتكييف والأعمال الخارجية.",
-    category: "تكاليف البناء",
-    image:
-      "https://images.unsplash.com/photo-1600585152915-d208bec867a1?auto=format&fit=crop&w=1200&q=90",
-  },
-  "تكلفة-بناء-دور-واحد-250-متر": {
-    title: "تكلفة بناء دور واحد 250 متر في السعودية",
-    excerpt:
-      "حسبة العظم والتشطيب والاحتياطي لمساحة 250 متر مع خطة طلب عرض سعر واضح.",
-    category: "تكاليف البناء",
-    image: "/images/blog/one-floor-cost-250m-saudi-2026.webp",
-  },
-  "تكلفة-بناء-دور-واحد-500-متر": {
-    title: "تكلفة بناء دور واحد 500 متر في السعودية",
-    excerpt:
-      "ميزانية مشروع كبير 500 متر للعظم والتشطيب والتدفق النقدي والأعمال الخارجية.",
-    category: "تكاليف البناء",
-    image: "/images/blog/one-floor-cost-500m-saudi-2026.webp",
-  },
-  "سعر-متر-العظم-بالمواد-في-السعودية": {
-    title: "سعر متر العظم بالمواد في السعودية 2026",
-    excerpt:
-      "ما الذي يشمله سعر العظم؟ مقارنة الحفر والخرسانة والحديد والبلك والعزل قبل التعاقد.",
-    category: "تكاليف البناء",
-    image: "/images/blog/skeleton-with-materials-saudi-2026.webp",
-  },
-  "تكلفة-بناء-دور-واحد-تسليم-مفتاح": {
-    title: "تكلفة بناء دور واحد تسليم مفتاح في السعودية",
-    excerpt:
-      "مقارنة الاقتصادي والمتوسط والفاخر والمشمول والمستبعد في عقد التسليم المفتاح.",
-    category: "تكاليف البناء",
-    image: "/images/blog/turnkey-one-floor-saudi-2026.webp",
-  },
   "افضل-شركة-تشطيبات-في-السعودية": {
     title: "أفضل شركة تشطيبات في السعودية 2026",
     excerpt:
@@ -100,6 +53,14 @@ const blogDataBySlug = {
     category: "التصميم المعماري",
     image:
       "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=90",
+  },
+  "تكلفة-بناء-دور-واحد": {
+    title: "تكلفة بناء دور واحد",
+    excerpt:
+      "تعرف على أهم عناصر تكلفة بناء دور واحد وكيفية تقدير الميزانية بشكل أفضل.",
+    category: "تكاليف البناء",
+    image:
+      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=90",
   },
 
   "التصميم-المعماري": {
@@ -349,22 +310,16 @@ function titleFromSlug(slug) {
 
 function getBlogsFromAppFolders() {
   const appDir = path.join(process.cwd(), "app");
+  const arabicRouteDir = path.join(appDir, "(ar)");
+  const arabicSourceDir = path.join(appDir, "_arabic-pages");
+  const blogBySlug = new Map();
 
-  const folders = fs
-    .readdirSync(appDir, { withFileTypes: true })
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => entry.name)
-    .filter((folderName) => folderName !== BLOG_ROUTE_FOLDER)
-    .filter((folderName) => !folderName.startsWith("_"))
-    .filter((folderName) =>
-      fs.existsSync(path.join(appDir, folderName, "page.jsx")),
-    );
+  function addBlog(slug, href) {
+    if (!slug || blogBySlug.has(slug)) return;
 
-  const folderBlogs = folders.map((folderName) => {
-    const slug = decodeSlug(folderName);
-    const data = blogDataBySlug[slug];
+    const data = resthouseBlogDataBySlug[slug] || blogDataBySlug[slug];
 
-    return {
+    blogBySlug.set(slug, {
       title: data?.title || titleFromSlug(slug),
       excerpt:
         data?.excerpt ||
@@ -373,41 +328,70 @@ function getBlogsFromAppFolders() {
       image:
         data?.image ||
         "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=90",
-      href: `/${folderName}/`,
+      href,
       slug,
-    };
-  });
+    });
+  }
+
+  if (fs.existsSync(arabicRouteDir)) {
+    fs.readdirSync(arabicRouteDir, { withFileTypes: true })
+      .filter((entry) => entry.isDirectory())
+      .filter((entry) => entry.name !== BLOG_ROUTE_FOLDER)
+      .filter((entry) => !entry.name.startsWith("("))
+      .filter((entry) => !entry.name.startsWith("_"))
+      .filter((entry) =>
+        ["page.js", "page.jsx", "page.ts", "page.tsx"].some((file) =>
+          fs.existsSync(path.join(arabicRouteDir, entry.name, file)),
+        ),
+      )
+      .forEach((entry) => {
+        const slug = decodeSlug(entry.name);
+        addBlog(slug, `/${entry.name}/`);
+      });
+  }
+
+  if (fs.existsSync(arabicSourceDir)) {
+    fs.readdirSync(arabicSourceDir, { withFileTypes: true })
+      .filter((entry) => entry.isDirectory())
+      .filter((entry) => !entry.name.startsWith("_"))
+      .filter((entry) =>
+        ["page.js", "page.jsx", "page.ts", "page.tsx"].some((file) =>
+          fs.existsSync(path.join(arabicSourceDir, entry.name, file)),
+        ),
+      )
+      .forEach((entry) => {
+        const slug = decodeSlug(entry.name);
+        addBlog(slug, `/${encodeURIComponent(slug)}/`);
+      });
+  }
 
   const manualBlogSlugs = [
-    "تكلفة-بناء-دور-واحد-تسليم-مفتاح",
-    "سعر-متر-العظم-بالمواد-في-السعودية",
+    ...resthouseClusters.map((article) => article.slug),
+    resthousePillar.slug,
     "تكلفة-بناء-دور-واحد-500-متر",
-    "تكلفة-بناء-دور-واحد-250-متر",
     "تكلفة-بناء-دور-واحد-300-متر",
+    "تكلفة-بناء-دور-واحد-250-متر",
     "تكلفة-بناء-دور-واحد-200-متر",
     "تكلفة-بناء-دور-واحد-100-متر",
-    "تكلفة-بناء-دور-واحد",
+    "تكلفة-بناء-دور-واحد-تسليم-مفتاح",
+    "سعر-متر-العظم-بالمواد-في-السعودية",
     "افضل-شركة-تشطيبات-في-السعودية",
   ];
 
-  const manualBlogs = manualBlogSlugs
-    .filter((slug) => !folderBlogs.some((blog) => blog.slug === slug))
-    .map((slug) => {
-      const data = blogDataBySlug[slug];
+  manualBlogSlugs.forEach((slug) => {
+    addBlog(slug, `/${encodeURIComponent(slug)}/`);
+  });
 
-      return {
-        title: data.title,
-        excerpt: data.excerpt,
-        category: data.category,
-        image: data.image,
-        href: `/${encodeURIComponent(slug)}/`,
-        slug,
-      };
-    });
-
-  return [...manualBlogs, ...folderBlogs].sort((a, b) =>
-    a.title.localeCompare(b.title, "ar"),
+  const latestOrder = new Map(
+    manualBlogSlugs.map((slug, index) => [slug, index]),
   );
+
+  return Array.from(blogBySlug.values()).sort((a, b) => {
+    const aOrder = latestOrder.has(a.slug) ? latestOrder.get(a.slug) : 9999;
+    const bOrder = latestOrder.has(b.slug) ? latestOrder.get(b.slug) : 9999;
+    if (aOrder !== bOrder) return aOrder - bOrder;
+    return a.title.localeCompare(b.title, "ar");
+  });
 }
 
 export default function BlogsPage() {
