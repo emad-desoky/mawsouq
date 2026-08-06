@@ -26,11 +26,13 @@ const longRouteRoot = path.join(
 );
 
 const longRoutePage = path.join(longRouteRoot, "[slug]", "page.jsx");
+const longRouteRegistry = path.join(longRouteRoot, "long-routes.js");
 
-// This slug is deliberately served by one short dynamic filesystem route.
-// Generating a physical percent-encoded folder for it causes Vercel's output
-// path to exceed the filesystem limit.
-const LONG_ROUTE_SLUG = "سعر-متر-العظم-بالمواد-في-السعودية";
+// Vercel/Next creates additional encoded segment filenames during prerendering.
+// Arabic slugs at or above this encoded length are served through one short
+// dynamic filesystem route to prevent ENAMETOOLONG while keeping their public
+// URLs, canonicals and SEO signals unchanged.
+const MAX_PHYSICAL_ENCODED_ROUTE_LENGTH = 170;
 
 const legacyGeneratedRoots = [
   path.join(appDir, "(generated-arabic-routes)"),
@@ -40,12 +42,19 @@ const legacyGeneratedRoots = [
 const PAGE_FILES = ["page.js", "page.jsx", "page.ts", "page.tsx"];
 const EXPORTED_ROUTE_CONFIG_NAMES = [
   "metadata",
+  "generateMetadata",
   "viewport",
+  "generateViewport",
+  "dynamic",
   "dynamicParams",
+  "revalidate",
   "runtime",
   "preferredRegion",
   "maxDuration",
+  "generateStaticParams",
 ];
+
+const longRoutes = [];
 
 function hasArabic(value) {
   return /[\u0600-\u06FF]/.test(value);
@@ -57,6 +66,14 @@ function hasEncoded(value) {
 
 function encodeSegment(segment) {
   return encodeURIComponent(segment);
+}
+
+function encodedRouteLength(routeParts) {
+  return routeParts.map(encodeSegment).join("/").length;
+}
+
+function shouldUseDynamicLongRoute(routeParts) {
+  return encodedRouteLength(routeParts) >= MAX_PHYSICAL_ENCODED_ROUTE_LENGTH;
 }
 
 function toAliasImportPath(filePath) {
@@ -77,15 +94,7 @@ function findExportedNames(sourceCode) {
   });
 }
 
-function generateWrapper(sourcePageFile, routeParts) {
-  const routePath = routeParts.join("/");
-
-  // Never create a physical encoded directory for the very long slug.
-  if (routePath === LONG_ROUTE_SLUG) {
-    console.log(`Skipped physical wrapper for long Arabic route: /${routePath}`);
-    return;
-  }
-
+function generatePhysicalWrapper(sourcePageFile, routeParts) {
   const encodedParts = routeParts.map(encodeSegment);
   const outputDir = path.join(generatedRoot, ...encodedParts);
   const outputPageFile = path.join(outputDir, "page.jsx");
@@ -104,7 +113,36 @@ function generateWrapper(sourcePageFile, routeParts) {
   lines.push("");
   fs.writeFileSync(outputPageFile, lines.join("\n"), "utf8");
 
-  console.log(`Generated Arabic route: /${routePath}`);
+  console.log(`Generated Arabic route: /${routeParts.join("/")}`);
+}
+
+function registerLongRoute(sourcePageFile, routeParts) {
+  if (routeParts.length !== 1) {
+    throw new Error(
+      `Long Arabic routes currently must contain one URL segment: /${routeParts.join("/")}`,
+    );
+  }
+
+  const slug = routeParts[0];
+  longRoutes.push({
+    slug,
+    sourcePageFile,
+    importPath: toAliasImportPath(sourcePageFile),
+  });
+
+  console.log(
+    `Skipped physical wrapper for long Arabic route: /${slug} ` +
+      `(encoded length ${encodedRouteLength(routeParts)})`,
+  );
+}
+
+function processPage(sourcePageFile, routeParts) {
+  if (shouldUseDynamicLongRoute(routeParts)) {
+    registerLongRoute(sourcePageFile, routeParts);
+    return;
+  }
+
+  generatePhysicalWrapper(sourcePageFile, routeParts);
 }
 
 function walk(directory, routeParts = []) {
@@ -119,7 +157,7 @@ function walk(directory, routeParts = []) {
     const routePath = routeParts.join("/");
 
     if (hasArabic(routePath) && !hasEncoded(routePath)) {
-      generateWrapper(path.join(directory, pageFile.name), routeParts);
+      processPage(path.join(directory, pageFile.name), routeParts);
     }
   }
 
@@ -133,74 +171,101 @@ function walk(directory, routeParts = []) {
   }
 }
 
-function findSourcePage(directory) {
-  for (const fileName of PAGE_FILES) {
-    const candidate = path.join(directory, fileName);
-    if (fs.existsSync(candidate)) return candidate;
-  }
+function generateLongRouteRegistry() {
+  if (longRoutes.length === 0) return;
 
-  return null;
+  fs.mkdirSync(longRouteRoot, { recursive: true });
+
+  const lines = [];
+
+  longRoutes.forEach((route, index) => {
+    lines.push(
+      `import LongPage${index}, * as LongModule${index} from ${JSON.stringify(route.importPath)};`,
+    );
+  });
+
+  lines.push("", "export const LONG_ARABIC_ROUTES = {");
+
+  longRoutes.forEach((route, index) => {
+    lines.push(`  ${JSON.stringify(route.slug)}: {`);
+    lines.push(`    Component: LongPage${index},`);
+    lines.push(`    metadata: LongModule${index}.metadata,`);
+    lines.push(`    generateMetadata: LongModule${index}.generateMetadata,`);
+    lines.push("  },");
+  });
+
+  lines.push("};", "");
+  fs.writeFileSync(longRouteRegistry, lines.join("\n"), "utf8");
 }
 
-function generateLongRouteWrapper() {
-  const sourceDirectory = path.join(sourceRoot, LONG_ROUTE_SLUG);
-  const sourcePageFile = findSourcePage(sourceDirectory);
-
-  if (!sourcePageFile) {
-    throw new Error(
-      `Long Arabic route source page was not found: ${sourceDirectory}`,
-    );
-  }
-
-  const importPath = toAliasImportPath(sourcePageFile);
+function generateLongRoutePage() {
+  if (longRoutes.length === 0) return;
 
   fs.mkdirSync(path.dirname(longRoutePage), { recursive: true });
 
   const wrapper = `import { notFound } from "next/navigation";
-import LongArabicPage, { metadata as sourceMetadata } from "${importPath}";
+import { LONG_ARABIC_ROUTES } from "../long-routes";
 
-const LONG_ROUTE_SLUG = ${JSON.stringify(LONG_ROUTE_SLUG)};
-
-// Keep the public Arabic URL unchanged, but render it through one short
-// filesystem function so Vercel does not create an overlong prerender path.
 export const dynamic = "force-dynamic";
+export const dynamicParams = true;
 export const runtime = "nodejs";
-export const metadata = sourceMetadata;
+
+function decodeRouteSlug(value = "") {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+}
+
+export async function generateMetadata({ params }) {
+  const resolvedParams = await params;
+  const slug = decodeRouteSlug(resolvedParams?.slug || "");
+  const route = LONG_ARABIC_ROUTES[slug];
+
+  if (!route) {
+    return {
+      title: "الصفحة غير موجودة",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  if (typeof route.generateMetadata === "function") {
+    return route.generateMetadata({
+      params: Promise.resolve({ slug }),
+    });
+  }
+
+  return route.metadata || {};
+}
 
 export default async function LongArabicRoute({ params }) {
   const resolvedParams = await params;
-  const rawSlug = resolvedParams?.slug || "";
+  const slug = decodeRouteSlug(resolvedParams?.slug || "");
+  const route = LONG_ARABIC_ROUTES[slug];
 
-  let decodedSlug = rawSlug;
-  try {
-    decodedSlug = decodeURIComponent(rawSlug);
-  } catch {
-    // Next.js normally supplies a decoded param. Keep the raw value if a
-    // malformed escape sequence is ever received.
-  }
+  if (!route) notFound();
 
-  if (decodedSlug !== LONG_ROUTE_SLUG) {
-    notFound();
-  }
-
-  return <LongArabicPage />;
+  const PageComponent = route.Component;
+  return <PageComponent />;
 }
 `;
 
   fs.writeFileSync(longRoutePage, wrapper, "utf8");
-  console.log(`Generated dynamic long Arabic route: /${LONG_ROUTE_SLUG}`);
 }
 
-function assertLongSlugWasNotPhysicallyGenerated() {
-  const encodedLongDirectory = path.join(
-    generatedRoot,
-    encodeURIComponent(LONG_ROUTE_SLUG),
-  );
-
-  if (fs.existsSync(encodedLongDirectory)) {
-    throw new Error(
-      `The long Arabic slug was generated as a physical folder: ${encodedLongDirectory}`,
+function assertLongRoutesWereNotPhysicallyGenerated() {
+  for (const route of longRoutes) {
+    const encodedDirectory = path.join(
+      generatedRoot,
+      encodeURIComponent(route.slug),
     );
+
+    if (fs.existsSync(encodedDirectory)) {
+      throw new Error(
+        `Long Arabic slug was generated as a physical folder: ${encodedDirectory}`,
+      );
+    }
   }
 }
 
@@ -213,9 +278,11 @@ fs.rmSync(longRouteRoot, { recursive: true, force: true });
 fs.mkdirSync(sourceRoot, { recursive: true });
 
 walk(sourceRoot);
-generateLongRouteWrapper();
-assertLongSlugWasNotPhysicallyGenerated();
+generateLongRouteRegistry();
+generateLongRoutePage();
+assertLongRoutesWereNotPhysicallyGenerated();
 
+console.log(`Dynamic long Arabic routes generated: ${longRoutes.length}`);
 console.log(`Arabic route source: ${sourceRoot}`);
 console.log(`Arabic route output: ${generatedRoot}`);
 console.log("Arabic route generation complete.");
