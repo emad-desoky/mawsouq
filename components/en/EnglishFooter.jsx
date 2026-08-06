@@ -89,7 +89,7 @@ export default function EnglishFooter() {
 
       <div className="relative mx-auto w-full max-w-[1400px] px-5 sm:px-8 lg:px-12 xl:px-16">
         <div className="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-10">
-          {/* Brand */}
+          {/* Branedd */}
           <div className="lg:col-span-1">
             <Link href="/en/" className="mb-5 flex items-center gap-3">
               <div className="relative h-14 w-14 overflow-hidden rounded-2xl bg-white/10 ring-1 ring-white/10">
