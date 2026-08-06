@@ -64,8 +64,7 @@ export const pillar = {
     "شاهد 30 فكرة من تصاميم استراحات راقية، وتعرّف على توزيع المساحات والخصوصية والمسبح والحديقة قبل طلب مخطط استراحة مناسب لأرضك.",
   excerpt:
     "دليل شامل يجمع 30 صورة للاستراحات مع طريقة اختيار المخطط والأسلوب والمساحات المناسبة قبل بدء التصميم.",
-  image:
-    "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية1-copy.webp",
+  image: "/images/blog/resthouses/resthouse-designs-pillar.webp",
   imageAlt: "تصاميم استراحات راقية في السعودية",
   datePublished: "2026-03-10",
   dateModified: DATA_AS_OF,
@@ -87,8 +86,7 @@ export const clusters = [
       "تبحث عن مخطط استراحة جاهز؟ تعرّف على الفرق بين المخطط المرجعي والمخطط التنفيذي، وتوزيع المجلس والمسبح والخدمات حسب مساحة الأرض.",
     excerpt:
       "كيف تستخدم المخططات الجاهزة كمرجع دون تنفيذ مخطط غير مناسب لاشتراطات أرضك واحتياجات عائلتك.",
-    image:
-      "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية19-copy.webp",
+    image: "/images/blog/resthouses/ready-resthouse-plan.webp",
     imageAlt: "مخطط استراحة جاهز مع توزيع المباني والحديقة",
     datePublished: "2026-08-06",
     dateModified: "2026-08-06",
@@ -262,8 +260,7 @@ export const clusters = [
       "أفكار تصميم استراحة صغيرة بتوزيع عملي للمجلس والصالة والمطبخ والحديقة، مع نصائح للخصوصية والإضاءة وتقليل المساحات المهدرة.",
     excerpt:
       "دليل عملي لاستغلال المساحات الصغيرة في الاستراحات بدون ممرات زائدة أو غرف غير مستخدمة.",
-    image:
-      "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية4-copy.webp",
+    image: "/images/blog/resthouses/small-resthouse-design.webp",
     imageAlt: "تصميم استراحة صغيرة بواجهة زجاجية وحديقة",
     datePublished: "2026-08-06",
     dateModified: "2026-08-06",
@@ -429,8 +426,7 @@ export const clusters = [
       "تعرف على أفكار تصميم استراحة غير مكلفة في السعودية عبر تقليل المساحات المهدرة والتعقيد، واختيار مواد عملية دون الإضرار بالسلامة والجودة.",
     excerpt:
       "دليل لتقليل تكلفة الاستراحة من مرحلة الفكرة والتخطيط بدل البحث عن أرخص مادة بعد بدء التنفيذ.",
-    image:
-      "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية23-copy.webp",
+    image: "/images/blog/resthouses/affordable-resthouse-saudi.webp",
     imageAlt: "تصميم استراحة غير مكلفة في السعودية",
     datePublished: "2026-08-06",
     dateModified: "2026-08-06",
@@ -608,8 +604,7 @@ export const clusters = [
       "دليل تصميم استراحة مودرن بواجهات بسيطة وفتحات مدروسة وجلسات خارجية، مع نصائح للخصوصية والمواد والإضاءة قبل التنفيذ.",
     excerpt:
       "كيف تحول الخطوط العصرية والزجاج والحديقة إلى استراحة عملية تناسب الاستخدام السعودي بدل واجهة جميلة فقط.",
-    image:
-      "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية6-copy.webp",
+    image: "/images/blog/resthouses/modern-resthouse-design.webp",
     imageAlt: "تصميم استراحة مودرن بواجهة مفتوحة على الحديقة",
     datePublished: "2026-08-06",
     dateModified: "2026-08-06",
@@ -776,8 +771,7 @@ export const clusters = [
       "دليل مخطط استراحة صغيرة بمسبح يوضح موقع المسبح والجلسة ودورات المياه والخدمات والخصوصية ومسارات الحركة قبل التصميم والتنفيذ.",
     excerpt:
       "توزيع المسبح والجلسة والمبنى في أرض محدودة دون إهدار المساحة أو إضعاف الخصوصية والسلامة.",
-    image:
-      "https://mawsouq.com/wp-content/uploads/2023/02/استراحات-راقية3-copy.webp",
+    image: "/images/blog/resthouses/small-resthouse-pool-plan.webp",
     imageAlt: "مخطط استراحة صغيرة بمسبح خاص",
     datePublished: "2026-08-06",
     dateModified: "2026-08-06",
