@@ -1,4 +1,5 @@
 import fs from "fs";
+import { getAllBlogEntries as getAllOneFloorCostEntries } from "./_arabic-pages/تكلفة-بناء-دور-واحد/clusters";
 import path from "path";
 import { getAllEnglishBlogEntries } from "./(en)/en/blog/blog-data";
 import { getAllResthouseEntries } from "./_arabic-pages/_resthouse-cluster/resthouse-data";
@@ -288,6 +289,11 @@ export default function sitemap() {
   // Dynamic English blog routes are not discoverable by the filesystem walker,
   // so the topic-cluster data file supplies their canonical sitemap entries.
   for (const entry of getAllEnglishBlogEntries()) {
+    entries.set(entry.url, entry);
+  }
+
+  // MAWSOUQ ONE FLOOR COST CLUSTER ENTRIES
+  for (const entry of getAllOneFloorCostEntries()) {
     entries.set(entry.url, entry);
   }
 

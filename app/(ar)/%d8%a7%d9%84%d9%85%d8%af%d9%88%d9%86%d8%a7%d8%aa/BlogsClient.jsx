@@ -5,6 +5,11 @@ import Image from "next/image";
 
 
 const latestArticleSlugs = [
+  "حاسبة-تكلفة-البناء-في-السعودية",
+  "تكلفة-اضافة-دور-فوق-منزل-قائم",
+  "بنود-عقد-مقاول-بناء-دور-واحد",
+  "تكلفة-بناء-دورين-في-السعودية",
+  "تكلفة-بناء-ملحق-في-السعودية",
   "مخطط-استراحة-جاهز",
   "تصميم-استراحة-صغيرة",
   "تصميم-استراحة-غير-مكلفة-في-السعودية",
@@ -68,7 +73,7 @@ export default function BlogsClient({ blogs }) {
       latest: latestArticleSlugs
         .map((slug) => blogs.find((blog) => blog.slug === slug))
         .filter(Boolean)
-        .slice(0, 9),
+        .slice(0, 12),
 
       featured: [
         blogs.find((blog) =>

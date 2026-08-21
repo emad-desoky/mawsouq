@@ -1,3 +1,5 @@
+import { leadClusters } from "./lead-clusters";
+
 /**
  * ============================================================================
  * تكلفة بناء دور واحد — TOPIC CLUSTER DATA
@@ -83,7 +85,7 @@ export const pillar = {
     "حاسبة تكلفة البناء السعودية",
   ],
   datePublished: "2026-03-10T14:24:00+03:00",
-  dateModified: "2026-07-21T10:40:00+03:00",
+  dateModified: "2026-08-21T13:00:00+03:00",
   readTime: "18 دقيقة قراءة",
   author: {
     name: "فريق موسوق",
@@ -455,7 +457,11 @@ export const futureClusterBlogs = [
 ];
 
 export function getClusterBySlug(slug) {
-  return futureClusterBlogs.find((cluster) => cluster.slug === slug) || null;
+  return (
+    leadClusters.find((cluster) => cluster.slug === slug) ||
+    futureClusterBlogs.find((cluster) => cluster.slug === slug) ||
+    null
+  );
 }
 
 export function getSiblings(currentSlug, limit = 3) {
@@ -478,9 +484,9 @@ export function getSiblings(currentSlug, limit = 3) {
 }
 
 export function getPublishedClusters() {
-  return futureClusterBlogs
-    .filter((cluster) => cluster.isLive === true)
-    .sort((a, b) => a.priority - b.priority);
+  return [...futureClusterBlogs, ...leadClusters]
+    .filter((cluster) => cluster.isLive)
+    .sort((a, b) => new Date(b.dateModified || b.datePublished) - new Date(a.dateModified || a.datePublished));
 }
 
 export function getAllBlogEntries() {

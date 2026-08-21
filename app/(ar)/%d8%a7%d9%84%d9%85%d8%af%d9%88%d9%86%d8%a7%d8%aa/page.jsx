@@ -39,6 +39,38 @@ const resthouseBlogDataBySlug = Object.fromEntries(
 );
 
 const blogDataBySlug = {
+  // === MAWSOUQ LEAD CLUSTERS 2026-08-21 ===
+  "حاسبة-تكلفة-البناء-في-السعودية": {
+    title: "حاسبة تكلفة البناء في السعودية 2026",
+    excerpt: "احسب ميزانية البناء من المساحة ونوع التنفيذ والبنود غير الظاهرة قبل طلب عرض السعر.",
+    category: "تكاليف البناء",
+    image: "/images/blog/build-cost-leads/construction-cost-calculator-saudi.webp",
+  },
+  "تكلفة-اضافة-دور-فوق-منزل-قائم": {
+    title: "تكلفة إضافة دور فوق منزل قائم",
+    excerpt: "الفحص الإنشائي والتدعيم والرخص والخدمات التي يجب حسابها قبل إضافة طابق جديد.",
+    category: "تكاليف البناء",
+    image: "/images/blog/build-cost-leads/add-floor-existing-house-saudi.webp",
+  },
+  "بنود-عقد-مقاول-بناء-دور-واحد": {
+    title: "بنود عقد مقاول بناء دور واحد",
+    excerpt: "قائمة عملية لمراجعة النطاق والدفعات والمواد والتغييرات والاستلام قبل توقيع عقد المقاول.",
+    category: "تكاليف البناء",
+    image: "/images/blog/build-cost-leads/contractor-contract-clauses-saudi.webp",
+  },
+  "تكلفة-بناء-دورين-في-السعودية": {
+    title: "تكلفة بناء دورين في السعودية 2026",
+    excerpt: "احسب إجمالي المساحة المبنية وافهم فرق العظم والتشطيب والتسليم على المفتاح لمنزل من دورين.",
+    category: "تكاليف البناء",
+    image: "/images/blog/build-cost-leads/two-story-house-cost-saudi.webp",
+  },
+  "تكلفة-بناء-ملحق-في-السعودية": {
+    title: "تكلفة بناء ملحق في السعودية 2026",
+    excerpt: "دليل تكلفة الملحق العلوي أو الأرضي أو شقة الملحق مع الخدمات والتشطيب والبنود المؤثرة على السعر.",
+    category: "تكاليف البناء",
+    image: "/images/blog/build-cost-leads/annex-construction-cost-saudi.webp",
+  },
+
   "افضل-شركة-تشطيبات-في-السعودية": {
     title: "أفضل شركة تشطيبات في السعودية 2026",
     excerpt:
