@@ -14,6 +14,7 @@ const externalSources = {
 export const leadClusters = [
   {
     slug: "حاسبة-تكلفة-البناء-في-السعودية",
+    href: "/حاسبة-تكلفة-البناء-في-السعودية/",
     role: "cluster",
     isLive: true,
     category: "تكاليف البناء",
@@ -169,6 +170,7 @@ export const leadClusters = [
   },
   {
     slug: "تكلفة-اضافة-دور-فوق-منزل-قائم",
+    href: "/تكلفة-اضافة-دور-فوق-منزل-قائم/",
     role: "cluster",
     isLive: true,
     category: "تكاليف البناء",
@@ -313,6 +315,7 @@ export const leadClusters = [
   },
   {
     slug: "بنود-عقد-مقاول-بناء-دور-واحد",
+    href: "/بنود-عقد-مقاول-بناء-دور-واحد/",
     role: "cluster",
     isLive: true,
     category: "تكاليف البناء",
@@ -471,6 +474,7 @@ export const leadClusters = [
   },
   {
     slug: "تكلفة-بناء-دورين-في-السعودية",
+    href: "/تكلفة-بناء-دورين-في-السعودية/",
     role: "cluster",
     isLive: true,
     category: "تكاليف البناء",
@@ -609,6 +613,7 @@ export const leadClusters = [
   },
   {
     slug: "تكلفة-بناء-ملحق-في-السعودية",
+    href: "/تكلفة-بناء-ملحق-في-السعودية/",
     role: "cluster",
     isLive: true,
     category: "تكاليف البناء",

@@ -124,10 +124,14 @@ function registerLongRoute(sourcePageFile, routeParts) {
   }
 
   const slug = routeParts[0];
+  const sourceCode = fs.readFileSync(sourcePageFile, "utf8");
+  const exportedNames = findExportedNames(sourceCode);
+
   longRoutes.push({
     slug,
     sourcePageFile,
     importPath: toAliasImportPath(sourcePageFile),
+    exportedNames,
   });
 
   console.log(
@@ -179,8 +183,18 @@ function generateLongRouteRegistry() {
   const lines = [];
 
   longRoutes.forEach((route, index) => {
+    const imports = [`default as LongPage${index}`];
+
+    if (route.exportedNames.includes("metadata")) {
+      imports.push(`metadata as LongMetadata${index}`);
+    }
+
+    if (route.exportedNames.includes("generateMetadata")) {
+      imports.push(`generateMetadata as LongGenerateMetadata${index}`);
+    }
+
     lines.push(
-      `import LongPage${index}, * as LongModule${index} from ${JSON.stringify(route.importPath)};`,
+      `import { ${imports.join(", ")} } from ${JSON.stringify(route.importPath)};`,
     );
   });
 
@@ -189,8 +203,19 @@ function generateLongRouteRegistry() {
   longRoutes.forEach((route, index) => {
     lines.push(`  ${JSON.stringify(route.slug)}: {`);
     lines.push(`    Component: LongPage${index},`);
-    lines.push(`    metadata: LongModule${index}.metadata,`);
-    lines.push(`    generateMetadata: LongModule${index}.generateMetadata,`);
+
+    if (route.exportedNames.includes("metadata")) {
+      lines.push(`    metadata: LongMetadata${index},`);
+    } else {
+      lines.push("    metadata: undefined,");
+    }
+
+    if (route.exportedNames.includes("generateMetadata")) {
+      lines.push(`    generateMetadata: LongGenerateMetadata${index},`);
+    } else {
+      lines.push("    generateMetadata: undefined,");
+    }
+
     lines.push("  },");
   });
 
