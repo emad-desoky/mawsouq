@@ -32,7 +32,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: `${SITE_URL}/images/blog/construction-cost-calculator-saudi-arabia.png`,
+        url: `${SITE_URL}/images/blog/lead-clusters-en/cost-to-build-two-story-house-saudi-arabia.webp`,
         width: 1200,
         height: 630,
         alt: "Mawsooq Saudi construction guides",
@@ -43,8 +43,8 @@ export const metadata = {
     card: "summary_large_image",
     title: "Latest Saudi Construction Guides | Mawsooq",
     description:
-      "Costs, calculators, permits, contractor selection and timelines for Saudi house projects.",
-    images: [`${SITE_URL}/images/blog/construction-cost-calculator-saudi-arabia.png`],
+      "Costs, calculators, local city budgets, contracts, extensions, permits and contractor decisions for Saudi house projects.",
+    images: [`${SITE_URL}/images/blog/lead-clusters-en/cost-to-build-two-story-house-saudi-arabia.webp`],
   },
 };
 
@@ -119,7 +119,7 @@ export default function EnglishBlogHubPage() {
                 Saudi construction guides built for real decisions
               </h1>
               <p className="mt-6 max-w-2xl text-lg font-semibold leading-8 text-white/72">
-                Current guidance on costs, permits, contractor selection, timelines and house-building strategy in Saudi Arabia—written to help you plan the next move.
+                Current guidance on costs, city budgets, extensions, contracts, permits and contractor decisions in Saudi Arabia—built to help real homeowners move from search to a project-ready brief.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
@@ -141,7 +141,7 @@ export default function EnglishBlogHubPage() {
 
             <div className="relative min-h-[320px] lg:min-h-[540px]">
               <Image
-                src="/images/blog/construction-cost-calculator-saudi-arabia.png"
+                src="/images/blog/lead-clusters-en/cost-to-build-two-story-house-saudi-arabia.webp"
                 alt="Mawsooq guide to building a house in Saudi Arabia"
                 fill
                 priority
