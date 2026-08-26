@@ -3,6 +3,7 @@ import { getAllBlogEntries as getAllOneFloorCostEntries } from "./_arabic-pages/
 import path from "path";
 import { getAllEnglishBlogEntries } from "./(en)/en/blog/blog-data";
 import { getAllResthouseEntries } from "./_arabic-pages/_resthouse-cluster/resthouse-data";
+import { getAllArabicSeo2026Entries } from "@/lib/arabicSeo2026";
 
 export const dynamic = "force-static";
 
@@ -54,6 +55,11 @@ const HIGH_PRIORITY_ROUTES = [
   "/واجهات-منازل-حديثة",
   "/شركة-موسوق-تصميم-استراحات-وشاليهات",
   "/ايجاد-مهندس-انشائي",
+  "/تكلفة-بناء-فيلا-300-متر",
+  "/تكلفة-التصميم-المعماري-في-السعودية",
+  "/سعر-التصميم-الانشائي-في-السعودية",
+  "/تصميم-فلل-بالدمام",
+  "/متى-تحتاج-مهندس-انشائي",
   "/cost-building-rest-house-saudi-mawsooq",
   "/ديكور-التلفاز",
   "/صيانة-المكيفات",
@@ -301,6 +307,11 @@ export default function sitemap() {
   // new cluster routes are generated from app/_arabic-pages at build time.
   // Their canonical entries come from the shared cluster data file.
   for (const entry of getAllResthouseEntries()) {
+    entries.set(entry.url, entry);
+  }
+
+  // 2026 Arabic commercial SEO rebuild: five refreshed legacy URLs + five new clusters.
+  for (const entry of getAllArabicSeo2026Entries()) {
     entries.set(entry.url, entry);
   }
 

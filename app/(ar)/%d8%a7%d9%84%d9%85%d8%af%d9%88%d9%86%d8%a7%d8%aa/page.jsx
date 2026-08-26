@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import BlogsClient from "./BlogsClient";
 import { pillar as resthousePillar, clusters as resthouseClusters } from "@/app/_arabic-pages/_resthouse-cluster/resthouse-data";
+import { getArabicSeo2026BlogCards } from "@/lib/arabicSeo2026";
 
 const pageUrl = "https://mawsouq.com/المدونات/";
 
@@ -25,6 +26,19 @@ export const metadata = {
 
 const BLOG_ROUTE_FOLDER = "%d8%a7%d9%84%d9%85%d8%af%d9%88%d9%86%d8%a7%d8%aa";
 
+
+
+const seo2026BlogDataBySlug = Object.fromEntries(
+  getArabicSeo2026BlogCards().map((article) => [
+    article.slug,
+    {
+      title: article.title,
+      excerpt: article.excerpt,
+      category: article.category,
+      image: article.image,
+    },
+  ]),
+);
 
 const resthouseBlogDataBySlug = Object.fromEntries(
   [resthousePillar, ...resthouseClusters].map((article) => [
@@ -349,7 +363,7 @@ function getBlogsFromAppFolders() {
   function addBlog(slug, href) {
     if (!slug || blogBySlug.has(slug)) return;
 
-    const data = resthouseBlogDataBySlug[slug] || blogDataBySlug[slug];
+    const data = seo2026BlogDataBySlug[slug] || resthouseBlogDataBySlug[slug] || blogDataBySlug[slug];
 
     blogBySlug.set(slug, {
       title: data?.title || titleFromSlug(slug),
@@ -398,6 +412,16 @@ function getBlogsFromAppFolders() {
   }
 
   const manualBlogSlugs = [
+    "تكلفة-بناء-فيلا-300-متر",
+    "تكلفة-التصميم-المعماري-في-السعودية",
+    "سعر-التصميم-الانشائي-في-السعودية",
+    "تصميم-فلل-بالدمام",
+    "متى-تحتاج-مهندس-انشائي",
+    "بناء-فلة",
+    "افضل-مكتب-هندسي-بالدمام",
+    "التصميم-المعماري",
+    "تصميم-انشائي",
+    "ايجاد-مهندس-انشائي",
     ...resthouseClusters.map((article) => article.slug),
     resthousePillar.slug,
     "تكلفة-بناء-دور-واحد-500-متر",

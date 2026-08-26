@@ -7,6 +7,19 @@ import { trackLeadAction } from "@/lib/leadTracking";
 const PHONE = "+201223328270";
 const WHATSAPP_NUMBER = "201223328270";
 
+const WHATSAPP_ONLY_SEO_SLUGS = [
+  "بناء-فلة",
+  "افضل-مكتب-هندسي-بالدمام",
+  "التصميم-المعماري",
+  "تصميم-انشائي",
+  "ايجاد-مهندس-انشائي",
+  "تكلفة-بناء-فيلا-300-متر",
+  "تكلفة-التصميم-المعماري-في-السعودية",
+  "سعر-التصميم-الانشائي-في-السعودية",
+  "تصميم-فلل-بالدمام",
+  "متى-تحتاج-مهندس-انشائي",
+];
+
 function decodedPath(pathname = "") {
   try {
     return decodeURIComponent(pathname);
@@ -24,6 +37,26 @@ function getLeadMessage(pathname) {
 
   if (path.includes("تكلفة-بناء-دور-واحد")) {
     return "مرحبًا موسوق، أريد تقدير تكلفة بناء دور واحد. المدينة: ___، مساحة البناء: ___، ونوع التنفيذ (عظم/تشطيب/تسليم مفتاح): ___";
+  }
+
+  if (path.includes("تكلفة-بناء-فيلا-300-متر")) {
+    return "مرحبًا موسوق، أريد تقدير تكلفة فيلا قرابة 300 متر. المدينة: ___، 300 متر تعني مساحة الأرض/البناء: ___، عدد الأدوار: ___، مستوى التنفيذ: ___";
+  }
+
+  if (path.includes("تكلفة-التصميم-المعماري-في-السعودية")) {
+    return "مرحبًا موسوق، أريد تقدير تكلفة تصميم معماري. المدينة: ___، مساحة الأرض: ___، عدد الأدوار: ___، المخرجات المطلوبة: ___";
+  }
+
+  if (path.includes("سعر-التصميم-الانشائي-في-السعودية")) {
+    return "مرحبًا موسوق، أريد تقدير سعر تصميم إنشائي. المدينة: ___، نوع المبنى: ___، المساحة وعدد الأدوار: ___، وهل المعماري جاهز: نعم/لا";
+  }
+
+  if (path.includes("تصميم-فلل-بالدمام")) {
+    return "مرحبًا موسوق، أريد تصميم فيلا في الدمام. مساحة الأرض: ___، عدد الأدوار: ___، أهم الفراغات المطلوبة: ___";
+  }
+
+  if (path.includes("متى-تحتاج-مهندس-انشائي")) {
+    return "مرحبًا موسوق، أريد معرفة هل حالتي تحتاج مهندسًا إنشائيًا. المدينة: ___، نوع المبنى: ___، وصف الحالة/التعديل: ___";
   }
 
   if (path.includes("افضل-مكتب-هندسي-بالدمام")) {
@@ -56,6 +89,8 @@ function WhatsAppIcon() {
 export default function FloatingButtons() {
   const pathname = usePathname();
   const message = getLeadMessage(pathname);
+  const decoded = decodedPath(pathname);
+  const whatsappOnly = WHATSAPP_ONLY_SEO_SLUGS.some((slug) => decoded.includes(slug));
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
   return (
@@ -75,31 +110,35 @@ export default function FloatingButtons() {
           <WhatsAppIcon />
         </a>
 
-        <a
-          href={`tel:${PHONE}`}
-          data-lead-tracked="true"
-          data-lead-placement="floating_desktop"
-          onClick={() => trackLeadAction("phone", "floating_desktop")}
-          className="floating-btn call-btn text-white"
-          style={{ color: "#fff" }}
-          aria-label="اتصل بنا"
-        >
-          <Phone className="h-6 w-6" />
-        </a>
+        {!whatsappOnly && (
+          <a
+            href={`tel:${PHONE}`}
+            data-lead-tracked="true"
+            data-lead-placement="floating_desktop"
+            onClick={() => trackLeadAction("phone", "floating_desktop")}
+            className="floating-btn call-btn text-white"
+            style={{ color: "#fff" }}
+            aria-label="اتصل بنا"
+          >
+            <Phone className="h-6 w-6" />
+          </a>
+        )}
       </div>
 
-      <div className="fixed inset-x-3 bottom-[max(10px,env(safe-area-inset-bottom))] z-[95] grid grid-cols-2 gap-2 rounded-[22px] border border-[color:var(--hairline-strong)] bg-[color:var(--header-bg-scrolled)] p-2 shadow-[0_18px_55px_rgba(7,19,33,.28)] backdrop-blur-2xl sm:hidden">
-        <a
-          href={`tel:${PHONE}`}
-          data-lead-tracked="true"
-          data-lead-placement="mobile_sticky_bar"
-          onClick={() => trackLeadAction("phone", "mobile_sticky_bar")}
-          className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-2xl bg-[color:var(--brand)] px-3 text-sm font-black !text-white"
-          style={{ color: "#fff" }}
-        >
-          <Phone size={19} />
-          اتصل الآن
-        </a>
+      <div className={`fixed inset-x-3 bottom-[max(10px,env(safe-area-inset-bottom))] z-[95] grid gap-2 rounded-[22px] border border-[color:var(--hairline-strong)] bg-[color:var(--header-bg-scrolled)] p-2 shadow-[0_18px_55px_rgba(7,19,33,.28)] backdrop-blur-2xl sm:hidden ${whatsappOnly ? "grid-cols-1" : "grid-cols-2"}`}>
+        {!whatsappOnly && (
+          <a
+            href={`tel:${PHONE}`}
+            data-lead-tracked="true"
+            data-lead-placement="mobile_sticky_bar"
+            onClick={() => trackLeadAction("phone", "mobile_sticky_bar")}
+            className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-2xl bg-[color:var(--brand)] px-3 text-sm font-black !text-white"
+            style={{ color: "#fff" }}
+          >
+            <Phone size={19} />
+            اتصل الآن
+          </a>
+        )}
         <a
           href={whatsappUrl}
           target="_blank"
@@ -107,10 +146,11 @@ export default function FloatingButtons() {
           data-lead-tracked="true"
           data-lead-placement="mobile_sticky_bar"
           onClick={() => trackLeadAction("whatsapp", "mobile_sticky_bar")}
-          className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-2xl bg-[#25D366] px-3 text-sm font-black text-[#052d16]"
+          className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-2xl bg-[#25D366] px-3 text-sm font-black !text-white"
+          style={{ color: "#fff" }}
         >
           <MessageCircle size={19} />
-          واتساب
+          {whatsappOnly ? "أرسل تفاصيل مشروعك على واتساب" : "واتساب"}
         </a>
       </div>
     </div>

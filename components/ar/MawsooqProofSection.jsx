@@ -5,17 +5,22 @@ import {
   BadgeCheck,
   ExternalLink,
   MessageCircle,
-  Phone,
   Play,
   ShieldCheck,
-  Youtube,
   X,
 } from "lucide-react";
 import { trackLeadAction, trackTrustVideo } from "@/lib/leadTracking";
 
 const CHANNEL_URL = "https://www.youtube.com/channel/UCsLilv9AZyX-a3NWBRWiD4Q";
-const PHONE = "+201223328270";
 const WHATSAPP_NUMBER = "201223328270";
+
+function YouTubeIcon({ className = "h-5 w-5" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M23.5 6.2a3.02 3.02 0 0 0-2.13-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.37.51A3.02 3.02 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 0 0 2.13 2.14c1.87.51 9.37.51 9.37.51s7.5 0 9.37-.51a3.02 3.02 0 0 0 2.13-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8ZM9.6 15.65v-7.3L15.88 12 9.6 15.65Z" />
+    </svg>
+  );
+}
 
 const projectVideos = [
   { id: "3CmBsvvEetI", label: "مشروع تصميم معماري من موسوق" },
@@ -96,7 +101,7 @@ export default function MawsooqProofSection({
           </p>
           <div className="mt-5 flex flex-wrap gap-2 text-xs font-black text-white/80">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-2"><BadgeCheck size={15} /> آراء عملاء بالفيديو</span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-2"><Youtube size={15} /> مشاريع منشورة على القناة</span>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-2"><YouTubeIcon className="h-[15px] w-[15px]" /> مشاريع منشورة على القناة</span>
           </div>
         </div>
 
@@ -106,7 +111,7 @@ export default function MawsooqProofSection({
           rel="noopener noreferrer"
           className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 text-sm font-black text-white transition hover:bg-white/15"
         >
-          <Youtube size={19} />
+          <YouTubeIcon className="h-[19px] w-[19px]" />
           قناة موسوق
           <ExternalLink size={15} />
         </a>
@@ -148,18 +153,7 @@ export default function MawsooqProofSection({
               اكتب المدينة، نوع المشروع، المساحة التقريبية، وما إذا كانت لديك مخططات أو صور مرجعية. هذا يجعل أول محادثة أسرع وأكثر فائدة.
             </p>
           </div>
-          <div className="mt-5 flex flex-col gap-2 sm:flex-row md:mt-0 md:shrink-0">
-            <a
-              href={`tel:${PHONE}`}
-              data-lead-tracked="true"
-              data-lead-placement="seo_trust_section"
-              onClick={() => trackLeadAction("phone", "seo_trust_section")}
-              className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full bg-[color:var(--brand)] px-6 text-sm font-black text-white shadow-[0_14px_34px_rgba(11,91,184,.22)] transition hover:-translate-y-0.5"
-              style={{ color: "#fff" }}
-            >
-              <Phone size={18} />
-              اتصل الآن
-            </a>
+          <div className="mt-5 md:mt-0 md:shrink-0">
             <a
               href={whatsappUrl}
               target="_blank"
@@ -167,10 +161,11 @@ export default function MawsooqProofSection({
               data-lead-tracked="true"
               data-lead-placement="seo_trust_section"
               onClick={() => trackLeadAction("whatsapp", "seo_trust_section")}
-              className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 text-sm font-black text-[#052d16] shadow-[0_14px_34px_rgba(37,211,102,.22)] transition hover:-translate-y-0.5"
+              className="inline-flex min-h-[50px] w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 text-sm font-black !text-white shadow-[0_14px_34px_rgba(37,211,102,.22)] transition hover:-translate-y-0.5 sm:w-auto"
+              style={{ color: "#fff" }}
             >
               <MessageCircle size={18} />
-              أرسل تفاصيل المشروع
+              أرسل تفاصيل المشروع على واتساب
             </a>
           </div>
         </div>
