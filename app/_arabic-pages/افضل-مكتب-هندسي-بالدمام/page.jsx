@@ -1,659 +1,350 @@
-const pageUrl = "https://mawsouq.com/افضل-مكتب-هندسي-بالدمام/";
+import Link from "next/link";
+import {
+  BadgeCheck,
+  Building2,
+  CheckCircle2,
+  ClipboardCheck,
+  FileText,
+  MapPin,
+  MessageCircle,
+  Ruler,
+  ShieldCheck,
+} from "lucide-react";
+import MawsooqProofSection from "@/components/ar/MawsooqProofSection";
 
-const featuredImage =
-  "https://mawsouq.com/wp-content/uploads/2026/11/engineer-office.png";
+const SITE_URL = "https://mawsouq.com";
+const pageUrl = `${SITE_URL}/افضل-مكتب-هندسي-بالدمام/`;
+const whatsappMessage =
+  "مرحبًا موسوق، لدي مشروع في الدمام وأريد استشارة هندسية. نوع المشروع: ___، مساحة الأرض أو المبنى: ___، والخدمة المطلوبة: ___";
+const whatsapp = `https://wa.me/201223328270?text=${encodeURIComponent(whatsappMessage)}`;
 
 export const metadata = {
-  title: "ما هو افضل مكتب هندسي بالدمام؟",
+  title: "مكتب هندسي الدمام | تصميم معماري وإنشائي للمشاريع",
   description:
-    "هل تحاول العثور على افضل مكتب هندسي بالدمام من بين مجموعة كبيرة من توصيات الأصدقاء وآراء المستخدمين عبر الانترنت؟افضل مكتب هندسي بالدمام",
-  alternates: {
-    canonical: pageUrl,
-  },
+    "تبحث عن مكتب هندسي في الدمام؟ تعرف على معايير الاختيار والخدمات التي تحتاجها قبل التعاقد، وابدأ استشارة تصميم معماري أو إنشائي مع موسوق.",
   keywords: [
-    "افضل مكتب هندسي بمدينة الدمام",
-    "افضل مكتب هندسي بالدمام",
-    "الاعتماد الحكومي",
-    "الدمام",
-    "السعودية",
-    "المستخدمين",
-    "المكاتب",
-    "مكتب",
-    "مكتب هندسى",
-    "هندسى",
+    "مكتب هندسي الدمام",
+    "أفضل مكتب هندسي بالدمام",
+    "مكتب هندسي بالدمام",
+    "مكتب هندسي معتمد الدمام",
+    "مكتب استشارات هندسية الدمام",
+    "تصميم معماري الدمام",
+    "تصميم إنشائي الدمام",
   ],
+  alternates: { canonical: pageUrl },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "ما هو افضل مكتب هندسي بالدمام؟",
+    title: "مكتب هندسي في الدمام: دليل الاختيار وبدء مشروعك",
     description:
-      "هل تحاول العثور على افضل مكتب هندسي بالدمام من بين مجموعة كبيرة من توصيات الأصدقاء وآراء المستخدمين عبر الانترنت؟افضل مكتب هندسي بالدمام",
+      "معايير اختيار المكتب الهندسي في الدمام، وما الذي يجب أن يشمله عرض التصميم المعماري والإنشائي قبل التعاقد.",
     url: pageUrl,
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
-    publishedTime: "2026-03-10T10:52:00+03:00",
-    modifiedTime: "2026-02-24T22:14:00+03:00",
     images: [
       {
-        url: featuredImage,
-        alt: "فضل مكتب هندسي بالدمام",
+        url: "https://i.ytimg.com/vi/3CmBsvvEetI/hqdefault.jpg",
+        width: 480,
+        height: 360,
+        alt: "مشروع تصميم معماري منشور على قناة موسوق",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ما هو افضل مكتب هندسي بالدمام؟",
+    title: "مكتب هندسي الدمام | دليل الاختيار والخدمات",
     description:
-      "هل تحاول العثور على افضل مكتب هندسي بالدمام من بين مجموعة كبيرة من توصيات الأصدقاء وآراء المستخدمين عبر الانترنت؟افضل مكتب هندسي بالدمام",
-    images: [featuredImage],
+      "ما الذي تبحث عنه في مكتب هندسي بالدمام؟ دليل عملي قبل طلب عرض السعر أو بدء التصميم.",
+    images: ["https://i.ytimg.com/vi/3CmBsvvEetI/hqdefault.jpg"],
   },
 };
 
-const articleJsonLd = {
+const faqs = [
+  {
+    question: "كيف أختار أفضل مكتب هندسي بالدمام؟",
+    answer:
+      "ابدأ بتحديد الخدمة المطلوبة، ثم تحقق من أهلية المكتب لأي إجراء رسمي يخص مشروعك، واطلب نطاق عمل مكتوبًا يوضح المخططات والتعديلات والمدة وطريقة التسليم. قارن العروض على نفس النطاق، وليس على السعر وحده.",
+  },
+  {
+    question: "هل يجب أن يكون المكتب الهندسي معتمدًا في الدمام؟",
+    answer:
+      "إذا كانت الخدمة مرتبطة بإجراءات رخصة أو اعتماد أو رفع مخططات لجهة رسمية، فيجب التأكد من المتطلبات الحالية للجهة المختصة ومن أهلية المكتب الذي سيتولى الإجراء. راجع منصة بلدي ومتطلبات كود البناء السعودي قبل التعاقد.",
+  },
+  {
+    question: "ما الخدمات التي أطلبها من مكتب هندسي لمشروع في الدمام؟",
+    answer:
+      "بحسب المشروع قد تحتاج تصميمًا معماريًا، تصميمًا إنشائيًا، مخططات كهرباء وسباكة وتكييف، تطوير واجهات، تنسيق مخططات تنفيذية أو إشرافًا. اطلب قائمة تسليمات واضحة حتى تعرف ما هو مشمول وما يحتاج إلى طرف آخر.",
+  },
+  {
+    question: "هل يمكن بدء تصميم مشروع في الدمام عن بعد؟",
+    answer:
+      "يمكن بدء مرحلة جمع المتطلبات والتصميم والتنسيق عن بعد إذا توفرت أبعاد الأرض والموقع والاحتياجات والاشتراطات. أي خطوة تتطلب معاينة ميدانية أو إجراء رسمي محلي يجب تنسيقها حسب متطلبات المشروع والجهة المختصة.",
+  },
+  {
+    question: "ماذا أرسل لموسوق قبل طلب استشارة لمشروع في الدمام؟",
+    answer:
+      "أرسل المدينة والحي إن كان مهمًا، أبعاد الأرض أو مساحة المبنى، نوع المشروع، عدد الأدوار، الخدمة المطلوبة، وأي مخططات أو صور مرجعية لديك. هذه البيانات تجعل أول محادثة أكثر دقة وتقلل الأسئلة العامة.",
+  },
+];
+
+const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  headline: "ما هو افضل مكتب هندسي بالدمام؟",
-  description:
-    "هل تحاول العثور على افضل مكتب هندسي بالدمام من بين مجموعة كبيرة من توصيات الأصدقاء وآراء المستخدمين عبر الانترنت؟افضل مكتب هندسي بالدمام",
-  image: featuredImage,
-  datePublished: "2026-03-10T10:52:00+03:00",
-  dateModified: "2026-02-24T22:14:00+03:00",
-  inLanguage: "ar-SA",
-  mainEntityOfPage: {
-    "@type": "WebPage",
-    "@id": pageUrl,
-  },
-  author: {
-    "@type": "Organization",
-    name: "موسوق",
-    url: "https://mawsouq.com",
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "موسوق",
-    url: "https://mawsouq.com",
-  },
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": pageUrl,
+      url: pageUrl,
+      name: "مكتب هندسي في الدمام: دليل الاختيار وبدء مشروعك",
+      description: metadata.description,
+      inLanguage: "ar-SA",
+      dateModified: "2026-08-26T10:00:00+03:00",
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+    },
+    {
+      "@type": "Service",
+      "@id": `${pageUrl}#service`,
+      name: "خدمات التصميم الهندسي للمشاريع في الدمام",
+      serviceType: "تصميم معماري وإنشائي وتنسيق خدمات هندسية",
+      areaServed: {
+        "@type": "City",
+        name: "الدمام",
+      },
+      provider: {
+        "@type": "Organization",
+        name: "موسوق",
+        url: SITE_URL,
+        telephone: "+201223328270",
+      },
+      url: pageUrl,
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "الرئيسية", item: `${SITE_URL}/` },
+        { "@type": "ListItem", position: 2, name: "المدونات", item: `${SITE_URL}/المدونات/` },
+        { "@type": "ListItem", position: 3, name: "مكتب هندسي الدمام", item: pageUrl },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    },
+  ],
 };
 
-const offices = [
+const services = [
   {
-    name: "مكتب الحداد للاستشارات الهندسيّة",
-    rating: "(4.1) 🟊🟊🟊🟊✮ (102 مستخدم جوجل)",
-    phone: "00966138345032",
-    address: "الدمام - البديع - شارع الأشرعة",
-    website: "md4000.com",
-    href: "https://md4000.com/",
+    icon: Building2,
+    title: "التصميم المعماري",
+    text: "توزيع المساحات والواجهات وربط متطلبات الأسرة أو الاستخدام بالمخطط قبل الانتقال للتنفيذ.",
+    href: "/التصميم-المعماري/",
   },
   {
-    name: "مكتب ريف للاستشارات الهندسيّة",
-    rating: "(4.0) 🟊🟊🟊🟊✮ (129 مستخدم جوجل)",
-    phone: "00966138335851",
-    address: "الدمام - البديع - شارع الملك عبد العزيز",
+    icon: Ruler,
+    title: "التصميم الإنشائي",
+    text: "تحويل المخطط المعماري إلى نظام إنشائي ومخططات تنفيذية وفق بيانات المشروع والمتطلبات الفنية.",
+    href: "/تصميم-انشائي/",
   },
   {
-    name: "مكتب أحمد الموسى للاستشارات الهندسيّة",
-    rating: "(4.0) 🟊🟊🟊🟊✮ (122 مستخدم جوجل)",
-    phone: "00966138488844",
-    address: "الدمام - ابن خلدون - شارع إبن الجوزي",
+    icon: FileText,
+    title: "تنسيق المخططات",
+    text: "مراجعة التعارضات بين المعماري والإنشائي والخدمات قبل أن تتحول إلى تعديلات مكلفة أثناء التنفيذ.",
+    href: "/تصميم-معماري-عن-بعد/",
   },
   {
-    name: "مكتب المهندس أحمد جاسم أحمد",
-    rating: "(3.9) 🟊🟊🟊✮✮ (120 مستخدم جوجل)",
-    phone: "00966138355408",
-    address: "الدمام - البديع - شارع الأشرعة",
-    website: "alfia.sa",
-    href: "https://alfia.sa/",
-  },
-  {
-    name: "المكتب الوطني للاستشارات الهندسيّة",
-    rating: "(3.9) 🟊🟊🟊✮✮ (102 مستخدم جوجل)",
-    phone: "00966138322121",
-    address: "الدمام - المزروعية - شارع الملك عبد العزيز",
-  },
-  {
-    name: "مكتب منار الشرق للاستشارات الهندسيّ",
-    rating: "(4.1) 🟊🟊🟊✮✮ (61 مستخدم جوجل)",
-    phone: "00966138414941",
-    address: "الدمام - الفيصليّة - شارع أبو بكر الصديق",
-    website: "tahalof.com",
-    href: "https://tahalof.com/",
-  },
-  {
-    name: "مكتب التوكيلات الإنشائيّة للاستشارات الهندسيّة",
-    rating: "(3.9) 🟊🟊🟊✮✮ (80 مستخدم جوجل)",
-    phone: "00966500606007",
-    address:
-      "الدمام - طريق الملك فهد - مقابل المجدوعي للسيارات - بجانب جسر المشاة",
-    website: "civilup.com",
-    href: "http://www.civilup.com/",
-  },
-  {
-    name: "مكتب بن حمري للاستشارات الهندسيّة",
-    rating: "(4.0) 🟊🟊🟊🟊✮ (76 مستخدم جوجل)",
-    phone: "00966138183782",
-    address: "الدمام - الفيصليّة - شارع أبو بكر الصديق",
-    website: "dalelk-tech.com",
-    href: "http://dalelk-tech.com/ar/",
+    icon: ClipboardCheck,
+    title: "تجهيز قرار التعاقد",
+    text: "تحديد نطاق التسليم والأسئلة التي يجب توجيهها للمكتب أو المقاول قبل مقارنة العروض.",
+    href: "/تكلفة-بناء-دور-واحد/",
   },
 ];
 
 export default function BestEngineeringOfficeDammamPage() {
   return (
-    <main className="article-page">
+    <main dir="rtl" lang="ar-SA" className="relative min-h-screen bg-[color:var(--page)] pb-24 pt-[calc(var(--nav-height)+28px)] text-[color:var(--ink)]">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
 
-      <article className="article-shell">
-        <header className="article-hero">
-          <div className="article-label">التصميم المعمارى</div>
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[720px] bg-[radial-gradient(circle_at_82%_12%,rgba(47,134,246,.18),transparent_36%),linear-gradient(180deg,var(--surface-2),transparent)]" />
 
-          <h1>ما هو افضل مكتب هندسي بالدمام؟</h1>
+      <div className="mx-auto w-[calc(100%_-_28px)] max-w-[1220px]">
+        <nav aria-label="مسار التنقل" className="mb-5 flex flex-wrap items-center gap-2 text-xs font-black text-[color:var(--ink-faint)]">
+          <Link href="/" className="text-[color:var(--brand)]">الرئيسية</Link>
+          <span>←</span>
+          <Link href="/المدونات/" className="text-[color:var(--brand)]">المدونات</Link>
+          <span>←</span>
+          <span>مكتب هندسي الدمام</span>
+        </nav>
 
-          <p className="article-date">
-            نُشر في مارس 10، 2026 — آخر تحديث فبراير 24، 2026
-          </p>
+        <section className="overflow-hidden rounded-[38px] border border-[color:var(--hairline-strong)] bg-[color:var(--surface)] shadow-[var(--card-shadow)]">
+          <div className="p-7 md:p-10 lg:p-14">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--hairline)] bg-[color:var(--surface-2)] px-4 py-2 text-xs font-black text-[color:var(--brand)]">
+                <MapPin size={15} /> الدمام والمنطقة الشرقية
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--hairline)] bg-[color:var(--surface-2)] px-4 py-2 text-xs font-black text-[color:var(--ink-muted)]">
+                آخر تحديث: 26 أغسطس 2026
+              </span>
+            </div>
 
-          <p className="article-lead">
-            هل تحاول العثور على افضل مكتب هندسي بالدمام من بين مجموعة كبيرة من
-            توصيات الأصدقاء وآراء المستخدمين عبر الانترنت؟
-          </p>
+            <h1 className="mt-6 max-w-[980px] text-4xl font-black leading-[1.18] tracking-[-.045em] md:text-6xl">
+              مكتب هندسي في الدمام: كيف تختار وتبدأ مشروعك بخطوات واضحة؟
+            </h1>
 
-          <p className="article-lead second-lead">
-            العثور على افضل مكتب هندسي بالدمام من بين مجموعة كبيرة من توصيات
-            الأصدقاء وآراء المستخدمين عبر الانترنت
-          </p>
-        </header>
+            <p className="mt-5 max-w-[930px] text-lg font-bold leading-9 text-[color:var(--ink-muted)] md:text-xl">
+              إذا كنت تبحث عن <strong className="text-[color:var(--ink)]">مكتب هندسي الدمام</strong> أو عن أفضل مكتب هندسي بالدمام، فالسؤال الأهم ليس اسم المكتب فقط؛ بل هل نطاق الخدمة مناسب لمشروعك، وهل التسليمات واضحة، وهل الجهة التي ستتولى أي إجراء رسمي مؤهلة لذلك. هذه الصفحة تساعدك على اتخاذ القرار ثم بدء استشارة تصميم مع موسوق إذا كان ذلك مناسبًا لك.
+            </p>
 
-        <div className="article-content">
-          <h2>ما معنى مكتب هندسى؟</h2>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-[54px] items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 text-sm font-black text-[#052d16] shadow-[0_16px_38px_rgba(37,211,102,.23)]"
+              >
+                <MessageCircle size={19} /> أرسل تفاصيل مشروعك في الدمام
+              </a>
+              <a
+                href="tel:+201223328270"
+                className="inline-flex min-h-[54px] items-center justify-center gap-2 rounded-full bg-[color:var(--brand)] px-7 text-sm font-black !text-white shadow-[0_16px_38px_rgba(11,91,184,.2)]"
+                style={{ color: "#fff" }}
+              >
+                اتصل بفريق موسوق
+              </a>
+            </div>
+          </div>
 
-          <p>
-            يعد مكتب الاستشارات الهندسية هو المسؤول عن تصميمات وبناء البنية
-            التحتية للمشروع، لما لهذه المشروعات من أهمية لنوع الحياة الاقتصادية
-            والاجتماعية والبيئية في المجتمعات.
-          </p>
-
-          <p>
-            وتنفذ هذه المشروعات من خلال مجموعة من المهندسين بجميع التخصصات
-            الهندسية والمهنيين من مختلف التخصصات ذات الصلة بمجال المكاتب
-            الهندسية.
-          </p>
-
-          <p>
-            ويطلق على المهندسين العاملين بهذه المشاريع “المهندسين الاستشاريين”
-            حيث ان لهم دور كبير في مساعدة شركات استشارات هندسية تابعين لها في
-            تقديم الاستشارات والخدمات الهندسية للعملاء.
-          </p>
-
-          <p>
-            بالإضافة لدورهم في تنظيم فريق العمل القائم على المشروعات والإشراف
-            عليه بمختلف تخصصاته لضمان تنفيذ المشروعات بنجاح.
-          </p>
-
-          <p>
-            والاستشارات الهندسية المقدمة من المكاتب الاستشارية عبارة عن خدمة
-            للحكومات والعملاء وشركات البناء لكل ما يتعلق بالمشروعات الهندسية
-            والمجالات ذات الصلة بها، لتساعدهم في الوصول للنتيجة المرجوة بأقصر
-            الطرق وأفضلها بما يتناسب مع الإمكانيات المادية المناسبة لهم.
-          </p>
-
-          <p>
-            من المؤكد أنك قد بحثت هنا وهناك محاولًا العثور على افضل مكتب هندسي،
-            ولكن بينما قد يكون من ضمنها ما هو مناسب لك إلا أنك لست متأكدًا من
-            ذلك، فمن المهم التعاقد مع افضل مكتب هندسي.
-          </p>
-
-          <ArticleImage
-            src={featuredImage}
-            alt="فضل مكتب هندسي بالدمام"
-            title="ما هو افضل مكتب هندسي بالدمام؟"
-          />
-
-          <p>
-            إحرص على متابعة هذا المقال حتى النهاية، حيث سنقوم بتسهيل العمليّة من
-            أجلك بجمعنا لأفضل مكتب هندسي في منطقة الدمام، وذلك فقط حسب تقييم
-            العملاء.
-          </p>
-
-          <h2>ما هو افضل مكتب هندسي بالدمام؟</h2>
-
-          <p>
-            نعلم بأن مشروعك الإنشائي أو حتى استشارتك الهندسيّة مهما كانت صغيرة
-            فهي تتطلب الكثير من الاهتمام والوقت، لذلك قمنا بتسهيل عمليّة البحث
-            عليك بجمعنا لأفضل 8 مكتب هندسي في الدمام، وهي:
-          </p>
-
-          <div className="offices-grid">
-            {offices.map((office) => (
-              <section className="office-card" key={office.name}>
-                <h3>{office.name}</h3>
-
-                <ul>
-                  <li>{office.rating}</li>
-                  <li>
-                    <strong>هاتف</strong>: {office.phone}
-                  </li>
-                  <li>
-                    <strong>العنوان</strong>: {office.address}
-                  </li>
-                  {office.href && (
-                    <li>
-                      <strong>الموقع الإلكتروني:</strong>{" "}
-                      <a
-                        href={office.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {office.website}
-                      </a>
-                    </li>
-                  )}
-                </ul>
-              </section>
+          <div className="grid gap-px border-t border-[color:var(--hairline)] bg-[color:var(--hairline)] sm:grid-cols-3">
+            {[
+              ["لا تبدأ بالسعر", "قارن نفس نطاق العمل والتسليمات أولًا."],
+              ["تحقق من المتطلبات", "الرخص والإجراءات الرسمية لها شروط أهلية يجب التأكد منها."],
+              ["أرسل brief واضح", "المساحة والموقع ونوع المشروع والمخططات تختصر أول محادثة."],
+            ].map(([title, text]) => (
+              <div key={title} className="bg-[color:var(--surface-2)] p-5">
+                <strong className="block text-base font-black text-[color:var(--ink)]">{title}</strong>
+                <span className="mt-2 block text-sm font-bold leading-7 text-[color:var(--ink-muted)]">{text}</span>
+              </div>
             ))}
           </div>
+        </section>
 
-          <h2>كيف تجد افضل مكتب هندسي بالدمام؟</h2>
-
-          <p>
-            بالرغم من أن تقييمات العملاء مهمة للتعرف على مدى الجودة التي يُقدمها
-            المكتب الهندسي، إلا أنه لا يزال هناك بعض المعايير الأخرى التي ننصحك
-            باتّباعها في عمليّة بحثك عن افضل مكتب هندسي بالدمام، وهي كالتالي:
-          </p>
-
-          <div className="card-list">
-            <section className="info-card">
-              <h3>الاعتماد الحكومي</h3>
-
-              <p>
-                قد يُعجبك ما يُقدمه أحد المكاتب الهندسيّة من خدمات وأسلوب في
-                التعامل والتواصل وتُصبح مقتنعًا بأنه المكتب المناسب لك، ولكن يجب
-                الانتباه إلى أهمية حصول المكتب على الاعتماد الرسمي من أمانة
-                الدمام.
+        <article className="mt-7 rounded-[34px] border border-[color:var(--hairline)] bg-[color:var(--surface)] p-6 shadow-[var(--card-shadow)] md:p-9 lg:p-11">
+          <section>
+            <span className="text-xs font-black text-[color:var(--brand)]">الإجابة السريعة</span>
+            <h2 className="mt-2 text-3xl font-black leading-tight md:text-4xl">ما الذي يجعل المكتب الهندسي مناسبًا لمشروعك في الدمام؟</h2>
+            <div className="mt-5 rounded-[24px] border border-[color:var(--hairline-strong)] bg-[color:var(--surface-2)] p-5">
+              <p className="m-0 text-base font-bold leading-8 text-[color:var(--ink-muted)] md:text-lg">
+                المكتب المناسب هو الذي يفهم نوع المشروع، يحدد ما سيسلمه بالضبط، يوضح عدد جولات التعديل والمدة ومسؤولية التنسيق، ولا يَعِد بإجراء رسمي لا يملك أهلية تنفيذه. قبل التعاقد، اطلب نطاقًا مكتوبًا وأمثلة أعمال واسأل كيف سيتم التعامل مع اشتراطات الموقع والجهة المختصة.
               </p>
-
-              <p>
-                يُمكنك التحقق أولًا من وجود المكتب الهندسي الذي ترغب بالتعاقد
-                معه في قائمة المكاتب المعتمدة من{" "}
-                <a
-                  href="https://www.eamana.gov.sa/E-services/Pages/Shared/QuerisAboutEngineeringOffice.aspx"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  هنا
-                </a>
-                .
-              </p>
-            </section>
-
-            <section className="info-card">
-              <h3>تكلفة المكتب الهندسي</h3>
-
-              <p>
-                بعد أن تتأكد من اعتماد المكتب الهندسي من قِبل أمانة المنطقة
-                الشرقيّة، يُمكنك بعدها الانتقال للتعرف على التكاليف والأسعار
-                التي يُقدمها المكتب مقابل خدماته المختلفة.
-              </p>
-
-              <p>
-                يُمكنك طرح مشروعك المقترح أو استفسارك وطلب عرض سعر من المكتب ثم
-                مقارنة هذا العرض مع المكاتب الأخرى لتحديد أي هذه المكاتب هو
-                الأفضل سعرًا مقارنةً بالجودة المقدمة.
-              </p>
-
-              <p>
-                إنتبه إلى أن التكلفة العالية ليست مؤشرًا على جودة المكتب، فهناك
-                من المكاتب الهندسيّة تُقدم خدمات عاليّة الجودة مقابل تكاليف
-                منخفضة نسبيًا مقارنةً بمكاتب أخرى.
-              </p>
-            </section>
-
-            <section className="info-card">
-              <h3>المدة الزمنيّة</h3>
-
-              <p>
-                في حال أردت التعاقد مع أحد المكاتب الهندسيّة للعمل على مشروعٍ ما
-                سواء كان بناء أو ترميم أو غيرها، فاحرص على التفاهم والاتفاق
-                مسبقًا بشأن المدة الزمنيّة المتوقعة لتسليم العمل.
-              </p>
-
-              <p>
-                يتم في العديد من حالات الاحتيال أن يقوم المكتب أو المشرفون على
-                المشروع بتأخير التسليم لطلب المزيد من التكاليف والمستحقات، لذلك
-                احرص على الوضوح التام مع المكتب على الالتزام بالمهلة الزمنيّة
-                المتوقعة.
-              </p>
-            </section>
-          </div>
-
-          <section className="summary-box">
-            <h2>الملخص</h2>
-
-            <p>
-              لكي لا تُهدر الكثير من الوقت والجهد في محاولة إيجاد افضل مكتب
-              هندسي في الدمام، قمنا في هذا المقال بذكر مجموعة من أفضل المكاتب
-              الهندسيّة في المنطقة مع توضيح العنوان ورقم الهاتف.
-            </p>
-
-            <p>
-              هل تحاول العثور على افضل مكتب هندسي بالدمام من بين مجموعة كبيرة من
-              توصيات الأصدقاء وآراء المستخدمين عبر الانترنت؟
-            </p>
-
-            <p>
-              إستغل وقتك ولا تبحث كثيرًا، حيث أن هذه المكاتب هي الأفضل حسب
-              تقييمات العملاء الذين كان لديهم تجارب سابقة مع المكاتب.
-            </p>
+            </div>
           </section>
 
-          <section className="related-box">
-            <h2>موضوعات ذات صلة :</h2>
-
-            <a
-              href="https://mawsouq.com/%d8%a7%d9%84%d9%85%d8%af%d9%88%d9%86%d8%a7%d8%aa/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              المدونات
-            </a>
-
-            <a
-              href="https://mawsouq.com/%d8%b9%d9%86-%d8%a7%d9%84%d8%b4%d8%b1%d9%83%d8%a9/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              عن الشركة
-            </a>
-
-            <a
-              href="https://mawsouq.com/%d8%aa%d8%b5%d9%85%d9%8a%d9%85-%d9%85%d8%b9%d9%85%d8%a7%d8%b1%d9%8a-%d8%b9%d9%86-%d8%a8%d8%b9%d8%af/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              تصميم معماري عن بعد - دليلك الشامل
-            </a>
-
-            <a
-              href="https://mawsouq.com/%d9%83%d9%8a%d9%81-%d8%aa%d8%ac%d8%af-%d9%85%d9%87%d9%86%d8%af%d8%b3-%d9%85%d8%b9%d9%85%d8%a7%d8%b1%d9%8a-%d8%af%d9%84%d9%8a%d9%84%d9%83-%d8%a7%d9%84%d8%b4%d8%a7%d9%85%d9%84/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              كيف تجد مهندس معماري (دليلك الشامل)
-            </a>
-
-            <a
-              href="https://mawsouq.com/%d8%aa%d8%b5%d9%85%d9%8a%d9%85-%d8%a7%d9%86%d8%b4%d8%a7%d8%a6%d9%8a/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              تصميم مخطط انشائي - دليلك الشامل
-            </a>
-
-            <a
-              href="https://mawsouq.com/%d8%a7%d9%8a%d8%ac%d8%a7%d8%af-%d9%85%d9%87%d9%86%d8%af%d8%b3-%d8%a7%d9%86%d8%b4%d8%a7%d8%a6%d9%8a/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              مهندس انشائي - كيف تجد الأفضل وما هي الاسعار؟
-            </a>
+          <section className="mt-14">
+            <span className="text-xs font-black text-[color:var(--brand)]">الخدمات</span>
+            <h2 className="mt-2 text-3xl font-black leading-tight md:text-4xl">ما الذي قد تحتاجه من مكتب استشارات هندسية في الدمام؟</h2>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              {services.map((service) => {
+                const Icon = service.icon;
+                return (
+                  <Link key={service.title} href={service.href} className="group rounded-[24px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-5 transition hover:-translate-y-1 hover:border-[color:var(--brand-bright)]">
+                    <span className="grid size-11 place-items-center rounded-2xl bg-[color:var(--brand)] text-white"><Icon size={20} /></span>
+                    <h3 className="mt-4 text-xl font-black text-[color:var(--ink)]">{service.title}</h3>
+                    <p className="mt-2 text-sm font-bold leading-7 text-[color:var(--ink-muted)]">{service.text}</p>
+                    <span className="mt-4 inline-block text-sm font-black text-[color:var(--brand)]">اقرأ التفاصيل ←</span>
+                  </Link>
+                );
+              })}
+            </div>
           </section>
-        </div>
-      </article>
 
-      <style>{`
-        .article-page {
-          direction: rtl;
-          background:
-            radial-gradient(circle at 85% 12%, rgba(47, 134, 246, 0.12), transparent 32%),
-            linear-gradient(180deg, var(--surface-2), var(--page));
-          padding: calc(var(--nav-height) + 40px) 0 72px;
-        }
+          <section className="mt-14">
+            <span className="text-xs font-black text-[color:var(--brand)]">قبل التعاقد</span>
+            <h2 className="mt-2 text-3xl font-black leading-tight md:text-4xl">7 أسئلة اسألها قبل اختيار مكتب هندسي بالدمام</h2>
+            <ol className="mt-6 grid gap-3 p-0 md:grid-cols-2">
+              {[
+                "ما المخططات والتسليمات الموجودة داخل السعر؟",
+                "هل السعر يشمل التعديلات؟ وكم جولة تعديل؟",
+                "من المسؤول عن التنسيق بين المعماري والإنشائي والخدمات؟",
+                "ما البيانات المطلوبة من الأرض أو المبنى قبل بدء التصميم؟",
+                "هل توجد إجراءات رسمية ضمن النطاق؟ ومن الجهة المؤهلة لتنفيذها؟",
+                "ما المدة المتوقعة لكل مرحلة وما الذي قد يغيرها؟",
+                "كيف يتم تسليم الملفات النهائية وما الذي يحتاجه المقاول للتنفيذ؟",
+              ].map((item, index) => (
+                <li key={item} className="flex gap-3 rounded-[20px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-4 text-sm font-bold leading-7 text-[color:var(--ink-muted)]">
+                  <span className="grid size-8 shrink-0 place-items-center rounded-full bg-[color:var(--brand)] text-xs font-black text-white">{index + 1}</span>
+                  {item}
+                </li>
+              ))}
+            </ol>
+          </section>
 
-        .article-shell {
-          width: min(100% - 32px, 1040px);
-          margin-inline: auto;
-          overflow: hidden;
-          border: 1px solid var(--hairline);
-          border-radius: 34px;
-          background: var(--surface);
-          box-shadow: var(--card-shadow);
-        }
+          <section className="mt-14 grid gap-5 lg:grid-cols-2">
+            <div className="rounded-[26px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-6">
+              <div className="flex items-center gap-3"><ShieldCheck className="text-[color:var(--brand)]" /><h2 className="text-2xl font-black">الاعتماد والإجراءات الرسمية</h2></div>
+              <p className="mt-4 text-sm font-bold leading-8 text-[color:var(--ink-muted)]">
+                لا تفترض أن أي مصمم أو مكتب يمكنه تنفيذ كل إجراء رسمي. عندما يرتبط مشروعك برخصة بناء أو رفع مخططات أو اعتماد لدى جهة حكومية، تحقق من متطلبات الخدمة الحالية وأهلية الطرف الذي سيتولى الإجراء.
+              </p>
+              <div className="mt-5 grid gap-2">
+                <a href="https://balady.gov.sa/ar/services/%D8%A5%D8%B5%D8%AF%D8%A7%D8%B1-%D8%B1%D8%AE%D8%B5%D8%A9-%D8%A8%D9%86%D8%A7%D8%A1" target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-[color:var(--surface)] px-4 py-3 text-sm font-black text-[color:var(--brand)]">منصة بلدي — إصدار رخصة بناء</a>
+                <a href="https://sbc.gov.sa/" target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-[color:var(--surface)] px-4 py-3 text-sm font-black text-[color:var(--brand)]">المركز السعودي لكود البناء</a>
+              </div>
+            </div>
 
-        .article-hero {
-          padding: clamp(30px, 5vw, 64px);
-          border-bottom: 1px solid var(--hairline);
-          background:
-            radial-gradient(circle at 15% 20%, rgba(47, 134, 246, 0.12), transparent 34%),
-            linear-gradient(135deg, var(--surface), var(--surface-2));
-        }
+            <div className="rounded-[26px] border border-[color:var(--hairline)] bg-[linear-gradient(135deg,#071321,#0b5bb8)] p-6 text-white">
+              <div className="flex items-center gap-3"><BadgeCheck /><h2 className="text-2xl font-black">كيف تبدأ مع موسوق؟</h2></div>
+              <p className="mt-4 text-sm font-bold leading-8 text-white/75">
+                ابدأ بإرسال بيانات المشروع بدل طلب سعر عام: المدينة، المساحة، نوع المبنى، عدد الأدوار، الخدمة المطلوبة، وأي مخططات أو صور لديك. سيصبح من الأسهل تحديد الخطوة التالية وما إذا كان نطاق موسوق مناسبًا لاحتياجك.
+              </p>
+              <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 text-sm font-black text-[#052d16]">
+                <MessageCircle size={18} /> أرسل brief المشروع
+              </a>
+            </div>
+          </section>
 
-        .article-label {
-          width: max-content;
-          max-width: 100%;
-          margin-bottom: 18px;
-          padding: 8px 16px;
-          border: 1px solid var(--hairline);
-          border-radius: 999px;
-          background: var(--surface);
-          color: var(--brand);
-          font-size: 14px;
-          font-weight: 900;
-        }
+          <MawsooqProofSection context="مشروعك في الدمام" whatsappMessage={whatsappMessage} />
 
-        .article-hero h1 {
-          margin: 0;
-          color: var(--ink);
-          font-size: clamp(32px, 5vw, 56px);
-          line-height: 1.25;
-          letter-spacing: -0.04em;
-          font-weight: 950;
-        }
+          <section className="mt-14">
+            <span className="text-xs font-black text-[color:var(--brand)]">أسئلة شائعة</span>
+            <h2 className="mt-2 text-3xl font-black md:text-4xl">أسئلة عن المكتب الهندسي في الدمام</h2>
+            <div className="mt-6 grid gap-3">
+              {faqs.map((faq) => (
+                <details key={faq.question} className="group rounded-[22px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-5">
+                  <summary className="cursor-pointer list-none text-base font-black leading-7 text-[color:var(--ink)]">{faq.question}</summary>
+                  <p className="mt-4 border-t border-[color:var(--hairline)] pt-4 text-sm font-bold leading-8 text-[color:var(--ink-muted)]">{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
 
-        .article-date {
-          margin: 18px 0 0;
-          color: var(--ink-faint);
-          font-size: 14px;
-          font-weight: 800;
-        }
-
-        .article-lead {
-          max-width: 900px;
-          margin: 26px 0 0;
-          color: var(--ink);
-          font-size: clamp(17px, 2vw, 21px);
-          line-height: 2;
-          font-weight: 800;
-        }
-
-        .second-lead {
-          margin-top: 14px;
-        }
-
-        .article-content {
-          padding: clamp(28px, 5vw, 60px);
-        }
-
-        .article-content p,
-        .article-content li {
-          color: var(--ink-muted);
-          font-size: 18px;
-          line-height: 2.15;
-          font-weight: 500;
-        }
-
-        .article-content p {
-          margin: 0 0 22px;
-        }
-
-        .article-content h2 {
-          margin: 52px 0 20px;
-          color: var(--brand);
-          font-size: clamp(25px, 3.2vw, 38px);
-          line-height: 1.45;
-          font-weight: 950;
-          letter-spacing: -0.025em;
-        }
-
-        .article-content h3 {
-          margin: 0 0 16px;
-          color: #ef4444;
-          font-size: clamp(21px, 2.4vw, 28px);
-          line-height: 1.55;
-          font-weight: 950;
-        }
-
-        .article-content a,
-        .article-figure a {
-          color: var(--brand);
-          font-weight: 900;
-          text-decoration: underline;
-          text-underline-offset: 5px;
-          overflow-wrap: anywhere;
-        }
-
-        .article-figure {
-          margin: 34px auto 44px;
-          overflow: hidden;
-          border: 1px solid var(--hairline);
-          border-radius: 28px;
-          background: var(--surface-2);
-          box-shadow: 0 18px 55px rgba(16, 32, 51, 0.08);
-        }
-
-        .article-figure img {
-          display: block;
-          width: 100%;
-          height: auto;
-          background: var(--surface-2);
-        }
-
-        .offices-grid {
-          display: grid;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 18px;
-          margin: 30px 0 18px;
-        }
-
-        .office-card,
-        .info-card,
-        .summary-box {
-          padding: clamp(20px, 4vw, 34px);
-          border: 1px solid var(--hairline);
-          border-radius: 28px;
-          background:
-            radial-gradient(circle at 12% 12%, rgba(47, 134, 246, 0.08), transparent 32%),
-            var(--surface-2);
-        }
-
-        .office-card ul {
-          margin: 0;
-          padding: 0 22px 0 0;
-        }
-
-        .office-card li {
-          margin-bottom: 12px;
-        }
-
-        .office-card li:last-child {
-          margin-bottom: 0;
-        }
-
-        .card-list {
-          display: grid;
-          gap: 18px;
-          margin: 28px 0 12px;
-        }
-
-        .info-card p:last-child,
-        .summary-box p:last-child {
-          margin-bottom: 0;
-        }
-
-        .summary-box {
-          margin-top: 54px;
-        }
-
-        .related-box {
-          margin-top: 60px;
-          padding: clamp(22px, 4vw, 34px);
-          border: 1px solid var(--hairline);
-          border-radius: 28px;
-          background:
-            radial-gradient(circle at 10% 20%, rgba(47, 134, 246, 0.1), transparent 34%),
-            var(--surface-2);
-        }
-
-        .related-box h2 {
-          margin-top: 0;
-        }
-
-        .related-box a {
-          display: block;
-          margin-top: 14px;
-          padding: 15px 18px;
-          border: 1px solid var(--hairline);
-          border-radius: 18px;
-          background: var(--surface);
-          color: var(--brand);
-          text-decoration: none;
-          box-shadow: 0 10px 28px rgba(16, 32, 51, 0.045);
-          transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .related-box a:hover {
-          transform: translateY(-2px);
-          border-color: var(--brand-bright);
-        }
-
-        @media (max-width: 1023px) {
-          .article-page {
-            padding-top: calc(var(--nav-height) + 28px);
-          }
-
-          .offices-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-
-        @media (max-width: 640px) {
-          .article-page {
-            padding: calc(var(--nav-height) + 20px) 0 48px;
-          }
-
-          .article-shell {
-            width: min(100% - 20px, 1040px);
-            border-radius: 24px;
-          }
-
-          .article-content p,
-          .article-content li {
-            font-size: 16px;
-            line-height: 2;
-          }
-
-          .article-lead {
-            font-size: 16px;
-            line-height: 2;
-          }
-
-          .article-figure,
-          .office-card,
-          .info-card,
-          .summary-box,
-          .related-box {
-            border-radius: 20px;
-          }
-        }
-      `}</style>
+          <section className="mt-14 rounded-[30px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-6 md:p-8">
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="mt-1 shrink-0 text-[color:var(--brand)]" />
+              <div>
+                <h2 className="text-2xl font-black md:text-3xl">الخلاصة: لا تجعل قائمة أسماء المكاتب هي قرارك الوحيد</h2>
+                <p className="mt-3 text-base font-bold leading-8 text-[color:var(--ink-muted)]">
+                  البحث عن أفضل مكتب هندسي بالدمام يبدأ بتحديد احتياج مشروعك ثم مقارنة نطاق الخدمة والكفاءة والتسليمات بوضوح. إذا كنت تريد بدء تصميم معماري أو إنشائي لمشروع في الدمام، أرسل تفاصيل المشروع لموسوق وشاهد آراء العملاء والمشاريع قبل أن تقرر.
+                </p>
+              </div>
+            </div>
+          </section>
+        </article>
+      </div>
     </main>
-  );
-}
-
-function ArticleImage({ src, alt, title }) {
-  return (
-    <figure className="article-figure">
-      <img src={src} alt={alt} title={title} loading="lazy" />
-    </figure>
   );
 }

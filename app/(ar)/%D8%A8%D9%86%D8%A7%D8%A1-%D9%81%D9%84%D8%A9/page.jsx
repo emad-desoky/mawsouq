@@ -1,509 +1,318 @@
-const pageUrl =
-  "https://mawsouq.com/%D8%A8%D9%86%D8%A7%D8%A1-%D9%81%D9%84%D8%A9/";
+import Link from "next/link";
+import {
+  BadgeCheck,
+  Building2,
+  CheckCircle2,
+  ClipboardCheck,
+  FileCheck2,
+  Hammer,
+  HardHat,
+  MessageCircle,
+  Ruler,
+  ShieldCheck,
+  WalletCards,
+} from "lucide-react";
+import MawsooqProofSection from "@/components/ar/MawsooqProofSection";
 
+const SITE_URL = "https://mawsouq.com";
+const pageUrl = `${SITE_URL}/بناء-فلة/`;
 const featuredImage =
   "https://mawsouq.com/wp-content/uploads/2026/05/تكلفة-بناء-فيلا-السعودية-copy.webp";
+const whatsappMessage =
+  "مرحبًا موسوق، أريد استشارة حول بناء فيلا. المدينة: ___، مساحة الأرض: ___، مساحة البناء التقريبية: ___، ومرحلة المشروع الحالية: ___";
+const whatsapp = `https://wa.me/201223328270?text=${encodeURIComponent(whatsappMessage)}`;
 
 export const metadata = {
-  title: "تكلفة بناء فلة في السعودية - سألنا 20 مقاول وهذه اسعار السوق",
+  title: "بناء فيلا في السعودية 2026 | المراحل واختيار المقاول",
   description:
-    "بناء فيلا خاصة بك يتطلب أن تكون على دراية بكل الخصائص التي تحتاجها بمنزلك لضمان الحصول على جودة عالية احدث اسعارتكلفة بناء فلة في السعودية",
-  alternates: {
-    canonical: pageUrl,
-  },
+    "دليل عملي لبناء فيلا في السعودية: من التصميم والرخصة إلى مقارنة المقاولين والعقد والتنفيذ والتسليم، مع روابط لحاسبة التكلفة وخدمات التصميم.",
   keywords: [
     "بناء فيلا في السعودية",
-    "فيلا في السعودية",
-    "كاليف بناء فيلا في السعودية",
-    "الخيارات المتاحة في السوق بناء فيلا في السعودية",
+    "بناء فلة في السعودية",
+    "مراحل بناء فيلا",
+    "بناء فيلا تسليم مفتاح",
+    "مقاول بناء فيلا",
+    "تكلفة بناء فيلا السعودية",
   ],
+  alternates: { canonical: pageUrl },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "تكلفة بناء فلة في السعودية - سألنا 20 مقاول وهذه اسعار السوق",
+    title: "بناء فيلا في السعودية 2026: من التصميم إلى التسليم",
     description:
-      "بناء فيلا خاصة بك يتطلب أن تكون على دراية بكل الخصائص التي تحتاجها بمنزلك لضمان الحصول على جودة عالية احدث اسعارتكلفة بناء فلة في السعودية",
+      "تعرف على مراحل بناء الفيلا، طريقة مقارنة عروض المقاولين، البنود التي يجب تثبيتها في العقد، وكيف تبدأ مشروعك بصورة منظمة.",
     url: pageUrl,
     siteName: "موسوق",
     locale: "ar_SA",
     type: "article",
     publishedTime: "2026-03-10T11:07:00+03:00",
-    modifiedTime: "2026-02-24T23:04:00+03:00",
-    images: [
-      {
-        url: featuredImage,
-        alt: "بناء فيلا في السعودية",
-      },
-    ],
+    modifiedTime: "2026-08-26T10:30:00+03:00",
+    images: [{ url: featuredImage, alt: "بناء فيلا في السعودية" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "تكلفة بناء فلة في السعودية - سألنا 20 مقاول وهذه اسعار السوق",
+    title: "بناء فيلا في السعودية 2026 | المراحل واختيار المقاول",
     description:
-      "بناء فيلا خاصة بك يتطلب أن تكون على دراية بكل الخصائص التي تحتاجها بمنزلك لضمان الحصول على جودة عالية احدث اسعارتكلفة بناء فلة في السعودية",
+      "خطوات بناء الفيلا والعقد والمقاول والتصميم قبل التنفيذ، بدون الاعتماد على سعر متر عام فقط.",
     images: [featuredImage],
   },
 };
 
-const articleJsonLd = {
+const stages = [
+  {
+    icon: Ruler,
+    title: "1. تثبيت احتياجات المشروع",
+    text: "حدد مساحة الأرض، عدد الأدوار، عدد المستخدمين، المجالس، المواقف، الملحقات، مستوى التشطيب والميزانية التقريبية. أي غموض هنا يتحول لاحقًا إلى تعديلات وتكلفة إضافية.",
+  },
+  {
+    icon: Building2,
+    title: "2. التصميم المعماري",
+    text: "ابدأ بالمخطط المعماري قبل طلب أسعار تنفيذ عشوائية. توزيع المساحات والواجهات والفتحات والخدمات يؤثر مباشرة على المساحة المبنية والهيكل والتكلفة.",
+    href: "/التصميم-المعماري/",
+  },
+  {
+    icon: FileCheck2,
+    title: "3. التصميم الإنشائي والتنسيق",
+    text: "بعد تثبيت المعماري، يأتي التصميم الإنشائي وتنسيق الكهرباء والسباكة والتكييف. الهدف هو تقليل التعارضات قبل أن تصل للموقع.",
+    href: "/تصميم-انشائي/",
+  },
+  {
+    icon: ShieldCheck,
+    title: "4. الرخص والاشتراطات",
+    text: "تأكد من المتطلبات الحالية للجهة المختصة وكود البناء السعودي، ومن أهلية المكتب الذي سيتولى أي إجراء رسمي. لا تبدأ التنفيذ قبل اكتمال المستندات المطلوبة للمشروع.",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "5. جدول الكميات ونطاق العمل",
+    text: "كلما كان نطاق التنفيذ والمواصفات والكميات أوضح، أصبحت مقارنة المقاولين أكثر عدلًا. اطلب من الجميع تسعير نفس البنود بدل مقارنة أرقام غير متكافئة.",
+  },
+  {
+    icon: HardHat,
+    title: "6. اختيار المقاول والعقد",
+    text: "قارن خبرة المقاول، الفريق، الجدول الزمني، طريقة الدفع، المواد المستبعدة، الضمانات وآلية التغيير. أقل سعر ليس بالضرورة أقل تكلفة نهائية.",
+    href: "/مقاول-بناء/",
+  },
+  {
+    icon: Hammer,
+    title: "7. التنفيذ والاستلام المرحلي",
+    text: "اربط الدفعات بمراحل إنجاز واضحة، ووثق القرارات والتغييرات. الاستلام المرحلي يقلل صعوبة اكتشاف الأخطاء بعد إخفائها بأعمال لاحقة.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "8. التسليم النهائي والملفات",
+    text: "راجع الملاحظات النهائية، الاختبارات، الضمانات، المخططات المحدثة وأي مستندات تشغيل أو صيانة قبل إقفال المشروع وتسوية الدفعات الأخيرة.",
+  },
+];
+
+const faqs = [
+  {
+    question: "ما أول خطوة في بناء فيلا في السعودية؟",
+    answer:
+      "ابدأ بتثبيت احتياجاتك ومساحة البناء المطلوبة ثم التصميم المعماري، وليس بالبحث عن أرخص سعر متر. المخطط الواضح يحدد المساحات والواجهات والخدمات، وبعده يمكن تطوير التصميم الإنشائي وتجهيز نطاق يمكن للمقاولين تسعيره بطريقة قابلة للمقارنة.",
+  },
+  {
+    question: "كيف أعرف تكلفة بناء فيلا في السعودية؟",
+    answer:
+      "التكلفة تعتمد على المساحة المبنية والمدينة والتربة والنظام الإنشائي ومستوى التشطيب ونطاق العقد. بدل وضع رقم عام داخل هذه الصفحة، استخدم دليل تكلفة بناء دور واحد وحاسبته في موسوق للحصول على نطاق تخطيطي ثم اطلب عروضًا مبنية على مخططات ومواصفات مشروعك.",
+  },
+  {
+    question: "هل الأفضل بناء عظم ثم التشطيب أم تسليم مفتاح؟",
+    answer:
+      "الاختيار يعتمد على وقتك وخبرتك وقدرتك على إدارة الموردين والمقاولين. فصل العظم والتشطيب قد يعطيك تحكمًا أكبر لكنه يحتاج إدارة وتنسيقًا أكثر، بينما تسليم المفتاح يقلل عدد الأطراف إذا كان نطاق العقد والمواصفات والاستثناءات واضحة.",
+  },
+  {
+    question: "ما أهم شيء في عقد مقاول بناء فيلا؟",
+    answer:
+      "يجب أن يوضح العقد نطاق الأعمال والمواصفات والمواد المستبعدة والمدة والدفعات المرتبطة بالإنجاز وآلية التغيير والاستلام. لا تعتمد على وصف عام مثل عظم أو تسليم مفتاح دون جدول بنود يشرح ما هو داخل السعر وما هو خارج السعر.",
+  },
+  {
+    question: "كيف أتواصل مع موسوق قبل بناء الفيلا؟",
+    answer:
+      "أرسل المدينة ومساحة الأرض ومساحة البناء التقريبية وعدد الأدوار ومرحلة المشروع الحالية، وأرفق أي مخططات أو صور مرجعية. يمكن بعدها تحديد ما إذا كنت تحتاج تصميمًا معماريًا أو إنشائيًا أو مساعدة في تنظيم نطاق المشروع قبل طلب عروض التنفيذ.",
+  },
+];
+
+const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  headline: "تكلفة بناء فلة في السعودية - سألنا 20 مقاول وهذه اسعار السوق",
-  description:
-    "بناء فيلا خاصة بك يتطلب أن تكون على دراية بكل الخصائص التي تحتاجها بمنزلك لضمان الحصول على جودة عالية احدث اسعارتكلفة بناء فلة في السعودية",
-  image: featuredImage,
-  datePublished: "2026-03-10T11:07:00+03:00",
-  dateModified: "2026-02-24T23:04:00+03:00",
-  inLanguage: "ar-SA",
-  mainEntityOfPage: {
-    "@type": "WebPage",
-    "@id": pageUrl,
-  },
-  author: {
-    "@type": "Organization",
-    name: "موسوق",
-    url: "https://mawsouq.com",
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "موسوق",
-    logo: {
-      "@type": "ImageObject",
-      url: "https://mawsouq.com/mawsouq-logo.png",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": `${pageUrl}#article`,
+      mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
+      headline: "بناء فيلا في السعودية 2026: المراحل واختيار المقاول قبل التنفيذ",
+      description: metadata.description,
+      image: { "@type": "ImageObject", url: featuredImage },
+      author: { "@type": "Organization", name: "موسوق", url: SITE_URL },
+      publisher: {
+        "@type": "Organization",
+        name: "موسوق",
+        logo: { "@type": "ImageObject", url: `${SITE_URL}/mawsouq-logo.png` },
+      },
+      datePublished: "2026-03-10T11:07:00+03:00",
+      dateModified: "2026-08-26T10:00:00+03:00",
+      inLanguage: "ar-SA",
+      articleSection: "البناء والتخطيط",
+      keywords: "بناء فيلا في السعودية, بناء فلة, مراحل بناء فيلا, مقاول بناء, تسليم مفتاح",
     },
-  },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "الرئيسية", item: `${SITE_URL}/` },
+        { "@type": "ListItem", position: 2, name: "المدونات", item: `${SITE_URL}/المدونات/` },
+        { "@type": "ListItem", position: 3, name: "بناء فيلا في السعودية", item: pageUrl },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    },
+  ],
 };
 
-export default function VillaConstructionCostPage() {
+export default function VillaConstructionPage() {
   return (
-    <main className="article-page">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
-      />
+    <main dir="rtl" lang="ar-SA" className="relative min-h-screen bg-[color:var(--page)] pb-24 pt-[calc(var(--nav-height)+28px)] text-[color:var(--ink)]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
 
-      <article className="article-shell">
-        <header className="article-hero">
-          <div className="article-label">تكاليف البناء</div>
+      <div className="mx-auto w-[calc(100%_-_28px)] max-w-[1260px]">
+        <nav aria-label="مسار التنقل" className="mb-5 flex flex-wrap items-center gap-2 text-xs font-black text-[color:var(--ink-faint)]">
+          <Link href="/" className="text-[color:var(--brand)]">الرئيسية</Link>
+          <span>←</span>
+          <Link href="/المدونات/" className="text-[color:var(--brand)]">المدونات</Link>
+          <span>←</span>
+          <span>بناء فيلا في السعودية</span>
+        </nav>
 
-          <h1>تكلفة بناء فلة في السعودية - سألنا 20 مقاول وهذه اسعار السوق</h1>
+        <section className="grid overflow-hidden rounded-[38px] border border-[color:var(--hairline-strong)] bg-[color:var(--surface)] shadow-[var(--card-shadow)] lg:grid-cols-[1.02fr_.98fr]">
+          <div className="flex flex-col justify-center p-7 md:p-10 lg:p-14">
+            <div className="flex flex-wrap gap-2">
+              <span className="rounded-full border border-[color:var(--hairline)] bg-[color:var(--surface-2)] px-4 py-2 text-xs font-black text-[color:var(--brand)]">دليل بناء الفلل 2026</span>
+              <span className="rounded-full border border-[color:var(--hairline)] bg-[color:var(--surface-2)] px-4 py-2 text-xs font-black text-[color:var(--ink-faint)]">آخر تحديث: 26 أغسطس 2026</span>
+            </div>
+            <h1 className="mt-6 text-4xl font-black leading-[1.15] tracking-[-.05em] md:text-6xl">بناء فيلا في السعودية 2026: المراحل واختيار المقاول قبل التنفيذ</h1>
+            <p className="mt-5 text-lg font-bold leading-9 text-[color:var(--ink-muted)]">
+              إذا كنت تخطط لبناء فيلا، فالقرار الجيد يبدأ قبل وصول المقاول للموقع. تحتاج مخططًا واضحًا، نطاق عمل قابلًا للتسعير، طريقة مقارنة عادلة، وعقدًا يحدد ما هو داخل السعر وما هو خارجه. هذا الدليل يرتب الخطوات ويترك <strong className="text-[color:var(--ink)]">تفاصيل التكلفة الدقيقة لصفحة التكلفة المخصصة</strong> حتى لا نكرر أرقامًا عامة غير مرتبطة بمشروعك.
+            </p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[54px] items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 text-sm font-black text-[#052d16] shadow-[0_16px_38px_rgba(37,211,102,.23)]"><MessageCircle size={19} /> أرسل تفاصيل الفيلا</a>
+              <Link href="/تكلفة-بناء-دور-واحد/" className="inline-flex min-h-[54px] items-center justify-center gap-2 rounded-full bg-[color:var(--brand)] px-7 text-sm font-black !text-white shadow-[0_16px_38px_rgba(11,91,184,.2)]" style={{ color: "#fff" }}><WalletCards size={19} /> احسب تكلفة البناء</Link>
+            </div>
+          </div>
+          <figure className="relative min-h-[340px] bg-[#071321] lg:min-h-[620px]">
+            <img src={featuredImage} alt="بناء فيلا في السعودية" className="absolute inset-0 h-full w-full object-cover" fetchPriority="high" />
+            <figcaption className="absolute inset-x-4 bottom-4 rounded-2xl border border-white/15 bg-black/55 p-4 text-sm font-bold leading-7 text-white backdrop-blur">المخططات والمواصفات ونطاق العقد هي الأساس قبل مقارنة أسعار بناء الفيلا.</figcaption>
+          </figure>
+        </section>
 
-          <p className="article-date">
-            نُشر في مارس 10، 2026 — آخر تحديث فبراير 24، 2026
-          </p>
-
-          <p className="article-lead">
-            بناء فيلا خاصة بك يتطلب أن تكون على دراية بكل الخصائص التي تحتاجها
-            بمنزلك الجديد لضمان الحصول على جودة عالية اليك احدث اسعارتكلفة بناء
-            فيلا في السعودية بعد أن تواصلنا مع 9 شركات مقاولة عامة متخصصة في
-            بناء الفلل وتشطيبها، فإن متوسط الأسعار لبناء الفيلا يختلف حسب كل
-            مرحلة من مراحل البناء، حيث هنالك مرحلة بناء عظم ومرحلة تشطيب،
-            بالإضافة لعملية البناء الكامل وتسليم المفتاح عند الانتهاء كليًا من
-            البناء والتشطيب وبناء المرافق الملحقة. ويتم حساب أسعار بناء فيلا في
-            السعودية حسب المتر المربع.
-          </p>
-        </header>
-
-        <div className="article-content">
-          <h2>طرق حساب اسعار بناء فيلا في السعودية طبقا لاسعار السوق</h2>
-
-          <h3 className="red-heading">
-            بناء فيلا في السعودية العظم (بدون مواد)
-          </h3>
-          <p>متوسط الأسعار: 130 ريال للمتر</p>
-          <p>نطاق الاسعار يتراوح بين 120 و 150 ريال للمتر</p>
-          <p>تم الاستفسار مع: 5 شركات</p>
-          <p>آخر تحديث: 15-2-2026</p>
-
-          <h3 className="red-heading">
-            بناء فيلا في السعودية العظم(مع المواد)
-          </h3>
-          <p>متوسط الاسعار: 520 ريال للمتر</p>
-          <p>نطاق الاسعار يتراوح بين 390 و 610 ريال</p>
-          <p>تم الاستفسار مع: 8 شركات</p>
-          <p>آخر تحديث: 15-2-2026</p>
-
-          <h3 className="red-heading">بناء فيلا في السعودية التشطيب</h3>
-          <p>متوسط الأسعار: 975 ريال للمتر</p>
-          <p>نطاق الاسعار يتراوح بين 700 و 1050 ريال</p>
-          <p>تم الاستفسار مع: شركتين</p>
-          <p>آخر تحديث: 15-2-2026</p>
-
-          <h3 className="red-heading">بناء فيلا في السعودية تسليم مفتاح</h3>
-          <p>متوسط الأسعار: 1100 ريال للمتر</p>
-          <p>نطاق الاسعار يتراوح بين 950 و 1500 ريال</p>
-          <p>تم الاستفسار مع: 4 شركات</p>
-          <p>آخر تحديث: 15-2-2026</p>
-
-          <p>
-            سوف نقوم بطرح الخيارات الممكنة للحصول على فلة الخاصة بك وسوف نحرص
-            على إطلاعك على كل المستلزمات والتفاصيل التي تحتاج لمعرفتها قبل شروعك
-            ببناء الفيلا فى السعودية .
-          </p>
-
-          <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2026/05/تكلفة-بناء-فيلا-السعودية-copy.webp"
-            alt=""
-            title="تكلفة بناء فيلا السعودية"
-            caption=""
-          />
-
-          <h2>ما هي الخيارات المتاحة في السوق بناء فيلا في السعودية ؟</h2>
-
-          <p>تقدم لك أغلب شركات المقاولة العامة عدة خيارات، منها:</p>
-
-          <ul className="square-list">
-            <li>
-              <strong>بناء الفيلا بدون تشطيب (عظم)</strong>،
-            </li>
-            <li>
-              حيث يفضل بعض الزبائن أن يتعاقدوا مع شركات مختلفة في مرحلة التشطيب
-              وما بعدها، فتحرص شركات المقاولة على توفير هذا الخيار وإعطائك أفضل
-              النتائج فيما يتعلق بجودة الخرسانه والأساسات المتعلقة بالمبنى.
-            </li>
-            <li>
-              <strong>تشطيب الفيلا</strong>،
-            </li>
-            <li>
-              كما ذكرنا، فإن العديد من شركات المقاولات العامة تقدم خدمات التشطيب
-              في مرحلة ما بعد البناء (العظم)، وتحرص هذه الشركات على تقديم أفضل
-              ما لديها فيما يتعلق بالتشطيبات مثل تمديدات الكهرباء، السباكة،{" "}
-              <a href="https://mawsouq.comm/%d8%a7%d9%84%d8%af%d9%87%d8%a7%d9%86-%d8%a7%d9%84%d8%a8%d9%88%d9%8a%d8%a9/">
-                الدهان
-              </a>
-              ، الأرضي، العزل,
-              <a href="https://mawsouq.com/%d8%a7%d9%86%d9%88%d8%a7%d8%b9-%d8%a7%d9%84%d8%af%d9%8a%d9%83%d9%88%d8%b1-%d8%a7%d9%84%d8%af%d8%a7%d8%ae%d9%84%d9%8a/">
-                {" "}
-                الديكور الداخلي
-              </a>{" "}
-              وغيرها الكثير من المتطلبات الأخرى.
-            </li>
-            <li>
-              <strong>بناء الفيلا المتكامل (تسليم مفتاح)</strong>،
-            </li>
-            <li>
-              هنالك شركات مقاولة تقوم بالدمج بين جميع المراحل السابقة حيث تقوم
-              بتسليمك الفيلا جاهزة بشكل كامل، فتقوم ببناء العظم والتشطيب وبناء
-              المرافق الإضافية بشكل كامل مما يمكنك من استلام الفيلا جاهزة.
-            </li>
-          </ul>
-
-          <hr />
-
-          <h2>ما هي تكاليف بناء فيلا في السعودية التي يجب عليك معرفتها؟</h2>
-
-          <p>
-            هنالك العديد من التكاليف التي قد تختلف من شركة لأخرى أو من مقاول
-            لآخر، وهي تتعلق غالبًا بمستلزمات وأدوات التشطيب. فمن التكاليف
-            المهمة:{" "}
-            <a href="https://mawsouq.com/%d8%a7%d9%84%d8%aa%d8%b5%d9%85%d9%8a%d9%85-%d8%a7%d9%84%d9%85%d8%b9%d9%85%d8%a7%d8%b1%d9%8a/">
-              التصميم المعماري
-            </a>
-            , تجهيز موقع البناء، الحراسة، مواد البناء (في حال تعاقدت مع شركة
-            مقاولات بنظام العظم بدون مواد)، الخرسانة والحديد، الطوب، التمديدات
-            الكهربائية من أسلاك وأدوات وغيرها، المرافق الصحية وأدوات السباكة،
-            عزل الأسطح والخزانات، الدهانات، البلاط، الأبواب والنوافذ، السور
-            والحديقة، وغيرها.
-          </p>
-
-          <hr />
-
-          <h3>الملخص</h3>
-
-          <p>
-            قبل شروعك ببناء الفيلا الخاصة بك، يجب أن تكون على إطلاع على الخدمات
-            المختلفة التي تقدمها شركات المقاولات العامة، وإن كنت ترغب في الحصول
-            على الفيلا منشأة بدون تشطيب (عظم) أو بأن تكون جاهزة التشطيب أو حتى
-            أن تستلم مفتاح الفيلا الخاصة بك دون الشروع بتفاصيل كثيرة من شأنها أن
-            تكلّفك عناءًا ووقتًا طويلين. لذلك، ننصحك باختيار شركة المقاولة
-            وخدماتها حسب النتيجة النهائية التي تتوقعها بالفيلا الخاصة بك. ويجب
-            عليك أن تعرف التكاليف الإضافية لكل نوع من أنواع الخدمات المذكورة
-            سابقًا لتضمن الشفافية والمعرفة المسبقة بالأسعار.
-          </p>
-
-          <p>
-            يمكنك انتهاز الوضع الحالي والحجر المنزلي للبدأ بتصميم فلّتك عن طريق
-            التعامل مع مكاتب تشتغل عن بعد (فالأسعار تكون ارخص بآلاف الريالات).
-          </p>
-
-          <section className="related-box">
-            <h2>مواضيع ذات صلة:</h2>
-
-            <a
-              href="https://mawsouq.com/%d9%81%d9%84%d9%84-%d9%85%d9%88%d8%af%d8%b1%d9%86/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              تصاميم فلل مودرن - 30 فكرة وصورة
-            </a>
-
-            <a
-              href="https://mawsouq.com/تكلفة-بناء-دور-واحد/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              تكلفة بناء دور واحد وخطوات البناء
-            </a>
-
-            <a
-              href="https://mawsouq.com/%d9%85%d9%82%d8%a7%d9%88%d9%84-%d8%a8%d9%86%d8%a7%d8%a1/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              كيف اختار مقاول بناء؟ 5 نصائح مهمّة
-            </a>
-
-            <a
-              href="https://mawsouq.com/%d9%85%d8%b8%d9%84%d8%a7%d8%aa-%d8%a7%d9%84%d8%b3%d9%8a%d8%a7%d8%b1%d8%a7%d8%aa-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a%d8%a9/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              مظلات السيارات بالسعودية
-            </a>
+        <article className="mt-7 rounded-[34px] border border-[color:var(--hairline)] bg-[color:var(--surface)] p-6 shadow-[var(--card-shadow)] md:p-9 lg:p-11">
+          <section>
+            <span className="text-xs font-black text-[color:var(--brand)]">ملخص سريع</span>
+            <h2 className="mt-2 text-3xl font-black md:text-4xl">ما الذي تحتاجه قبل بناء الفيلا؟</h2>
+            <div className="mt-5 grid gap-3 md:grid-cols-2">
+              {[
+                "احتياجات ومساحة بناء محددة بدل تغيير المخطط كل أسبوع.",
+                "تصميم معماري وإنشائي منسق قبل تسعير التنفيذ.",
+                "نطاق عمل ومواصفات موحدة لكل المقاولين الذين ستقارنهم.",
+                "عقد يربط الدفعات بالإنجاز ويشرح التغييرات والاستثناءات.",
+              ].map((item) => (
+                <div key={item} className="flex gap-3 rounded-[20px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-4 text-sm font-bold leading-7 text-[color:var(--ink-muted)]"><CheckCircle2 className="mt-1 shrink-0 text-[color:var(--brand)]" size={19} />{item}</div>
+              ))}
+            </div>
           </section>
-        </div>
-      </article>
 
-      <style>{`
-        .article-page {
-          direction: rtl;
-          background:
-            radial-gradient(circle at 85% 12%, rgba(47, 134, 246, 0.12), transparent 32%),
-            linear-gradient(180deg, var(--surface-2), var(--page));
-          padding: calc(var(--nav-height) + 40px) 0 72px;
-        }
+          <section className="mt-14">
+            <span className="text-xs font-black text-[color:var(--brand)]">خطوة بخطوة</span>
+            <h2 className="mt-2 text-3xl font-black leading-tight md:text-4xl">مراحل بناء فيلا في السعودية من الفكرة إلى التسليم</h2>
+            <div className="mt-7 grid gap-4 md:grid-cols-2">
+              {stages.map((stage) => {
+                const Icon = stage.icon;
+                const content = (
+                  <div className="h-full rounded-[24px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-5 transition hover:border-[color:var(--brand-bright)]">
+                    <span className="grid size-11 place-items-center rounded-2xl bg-[color:var(--brand)] text-white"><Icon size={20} /></span>
+                    <h3 className="mt-4 text-xl font-black text-[color:var(--ink)]">{stage.title}</h3>
+                    <p className="mt-2 text-sm font-bold leading-8 text-[color:var(--ink-muted)]">{stage.text}</p>
+                    {stage.href && <span className="mt-4 inline-block text-sm font-black text-[color:var(--brand)]">افتح الدليل المرتبط ←</span>}
+                  </div>
+                );
+                return stage.href ? <Link href={stage.href} key={stage.title}>{content}</Link> : <div key={stage.title}>{content}</div>;
+              })}
+            </div>
+          </section>
 
-        .article-shell {
-          width: min(100% - 32px, 1040px);
-          margin-inline: auto;
-          overflow: hidden;
-          border: 1px solid var(--hairline);
-          border-radius: 34px;
-          background: var(--surface);
-          box-shadow: var(--card-shadow);
-        }
+          <section className="mt-14">
+            <span className="text-xs font-black text-[color:var(--brand)]">طريقة التعاقد</span>
+            <h2 className="mt-2 text-3xl font-black md:text-4xl">عظم، تشطيب أم تسليم مفتاح؟</h2>
+            <div className="mt-6 overflow-x-auto rounded-[24px] border border-[color:var(--hairline)]">
+              <table className="w-full min-w-[760px] border-collapse text-right">
+                <caption className="bg-[color:var(--surface-2)] p-4 text-right text-sm font-black text-[color:var(--ink)]">مقارنة عملية بين أشهر أساليب التعاقد</caption>
+                <thead className="bg-[#071321] text-white"><tr><th className="p-4">النمط</th><th className="p-4">مناسب عندما</th><th className="p-4">ما يحتاج انتباهًا</th></tr></thead>
+                <tbody className="text-sm font-bold leading-7 text-[color:var(--ink-muted)]">
+                  <tr className="border-t border-[color:var(--hairline)]"><th scope="row" className="p-4 text-[color:var(--ink)]">عظم فقط</th><td className="p-4">تريد فصل الهيكل عن التشطيب وإدارة المراحل بعقود مستقلة.</td><td className="p-4">حدود العظم والعزل والردم والمباني والاختبارات يجب أن تكون مكتوبة.</td></tr>
+                  <tr className="border-t border-[color:var(--hairline)] bg-[color:var(--surface-2)]"><th scope="row" className="p-4 text-[color:var(--ink)]">تشطيب منفصل</th><td className="p-4">لديك هيكل قائم ومخططات تشطيب ومواصفات واضحة.</td><td className="p-4">اختيار المواد والتوريد والتغييرات أثناء التنفيذ قد يضغط الميزانية.</td></tr>
+                  <tr className="border-t border-[color:var(--hairline)]"><th scope="row" className="p-4 text-[color:var(--ink)]">تسليم مفتاح</th><td className="p-4">تفضل مسؤولية تنفيذ مجمعة وتريد تقليل عدد الأطراف.</td><td className="p-4">لا تقبل كلمة تسليم مفتاح وحدها؛ اطلب قائمة مواصفات واستثناءات تفصيلية.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
 
-        .article-hero {
-          padding: clamp(30px, 5vw, 64px);
-          border-bottom: 1px solid var(--hairline);
-          background:
-            radial-gradient(circle at 15% 20%, rgba(47, 134, 246, 0.12), transparent 34%),
-            linear-gradient(135deg, var(--surface), var(--surface-2));
-        }
+          <section className="mt-14 grid gap-5 lg:grid-cols-2">
+            <div className="rounded-[26px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-6">
+              <h2 className="text-2xl font-black">تكلفة بناء الفيلا: لا تجعل هذه الصفحة تنافس صفحة السعر</h2>
+              <p className="mt-4 text-sm font-bold leading-8 text-[color:var(--ink-muted)]">
+                تكلفة المشروع موضوع مستقل ويتغير حسب المساحة والمدينة والتربة ونوع العقد والتشطيب. لذلك نحتفظ بالأرقام والحاسبة والأمثلة في دليل واحد مخصص بدل تكرار أسعار قديمة في أكثر من صفحة.
+              </p>
+              <Link href="/تكلفة-بناء-دور-واحد/" className="mt-5 inline-flex rounded-full bg-[color:var(--brand)] px-6 py-3 text-sm font-black !text-white" style={{ color: "#fff" }}>دليل تكلفة البناء والحاسبة</Link>
+            </div>
+            <div className="rounded-[26px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-6">
+              <h2 className="text-2xl font-black">قبل توقيع عقد المقاول</h2>
+              <ul className="mt-4 grid gap-2 p-0 text-sm font-bold leading-7 text-[color:var(--ink-muted)]">
+                {[
+                  "ثبت المخططات والإصدارات التي سيبني عليها المقاول.",
+                  "حدد المواد والماركات أو مستوى المواصفات البديل المقبول.",
+                  "اكتب البنود المستبعدة بوضوح بدل اكتشافها بعد التوقيع.",
+                  "اربط الدفعات بمراحل إنجاز قابلة للاستلام.",
+                  "حدد آلية تسعير التغييرات قبل حدوثها.",
+                ].map((item) => <li key={item} className="flex gap-2"><ClipboardCheck size={18} className="mt-1 shrink-0 text-[color:var(--brand)]" />{item}</li>)}
+              </ul>
+            </div>
+          </section>
 
-        .article-label {
-          width: max-content;
-          max-width: 100%;
-          margin-bottom: 18px;
-          padding: 8px 16px;
-          border: 1px solid var(--hairline);
-          border-radius: 999px;
-          background: var(--surface);
-          color: var(--brand);
-          font-size: 14px;
-          font-weight: 900;
-        }
+          <MawsooqProofSection context="بناء الفيلا" whatsappMessage={whatsappMessage} />
 
-        .article-hero h1 {
-          margin: 0;
-          color: var(--ink);
-          font-size: clamp(32px, 5vw, 56px);
-          line-height: 1.25;
-          letter-spacing: -0.04em;
-          font-weight: 950;
-        }
+          <section className="mt-14">
+            <span className="text-xs font-black text-[color:var(--brand)]">الأسئلة الشائعة</span>
+            <h2 className="mt-2 text-3xl font-black md:text-4xl">أسئلة قبل بناء فيلا في السعودية</h2>
+            <div className="mt-6 grid gap-3">
+              {faqs.map((faq) => (
+                <details key={faq.question} className="rounded-[22px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-5">
+                  <summary className="cursor-pointer list-none text-base font-black leading-7 text-[color:var(--ink)]">{faq.question}</summary>
+                  <p className="mt-4 border-t border-[color:var(--hairline)] pt-4 text-sm font-bold leading-8 text-[color:var(--ink-muted)]">{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
 
-        .article-date {
-          margin: 18px 0 0;
-          color: var(--ink-faint);
-          font-size: 14px;
-          font-weight: 800;
-        }
-
-        .article-lead {
-          max-width: 900px;
-          margin: 28px 0 0;
-          color: var(--ink);
-          font-size: clamp(17px, 2vw, 21px);
-          line-height: 2;
-          font-weight: 800;
-        }
-
-        .article-content {
-          padding: clamp(28px, 5vw, 60px);
-        }
-
-        .article-content p,
-        .article-content li {
-          color: var(--ink-muted);
-          font-size: 18px;
-          line-height: 2.15;
-          font-weight: 500;
-        }
-
-        .article-content p {
-          margin: 0 0 22px;
-        }
-
-        .article-content strong {
-          color: var(--ink);
-          font-weight: 900;
-        }
-
-        .article-content h2 {
-          margin: 52px 0 20px;
-          color: var(--brand);
-          font-size: clamp(25px, 3.2vw, 38px);
-          line-height: 1.45;
-          font-weight: 950;
-          letter-spacing: -0.025em;
-        }
-
-        .article-content h3 {
-          margin: 44px 0 18px;
-          color: var(--brand);
-          font-size: clamp(22px, 2.5vw, 30px);
-          line-height: 1.55;
-          font-weight: 950;
-        }
-
-        .article-content .red-heading {
-          color: #ef4444;
-        }
-
-        .article-content a,
-        .article-figure a {
-          color: var(--brand);
-          font-weight: 900;
-          text-decoration: underline;
-          text-underline-offset: 5px;
-          overflow-wrap: anywhere;
-        }
-
-        .article-content ul {
-          margin: 24px 0 34px;
-          padding: 0 24px 0 0;
-        }
-
-        .article-content li {
-          margin-bottom: 12px;
-          padding-right: 4px;
-        }
-
-        .square-list {
-          list-style-type: square;
-        }
-
-        .article-content hr {
-          margin: 42px 0;
-          border: 0;
-          border-top: 1px solid var(--hairline-strong);
-        }
-
-        .article-figure {
-          margin: 44px auto;
-          overflow: hidden;
-          border: 1px solid var(--hairline);
-          border-radius: 28px;
-          background: var(--surface-2);
-          box-shadow: 0 18px 55px rgba(16, 32, 51, 0.08);
-        }
-
-        .article-figure img {
-          display: block;
-          width: 100%;
-          height: auto;
-          background: var(--surface-2);
-        }
-
-        .article-figure figcaption {
-          padding: 15px 18px 18px;
-          color: var(--ink-faint);
-          text-align: center;
-          font-size: 14px;
-          line-height: 1.8;
-          font-weight: 800;
-        }
-
-        .related-box {
-          margin-top: 60px;
-          padding: clamp(22px, 4vw, 34px);
-          border: 1px solid var(--hairline);
-          border-radius: 28px;
-          background:
-            radial-gradient(circle at 10% 20%, rgba(47, 134, 246, 0.1), transparent 34%),
-            var(--surface-2);
-        }
-
-        .related-box h2 {
-          margin-top: 0;
-        }
-
-        .related-box a {
-          display: block;
-          margin-top: 14px;
-          padding: 15px 18px;
-          border: 1px solid var(--hairline);
-          border-radius: 18px;
-          background: var(--surface);
-          color: var(--brand);
-          text-decoration: none;
-          box-shadow: 0 10px 28px rgba(16, 32, 51, 0.045);
-          transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .related-box a:hover {
-          transform: translateY(-2px);
-          border-color: var(--brand-bright);
-        }
-
-        @media (max-width: 1023px) {
-          .article-page {
-            padding-top: calc(var(--nav-height) + 28px);
-          }
-        }
-
-        @media (max-width: 640px) {
-          .article-page {
-            padding: calc(var(--nav-height) + 20px) 0 48px;
-          }
-
-          .article-shell {
-            width: min(100% - 20px, 1040px);
-            border-radius: 24px;
-          }
-
-          .article-content p,
-          .article-content li {
-            font-size: 16px;
-            line-height: 2;
-          }
-
-          .article-lead {
-            font-size: 16px;
-            line-height: 2;
-          }
-
-          .article-content ul {
-            padding-right: 20px;
-          }
-
-          .article-figure {
-            border-radius: 20px;
-          }
-
-          .related-box {
-            border-radius: 22px;
-          }
-        }
-      `}</style>
+          <section className="mt-14 overflow-hidden rounded-[30px] bg-[linear-gradient(135deg,#071321,#0b5bb8)] p-7 text-white md:p-9">
+            <span className="inline-flex rounded-full bg-white/10 px-4 py-2 text-xs font-black text-cyan-100">الخطوة التالية</span>
+            <h2 className="mt-5 text-3xl font-black md:text-4xl">ابدأ ببيانات المشروع، لا بطلب سعر متر عام</h2>
+            <p className="mt-4 max-w-[850px] text-base font-bold leading-8 text-white/75">أرسل المدينة ومساحة الأرض ومساحة البناء التقريبية وعدد الأدوار ومرحلة المشروع الحالية. إذا كانت لديك مخططات أو صور مرجعية، أرفقها لتكون أول محادثة أكثر دقة.</p>
+            <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 text-sm font-black text-[#052d16]"><MessageCircle size={19} /> أرسل بيانات الفيلا عبر واتساب</a>
+          </section>
+        </article>
+      </div>
     </main>
-  );
-}
-
-function ArticleImage({ src, alt, title, caption }) {
-  return (
-    <figure className="article-figure">
-      <img src={src} alt={alt} title={title} loading="lazy" />
-      {caption ? <figcaption>{caption}</figcaption> : null}
-    </figure>
   );
 }

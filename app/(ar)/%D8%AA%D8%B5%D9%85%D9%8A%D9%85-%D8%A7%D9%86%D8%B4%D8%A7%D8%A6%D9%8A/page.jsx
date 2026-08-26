@@ -1,569 +1,258 @@
-const pageUrl =
-  "https://mawsouq.com/%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%A7%D9%86%D8%B4%D8%A7%D8%A6%D9%8A";
+import Link from "next/link";
+import {
+  BadgeCheck,
+  Building2,
+  CheckCircle2,
+  ClipboardCheck,
+  FileCheck2,
+  HardHat,
+  MessageCircle,
+  Ruler,
+  ShieldCheck,
+  Workflow,
+} from "lucide-react";
+import MawsooqProofSection from "@/components/ar/MawsooqProofSection";
 
-const featuredImage =
-  "https://mawsouq.com/wp-content/uploads/2026/05/2مخطط-انشائى-سطح-فيلا-scaled.webp";
+const SITE_URL = "https://mawsouq.com";
+const pageUrl = `${SITE_URL}/تصميم-انشائي/`;
+const featuredImage = `${SITE_URL}/wp-content/uploads/2026/05/2مخطط-انشائى-سطح-فيلا-scaled.webp`;
+const whatsappMessage =
+  "مرحبًا موسوق، أريد تصميمًا إنشائيًا لمشروعي. المدينة: ___، نوع المبنى: ___، المساحة: ___، عدد الأدوار: ___، وهل توجد مخططات معمارية: ___";
+const whatsapp = `https://wa.me/201223328270?text=${encodeURIComponent(whatsappMessage)}`;
 
 export const metadata = {
-  title: "تصميم مخطط انشائي - دليلك الشامل",
+  title: "تصميم إنشائي في السعودية | مخططات إنشائية للمشاريع",
   description:
-    "قبل شروعك بعملية بناء منزلك الجديد، وبعد تحديدك لجميع الأهداف وحساب الميزانية، فيجب عليك الحصول على تصميم انشائي والمعماري لمنزلك",
-  alternates: {
-    canonical: pageUrl,
-  },
+    "تحتاج تصميمًا إنشائيًا لمشروعك؟ تعرف على المدخلات والمخططات والتنسيق المطلوب قبل التنفيذ، ثم أرسل بيانات المشروع لموسوق لبدء الاستشارة.",
   keywords: [
-    "انشائي",
-    "تصميم",
-    "تصميم الإنشائي",
-    "عمل تصميم انشائي",
-    "سعر التصميم الانشائي",
-    "المخطط الإنشائي",
-    "مخطط",
+    "تصميم إنشائي",
+    "تصميم انشائي",
+    "مهندس تصميم انشائي",
+    "مخطط إنشائي",
+    "مخططات إنشائية",
+    "تصميم إنشائي في السعودية",
   ],
+  alternates: { canonical: pageUrl },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "تصميم مخطط انشائي - دليلك الشامل",
+    title: "تصميم إنشائي في السعودية: من المعماري إلى مخططات التنفيذ",
     description:
-      "قبل شروعك بعملية بناء منزلك الجديد، وبعد تحديدك لجميع الأهداف وحساب الميزانية، فيجب عليك الحصول على تصميم انشائي والمعماري لمنزلك",
+      "ما الذي يحتاجه المهندس الإنشائي؟ وما الذي يجب أن تستلمه؟ دليل عملي قبل طلب التصميم أو بدء التنفيذ.",
     url: pageUrl,
     siteName: "موسوق",
     locale: "ar_SA",
-    type: "article",
-    publishedTime: "2026-03-10T11:00:00+03:00",
-    modifiedTime: "2026-02-24T22:24:00+03:00",
-    images: [
-      {
-        url: featuredImage,
-        width: 2560,
-        height: 1747,
-        alt: "تصميم مخطط انشائي - دليلك الشامل",
-      },
-    ],
+    type: "website",
+    images: [{ url: featuredImage, width: 1200, height: 820, alt: "تصميم إنشائي لمشروع سكني" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "تصميم مخطط انشائي - دليلك الشامل",
-    description:
-      "قبل شروعك بعملية بناء منزلك الجديد، وبعد تحديدك لجميع الأهداف وحساب الميزانية، فيجب عليك الحصول على تصميم انشائي والمعماري لمنزلك",
+    title: "تصميم إنشائي في السعودية | مخططات إنشائية للمشاريع",
+    description: "ابدأ من مخطط معماري واضح وبيانات المشروع، ثم نسق التصميم الإنشائي قبل التنفيذ.",
     images: [featuredImage],
   },
 };
 
-const articleJsonLd = {
+const deliverables = [
+  {
+    icon: Building2,
+    title: "النظام الإنشائي",
+    text: "اختيار وتطوير النظام الحامل بما يناسب شكل المبنى والبحور والاستخدام وبيانات الموقع المتاحة.",
+  },
+  {
+    icon: Ruler,
+    title: "مخططات العناصر",
+    text: "مخططات الأساسات والأعمدة والكمرات والأسقف والدرج والتفاصيل المرتبطة بها بحسب نطاق المشروع.",
+  },
+  {
+    icon: FileCheck2,
+    title: "التفاصيل التنفيذية",
+    text: "تفاصيل يحتاجها فريق التنفيذ لفهم الأبعاد والتسليح والعلاقات بين العناصر بدل الاعتماد على اجتهاد الموقع.",
+  },
+  {
+    icon: Workflow,
+    title: "التنسيق مع المعماري والخدمات",
+    text: "مراجعة الفتحات والمناور والدرج والواجهات ومسارات الخدمات لتقليل التعارضات قبل التنفيذ.",
+  },
+];
+
+const faqs = [
+  {
+    question: "ما هو التصميم الإنشائي؟",
+    answer:
+      "التصميم الإنشائي هو تحويل متطلبات المبنى والمخطط المعماري وبيانات المشروع إلى نظام إنشائي وعناصر ومخططات يمكن تنفيذها ومراجعتها. يشمل نطاقه عادة الأساسات والعناصر الرأسية والأفقية والتفاصيل المرتبطة بها حسب نوع المشروع ومتطلبات الكود والجهة المختصة.",
+  },
+  {
+    question: "ماذا يحتاج مهندس التصميم الإنشائي قبل أن يبدأ؟",
+    answer:
+      "يحتاج إلى مخطط معماري واضح وبيانات الموقع ونوع الاستخدام وعدد الأدوار والبحور والمتطلبات الخاصة، وقد يحتاج إلى تقرير تربة أو بيانات إضافية بحسب المشروع. بدء التصميم بمدخلات ناقصة يؤدي غالبًا إلى إعادة العمل أو تغييرات لاحقة.",
+  },
+  {
+    question: "كم سعر التصميم الإنشائي في السعودية؟",
+    answer:
+      "لا يوجد سعر موحد لكل المشاريع؛ السعر يتأثر بنوع المبنى ومساحته وعدد الأدوار وتعقيد النظام الإنشائي ونطاق المخططات والتفاصيل وعدد المراجعات. للحصول على تقدير قابل للمقارنة، أرسل نفس بيانات المشروع ونفس قائمة التسليمات لكل جهة تسعير.",
+  },
+  {
+    question: "هل يمكن عمل التصميم الإنشائي عن بعد؟",
+    answer:
+      "يمكن إنجاز أعمال التصميم والمراجعة والتنسيق رقميًا عندما تتوفر المدخلات اللازمة، لكن أي معاينة ميدانية أو فحص أو إجراء رسمي يجب ترتيبه حسب حاجة المشروع ومتطلبات الجهة المختصة. المهم هو وضوح المسؤوليات والبيانات وليس مكان الاجتماع فقط.",
+  },
+  {
+    question: "كيف أطلب تصميمًا إنشائيًا من موسوق؟",
+    answer:
+      "أرسل المدينة ونوع المبنى والمساحة وعدد الأدوار، ويفضل إرفاق المخطط المعماري وأي تقرير تربة أو متطلبات خاصة متاحة. بهذه المعلومات يمكن بدء محادثة حول نطاق التصميم والبيانات الناقصة والخطوة التالية.",
+  },
+];
+
+const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  headline: "تصميم مخطط انشائي - دليلك الشامل",
-  description:
-    "قبل شروعك بعملية بناء منزلك الجديد، وبعد تحديدك لجميع الأهداف وحساب الميزانية، فيجب عليك الحصول على تصميم انشائي والمعماري لمنزلك",
-  image: featuredImage,
-  datePublished: "2026-03-10T11:00:00+03:00",
-  dateModified: "2026-02-24T22:24:00+03:00",
-  inLanguage: "ar-SA",
-  mainEntityOfPage: {
-    "@type": "WebPage",
-    "@id": pageUrl,
-  },
-  author: {
-    "@type": "Organization",
-    name: "موسوق",
-    url: "https://mawsouq.com",
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "موسوق",
-    url: "https://mawsouq.com",
-  },
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": `${pageUrl}#service`,
+      name: "خدمة التصميم الإنشائي للمشاريع",
+      serviceType: "تصميم إنشائي ومخططات إنشائية",
+      description: metadata.description,
+      provider: {
+        "@type": "Organization",
+        name: "موسوق",
+        url: SITE_URL,
+        telephone: "+201223328270",
+      },
+      areaServed: { "@type": "Country", name: "Saudi Arabia" },
+      url: pageUrl,
+    },
+    {
+      "@type": "WebPage",
+      "@id": pageUrl,
+      url: pageUrl,
+      name: "تصميم إنشائي في السعودية | مخططات إنشائية للمشاريع",
+      description: metadata.description,
+      inLanguage: "ar-SA",
+      dateModified: "2026-08-26T10:00:00+03:00",
+      primaryImageOfPage: { "@type": "ImageObject", url: featuredImage },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "الرئيسية", item: `${SITE_URL}/` },
+        { "@type": "ListItem", position: 2, name: "المدونات", item: `${SITE_URL}/المدونات/` },
+        { "@type": "ListItem", position: 3, name: "تصميم إنشائي", item: pageUrl },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    },
+  ],
 };
 
 export default function StructuralDesignPage() {
   return (
-    <main className="article-page">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
-      />
+    <main dir="rtl" lang="ar-SA" className="relative min-h-screen bg-[color:var(--page)] pb-24 pt-[calc(var(--nav-height)+28px)] text-[color:var(--ink)]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
 
-      <article className="article-shell">
-        <header className="article-hero">
-          <div className="article-label">التصميم المعمارى</div>
+      <div className="mx-auto w-[calc(100%_-_28px)] max-w-[1260px]">
+        <nav aria-label="مسار التنقل" className="mb-5 flex flex-wrap items-center gap-2 text-xs font-black text-[color:var(--ink-faint)]">
+          <Link href="/" className="text-[color:var(--brand)]">الرئيسية</Link><span>←</span>
+          <Link href="/المدونات/" className="text-[color:var(--brand)]">المدونات</Link><span>←</span>
+          <span>تصميم إنشائي</span>
+        </nav>
 
-          <h1>تصميم مخطط انشائي - دليلك الشامل</h1>
+        <section className="grid overflow-hidden rounded-[38px] border border-[color:var(--hairline-strong)] bg-[color:var(--surface)] shadow-[var(--card-shadow)] lg:grid-cols-[1.05fr_.95fr]">
+          <div className="flex flex-col justify-center p-7 md:p-10 lg:p-14">
+            <div className="flex flex-wrap gap-2">
+              <span className="rounded-full border border-[color:var(--hairline)] bg-[color:var(--surface-2)] px-4 py-2 text-xs font-black text-[color:var(--brand)]">خدمة التصميم الإنشائي</span>
+              <span className="rounded-full border border-[color:var(--hairline)] bg-[color:var(--surface-2)] px-4 py-2 text-xs font-black text-[color:var(--ink-faint)]">محدث: 26 أغسطس 2026</span>
+            </div>
+            <h1 className="mt-6 text-4xl font-black leading-[1.15] tracking-[-.05em] md:text-6xl">تصميم إنشائي في السعودية: مخططات واضحة قبل التنفيذ</h1>
+            <p className="mt-5 text-lg font-bold leading-9 text-[color:var(--ink-muted)]">
+              إذا كنت تبحث عن <strong className="text-[color:var(--ink)]">تصميم إنشائي</strong> أو مهندس تصميم إنشائي لمشروع فعلي، فابدأ من المدخلات الصحيحة: مخطط معماري واضح، بيانات الموقع، عدد الأدوار ونطاق التسليم. الهدف ليس مجرد رسم مخطط، بل تنسيق النظام الإنشائي والتفاصيل قبل وصولها إلى الموقع.
+            </p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[54px] items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 text-sm font-black text-[#052d16] shadow-[0_16px_38px_rgba(37,211,102,.23)]"><MessageCircle size={19} /> أرسل بيانات المشروع</a>
+              <Link href="/ايجاد-مهندس-انشائي/" className="inline-flex min-h-[54px] items-center justify-center gap-2 rounded-full bg-[color:var(--brand)] px-7 text-sm font-black !text-white" style={{ color: "#fff" }}><BadgeCheck size={19} /> كيف تختار مهندسًا إنشائيًا؟</Link>
+            </div>
+          </div>
+          <figure className="relative min-h-[340px] bg-[#071321] lg:min-h-[620px]">
+            <img src={featuredImage} alt="تصميم إنشائي ومخطط إنشائي لمشروع في السعودية" className="absolute inset-0 h-full w-full object-cover" fetchPriority="high" />
+            <figcaption className="absolute inset-x-4 bottom-4 rounded-2xl border border-white/15 bg-black/55 p-4 text-sm font-bold leading-7 text-white backdrop-blur">التصميم الإنشائي الجيد يبدأ من معماري مثبت ومدخلات مشروع واضحة.</figcaption>
+          </figure>
+        </section>
 
-          <p className="article-date">
-            نُشر في مارس 10، 2026 — آخر تحديث فبراير 24، 2026
-          </p>
-        </header>
-
-        <div className="article-content">
-          <h2>عمل تصميم انشائي - دليلك الشامل</h2>
-
-          <p>
-            قبل شروعك بعملية بناء منزلك الجديد، وبعد تحديدك لجميع الأهداف وحساب
-            الميزانية، فيجب عليك الحصول على المخطط الإنشائي والمعماري لمنزلك
-            الجديد، فهما الأساس الذي ينشأ عليه المبنى بأكمله،
-          </p>
-
-          <p>
-            وهو كالخُطة التي يسير عليها كلٌ من العمال والمهندسين لضمان إعطائك
-            النتيجة المرغوبة.
-          </p>
-
-          <p>
-            ويختلف المخطط الانشائي بمفهومه عن المخطط المعماري، وهو الأمر الذي
-            يُخطئ فيه الكثير من أصحاب المنازل،
-          </p>
-
-          <p>فوجب التنبيه والتوضيح بمفهوم المخطط الانشائي:</p>
-
-          <p>
-            وهو التخطيط المسؤول عن تكوين المبنى نفسه، بدءًا من المواد الداخلة في
-            عملية البناء وتحديدها، كالخرسانة، والحديد، وحتى المعادلات الرياضية
-            الخاصّة بالاتّزان وحسابات القوى والحسابات الرياضية والميكانيكية.
-          </p>
-
-          <p>
-            في حين يعتمد التصميم المعماري على الإبداع واللمسات الفنية لإعطاء
-            أفضل مظهر خارجي،
-          </p>
-
-          <p>
-            فإن المخطط الانشائي يتطلب مهارة هندسية ومعرفة رياضية كبيرة، فالمخطط
-            الإنشائي يعتمد بشكل أساسي وكبير على الحسابات الرياضية.
-          </p>
-
-          <ArticleImage
-            src="https://mawsouq.com/wp-content/uploads/2026/05/2مخطط-انشائى-سطح-فيلا-scaled.webp"
-            alt="عمل تصميم انشائي"
-            title="عمل تصميم انشائي"
-            width="2560"
-            height="1747"
-          />
-
-          <h2>ما هو سعر عمل تصميم انشائي؟</h2>
-
-          <p>
-            وجب التنبيه إلى أن التصاميم الانشائية والمعمارية أيضًا، أصبحت لا
-            تقتصر على الشركات الهندسية والمهندسين المستقلين بالقرب منك،
-          </p>
-
-          <p>
-            بل أصبح بالإمكان الحصول عليها عن بُعد وعن طريق الإنترنت، سوف نقوم
-            بذكر الأسعار المختلفة لكل من الحالتين، قبل الحديث عن الفرق بينها.
-          </p>
-
-          <h4>سعر التصميم الانشائي عبر الانترنت:</h4>
-
-          <ul>
-            <li>
-              متوسط الأسعار: <strong>1250 ريال</strong>.
-            </li>
-            <li>
-              تتراوح الأسعار من <strong>1200 ريال</strong> (350$) إلى{" "}
-              <strong>2250 ريال</strong> (600$).
-            </li>
-            <li>تم الاستفسار من: 3 شركات.</li>
-            <li>آخر تحديث: 29-11-2026.</li>
-          </ul>
-
-          <h4>سعر التصميم الانشائي من الشركات الهندسية:</h4>
-
-          <ul>
-            <li>
-              متوسط الأسعار:<strong> 2000 ريال</strong>.
-            </li>
-            <li>
-              تتراوح الأسعار من <strong>1500 ريال</strong> إلى{" "}
-              <strong>2500 ريال</strong>.
-            </li>
-            <li>تم الاستفسار من: 3 شركات.</li>
-            <li>آخر تحديث: 29-11-2026.</li>
-          </ul>
-
-          <h3>
-            ما الفرق بين التصميم الانشائي عن بُعد وبشكل شخصي من المكاتب
-            الهندسية؟
-          </h3>
-
-          <p>
-            هذه الأيام، أصبح من السهل الحصول على تصميمك الانشائي وأنت جالس في
-            منزلك ودون الحاجة للذهاب لأحد المكاتب الهندسية، وهذا الأمر أصبح أكثر
-            شهرة وشيوعًا من ذي قبل، فما الذي يُميّز الحصول على التصميم عن طريق
-            الانترنت؟
-          </p>
-
-          <ul>
-            <li>
-              <h4 className="red-heading">السعر:</h4>
-            </li>
-          </ul>
-
-          <p>
-            قد يكون السعر هو أهم العوامل التي تجعلك تفكر مرتين قبل طلبك للتصميم
-            الانشائي بأحد الطريقتين، ففي هذه الناحية، يكون طلب التصميم عن طريق
-            الانترنت أقل بكثير منه في حال تواصلت بشكل شخصي مع أحد الشركات،
-          </p>
-
-          <p>
-            وقد ذكرنا الأسعار مُسبقًا وكيف تختلف، كما وأن هنالك فجوة كبيرة بين
-            أسعار المكاتب الهندسية والشركات، فتجد اختلافًا كبيرًا فيما بينها،
-            مما يعني أن نسبة وقوعك في اتفاق بسعر مرتفع جدًا عن المتداول في السوق
-            هي نسبة كبيرة.
-          </p>
-
-          <p>
-            على سبيل المثال، فإن متوسط تكلفة تصميم انشائي عن طريق الانترنت قد
-            يصل إلى 1700 ريال، بينما تجد فرقًا كبيرًا في السعر عند التعامل
-            الشخصي مع أحد المكاتب الهندسية ليصل السعر لحوالي 10,000 ريال في بعض
-            الحالات.
-          </p>
-
-          <ul>
-            <li>
-              <h4 className="red-heading">الوقت والجهد:</h4>
-            </li>
-          </ul>
-
-          <p>
-            لا شك أن التعامل عن طريق الانترنت في هذه النقطة أفضل من التعامل بشكل
-            شخصي، حيث أن المهندس المسؤول لن يحتاج للحضور لموقع العمل لاطْلاعك
-            على المخططات أو ذهابك للمكتب الهندسي للاتفاق على التفاصيل، فيُمكنك
-            القيام بجميع هذه الإجراءات خلال وقت قصير جدًا عن طريق الانترنت وبشكل
-            سهل وبسيط،
-          </p>
-
-          <ul>
-            <li>
-              <h4 className="red-heading">إجراء التعديلات:</h4>
-            </li>
-          </ul>
-
-          <p>
-            ولأن التعديلات تتم بوقت قصير جدًا على برامج التصميم الهندسية عن طريق
-            الانترنت، فيُمكنك البقاء على إطّلاع دائم بأي تعديلات تطلبها من
-            المهندس خلال عمله على المخططات، بينما في حال التعامل الشخصي،
-          </p>
-
-          <p>
-            سيطلب منك المهندس الانتظار لبضعة أيام قبل حصولك على التعديلات
-            المطلوبة والتي قد تكون غير مرضية بشكل كامل،
-          </p>
-
-          <p>
-            كما ويُتيح لك التعامل عن طريق الانترنت الكثير من المزايا مثل سهولة
-            مقارنة المهندسين واسعارهم وأعمالهم السابقة.
-          </p>
-
-          <h3>كيف تتم عملية تصميم المخطط الانشائي عن طريق الانترنت؟</h3>
-
-          <p>
-            أصبح من السهل هذه الأيام أن تتواصل مع أحد المهندسين المستقلين أو
-            الشركات الهندسية المتواجدة في نفس الدولة أو حتى في دول عربية أُخرى،
-          </p>
-
-          <p>
-            فهنالك العديد من المواقع والمنصات الخاصّة بالعمل الحر، والتي تُتيح
-            لك العديد من الخيارات التي يُمكنك التصفح خلالها واختيار المهندس
-            المناسب
-          </p>
-
-          <p>والتواصل معه والاتفاق على تصميم المخطط.</p>
-
-          <p>
-            موقعنا يقدّم لك هذه الخدمة -{" "}
-            <a href="https://mawsouq.com/?tripetto=77653ac489a446473eacc77d53c0213aa867adb46c9e5638fe3f6fe056842971">
-              اضغط هنا
-            </a>{" "}
-            لبدأ الطلب
-          </p>
-
-          <p>
-            كما ذكرنا سابقًا، فإن الأسعار المتواجدة في هذه الطريقة أقل بكثير من
-            الأسعار في حال تواصلت بشكل شخصي مع أحد المكاتب القريبة منك،
-          </p>
-
-          <p>وخاصّة المكاتب الهندسية المشهورة.</p>
-
-          <section className="related-box">
-            <h2>روابط ذات صلة :-</h2>
-
-            <a
-              href="https://mawsouq.com/%d8%a7%d9%84%d8%aa%d8%b5%d9%85%d9%8a%d9%85-%d8%a7%d9%84%d9%85%d8%b9%d9%85%d8%a7%d8%b1%d9%8a/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              تكلفة التصميم المعماري في السعوديّة – اسعار السوق (2026)
-            </a>
-
-            <a
-              href="https://mawsouq.com/%d8%a7%d9%8a%d8%ac%d8%a7%d8%af-%d9%85%d9%87%d9%86%d8%af%d8%b3-%d8%a7%d9%86%d8%b4%d8%a7%d8%a6%d9%8a/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              مهندس انشائي - كيف تجد الأفضل وما هي الاسعار؟
-            </a>
-
-            <a
-              href="https://mawsouq.com/%d8%aa%d8%b5%d9%85%d9%8a%d9%85-%d9%85%d8%b9%d9%85%d8%a7%d8%b1%d9%8a-%d8%b9%d9%86-%d8%a8%d8%b9%d8%af/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              تصميم معماري عن بعد - دليلك الشامل
-            </a>
-
-            <a
-              href="https://mawsouq.com/%d9%83%d9%8a%d9%81-%d8%aa%d8%ac%d8%af-%d9%85%d9%87%d9%86%d8%af%d8%b3-%d9%85%d8%b9%d9%85%d8%a7%d8%b1%d9%8a-%d8%af%d9%84%d9%8a%d9%84%d9%83-%d8%A7%D9%84%D8%B4%D8%A7%D9%85%D9%84/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              كيف تجد مهندس معماري (دليلك الشامل)
-            </a>
-
-            <a
-              href="https://mawsouq.com/%d8%a7%d9%87%d9%85%d9%8a%d8%a9-%d8%a7%d9%84%d8%aa%d8%b5%d9%85%d9%8a%d9%85-%d8%a7%d9%84%d8%a7%d9%86%d8%b4%d8%a7%d8%a6%d9%89/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              ما هو التصميم الانشائي؟- شرح خطوات التنفيذبالتفصيل
-            </a>
-
-            <a
-              href="https://mawsouq.com/%d9%83%d9%8a%d9%81-%d8%aa%d8%ae%d8%aa%d8%a7%d8%b1-%d8%a7%d9%84%d9%85%d8%b5%d9%85%d9%85-%d8%a7%d9%84%d9%85%d8%b9%d9%85%d8%a7%d8%b1%d9%8a-%d8%a7%d9%84%d9%85%d9%86%d8%a7%d8%b3%d8%a8/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              كيف تختار المصمم المعماري المناسب؟
-            </a>
-
-            <a
-              href="https://mawsouq.com/%d9%85%d8%ae%d8%b7%d8%b7-%d8%af%d9%88%d8%b1-%d8%a7%d8%b1%d8%b6%d9%8a/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              مخطط دور أرضي كامل - 16 فكرة
-            </a>
+        <article className="mt-7 rounded-[34px] border border-[color:var(--hairline)] bg-[color:var(--surface)] p-6 shadow-[var(--card-shadow)] md:p-9 lg:p-11">
+          <section>
+            <span className="text-xs font-black text-[color:var(--brand)]">ما الذي تحصل عليه؟</span>
+            <h2 className="mt-2 text-3xl font-black md:text-4xl">مخرجات التصميم الإنشائي التي يجب أن تكون واضحة في العرض</h2>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              {deliverables.map((item) => {
+                const Icon = item.icon;
+                return <div key={item.title} className="rounded-[23px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-5"><span className="grid size-11 place-items-center rounded-2xl bg-[color:var(--brand)] text-white"><Icon size={20} /></span><h3 className="mt-4 text-xl font-black">{item.title}</h3><p className="mt-2 text-sm font-bold leading-8 text-[color:var(--ink-muted)]">{item.text}</p></div>;
+              })}
+            </div>
           </section>
-        </div>
-      </article>
 
-      <style>{`
-        .article-page {
-          direction: rtl;
-          background:
-            radial-gradient(circle at 85% 12%, rgba(47, 134, 246, 0.12), transparent 32%),
-            linear-gradient(180deg, var(--surface-2), var(--page));
-          padding: calc(var(--nav-height) + 40px) 0 72px;
-        }
+          <section className="mt-14">
+            <span className="text-xs font-black text-[color:var(--brand)]">قبل بدء التصميم</span>
+            <h2 className="mt-2 text-3xl font-black md:text-4xl">أرسل هذه البيانات لمهندس التصميم الإنشائي</h2>
+            <div className="mt-6 grid gap-3 md:grid-cols-2">
+              {[
+                "المخطط المعماري بأحدث نسخة معتمدة داخل المشروع.",
+                "المدينة والموقع ونوع الاستخدام وعدد الأدوار.",
+                "المساحات والبحور أو الفراغات الخاصة إن وجدت.",
+                "تقرير التربة عندما يكون مطلوبًا أو متوفرًا للمشروع.",
+                "أي متطلبات خاصة للأسقف أو الخزانات أو المسابح أو الملاحق.",
+                "نطاق التسليم المطلوب وصيغة الملفات واحتياج التنسيق مع التخصصات.",
+              ].map((item) => <div key={item} className="flex gap-3 rounded-[20px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-4 text-sm font-bold leading-7 text-[color:var(--ink-muted)]"><CheckCircle2 size={19} className="mt-1 shrink-0 text-[color:var(--brand)]" />{item}</div>)}
+            </div>
+          </section>
 
-        .article-shell {
-          width: min(100% - 32px, 1040px);
-          margin-inline: auto;
-          overflow: hidden;
-          border: 1px solid var(--hairline);
-          border-radius: 34px;
-          background: var(--surface);
-          box-shadow: var(--card-shadow);
-        }
+          <section className="mt-14 grid gap-5 lg:grid-cols-2">
+            <div className="rounded-[26px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-6">
+              <h2 className="text-2xl font-black">ما الفرق بين المعماري والإنشائي؟</h2>
+              <p className="mt-4 text-sm font-bold leading-8 text-[color:var(--ink-muted)]">التصميم المعماري ينظم الفراغات والشكل والحركة والفتحات. التصميم الإنشائي يترجم هذا التكوين إلى نظام حامِل وعناصر وتفاصيل تنفيذية. تعديل المعماري بعد بدء الإنشائي قد يسبب إعادة عمل، لذلك الأفضل تثبيت القرارات الأساسية والتنسيق بين التخصصين.</p>
+              <Link href="/التصميم-المعماري/" className="mt-5 inline-flex rounded-full bg-[color:var(--brand)] px-6 py-3 text-sm font-black !text-white" style={{ color: "#fff" }}>دليل التصميم المعماري</Link>
+            </div>
+            <div className="rounded-[26px] border border-[color:var(--hairline)] bg-[linear-gradient(135deg,#071321,#0b5bb8)] p-6 text-white">
+              <h2 className="text-2xl font-black">كيف تُحسب تكلفة التصميم الإنشائي؟</h2>
+              <p className="mt-4 text-sm font-bold leading-8 text-white/75">بدل نشر سعر ثابت قد لا ينطبق على مشروعك، قارن على أساس نوع المبنى والمساحة وعدد الأدوار وتعقيد النظام الإنشائي ونطاق التفاصيل وعدد المراجعات. اطلب عرضًا يذكر التسليمات بوضوح؛ فهذا أهم من رقم منفرد لا تعرف ما يشمله.</p>
+              <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex rounded-full bg-[#25D366] px-6 py-3 text-sm font-black text-[#052d16]">اطلب تقديرًا حسب المشروع</a>
+            </div>
+          </section>
 
-        .article-hero {
-          padding: clamp(30px, 5vw, 64px);
-          border-bottom: 1px solid var(--hairline);
-          background:
-            radial-gradient(circle at 15% 20%, rgba(47, 134, 246, 0.12), transparent 34%),
-            linear-gradient(135deg, var(--surface), var(--surface-2));
-        }
+          <section className="mt-14 rounded-[28px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-6 md:p-8">
+            <div className="flex gap-3"><ShieldCheck className="mt-1 shrink-0 text-[color:var(--brand)]" /><div><h2 className="text-2xl font-black md:text-3xl">التصميم عن بعد لا يلغي متطلبات الموقع أو الاعتماد</h2><p className="mt-3 text-base font-bold leading-8 text-[color:var(--ink-muted)]">يمكن تنفيذ أعمال التصميم والمراجعة الرقمية عن بعد، لكن لا تستخدم ذلك كاختصار لمتطلبات التربة أو المعاينة أو الإجراءات الرسمية عندما تكون لازمة. تأكد دائمًا من المسؤوليات ومن الجهة المؤهلة لأي اعتماد أو رفع رسمي حسب مشروعك.</p></div></div>
+          </section>
 
-        .article-label {
-          width: max-content;
-          max-width: 100%;
-          margin-bottom: 18px;
-          padding: 8px 16px;
-          border: 1px solid var(--hairline);
-          border-radius: 999px;
-          background: var(--surface);
-          color: var(--brand);
-          font-size: 14px;
-          font-weight: 900;
-        }
+          <MawsooqProofSection context="التصميم الإنشائي" whatsappMessage={whatsappMessage} />
 
-        .article-hero h1 {
-          margin: 0;
-          color: var(--ink);
-          font-size: clamp(32px, 5vw, 56px);
-          line-height: 1.25;
-          letter-spacing: -0.04em;
-          font-weight: 950;
-        }
+          <section className="mt-14">
+            <span className="text-xs font-black text-[color:var(--brand)]">الأسئلة الشائعة</span>
+            <h2 className="mt-2 text-3xl font-black md:text-4xl">أسئلة عن التصميم الإنشائي</h2>
+            <div className="mt-6 grid gap-3">{faqs.map((faq) => <details key={faq.question} className="rounded-[22px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-5"><summary className="cursor-pointer list-none text-base font-black leading-7">{faq.question}</summary><p className="mt-4 border-t border-[color:var(--hairline)] pt-4 text-sm font-bold leading-8 text-[color:var(--ink-muted)]">{faq.answer}</p></details>)}</div>
+          </section>
 
-        .article-date {
-          margin: 18px 0 0;
-          color: var(--ink-faint);
-          font-size: 14px;
-          font-weight: 800;
-        }
-
-        .article-content {
-          padding: clamp(28px, 5vw, 60px);
-        }
-
-        .article-content p,
-        .article-content li {
-          color: var(--ink-muted);
-          font-size: 18px;
-          line-height: 2.15;
-          font-weight: 500;
-        }
-
-        .article-content p {
-          margin: 0 0 22px;
-        }
-
-        .article-content strong {
-          color: var(--ink);
-          font-weight: 900;
-        }
-
-        .article-content h2 {
-          margin: 52px 0 20px;
-          color: var(--brand);
-          font-size: clamp(25px, 3.2vw, 38px);
-          line-height: 1.45;
-          font-weight: 950;
-          letter-spacing: -0.025em;
-        }
-
-        .article-content h3 {
-          margin: 44px 0 18px;
-          color: var(--brand);
-          font-size: clamp(22px, 2.5vw, 30px);
-          line-height: 1.55;
-          font-weight: 950;
-        }
-
-        .article-content h4 {
-          margin: 30px 0 14px;
-          color: var(--ink);
-          font-size: clamp(19px, 2.2vw, 25px);
-          line-height: 1.6;
-          font-weight: 950;
-        }
-
-        .article-content .red-heading {
-          color: #ef4444;
-        }
-
-        .article-content a,
-        .article-figure a {
-          color: var(--brand);
-          font-weight: 900;
-          text-decoration: underline;
-          text-underline-offset: 5px;
-          overflow-wrap: anywhere;
-        }
-
-        .article-content ul {
-          margin: 22px 0 34px;
-          padding: 0 24px 0 0;
-        }
-
-        .article-content li {
-          margin-bottom: 12px;
-          padding-right: 4px;
-        }
-
-        .article-figure {
-          margin: 44px auto;
-          overflow: hidden;
-          border: 1px solid var(--hairline);
-          border-radius: 28px;
-          background: var(--surface-2);
-          box-shadow: 0 18px 55px rgba(16, 32, 51, 0.08);
-        }
-
-        .article-figure img {
-          display: block;
-          width: 100%;
-          height: auto;
-          background: var(--surface-2);
-        }
-
-        .related-box {
-          margin-top: 60px;
-          padding: clamp(22px, 4vw, 34px);
-          border: 1px solid var(--hairline);
-          border-radius: 28px;
-          background:
-            radial-gradient(circle at 10% 20%, rgba(47, 134, 246, 0.1), transparent 34%),
-            var(--surface-2);
-        }
-
-        .related-box h2 {
-          margin-top: 0;
-        }
-
-        .related-box a {
-          display: block;
-          margin-top: 14px;
-          padding: 15px 18px;
-          border: 1px solid var(--hairline);
-          border-radius: 18px;
-          background: var(--surface);
-          color: var(--brand);
-          text-decoration: none;
-          box-shadow: 0 10px 28px rgba(16, 32, 51, 0.045);
-          transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .related-box a:hover {
-          transform: translateY(-2px);
-          border-color: var(--brand-bright);
-        }
-
-        @media (max-width: 1023px) {
-          .article-page {
-            padding-top: calc(var(--nav-height) + 28px);
-          }
-        }
-
-        @media (max-width: 640px) {
-          .article-page {
-            padding: calc(var(--nav-height) + 20px) 0 48px;
-          }
-
-          .article-shell {
-            width: min(100% - 20px, 1040px);
-            border-radius: 24px;
-          }
-
-          .article-content p,
-          .article-content li {
-            font-size: 16px;
-            line-height: 2;
-          }
-
-          .article-content ul {
-            padding-right: 20px;
-          }
-
-          .article-figure,
-          .related-box {
-            border-radius: 20px;
-          }
-        }
-      `}</style>
+          <section className="mt-14 overflow-hidden rounded-[30px] bg-[linear-gradient(135deg,#071321,#0b5bb8)] p-7 text-white md:p-9">
+            <span className="inline-flex rounded-full bg-white/10 px-4 py-2 text-xs font-black text-cyan-100">ابدأ ببيانات واضحة</span>
+            <h2 className="mt-5 text-3xl font-black md:text-4xl">أرسل المخطط المعماري وبيانات المشروع</h2>
+            <p className="mt-4 max-w-[840px] text-base font-bold leading-8 text-white/75">اذكر المدينة ونوع المبنى والمساحة وعدد الأدوار وأرفق أحدث مخطط معماري متاح. إذا كان هناك تقرير تربة أو متطلبات خاصة، أضفها من البداية.</p>
+            <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 text-sm font-black text-[#052d16]"><MessageCircle size={19} /> أرسل بيانات التصميم الإنشائي</a>
+          </section>
+        </article>
+      </div>
     </main>
-  );
-}
-
-function ArticleImage({ src, alt, title, width, height }) {
-  return (
-    <figure className="article-figure">
-      <img
-        src={src}
-        alt={alt}
-        title={title}
-        width={width}
-        height={height}
-        loading="lazy"
-      />
-    </figure>
   );
 }

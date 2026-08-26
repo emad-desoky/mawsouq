@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
+import { trackLeadAction } from "@/lib/leadTracking";
 
 const WHATSAPP_URL =
   "https://wa.me/201223328270?text=مرحبا%20موسوق،%20أريد%20استشارة%20عن%20خدمات%20التصميم%20والبناء%20في%20الوطن%20العربى";
@@ -100,14 +101,15 @@ export default function Header() {
             className="group flex h-[84px] items-center gap-3"
             aria-label="موسوق"
           >
-            <span className="relative grid h-22 w-22 place-items-center overflow-hidden rounded-2xl transition duration-300 group-hover:scale-105">
+            <span className="relative grid h-[70px] w-[70px] place-items-center overflow-hidden rounded-full transition duration-300 group-hover:scale-105">
               <Image
-                src="/logo-png.webp"
-                alt="موسوق"
-                width={1200}
-                height={1220}
-                sizes="44px"
-                className="object-contain p-1.5"
+                src="/mawsouq-logo.png"
+                alt="شعار موسوق"
+                width={150}
+                height={150}
+                sizes="70px"
+                quality={100}
+                className="h-full w-full object-contain"
                 priority
               />
             </span>
@@ -139,7 +141,11 @@ export default function Header() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-gradient-to-l from-[#0b5bb8] to-[#2f86f6] px-5 text-sm font-black text-white shadow-[0_14px_32px_rgba(11,91,184,0.26)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_44px_rgba(11,91,184,0.34)]"
+              data-lead-tracked="true"
+              data-lead-placement="header_desktop"
+              onClick={() => trackLeadAction("whatsapp", "header_desktop")}
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-gradient-to-l from-[#0b5bb8] to-[#2f86f6] px-5 text-sm font-black !text-white shadow-[0_14px_32px_rgba(11,91,184,0.26)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_44px_rgba(11,91,184,0.34)]"
+              style={{ color: "#fff" }}
             >
               <WhatsAppIcon />
               تواصل واتساب
@@ -201,8 +207,14 @@ export default function Header() {
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={() => setIsOpen(false)}
-                    className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#25d366] px-5 text-sm font-black text-white shadow-[0_14px_34px_rgba(37,211,102,0.30)] transition duration-300 hover:-translate-y-0.5"
+                    data-lead-tracked="true"
+                    data-lead-placement="header_mobile_menu"
+                    onClick={() => {
+                      trackLeadAction("whatsapp", "header_mobile_menu");
+                      setIsOpen(false);
+                    }}
+                    className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#25d366] px-5 text-sm font-black !text-white shadow-[0_14px_34px_rgba(37,211,102,0.30)] transition duration-300 hover:-translate-y-0.5"
+                    style={{ color: "#fff" }}
                   >
                     <WhatsAppIcon />
                     تواصل واتساب الآن
@@ -225,4 +237,3 @@ export default function Header() {
     </header>
   );
 }
-//aaaaaaa

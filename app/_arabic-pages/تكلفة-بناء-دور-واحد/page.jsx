@@ -18,6 +18,7 @@ import {
   WalletCards,
 } from "lucide-react";
 import OneFloorCostCalculator from "./OneFloorCostCalculator";
+import MawsooqProofSection from "@/components/ar/MawsooqProofSection";
 import {
   business,
   existingStrongBlogs,
@@ -1439,6 +1440,11 @@ export default function OneFloorCostPage() {
           </section>
 
 
+          <MawsooqProofSection
+            context="حساب ميزانية البناء"
+            whatsappMessage="مرحبًا موسوق، أريد تقدير تكلفة بناء دور واحد. المدينة: ___، مساحة البناء: ___، ونوع التنفيذ: ___"
+          />
+
           <section id="faq" className="mt-16 scroll-mt-32">
             <SectionTitle
               eyebrow="FAQ"
@@ -1555,17 +1561,6 @@ export default function OneFloorCostPage() {
         </aside>
       </div>
 
-      <div className="fixed inset-x-3 bottom-3 z-40 rounded-full border border-white/20 bg-[#25D366] p-2 shadow-[0_18px_55px_rgba(0,0,0,0.25)] lg:hidden">
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex min-h-[50px] items-center justify-center gap-2 rounded-full text-sm font-black text-white"
-        >
-          <Calculator size={18} />
-          احسب تكلفة مشروعك عبر واتساب
-        </a>
-      </div>
     </main>
   );
 }

@@ -85,7 +85,7 @@ export const pillar = {
     "حاسبة تكلفة البناء السعودية",
   ],
   datePublished: "2026-03-10T14:24:00+03:00",
-  dateModified: "2026-08-21T13:00:00+03:00",
+  dateModified: "2026-08-26T10:00:00+03:00",
   readTime: "18 دقيقة قراءة",
   author: {
     name: "فريق موسوق",

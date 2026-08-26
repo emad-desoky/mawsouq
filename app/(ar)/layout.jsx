@@ -10,6 +10,7 @@ import FloatingButtons from "@/components/FloatingButtons";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import LocalDomainLinkFix from "@/components/LocalDomainLinkFix";
 import SocialFloatingButtons from "@/components/SocialFloatingButtons";
+import LeadClickTracker from "@/components/LeadClickTracker";
 
 const tajawal = Tajawal({
   subsets: ["arabic", "latin"],
@@ -44,7 +45,7 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
-      <body className={`${tajawal.variable} font-sans antialiased`}>
+      <body className={`${tajawal.variable} font-sans antialiased pb-[78px] sm:pb-0`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -54,6 +55,7 @@ export default function RootLayout({ children }) {
           <SmoothScrollProvider>
             <Header />
             <LocalDomainLinkFix />
+            <LeadClickTracker />
 
             {children}
 

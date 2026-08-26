@@ -43,7 +43,7 @@ const socialLinks = [
 
 export default function SocialFloatingButtons() {
   return (
-    <div className="no-print fixed bottom-5 left-5 z-50 flex flex-col gap-3 max-sm:bottom-4 max-sm:left-4">
+    <div className="no-print fixed bottom-5 left-5 z-50 flex flex-col gap-3 max-sm:hidden">
       {socialLinks.map((item) => {
         const Icon = item.icon;
 

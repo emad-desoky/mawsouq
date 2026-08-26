@@ -67,7 +67,7 @@ export const pillar = {
   image: "/images/blog/resthouses/resthouse-designs-pillar.webp",
   imageAlt: "تصاميم استراحات راقية في السعودية",
   datePublished: "2026-03-10",
-  dateModified: DATA_AS_OF,
+  dateModified: "2026-08-26",
   readTime: "18 دقيقة قراءة",
   author: "فريق موسوق للتصميم والبناء",
   whatsappMessage:
