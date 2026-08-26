@@ -2,8 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowLeft,
+  BadgeCheck,
   CheckCircle2,
   ChevronLeft,
+  ExternalLink,
   ListChecks,
   MessageCircle,
   ShieldCheck,
@@ -19,6 +21,160 @@ function getPageBySlug(slug) {
   return Object.values(ARABIC_SEO_2026_PAGES).find((page) => page.slug === slug) || null;
 }
 
+function getPageByHref(href = "") {
+  const slug = href.split("#")[0].replace(/^\/+|\/+$/g, "");
+  return slug ? getPageBySlug(slug) : null;
+}
+
+function absoluteUrl(href = "") {
+  if (!href) return SITE_URL;
+  if (/^https?:\/\//i.test(href)) return href;
+  return `${SITE_URL}${href.startsWith("/") ? href : `/${href}`}`;
+}
+
+function AuthorByline({ page, full = false }) {
+  const author = page.author || {
+    name: "Mawsooq Team",
+    role: "فريق موسوق للتصميم والبناء",
+    avatar: "/mawsouq-logo.png",
+    url: "/عن-الشركة/",
+    bio: "فريق موسوق يعد أدلة عملية لأصحاب مشاريع التصميم والبناء في السعودية.",
+  };
+
+  const content = (
+    <>
+      <span className={`relative grid shrink-0 place-items-center overflow-hidden rounded-full border border-[color:var(--hairline-strong)] bg-white ${full ? "size-16" : "size-11"}`}>
+        <Image
+          src={author.avatar || "/mawsouq-logo.png"}
+          alt="شعار موسوق - صورة فريق Mawsooq Team"
+          fill
+          sizes={full ? "64px" : "44px"}
+          className="object-contain p-1"
+        />
+      </span>
+      <span className="min-w-0">
+        <span className="flex flex-wrap items-center gap-2 text-sm font-black text-[color:var(--ink)]">
+          <span>Mawsooq Team</span>
+          <span className="text-[color:var(--ink-faint)]">|</span>
+          <span>فريق موسوق</span>
+          <BadgeCheck size={16} className="text-[color:var(--brand)]" aria-hidden="true" />
+        </span>
+        <span className="mt-1 block text-xs font-bold leading-6 text-[color:var(--ink-faint)]">
+          {author.role || "فريق موسوق للتصميم والبناء"}
+        </span>
+        {full && author.bio ? (
+          <span className="mt-2 block max-w-[780px] text-sm font-bold leading-7 text-[color:var(--ink-muted)]">
+            {author.bio}
+          </span>
+        ) : null}
+      </span>
+    </>
+  );
+
+  if (full) {
+    return (
+      <section aria-label="كاتب المقال" className="my-9 flex items-start gap-4 rounded-[24px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-5 md:p-6">
+        {content}
+      </section>
+    );
+  }
+
+  return (
+    <Link href={author.url || "/عن-الشركة/"} className="inline-flex items-center gap-3 rounded-2xl transition hover:opacity-90">
+      {content}
+    </Link>
+  );
+}
+
+function ClusterLinksSection({ page }) {
+  if (!page.clusterLinks?.length) return null;
+  const isCluster = page.pageType === "cluster";
+
+  return (
+    <section id="related-guides" className="scroll-mt-32 my-10 rounded-[30px] border border-[color:var(--hairline-strong)] bg-[color:var(--surface-2)] p-5 md:p-7">
+      <div className="max-w-[900px]">
+        <span className="text-xs font-black text-[color:var(--brand)]">{isCluster ? "استكمل نفس المحور" : "Topic Cluster"}</span>
+        <h2 className="mt-2 text-3xl font-black leading-tight tracking-[-.035em] text-[color:var(--ink)] md:text-4xl">
+          {isCluster ? "أدلة مرتبطة تساعدك على اتخاذ القرار" : "أدلة مرتبطة داخل هذا المحور"}
+        </h2>
+        <p className="mt-4 text-[15px] font-bold leading-8 text-[color:var(--ink-muted)]">
+          {isCluster
+            ? "هذه الصفحة تجيب عن نية بحث محددة. استخدم الروابط التالية للعودة إلى الدليل الرئيسي أو الانتقال إلى أسئلة قريبة بدون تكرار نفس المحتوى."
+            : "كل رابط أدناه يملك سؤالًا أو نية بحث مختلفة داخل نفس الموضوع. ربطها بهذه الصفحة يقوي البنية الموضوعية ويساعدك على الانتقال من الدليل العام إلى القرار المتخصص."}
+        </p>
+      </div>
+
+      <div className="mt-6 grid gap-4 md:grid-cols-2">
+        {page.clusterLinks.map((item) => {
+          const linkedPage = getPageByHref(item.href);
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="group overflow-hidden rounded-[24px] border border-[color:var(--hairline)] bg-[color:var(--surface)] transition duration-300 hover:-translate-y-1 hover:border-[color:var(--brand)] hover:shadow-[var(--card-shadow)]"
+            >
+              {linkedPage?.heroImage ? (
+                <span className="relative block aspect-[16/8] overflow-hidden bg-[color:var(--surface-2)]">
+                  <Image
+                    src={linkedPage.heroImage}
+                    alt={linkedPage.imageAlt || item.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition duration-500 group-hover:scale-[1.025]"
+                  />
+                </span>
+              ) : null}
+              <span className="block p-5">
+                {item.intent ? (
+                  <span className="text-xs font-black text-[color:var(--brand)]">{item.intent}</span>
+                ) : null}
+                <span className="mt-1 flex items-start justify-between gap-3 text-lg font-black leading-7 text-[color:var(--ink)]">
+                  <span>{item.title}</span>
+                  <ArrowLeft size={18} className="mt-1 shrink-0 text-[color:var(--brand)] transition group-hover:-translate-x-1" />
+                </span>
+                {item.description ? (
+                  <span className="mt-2 block text-sm font-bold leading-7 text-[color:var(--ink-muted)]">{item.description}</span>
+                ) : null}
+              </span>
+            </Link>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function SourceReferences({ page }) {
+  if (!page.sourceLinks?.length) return null;
+
+  return (
+    <section id="sources" className="scroll-mt-32 mt-12 border-t border-[color:var(--hairline)] pt-12">
+      <span className="text-xs font-black text-[color:var(--brand)]">مصادر ومراجع رسمية</span>
+      <h2 className="mt-2 text-3xl font-black md:text-4xl">راجع المتطلبات الحالية من المصدر الرسمي</h2>
+      <p className="mt-4 max-w-[900px] text-sm font-bold leading-8 text-[color:var(--ink-muted)]">
+        تختلف بعض الاشتراطات والإجراءات حسب المدينة ونوع المشروع وحالته. استخدم المراجع الرسمية التالية للتحقق من المتطلبات الحالية قبل اتخاذ قرار ترخيص أو تنفيذ.
+      </p>
+      <div className="mt-6 grid gap-3 md:grid-cols-2">
+        {page.sourceLinks.map((source) => (
+          <a
+            key={source.href}
+            href={source.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-[22px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-5 transition hover:border-[color:var(--brand)]"
+          >
+            <span className="flex items-center justify-between gap-3 text-base font-black text-[color:var(--ink)]">
+              <span>{source.label}</span>
+              <ExternalLink size={17} className="shrink-0 text-[color:var(--brand)]" />
+            </span>
+            <span className="mt-2 block text-sm font-bold leading-7 text-[color:var(--ink-muted)]">{source.note}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function WhatsAppButton({ page, placement = "article", children, dark = false, className = "" }) {
   const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(page.whatsappMessage)}`;
 
@@ -28,12 +184,8 @@ function WhatsAppButton({ page, placement = "article", children, dark = false, c
       target="_blank"
       rel="noopener noreferrer"
       data-lead-placement={placement}
-      className={`inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full px-6 text-sm font-black transition duration-300 hover:-translate-y-0.5 ${
-        dark
-          ? "bg-white !text-[#071321] shadow-[0_16px_38px_rgba(255,255,255,.12)]"
-          : "bg-[#25D366] !text-[#052d16] shadow-[0_16px_38px_rgba(37,211,102,.24)]"
-      } ${className}`}
-      style={{ color: dark ? "#071321" : "#052d16" }}
+      className={`inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 text-sm font-black !text-white shadow-[0_16px_38px_rgba(37,211,102,.24)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#20bd5a] ${className}`}
+      style={{ color: "#fff" }}
     >
       <MessageCircle size={19} />
       {children}
@@ -200,10 +352,17 @@ function buildJsonLd(page) {
       headline: page.title,
       description: page.metaDescription,
       image: { "@type": "ImageObject", url: image, width: 1600, height: 900 },
-      author: { "@type": "Organization", name: "موسوق", url: SITE_URL },
+      author: {
+        "@type": page.author?.type || "Organization",
+        name: page.author?.name || "Mawsooq Team",
+        alternateName: "فريق موسوق",
+        url: absoluteUrl(page.author?.url || "/عن-الشركة/"),
+        image: absoluteUrl(page.author?.avatar || "/mawsouq-logo.png"),
+      },
       publisher: {
         "@type": "Organization",
-        name: "موسوق",
+        name: "Mawsooq",
+        alternateName: "موسوق",
         url: SITE_URL,
         logo: { "@type": "ImageObject", url: `${SITE_URL}/mawsouq-logo.png` },
       },
@@ -211,8 +370,23 @@ function buildJsonLd(page) {
       dateModified: page.dateModified,
       inLanguage: "ar-SA",
       articleSection: page.category,
-      keywords: [page.primaryKeyword, page.category, "موسوق", "السعودية"],
+      keywords: [page.primaryKeyword, ...(page.secondaryKeywords || []), page.category, "موسوق", "السعودية"],
       ...(parent ? { isPartOf: { "@type": "WebPage", "@id": `${SITE_URL}/${parent.slug}/` } } : {}),
+      ...(() => {
+        const childPages = (page.clusterLinks || [])
+          .map((item) => ({ item, linkedPage: getPageByHref(item.href) }))
+          .filter(({ linkedPage }) => linkedPage?.parentSlug === page.slug);
+
+        return childPages.length
+          ? {
+              hasPart: childPages.map(({ item }) => ({
+                "@type": "WebPage",
+                "@id": absoluteUrl(item.href),
+                name: item.title,
+              })),
+            }
+          : {};
+      })(),
     },
     {
       "@type": "BreadcrumbList",
@@ -255,7 +429,7 @@ export default function ArabicSeo2026Article({ page }) {
   return (
     <main
       dir="rtl"
-      className="relative isolate min-h-screen overflow-hidden bg-[color:var(--page)] pb-24 pt-[calc(var(--nav-height)+34px)] text-[color:var(--ink)]"
+      className="relative isolate min-h-screen overflow-x-clip bg-[color:var(--page)] pb-28 sm:pb-24 pt-[calc(var(--nav-height)_+_34px)] text-[color:var(--ink)]"
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_88%_8%,rgba(47,134,246,.13),transparent_30%),radial-gradient(circle_at_10%_36%,rgba(11,91,184,.08),transparent_26%)]" />
@@ -294,6 +468,10 @@ export default function ArabicSeo2026Article({ page }) {
                 {page.subtitle}
               </p>
 
+              <div className="mt-6">
+                <AuthorByline page={page} />
+              </div>
+
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <WhatsAppButton page={page} placement="hero">أرسل تفاصيل مشروعك</WhatsAppButton>
                 <a
@@ -311,16 +489,18 @@ export default function ArabicSeo2026Article({ page }) {
               </div>
             </div>
 
-            <figure className="order-1 relative aspect-video min-h-[270px] overflow-hidden bg-[#071321] lg:order-2 lg:aspect-auto lg:min-h-[590px]">
-              <Image
-                src={page.heroImage}
-                alt={page.imageAlt}
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 56vw"
-                className="object-cover"
-              />
-            </figure>
+            <div className="order-1 flex items-center justify-center bg-[color:var(--surface-2)] p-3 sm:p-5 lg:order-2 lg:p-7">
+              <figure className="relative aspect-video w-full overflow-hidden rounded-[26px] border border-[color:var(--hairline)] bg-white shadow-[0_18px_55px_rgba(7,19,33,.10)]">
+                <Image
+                  src={page.heroImage}
+                  alt={page.imageAlt}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 56vw"
+                  className="object-contain object-center"
+                />
+              </figure>
+            </div>
           </div>
         </header>
 
@@ -344,6 +524,9 @@ export default function ArabicSeo2026Article({ page }) {
               </div>
             </section>
 
+            <AuthorByline page={page} full />
+            <ClusterLinksSection page={page} />
+
             <details className="mt-5 rounded-[24px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-5 lg:hidden">
               <summary className="cursor-pointer list-none text-base font-black">محتويات الصفحة</summary>
               <nav aria-label="محتويات الصفحة" className="mt-4 grid gap-2">
@@ -352,6 +535,8 @@ export default function ArabicSeo2026Article({ page }) {
                     <span>{section.title}</span><span className="text-xs text-[color:var(--brand)]">{String(index + 1).padStart(2, "0")}</span>
                   </a>
                 ))}
+                {page.clusterLinks?.length ? <a href="#related-guides" className="rounded-xl bg-[color:var(--surface)] px-3 py-3 text-sm font-bold text-[color:var(--ink-muted)]">أدلة مرتبطة</a> : null}
+                {page.sourceLinks?.length ? <a href="#sources" className="rounded-xl bg-[color:var(--surface)] px-3 py-3 text-sm font-bold text-[color:var(--ink-muted)]">المصادر الرسمية</a> : null}
                 <a href="#faq" className="rounded-xl bg-[color:var(--surface)] px-3 py-3 text-sm font-bold text-[color:var(--ink-muted)]">الأسئلة الشائعة</a>
               </nav>
             </details>
@@ -393,6 +578,8 @@ export default function ArabicSeo2026Article({ page }) {
               </section>
             ) : null}
 
+            <SourceReferences page={page} />
+
             <section id="faq" className="scroll-mt-32 border-t border-[color:var(--hairline)] pt-12">
               <span className="text-xs font-black text-[color:var(--brand)]">الأسئلة الشائعة</span>
               <h2 className="mt-2 text-3xl font-black md:text-4xl">أسئلة يبحث عنها أصحاب المشاريع</h2>
@@ -414,8 +601,9 @@ export default function ArabicSeo2026Article({ page }) {
             </section>
           </article>
 
-          <aside className="hidden lg:block lg:sticky lg:top-[118px] lg:self-start">
-            <div className="overflow-hidden rounded-[28px] border border-[color:var(--hairline-strong)] bg-[color:var(--surface)] shadow-[var(--card-shadow)]">
+          <aside className="hidden lg:block lg:self-start">
+            <div className="sticky top-[calc(var(--nav-height)_+_18px)]">
+              <div className="max-h-[calc(100vh_-_var(--nav-height)_-_36px)] overflow-y-auto overscroll-contain rounded-[28px] border border-[color:var(--hairline-strong)] bg-[color:var(--surface)] shadow-[var(--card-shadow)] [scrollbar-width:thin]">
               <div className="bg-[linear-gradient(135deg,#071321,#0b5bb8)] p-5 text-white">
                 <span className="text-xs font-black text-cyan-100">مشروعك جاهز للنقاش؟</span>
                 <h2 className="mt-2 text-2xl font-black leading-tight">أرسل التفاصيل الآن على واتساب</h2>
@@ -432,9 +620,24 @@ export default function ArabicSeo2026Article({ page }) {
                       <span>{section.title}</span>
                     </a>
                   ))}
+                  {page.clusterLinks?.length ? <a href="#related-guides" className="grid grid-cols-[28px_1fr] gap-2 rounded-xl px-2 py-2.5 text-sm font-bold text-[color:var(--ink-muted)] transition hover:bg-[color:var(--surface-2)] hover:text-[color:var(--brand)]"><span className="text-xs font-black text-[color:var(--brand)]">CL</span><span>أدلة مرتبطة</span></a> : null}
+                  {page.sourceLinks?.length ? <a href="#sources" className="grid grid-cols-[28px_1fr] gap-2 rounded-xl px-2 py-2.5 text-sm font-bold text-[color:var(--ink-muted)] transition hover:bg-[color:var(--surface-2)] hover:text-[color:var(--brand)]"><span className="text-xs font-black text-[color:var(--brand)]">SRC</span><span>المصادر الرسمية</span></a> : null}
                   <a href="#faq" className="grid grid-cols-[28px_1fr] gap-2 rounded-xl px-2 py-2.5 text-sm font-bold text-[color:var(--ink-muted)] transition hover:bg-[color:var(--surface-2)] hover:text-[color:var(--brand)]"><span className="text-xs font-black text-[color:var(--brand)]">FAQ</span><span>الأسئلة الشائعة</span></a>
                 </div>
               </nav>
+
+              {page.clusterLinks?.length ? (
+                <div className="border-t border-[color:var(--hairline)] p-4">
+                  <span className="px-2 text-xs font-black text-[color:var(--ink-faint)]">أدلة هذا المحور</span>
+                  <div className="mt-3 grid gap-2">
+                    {page.clusterLinks.slice(0, 4).map((item) => (
+                      <Link key={item.href} href={item.href} className="flex items-center justify-between gap-3 rounded-xl bg-[color:var(--surface-2)] px-3 py-3 text-sm font-black leading-6 text-[color:var(--ink-muted)] transition hover:text-[color:var(--brand)]">
+                        <span>{item.title}</span><ArrowLeft size={15} className="shrink-0" />
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
 
               {page.related?.length ? (
                 <div className="border-t border-[color:var(--hairline)] p-4">
@@ -448,6 +651,7 @@ export default function ArabicSeo2026Article({ page }) {
                   </div>
                 </div>
               ) : null}
+              </div>
             </div>
           </aside>
         </div>
