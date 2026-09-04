@@ -15,13 +15,13 @@ import {
 
 import {
   BLOG_BASE,
-  business,
-  clusters,
+  getPillarForArticle,
   getSiblings,
-  pillar,
+  getTopicClusters,
   routes,
   whatsappLink,
 } from "@/app/(en)/en/blog/blog-data";
+import MawsooqProofSectionEn from "@/components/en/blog/MawsooqProofSectionEn";
 
 function PrimaryButton({ href, children, external = false }) {
   const props = external
@@ -185,6 +185,35 @@ function Timeline({ items }) {
   );
 }
 
+function SectionLinks({ links }) {
+  if (!links?.length) return null;
+
+  return (
+    <div className="my-7 grid gap-3 sm:grid-cols-2">
+      {links.map((link) => {
+        const external = link.href?.startsWith("http");
+        const className = "group rounded-[20px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-4 transition hover:-translate-y-0.5 hover:border-[#2f86f6]/55";
+
+        if (external) {
+          return (
+            <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className={className}>
+              <strong className="block text-sm font-black text-[color:var(--ink)] group-hover:text-[#2f86f6]">{link.label}</strong>
+              {link.description ? <span className="mt-1 block text-xs font-semibold leading-6 text-[color:var(--ink-muted)]">{link.description}</span> : null}
+            </a>
+          );
+        }
+
+        return (
+          <Link key={link.href} href={link.href} className={className}>
+            <strong className="block text-sm font-black text-[color:var(--ink)] group-hover:text-[#2f86f6]">{link.label}</strong>
+            {link.description ? <span className="mt-1 block text-xs font-semibold leading-6 text-[color:var(--ink-muted)]">{link.description}</span> : null}
+          </Link>
+        );
+      })}
+    </div>
+  );
+}
+
 function ContentSection({ section }) {
   return (
     <section id={section.id} className="scroll-mt-32 border-b border-[color:var(--hairline)] py-10 last:border-b-0">
@@ -239,6 +268,7 @@ function ContentSection({ section }) {
         </div>
       ) : null}
 
+      <SectionLinks links={section.links} />
       <DataTable table={section.table} />
       <BarChart bars={section.bars} />
       <StepGrid steps={section.steps} />
@@ -256,7 +286,10 @@ function ContentSection({ section }) {
 }
 
 function RelatedGuides({ article }) {
-  const related = article.role === "pillar" ? clusters : [pillar, ...getSiblings(article.slug, 5)];
+  const parentPillar = getPillarForArticle(article);
+  const related = article.role === "pillar"
+    ? getTopicClusters(article)
+    : [parentPillar, ...getSiblings(article.slug, 5)];
 
   return (
     <section id="related-guides" className="scroll-mt-32 py-10">
@@ -337,7 +370,10 @@ function SourceSection({ sources }) {
 
 function DesktopSidebar({ article }) {
   const links = article.toc || [];
-  const related = article.role === "pillar" ? clusters : [pillar, ...getSiblings(article.slug, 4)];
+  const parentPillar = getPillarForArticle(article);
+  const related = article.role === "pillar"
+    ? getTopicClusters(article).slice(0, 6)
+    : [parentPillar, ...getSiblings(article.slug, 4)];
   const whatsapp = whatsappLink(article.whatsappMessage);
 
   return (
@@ -382,6 +418,8 @@ function DesktopSidebar({ article }) {
 
 export default function ArticleLayout({ article }) {
   const whatsapp = whatsappLink(article.whatsappMessage);
+  const parentPillar = getPillarForArticle(article);
+  const serviceHref = article.topicId === "architecture" ? routes.architectureService : routes.contact;
 
   return (
     <main className="relative min-h-screen bg-[color:var(--page)] pb-24 pt-[calc(var(--nav-height)+26px)] text-[color:var(--ink)]">
@@ -395,7 +433,7 @@ export default function ArticleLayout({ article }) {
           {article.role === "cluster" ? (
             <>
               <span>/</span>
-              <Link href={`${BLOG_BASE}/${pillar.slug}/`} className="hover:text-[#2f86f6]">Build a House in Saudi Arabia</Link>
+              <Link href={`${BLOG_BASE}/${parentPillar.slug}/`} className="hover:text-[#2f86f6]">{parentPillar.title}</Link>
             </>
           ) : null}
           <span>/</span>
@@ -418,7 +456,7 @@ export default function ArticleLayout({ article }) {
 
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <PrimaryButton href={whatsapp} external>
-                  <MessageCircle className="h-4 w-4" /> Get project guidance
+                  <MessageCircle className="h-4 w-4" /> {article.ctaLabel || "Send project brief on WhatsApp"}
                 </PrimaryButton>
                 <SecondaryButton href={routes.calculator}>
                   <Calculator className="h-4 w-4" /> Open cost calculator
@@ -432,16 +470,17 @@ export default function ArticleLayout({ article }) {
               </div>
             </div>
 
-            <div className="order-1 relative min-h-[300px] bg-[#071321] lg:order-2 lg:min-h-[560px]">
-              <Image
-                src={article.image}
-                alt={article.imageAlt}
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#071321]/55 via-transparent to-transparent" />
+            <div className="order-1 flex items-center justify-center bg-[#071321] lg:order-2">
+              <div className="relative aspect-video w-full overflow-hidden">
+                <Image
+                  src={article.image}
+                  alt={article.imageAlt}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-contain object-center"
+                />
+              </div>
             </div>
           </div>
         </header>
@@ -481,6 +520,13 @@ export default function ArticleLayout({ article }) {
               <ContentSection section={section} key={section.id} />
             ))}
 
+            {article.showProof ? (
+              <MawsooqProofSectionEn
+                context={article.proofContext || article.primaryKeyword}
+                whatsappUrl={whatsapp}
+              />
+            ) : null}
+
             <RelatedGuides article={article} />
             <FAQSection faqs={article.faqs} />
             <SourceSection sources={article.sources} />
@@ -488,12 +534,12 @@ export default function ArticleLayout({ article }) {
             <section className="rounded-[28px] bg-[linear-gradient(135deg,#071321,#0b5bb8)] p-7 text-white sm:p-9">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-[#72b8ff]">Next step</p>
               <h2 className="mt-3 text-3xl font-black tracking-[-0.04em]">Turn the guide into a project-specific plan</h2>
-              <p className="mt-4 max-w-2xl text-sm font-semibold leading-7 text-white/72">Send your city, plot size, approximate built-up area, number of floors and preferred finish level. Mawsooq can help you identify the right design, cost-planning and execution steps.</p>
+              <p className="mt-4 max-w-2xl text-sm font-semibold leading-7 text-white/72">Send your city, plot size, project type, approximate built-up area, current stage and any drawings you already have. Mawsooq can help identify the right design, cost-planning or execution next step for the project.</p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#20c96b] px-6 text-sm font-black text-[#062818] transition hover:-translate-y-0.5">
                   <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
                 </a>
-                <Link href={routes.contact} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 text-sm font-black text-white transition hover:bg-white/16">
+                <Link href={serviceHref} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 text-sm font-black text-white transition hover:bg-white/16">
                   Explore Mawsooq services <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -503,6 +549,9 @@ export default function ArticleLayout({ article }) {
               <p className="text-xs font-black uppercase tracking-[0.18em] text-[#2f86f6]">About the author</p>
               <h2 className="mt-2 text-xl font-black text-[color:var(--ink)]">Mawsooq Editorial Team</h2>
               <p className="mt-3 text-sm font-semibold leading-7 text-[color:var(--ink-muted)]">Mawsooq publishes practical design, engineering and construction-planning content for clients in Saudi Arabia and the wider Arab region. Numeric examples are clearly labelled as planning illustrations and should be verified for the actual project.</p>
+              <Link href={routes.about} className="mt-4 inline-flex items-center gap-2 text-sm font-black text-[#2f86f6]">
+                About Mawsooq <ArrowRight className="h-4 w-4" />
+              </Link>
             </section>
           </article>
 

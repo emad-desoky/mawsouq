@@ -5,6 +5,15 @@ import Link from "next/link";
 
 const articles = [
   {
+    title: "Architectural Design in Saudi Arabia",
+    description:
+      "The complete 2026 architecture pillar covering the owner brief, design stages, plans, local context, fees, provider selection and project handoff.",
+    href: "/en/blog/architectural-design-saudi-arabia/",
+    category: "Architecture Pillar",
+    image: "/images/blog/architecture/architectural-design-saudi-arabia.webp",
+    icon: "design",
+  },
+  {
     title: "How to Build a House in Saudi Arabia",
     description:
       "The complete 2026 pillar guide to costs, permits, contractors, timelines, and project decisions.",
@@ -182,12 +191,11 @@ export default function ArticlesSection() {
             </div>
 
             <h2 className="text-balance text-3xl font-black leading-tight tracking-[-0.03em] text-[#102033] dark:text-white sm:text-4xl lg:text-5xl">
-              Guides to Read Before You Start Building
+              Architecture & Construction Guides for Better Project Decisions
             </h2>
 
             <p className="mt-5 max-w-2xl text-pretty text-base leading-8 text-[#102033]/65 dark:text-white/65 sm:text-lg">
-              Explore practical guides to construction costs and building stages in Saudi Arabia and the
-              wider Arab region, with useful advice to plan confidently.
+              Explore practical guides to architectural design, villa planning, drawings, construction costs and building stages in Saudi Arabia, with clear routes from research to a project-ready brief.
             </p>
           </div>
 

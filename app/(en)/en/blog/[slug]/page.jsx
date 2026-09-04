@@ -7,7 +7,7 @@ import {
   allArticles,
   business,
   getArticleBySlug,
-  pillar,
+  getPillarForArticle,
 } from "@/app/(en)/en/blog/blog-data";
 
 export const dynamicParams = false;
@@ -40,8 +40,9 @@ export async function generateMetadata({ params }) {
     description: article.description,
     keywords: [
       article.primaryKeyword,
-      "Saudi Arabia construction",
-      "Saudi house building",
+      ...(article.secondaryKeywords || []),
+      "Saudi Arabia architecture and construction",
+      "Mawsooq",
       article.category,
     ],
     alternates: {
@@ -71,8 +72,8 @@ export async function generateMetadata({ params }) {
       images: [
         {
           url: image,
-          width: 1200,
-          height: 630,
+          width: article.imageWidth || 1200,
+          height: article.imageHeight || 630,
           alt: article.imageAlt,
         },
       ],
@@ -92,6 +93,7 @@ export default async function EnglishBlogArticlePage({ params }) {
 
   if (!article) notFound();
 
+  const parentPillar = getPillarForArticle(article);
   const canonical = `${SITE_URL}${BLOG_BASE}/${article.slug}/`;
   const image = absoluteImage(article.image);
   const breadcrumbItems = [
@@ -113,8 +115,8 @@ export default async function EnglishBlogArticlePage({ params }) {
     breadcrumbItems.push({
       "@type": "ListItem",
       position: 3,
-      name: "Build a House in Saudi Arabia",
-      item: `${SITE_URL}${BLOG_BASE}/${pillar.slug}/`,
+      name: parentPillar.title,
+      item: `${SITE_URL}${BLOG_BASE}/${parentPillar.slug}/`,
     });
   }
 
@@ -140,8 +142,8 @@ export default async function EnglishBlogArticlePage({ params }) {
         image: {
           "@type": "ImageObject",
           url: image,
-          width: 1200,
-          height: 630,
+          width: article.imageWidth || 1200,
+          height: article.imageHeight || 630,
         },
         author: {
           "@type": "Organization",
@@ -163,15 +165,15 @@ export default async function EnglishBlogArticlePage({ params }) {
         articleSection: article.category,
         keywords: [
           article.primaryKeyword,
-          "Saudi residential construction",
-          "Saudi building guide",
+          ...(article.secondaryKeywords || []),
+          "Saudi Arabia architecture and construction",
         ],
         ...(article.role === "cluster"
           ? {
               isPartOf: {
                 "@type": "CreativeWorkSeries",
-                name: pillar.title,
-                url: `${SITE_URL}${BLOG_BASE}/${pillar.slug}/`,
+                name: parentPillar.title,
+                url: `${SITE_URL}${BLOG_BASE}/${parentPillar.slug}/`,
               },
             }
           : {}),

@@ -12,9 +12,9 @@ import {
 const pageUrl = `${SITE_URL}${BLOG_BASE}/`;
 
 export const metadata = {
-  title: "Latest Saudi Construction Guides",
+  title: "Saudi Architecture & Construction Guides",
   description:
-    "Read Mawsooq's latest English guides about house construction costs, permits, contractors, timelines and project planning in Saudi Arabia.",
+    "Read Mawsooq's English guides about architectural design, villa planning, house drawings, construction costs, permits, contractors and project planning in Saudi Arabia.",
   alternates: {
     canonical: pageUrl,
   },
@@ -23,28 +23,28 @@ export const metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Latest Saudi Construction Guides | Mawsooq",
+    title: "Saudi Architecture & Construction Guides | Mawsooq",
     description:
-      "Current English guides, calculators and cost-planning articles for residential construction projects in Saudi Arabia.",
+      "Current English architecture, villa-design, drawing, cost-planning and construction guides for projects in Saudi Arabia.",
     url: pageUrl,
     siteName: "Mawsooq",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: `${SITE_URL}/images/blog/lead-clusters-en/cost-to-build-two-story-house-saudi-arabia.webp`,
-        width: 1200,
-        height: 630,
-        alt: "Mawsooq Saudi construction guides",
+        url: `${SITE_URL}/images/blog/architecture/architectural-design-saudi-arabia.webp`,
+        width: 1672,
+        height: 941,
+        alt: "Mawsooq architectural design and construction guides for Saudi Arabia",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Latest Saudi Construction Guides | Mawsooq",
+    title: "Saudi Architecture & Construction Guides | Mawsooq",
     description:
-      "Costs, calculators, local city budgets, contracts, extensions, permits and contractor decisions for Saudi house projects.",
-    images: [`${SITE_URL}/images/blog/lead-clusters-en/cost-to-build-two-story-house-saudi-arabia.webp`],
+      "Architectural design, villa planning, drawings, costs, permits and contractor decisions for Saudi projects.",
+    images: [`${SITE_URL}/images/blog/architecture/architectural-design-saudi-arabia.webp`],
   },
 };
 
@@ -55,7 +55,7 @@ function absoluteImage(src) {
 export default function EnglishBlogHubPage() {
   const blogs = getLatestArticles();
   const whatsapp = whatsappLink(
-    "Hello Mawsooq, I am planning a construction project in Saudi Arabia and would like guidance on the right next steps.",
+    "Hello Mawsooq, I am planning an architectural design or construction project in Saudi Arabia. City: __. Project type: __. Plot size: __. Current stage: __. Please help me identify the right next step.",
   );
 
   const jsonLd = {
@@ -65,9 +65,9 @@ export default function EnglishBlogHubPage() {
         "@type": "CollectionPage",
         "@id": `${pageUrl}#collection`,
         url: pageUrl,
-        name: "Latest Saudi Construction Guides",
+        name: "Saudi Architecture & Construction Guides",
         description:
-          "Mawsooq's latest English construction planning articles for Saudi Arabia.",
+          "Mawsooq's English architectural design and construction planning articles for Saudi Arabia.",
         inLanguage: "en",
         mainEntity: {
           "@type": "ItemList",
@@ -116,10 +116,10 @@ export default function EnglishBlogHubPage() {
                 Latest English articles
               </div>
               <h1 className="mt-6 text-balance text-5xl font-black leading-[1.05] tracking-[-0.06em] sm:text-6xl xl:text-7xl">
-                Saudi construction guides built for real decisions
+                Saudi architecture and construction guides built for real decisions
               </h1>
               <p className="mt-6 max-w-2xl text-lg font-semibold leading-8 text-white/72">
-                Current guidance on costs, city budgets, extensions, contracts, permits and contractor decisions in Saudi Arabia—built to help real homeowners move from search to a project-ready brief.
+                Current guidance on architectural design, villa planning, drawing packages, costs, permits and construction decisions in Saudi Arabia—built to help real owners move from search to a project-ready brief.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
@@ -139,16 +139,17 @@ export default function EnglishBlogHubPage() {
               </div>
             </div>
 
-            <div className="relative min-h-[320px] lg:min-h-[540px]">
-              <Image
-                src="/images/blog/lead-clusters-en/cost-to-build-two-story-house-saudi-arabia.webp"
-                alt="Mawsooq guide to building a house in Saudi Arabia"
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#071321]/60 via-transparent to-transparent lg:bg-gradient-to-r" />
+            <div className="flex items-center justify-center bg-[#071321]">
+              <div className="relative aspect-video w-full">
+                <Image
+                  src="/images/blog/architecture/architectural-design-saudi-arabia.webp"
+                  alt="Mawsooq architectural design guide for Saudi Arabia"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-contain object-center"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -158,7 +159,7 @@ export default function EnglishBlogHubPage() {
             <p className="text-xs font-black uppercase tracking-[0.18em] text-[#2f86f6]">Newest first</p>
             <h2 className="mt-3 text-4xl font-black tracking-[-0.05em] text-[color:var(--ink)] sm:text-5xl">Latest blogs</h2>
             <p className="mt-4 text-base font-semibold leading-8 text-[color:var(--ink-muted)]">
-              This page intentionally shows only the newest English articles. Each cluster links back to the complete house-building pillar and across to related decision guides.
+              Newest English articles appear first. Every supporting article links to the correct topic pillar, sibling guides, relevant service/contact paths and the separate page that owns any overlapping search intent.
             </p>
           </div>
 
