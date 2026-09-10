@@ -11,7 +11,7 @@ export const DATA_AS_OF = "2026-09-04";
 export const business = {
   name: "Mawsooq",
   whatsappNumber: "201223328270",
-  displayPhone: "+20 122 332 8270",
+  displayPhone: "+20 12 23328270",
   email: "info@mawsouq.com",
   logo: `${SITE_URL}/mawsouq-logo.png`,
 };
@@ -1400,16 +1400,16 @@ export const clusters = [
     role: "cluster",
     category: "Two-Story House Cost",
     primaryKeyword: "cost to build a two story house in Saudi Arabia",
-    metaTitle: "Cost to Build a Two-Story House in Saudi Arabia (2026)",
+    metaTitle: "Two-Story House Cost Saudi Arabia 2026 | Budget Guide",
     title: "Cost to Build a Two-Story House in Saudi Arabia: 2026 Budget Guide",
     description:
-      "Estimate the cost to build a two-story house in Saudi Arabia with shell, finished and turnkey scenarios, cost drivers, tender checks and a project-ready WhatsApp brief.",
+      "Plan a two-story Saudi house with published feasibility bands: SAR 900–1,250/m² shell and SAR 1,300–1,850/m² standard, plus tender and budget checks.",
     excerpt:
       "A focused cost guide for owners planning a new two-story family house and comparing shell, finished and turnkey budgets.",
     image: "/images/blog/lead-clusters-en/cost-to-build-two-story-house-saudi-arabia.webp",
     imageAlt: "Cost to build a two-story house in Saudi Arabia",
     datePublished: "2026-08-21",
-    dateModified: "2026-08-21",
+    dateModified: "2026-09-10",
     readTime: "12 min read",
     author: "Mawsooq Editorial Team",
     whatsappMessage:

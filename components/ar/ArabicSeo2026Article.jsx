@@ -32,6 +32,21 @@ function absoluteUrl(href = "") {
   return `${SITE_URL}${href.startsWith("/") ? href : `/${href}`}`;
 }
 
+function formatArabicDate(value) {
+  if (!value) return "";
+
+  try {
+    return new Intl.DateTimeFormat("ar-SA-u-nu-latn", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      timeZone: "UTC",
+    }).format(new Date(value));
+  } catch {
+    return value;
+  }
+}
+
 function AuthorByline({ page, full = false }) {
   const author = page.author || {
     name: "Mawsooq Team",
@@ -457,7 +472,7 @@ export default function ArabicSeo2026Article({ page }) {
                   <Sparkles size={15} /> {page.category}
                 </span>
                 <span className="rounded-full border border-[color:var(--hairline)] px-4 py-2 text-xs font-black text-[color:var(--ink-faint)]">
-                  تحديث فعلي: 26 أغسطس 2026
+                  تحديث فعلي: {formatArabicDate(page.dateModified)}
                 </span>
               </div>
 

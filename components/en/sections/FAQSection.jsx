@@ -24,7 +24,7 @@ const faqs = [
   {
     question: "Can I contact Mawsooq through WhatsApp?",
     answer:
-      "Yes. You can contact us directly on WhatsApp at +20 122 332 8270 for an initial project consultation.",
+      "Yes. You can contact us directly on WhatsApp at +20 12 23328270 for an initial project consultation.",
   },
   {
     question: "Is this page focused on the Saudi market?",

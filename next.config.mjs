@@ -201,6 +201,13 @@ const nextConfig = {
           "/%d8%af%d9%84%d9%8a%d9%84-%d9%85%d9%87%d9%86%d8%af%d8%b3-%d9%85%d8%b9%d9%85%d8%a7%d8%b1%d9%8a",
         permanent: true,
       },
+      {
+        source:
+          "/%d8%a7%d9%84%d8%aa%d8%b5%d9%85%d9%8a%d9%85-%d8%a7%d9%84%d8%a5%d9%86%d8%b4%d8%a7%d8%a6%d9%8a",
+        destination:
+          "/%d8%aa%d8%b5%d9%85%d9%8a%d9%85-%d8%a7%d9%86%d8%b4%d8%a7%d8%a6%d9%8a",
+        permanent: true,
+      },
     ];
   },
 

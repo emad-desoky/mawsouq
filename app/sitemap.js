@@ -18,6 +18,8 @@ const APP_DIR = path.join(process.cwd(), "app");
 
 const PAGE_FILES = new Set(["page.js", "page.jsx", "page.ts", "page.tsx"]);
 
+const REDIRECTED_PATHS = new Set(["/التصميم-الإنشائي"]);
+
 const SKIP_SEGMENTS = new Set([
   "api",
   "admin",
@@ -42,7 +44,6 @@ const HIGH_PRIORITY_ROUTES = [
   "/تصميم-حدائق",
   "/الدهان-البوية",
   "/فلل-مودرن",
-  "/التصميم-الإنشائي",
   "/تصاميم-فلل-نيو-كلاسيك-موسوق",
   "/أحدث-ديكورات-غرف-نوم-ماستر",
   "/طرق-تمنع-نمو-العفن",
@@ -222,6 +223,7 @@ function collectRoutes() {
     const normalized = normalizeRoute(route);
 
     if (!normalized) return;
+    if (REDIRECTED_PATHS.has(safeDecode(normalized))) return;
 
     routes.set(normalized, {
       route: normalized,

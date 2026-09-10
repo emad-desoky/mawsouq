@@ -181,31 +181,13 @@ export default function Footer() {
                   </p>
                   <div className="flex flex-col gap-1.5">
                     <a
-                      href="https://wa.me/966598061334"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-white/75 transition hover:text-[#25D366]"
-                      dir="ltr"
-                    >
-                      +966 598 061 334
-                    </a>
-                    <a
                       href="https://wa.me/201223328270"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm text-white/75 transition hover:text-[#25D366]"
                       dir="ltr"
                     >
-                      +20 122 332 8270
-                    </a>
-                    <a
-                      href="https://wa.me/201060160164"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-white/75 transition hover:text-[#25D366]"
-                      dir="ltr"
-                    >
-                      +20 106 016 0164
+                      +20 12 23328270
                     </a>
                   </div>
                 </div>

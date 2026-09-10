@@ -15,7 +15,7 @@ const SITE_URL = "https://mawsouq.com";
 const PILLAR_URL = `${SITE_URL}/${encodeURIComponent("تكلفة-بناء-دور-واحد")}/`;
 
 function whatsappLink(message) {
-  return `https://wa.me/966539827033?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/201223328270?text=${encodeURIComponent(message)}`;
 }
 
 function internalHref(slug) {
@@ -37,6 +37,7 @@ function WhatsAppButton({ message, children = "أرسل تفاصيل مشروع�
       href={whatsappLink(message)}
       target="_blank"
       rel="noopener noreferrer"
+      data-lead-placement="cost_cluster_cta"
       className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-emerald-500 px-6 text-sm font-black text-white shadow-[0_18px_45px_rgba(16,185,129,0.22)] transition hover:-translate-y-0.5 hover:bg-emerald-400 ${className}`}
     >
       <MessageCircle className="h-4 w-4" />
