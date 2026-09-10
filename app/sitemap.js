@@ -4,6 +4,7 @@ import path from "path";
 import { getAllEnglishBlogEntries } from "./(en)/en/blog/blog-data";
 import { getAllResthouseEntries } from "./_arabic-pages/_resthouse-cluster/resthouse-data";
 import { getAllArabicSeo2026Entries } from "@/lib/arabicSeo2026";
+import { getAllRiyadhEngineeringEntries } from "./_arabic-pages/_riyadh-engineering-cluster/riyadh-engineering-data";
 
 export const dynamic = "force-static";
 
@@ -51,6 +52,10 @@ const HIGH_PRIORITY_ROUTES = [
   "/تصاميم-منازل-من-الخارج",
   "/انواع-الديكور-الداخلي",
   "/افضل-مكتب-هندسي-مدينة-الرياض",
+  "/مكتب-هندسي-معتمد-في-الرياض",
+  "/تصميم-فلل-في-الرياض",
+  "/اسعار-المخططات-الهندسية-في-الرياض",
+  "/استشارات-هندسية-في-الرياض",
   "/السيراميك-الرخام",
   "/حاسبة-التشيد-و-البناء",
   "/واجهات-منازل-حديثة",
@@ -314,6 +319,13 @@ export default function sitemap() {
 
   // 2026 Arabic commercial SEO rebuild: five refreshed legacy URLs + five new clusters.
   for (const entry of getAllArabicSeo2026Entries()) {
+    entries.set(entry.url, entry);
+  }
+
+  // Riyadh engineering pillar + four focused clusters. Explicit entries are
+  // required because the long Arabic price slug is served through the dynamic
+  // long-route registry and cannot be discovered as an individual filesystem route.
+  for (const entry of getAllRiyadhEngineeringEntries()) {
     entries.set(entry.url, entry);
   }
 

@@ -3,6 +3,7 @@ import path from "path";
 import BlogsClient from "./BlogsClient";
 import { pillar as resthousePillar, clusters as resthouseClusters } from "@/app/_arabic-pages/_resthouse-cluster/resthouse-data";
 import { getArabicSeo2026BlogCards } from "@/lib/arabicSeo2026";
+import { riyadhBlogCards } from "@/app/_arabic-pages/_riyadh-engineering-cluster/riyadh-engineering-data";
 
 const pageUrl = "https://mawsouq.com/المدونات/";
 
@@ -47,6 +48,18 @@ const resthouseBlogDataBySlug = Object.fromEntries(
       title: article.title,
       excerpt: article.excerpt,
       category: "التصميم المعماري",
+      image: article.image,
+    },
+  ]),
+);
+
+const riyadhBlogDataBySlug = Object.fromEntries(
+  riyadhBlogCards.map((article) => [
+    article.slug,
+    {
+      title: article.title,
+      excerpt: article.excerpt,
+      category: article.category,
       image: article.image,
     },
   ]),
@@ -363,7 +376,11 @@ function getBlogsFromAppFolders() {
   function addBlog(slug, href) {
     if (!slug || blogBySlug.has(slug)) return;
 
-    const data = seo2026BlogDataBySlug[slug] || resthouseBlogDataBySlug[slug] || blogDataBySlug[slug];
+    const data =
+      riyadhBlogDataBySlug[slug] ||
+      seo2026BlogDataBySlug[slug] ||
+      resthouseBlogDataBySlug[slug] ||
+      blogDataBySlug[slug];
 
     blogBySlug.set(slug, {
       title: data?.title || titleFromSlug(slug),
@@ -412,6 +429,11 @@ function getBlogsFromAppFolders() {
   }
 
   const manualBlogSlugs = [
+    "افضل-مكتب-هندسي-مدينة-الرياض",
+    "مكتب-هندسي-معتمد-في-الرياض",
+    "تصميم-فلل-في-الرياض",
+    "اسعار-المخططات-الهندسية-في-الرياض",
+    "استشارات-هندسية-في-الرياض",
     "تكلفة-بناء-فيلا-300-متر",
     "تكلفة-التصميم-المعماري-في-السعودية",
     "سعر-التصميم-الانشائي-في-السعودية",
