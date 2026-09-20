@@ -9,35 +9,89 @@ const copy = {
   en: {
     title: "Mawsooq AI",
     subtitle: "Project planning assistant",
-    greeting: "Hi — tell me what you are planning to build or design, and I’ll help you identify the right next step.",
+    greeting:
+      "Hi — tell me what you are planning to build or design, and I’ll help you identify the right next step.",
     placeholder: "Describe your project…",
     send: "Send",
     open: "Ask Mawsooq AI",
     close: "Close assistant",
     whatsapp: "Continue on WhatsApp",
-    error: "I couldn't reach the AI service just now. You can still continue with the Mawsooq team on WhatsApp.",
-    privacy: "Share project details only. Please do not send IDs, payment details or passwords.",
-    quick: ["Estimate my construction budget", "I need architectural design", "What should I prepare before building?"],
-    defaultWa: "Hello Mawsooq, I used the website AI assistant and would like to continue discussing my project.",
+    whatsappShort: "Discuss this with Mawsooq on WhatsApp",
+    error:
+      "I couldn't reach the AI service just now. You can still continue with the Mawsooq team on WhatsApp.",
+    privacy:
+      "Share project details only. Please do not send IDs, payment details or passwords.",
+    quick: [
+      "Estimate my construction budget",
+      "I need architectural design",
+      "I need structural design",
+      "I need interior design",
+      "I need a BOQ / quantity survey",
+      "I need construction supervision",
+      "How much could my project cost?",
+      "What should I prepare before building?",
+    ],
+    fallbackSuggestions: [
+      "What information do you need from me?",
+      "How do I start my project?",
+      "Which service fits my project?",
+    ],
+    defaultWa:
+      "Hello Mawsooq, I used the website AI assistant and would like to continue discussing my project.",
   },
   ar: {
     title: "مساعد موسوق AI",
     subtitle: "مساعد تخطيط المشروع",
-    greeting: "أهلًا بك — اشرح لي ما الذي تريد بناءه أو تصميمه وسأساعدك في تحديد الخطوة المناسبة التالية.",
+    greeting:
+      "أهلًا بك — اشرح لي ما الذي تريد بناءه أو تصميمه وسأساعدك في تحديد الخطوة المناسبة التالية.",
     placeholder: "اكتب تفاصيل مشروعك…",
     send: "إرسال",
     open: "اسأل مساعد موسوق",
     close: "إغلاق المساعد",
     whatsapp: "أكمل على واتساب",
-    error: "تعذر الوصول إلى خدمة الذكاء الاصطناعي الآن. يمكنك متابعة المحادثة مباشرة مع فريق موسوق على واتساب.",
-    privacy: "شارك تفاصيل المشروع فقط، ولا ترسل هويات أو بيانات دفع أو كلمات مرور.",
-    quick: ["أريد تقدير ميزانية البناء", "أحتاج تصميم معماري", "ماذا أجهز قبل بدء البناء؟"],
-    defaultWa: "مرحبًا موسوق، استخدمت مساعد الموقع وأريد متابعة مناقشة مشروعي.",
+    whatsappShort: "ناقش مشروعك مع موسوق على واتساب",
+    error:
+      "تعذر الوصول إلى خدمة الذكاء الاصطناعي الآن. يمكنك متابعة المحادثة مباشرة مع فريق موسوق على واتساب.",
+    privacy:
+      "شارك تفاصيل المشروع فقط، ولا ترسل هويات أو بيانات دفع أو كلمات مرور.",
+    quick: [
+      "أريد تقدير ميزانية البناء",
+      "أحتاج تصميم معماري",
+      "أحتاج تصميم إنشائي",
+      "أحتاج تصميم داخلي",
+      "أحتاج جدول كميات BOQ",
+      "أحتاج إشراف على التنفيذ",
+      "كم قد تبلغ تكلفة مشروعي؟",
+      "ماذا أجهز قبل بدء البناء؟",
+    ],
+    fallbackSuggestions: [
+      "ما المعلومات التي تحتاجها مني؟",
+      "كيف أبدأ مشروعي؟",
+      "ما الخدمة المناسبة لمشروعي؟",
+    ],
+    defaultWa:
+      "مرحبًا موسوق، استخدمت مساعد الموقع وأريد متابعة مناقشة مشروعي.",
   },
 };
 
 function buildWhatsAppUrl(message) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
+function normalizeSuggestions(values, fallback) {
+  const seen = new Set();
+  const suggestions = (Array.isArray(values) ? values : [])
+    .map((value) => String(value || "").trim())
+    .filter(Boolean)
+    .filter((value) => {
+      const key = value.toLowerCase();
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
+    .slice(0, 4);
+
+  return suggestions.length ? suggestions : fallback;
 }
 
 export default function MawsooqChatbot({ language = "en" }) {
@@ -50,11 +104,18 @@ export default function MawsooqChatbot({ language = "en" }) {
   const [readyForWhatsApp, setReadyForWhatsApp] = useState(false);
   const [waMessage, setWaMessage] = useState(t.defaultWa);
   const [messages, setMessages] = useState([
-    { role: "assistant", content: t.greeting },
+    {
+      role: "assistant",
+      content: t.greeting,
+      suggestions: t.quick.slice(0, 4),
+    },
   ]);
   const inputRef = useRef(null);
 
-  const whatsappUrl = useMemo(() => buildWhatsAppUrl(waMessage || t.defaultWa), [waMessage, t.defaultWa]);
+  const whatsappUrl = useMemo(
+    () => buildWhatsAppUrl(waMessage || t.defaultWa),
+    [waMessage, t.defaultWa],
+  );
   const leadContext = useMemo(
     () => JSON.stringify({ chat_summary: leadSummary, ai_ready: readyForWhatsApp }),
     [leadSummary, readyForWhatsApp],
@@ -64,8 +125,12 @@ export default function MawsooqChatbot({ language = "en" }) {
     const text = String(value || "").trim();
     if (!text || loading) return;
 
-    const nextMessages = [...messages, { role: "user", content: text }];
-    setMessages(nextMessages);
+    const nextMessages = [
+      ...messages.map(({ role, content }) => ({ role, content })),
+      { role: "user", content: text },
+    ];
+
+    setMessages((current) => [...current, { role: "user", content: text }]);
     setInput("");
     setLoading(true);
 
@@ -82,14 +147,32 @@ export default function MawsooqChatbot({ language = "en" }) {
       });
 
       const data = await response.json();
-      if (!response.ok || !data.reply) throw new Error(data.error || "AI request failed");
+      if (!response.ok || !data.reply) {
+        throw new Error(data.error || "AI request failed");
+      }
 
-      setMessages((current) => [...current, { role: "assistant", content: data.reply }]);
+      setMessages((current) => [
+        ...current,
+        {
+          role: "assistant",
+          content: data.reply,
+          suggestions: normalizeSuggestions(data.suggestions, t.fallbackSuggestions),
+        },
+      ]);
       setLeadSummary(data.leadSummary || "");
       setReadyForWhatsApp(Boolean(data.readyForWhatsApp));
-      if (data.suggestedWhatsAppMessage) setWaMessage(data.suggestedWhatsAppMessage);
+      if (data.suggestedWhatsAppMessage) {
+        setWaMessage(data.suggestedWhatsAppMessage);
+      }
     } catch {
-      setMessages((current) => [...current, { role: "assistant", content: t.error }]);
+      setMessages((current) => [
+        ...current,
+        {
+          role: "assistant",
+          content: t.error,
+          suggestions: t.fallbackSuggestions,
+        },
+      ]);
     } finally {
       setLoading(false);
       window.setTimeout(() => inputRef.current?.focus(), 0);
@@ -97,11 +180,14 @@ export default function MawsooqChatbot({ language = "en" }) {
   }
 
   return (
-    <div className={`fixed bottom-[96px] z-[110] sm:bottom-6 ${lang === "ar" ? "left-4 sm:left-6" : "left-4 sm:left-6"}`} dir={lang === "ar" ? "rtl" : "ltr"}>
+    <div
+      className="fixed bottom-[96px] left-4 z-[110] sm:bottom-6 sm:left-6"
+      dir={lang === "ar" ? "rtl" : "ltr"}
+    >
       {open ? (
         <section
           aria-label={t.title}
-          className="absolute bottom-16 left-0 flex h-[min(620px,72vh)] w-[min(390px,calc(100vw-32px))] flex-col overflow-hidden rounded-[28px] border border-[color:var(--hairline-strong)] bg-[color:var(--surface)] shadow-[0_26px_90px_rgba(7,19,33,.30)]"
+          className="absolute bottom-16 left-0 flex h-[min(650px,76vh)] w-[min(410px,calc(100vw-32px))] flex-col overflow-hidden rounded-[28px] border border-[color:var(--hairline-strong)] bg-[color:var(--surface)] shadow-[0_26px_90px_rgba(7,19,33,.30)]"
         >
           <header className="flex items-center justify-between gap-3 bg-[#071321] px-5 py-4 text-white">
             <div className="flex min-w-0 items-center gap-3">
@@ -110,7 +196,9 @@ export default function MawsooqChatbot({ language = "en" }) {
               </span>
               <div className="min-w-0">
                 <strong className="block truncate text-sm font-black">{t.title}</strong>
-                <span className="block truncate text-xs font-semibold text-white/60">{t.subtitle}</span>
+                <span className="block truncate text-xs font-semibold text-white/60">
+                  {t.subtitle}
+                </span>
               </div>
             </div>
             <button
@@ -124,35 +212,62 @@ export default function MawsooqChatbot({ language = "en" }) {
           </header>
 
           <div className="flex-1 space-y-3 overflow-y-auto px-4 py-4" aria-live="polite">
-            {messages.map((message, index) => (
-              <div
-                key={`${message.role}-${index}`}
-                className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
-              >
-                <div
-                  className={`max-w-[86%] whitespace-pre-wrap rounded-2xl px-4 py-3 text-sm font-semibold leading-6 ${
-                    message.role === "user"
-                      ? "bg-[#2f86f6] text-white"
-                      : "bg-[color:var(--surface-2)] text-[color:var(--ink)]"
-                  }`}
-                >
-                  {message.content}
-                </div>
-              </div>
-            ))}
+            {messages.map((message, index) => {
+              const isAssistant = message.role === "assistant";
+              const isLatestAssistant =
+                isAssistant &&
+                !messages.slice(index + 1).some((item) => item.role === "assistant");
 
-            {loading ? (
-              <div className="flex justify-start">
-                <div className="flex items-center gap-2 rounded-2xl bg-[color:var(--surface-2)] px-4 py-3 text-sm font-bold text-[color:var(--ink-muted)]">
-                  <Bot className="h-4 w-4 animate-pulse" />
-                  <span className="inline-flex gap-1"><i className="h-1.5 w-1.5 animate-bounce rounded-full bg-current" /><i className="h-1.5 w-1.5 animate-bounce rounded-full bg-current [animation-delay:120ms]" /><i className="h-1.5 w-1.5 animate-bounce rounded-full bg-current [animation-delay:240ms]" /></span>
+              return (
+                <div key={`${message.role}-${index}`} className="space-y-2">
+                  <div className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}>
+                    <div
+                      className={`max-w-[88%] whitespace-pre-wrap rounded-2xl px-4 py-3 text-sm font-semibold leading-6 ${
+                        message.role === "user"
+                          ? "bg-[#2f86f6] text-white"
+                          : "bg-[color:var(--surface-2)] text-[color:var(--ink)]"
+                      }`}
+                    >
+                      {message.content}
+
+                      {isAssistant ? (
+                        <a
+                          href={whatsappUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          data-lead-placement="ai_message_whatsapp_cta"
+                          data-lead-context={leadContext}
+                          className="mt-3 flex min-h-10 items-center justify-center gap-2 rounded-xl border border-[#20c96b]/35 bg-[#20c96b]/10 px-3 text-xs font-black text-[#159554] transition hover:bg-[#20c96b]/15"
+                        >
+                          <MessageCircle className="h-4 w-4" />
+                          {t.whatsappShort}
+                        </a>
+                      ) : null}
+                    </div>
+                  </div>
+
+                  {isLatestAssistant && Array.isArray(message.suggestions) && message.suggestions.length ? (
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {message.suggestions.map((item) => (
+                        <button
+                          key={item}
+                          type="button"
+                          onClick={() => submitMessage(item)}
+                          disabled={loading}
+                          className="rounded-full border border-[#2f86f6]/25 bg-[#2f86f6]/8 px-3 py-2 text-start text-[11px] font-black leading-4 text-[#2f86f6] transition hover:bg-[#2f86f6]/12 disabled:opacity-50"
+                        >
+                          {item}
+                        </button>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
-              </div>
-            ) : null}
+              );
+            })}
 
             {messages.length === 1 ? (
-              <div className="grid gap-2 pt-1">
-                {t.quick.map((item) => (
+              <div className="grid grid-cols-1 gap-2 pt-1 sm:grid-cols-2">
+                {t.quick.slice(4).map((item) => (
                   <button
                     key={item}
                     type="button"
@@ -164,6 +279,19 @@ export default function MawsooqChatbot({ language = "en" }) {
                 ))}
               </div>
             ) : null}
+
+            {loading ? (
+              <div className="flex justify-start">
+                <div className="flex items-center gap-2 rounded-2xl bg-[color:var(--surface-2)] px-4 py-3 text-sm font-bold text-[color:var(--ink-muted)]">
+                  <Bot className="h-4 w-4 animate-pulse" />
+                  <span className="inline-flex gap-1">
+                    <i className="h-1.5 w-1.5 animate-bounce rounded-full bg-current" />
+                    <i className="h-1.5 w-1.5 animate-bounce rounded-full bg-current [animation-delay:120ms]" />
+                    <i className="h-1.5 w-1.5 animate-bounce rounded-full bg-current [animation-delay:240ms]" />
+                  </span>
+                </div>
+              </div>
+            ) : null}
           </div>
 
           <div className="border-t border-[color:var(--hairline)] bg-[color:var(--surface)] p-3">
@@ -173,7 +301,11 @@ export default function MawsooqChatbot({ language = "en" }) {
               rel="noopener noreferrer"
               data-lead-placement="ai_chatbot"
               data-lead-context={leadContext}
-              className={`mb-3 flex min-h-11 items-center justify-center gap-2 rounded-2xl px-4 text-sm font-black transition ${readyForWhatsApp ? "bg-[#20c96b] text-[#062818] shadow-lg" : "border border-[#20c96b]/35 bg-[#20c96b]/10 text-[#159554]"}`}
+              className={`mb-3 flex min-h-11 items-center justify-center gap-2 rounded-2xl px-4 text-sm font-black transition ${
+                readyForWhatsApp
+                  ? "bg-[#20c96b] text-[#062818] shadow-lg"
+                  : "border border-[#20c96b]/35 bg-[#20c96b]/10 text-[#159554]"
+              }`}
             >
               <MessageCircle className="h-4 w-4" /> {t.whatsapp}
             </a>
@@ -208,7 +340,9 @@ export default function MawsooqChatbot({ language = "en" }) {
                 <Send className="h-4 w-4" />
               </button>
             </form>
-            <p className="mt-2 px-1 text-[10px] font-semibold leading-4 text-[color:var(--ink-muted)]">{t.privacy}</p>
+            <p className="mt-2 px-1 text-[10px] font-semibold leading-4 text-[color:var(--ink-muted)]">
+              {t.privacy}
+            </p>
           </div>
         </section>
       ) : null}
@@ -223,7 +357,9 @@ export default function MawsooqChatbot({ language = "en" }) {
         aria-expanded={open}
         aria-label={t.open}
       >
-        <span className="grid h-7 w-7 place-items-center rounded-full bg-[#2f86f6]"><Bot className="h-4 w-4" /></span>
+        <span className="grid h-7 w-7 place-items-center rounded-full bg-[#2f86f6]">
+          <Bot className="h-4 w-4" />
+        </span>
         <span className="hidden sm:inline">{t.open}</span>
       </button>
     </div>
