@@ -71,7 +71,7 @@ export async function POST(request) {
     whatsapp_url: text(body.whatsapp_url),
   };
 
-  const webhook = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+  const webhook = String(process.env.GOOGLE_SHEETS_WEBHOOK_URL || "").trim();
   if (!webhook || !process.env.LEAD_WEBHOOK_SECRET) {
     console.warn("WhatsApp lead captured but Google Sheets webhook is not configured", reference);
     return NextResponse.json({ ok: true, reference, logged: false }, { status: 202 });
@@ -85,17 +85,23 @@ export async function POST(request) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
       cache: "no-store",
+      redirect: "follow",
       signal: controller.signal,
     });
     clearTimeout(timeout);
 
+    const raw = await response.text();
+    let webhookResult = null;
+    try {
+      webhookResult = JSON.parse(raw);
+    } catch {}
+
     if (!response.ok) {
-      throw new Error(`Lead webhook returned ${response.status}`);
+      throw new Error(`Lead webhook returned ${response.status}: ${String(raw || "").slice(0, 180)}`);
     }
 
-    const webhookResult = await response.json().catch(() => null);
     if (!webhookResult?.ok) {
-      throw new Error(`Lead webhook rejected ${reference}`);
+      throw new Error(`Lead webhook rejected ${reference}: ${String(raw || "").slice(0, 180)}`);
     }
 
     return NextResponse.json({ ok: true, reference, logged: true }, { status: 202 });

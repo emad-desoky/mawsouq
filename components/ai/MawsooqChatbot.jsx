@@ -1,9 +1,10 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
-import { Bot, MessageCircle, Send, Sparkles, X } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Bot, MessageCircle, Phone, Send, Sparkles, X } from "lucide-react";
 
 const WHATSAPP_NUMBER = "201223328270";
+const PHONE_NUMBER = "+201223328270";
 
 const copy = {
   en: {
@@ -15,8 +16,7 @@ const copy = {
     send: "Send",
     open: "Ask Mawsooq AI",
     close: "Close assistant",
-    whatsapp: "Continue on WhatsApp",
-    whatsappShort: "Discuss this with Mawsooq on WhatsApp",
+    whatsappShort: "Continue with Mawsooq on WhatsApp",
     error:
       "I couldn't reach the AI service just now. You can still continue with the Mawsooq team on WhatsApp.",
     privacy:
@@ -30,14 +30,19 @@ const copy = {
       "I need construction supervision",
       "How much could my project cost?",
       "What should I prepare before building?",
+      "I want to compare project services",
+      "Help me plan a villa project",
     ],
     fallbackSuggestions: [
       "What information do you need from me?",
       "How do I start my project?",
       "Which service fits my project?",
+      "What affects construction cost?",
     ],
     defaultWa:
       "Hello Mawsooq, I used the website AI assistant and would like to continue discussing my project.",
+    phoneLabel: "Call Mawsooq",
+    waLabel: "WhatsApp Mawsooq",
   },
   ar: {
     title: "مساعد موسوق AI",
@@ -48,8 +53,7 @@ const copy = {
     send: "إرسال",
     open: "اسأل مساعد موسوق",
     close: "إغلاق المساعد",
-    whatsapp: "أكمل على واتساب",
-    whatsappShort: "ناقش مشروعك مع موسوق على واتساب",
+    whatsappShort: "أكمل مع موسوق على واتساب",
     error:
       "تعذر الوصول إلى خدمة الذكاء الاصطناعي الآن. يمكنك متابعة المحادثة مباشرة مع فريق موسوق على واتساب.",
     privacy:
@@ -63,14 +67,19 @@ const copy = {
       "أحتاج إشراف على التنفيذ",
       "كم قد تبلغ تكلفة مشروعي؟",
       "ماذا أجهز قبل بدء البناء؟",
+      "أريد مقارنة خدمات المشروع",
+      "ساعدني في تخطيط مشروع فيلا",
     ],
     fallbackSuggestions: [
       "ما المعلومات التي تحتاجها مني؟",
       "كيف أبدأ مشروعي؟",
       "ما الخدمة المناسبة لمشروعي؟",
+      "ما العوامل التي تؤثر على تكلفة البناء؟",
     ],
     defaultWa:
       "مرحبًا موسوق، استخدمت مساعد الموقع وأريد متابعة مناقشة مشروعي.",
+    phoneLabel: "اتصل بموسوق",
+    waLabel: "تواصل واتساب مع موسوق",
   },
 };
 
@@ -78,7 +87,7 @@ function buildWhatsAppUrl(message) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
-function normalizeSuggestions(values, fallback) {
+function normalizeSuggestions(values, fallback, max = 6) {
   const seen = new Set();
   const suggestions = (Array.isArray(values) ? values : [])
     .map((value) => String(value || "").trim())
@@ -89,9 +98,23 @@ function normalizeSuggestions(values, fallback) {
       seen.add(key);
       return true;
     })
-    .slice(0, 4);
+    .slice(0, max);
 
-  return suggestions.length ? suggestions : fallback;
+  return suggestions.length ? suggestions : fallback.slice(0, max);
+}
+
+function FloatingIcon({ href, label, className, children, placement }) {
+  return (
+    <a
+      href={href}
+      aria-label={label}
+      title={label}
+      data-lead-placement={placement}
+      className={`grid h-12 w-12 place-items-center rounded-full text-white shadow-[0_12px_30px_rgba(7,19,33,.22)] transition hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(7,19,33,.28)] ${className}`}
+    >
+      {children}
+    </a>
+  );
 }
 
 export default function MawsooqChatbot({ language = "en" }) {
@@ -107,10 +130,12 @@ export default function MawsooqChatbot({ language = "en" }) {
     {
       role: "assistant",
       content: t.greeting,
-      suggestions: t.quick.slice(0, 4),
+      suggestions: t.quick,
     },
   ]);
   const inputRef = useRef(null);
+  const scrollRef = useRef(null);
+  const endRef = useRef(null);
 
   const whatsappUrl = useMemo(
     () => buildWhatsAppUrl(waMessage || t.defaultWa),
@@ -120,6 +145,18 @@ export default function MawsooqChatbot({ language = "en" }) {
     () => JSON.stringify({ chat_summary: leadSummary, ai_ready: readyForWhatsApp }),
     [leadSummary, readyForWhatsApp],
   );
+
+  useEffect(() => {
+    if (!open) return;
+    const frame = window.requestAnimationFrame(() => {
+      endRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [messages, loading, open]);
+
+  useEffect(() => {
+    if (open) window.setTimeout(() => inputRef.current?.focus(), 50);
+  }, [open]);
 
   async function submitMessage(value) {
     const text = String(value || "").trim();
@@ -146,7 +183,7 @@ export default function MawsooqChatbot({ language = "en" }) {
         }),
       });
 
-      const data = await response.json();
+      const data = await response.json().catch(() => ({}));
       if (!response.ok || !data.reply) {
         throw new Error(data.error || "AI request failed");
       }
@@ -156,15 +193,14 @@ export default function MawsooqChatbot({ language = "en" }) {
         {
           role: "assistant",
           content: data.reply,
-          suggestions: normalizeSuggestions(data.suggestions, t.fallbackSuggestions),
+          suggestions: normalizeSuggestions(data.suggestions, t.fallbackSuggestions, 6),
         },
       ]);
       setLeadSummary(data.leadSummary || "");
       setReadyForWhatsApp(Boolean(data.readyForWhatsApp));
-      if (data.suggestedWhatsAppMessage) {
-        setWaMessage(data.suggestedWhatsAppMessage);
-      }
-    } catch {
+      if (data.suggestedWhatsAppMessage) setWaMessage(data.suggestedWhatsAppMessage);
+    } catch (error) {
+      console.error("Mawsooq AI chat request failed", error);
       setMessages((current) => [
         ...current,
         {
@@ -175,193 +211,232 @@ export default function MawsooqChatbot({ language = "en" }) {
       ]);
     } finally {
       setLoading(false);
-      window.setTimeout(() => inputRef.current?.focus(), 0);
     }
   }
 
+  const stopNestedScroll = (event) => event.stopPropagation();
+
   return (
-    <div
-      className="fixed bottom-[96px] left-4 z-[110] sm:bottom-6 sm:left-6"
-      dir={lang === "ar" ? "rtl" : "ltr"}
-    >
-      {open ? (
-        <section
-          aria-label={t.title}
-          className="absolute bottom-16 left-0 flex h-[min(650px,76vh)] w-[min(410px,calc(100vw-32px))] flex-col overflow-hidden rounded-[28px] border border-[color:var(--hairline-strong)] bg-[color:var(--surface)] shadow-[0_26px_90px_rgba(7,19,33,.30)]"
-        >
-          <header className="flex items-center justify-between gap-3 bg-[#071321] px-5 py-4 text-white">
-            <div className="flex min-w-0 items-center gap-3">
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-[#2f86f6]/20 text-[#72b8ff]">
-                <Sparkles className="h-5 w-5" />
-              </span>
-              <div className="min-w-0">
-                <strong className="block truncate text-sm font-black">{t.title}</strong>
-                <span className="block truncate text-xs font-semibold text-white/60">
-                  {t.subtitle}
+    <>
+      <div
+        className="fixed bottom-4 right-4 z-[120] sm:bottom-6 sm:right-6"
+        dir={lang === "ar" ? "rtl" : "ltr"}
+      >
+        {open ? (
+          <section
+            aria-label={t.title}
+            data-lenis-prevent
+            data-lenis-prevent-wheel
+            data-lenis-prevent-touch
+            onWheelCapture={stopNestedScroll}
+            onTouchMoveCapture={stopNestedScroll}
+            className="fixed inset-x-3 bottom-3 z-[130] flex h-[min(720px,calc(100dvh-24px))] min-h-0 flex-col overflow-hidden rounded-[26px] border border-[color:var(--hairline-strong)] bg-[color:var(--surface)] shadow-[0_26px_90px_rgba(7,19,33,.34)] sm:absolute sm:inset-x-auto sm:bottom-0 sm:right-16 sm:h-[min(680px,82vh)] sm:w-[420px]"
+          >
+            <header className="flex shrink-0 items-center justify-between gap-3 bg-[#071321] px-5 py-4 text-white">
+              <div className="flex min-w-0 items-center gap-3">
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-[#2f86f6]/20 text-[#72b8ff]">
+                  <Sparkles className="h-5 w-5" />
                 </span>
+                <div className="min-w-0">
+                  <strong className="block truncate text-sm font-black">{t.title}</strong>
+                  <span className="block truncate text-xs font-semibold text-white/60">
+                    {t.subtitle}
+                  </span>
+                </div>
               </div>
-            </div>
-            <button
-              type="button"
-              onClick={() => setOpen(false)}
-              className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/10 transition hover:bg-white/20"
-              aria-label={t.close}
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/10 transition hover:bg-white/20"
+                aria-label={t.close}
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </header>
+
+            <div
+              ref={scrollRef}
+              data-lenis-prevent
+              data-lenis-prevent-wheel
+              data-lenis-prevent-touch
+              onWheelCapture={stopNestedScroll}
+              onTouchMoveCapture={stopNestedScroll}
+              className="mawsooq-chat-scroll min-h-0 flex-1 space-y-4 overflow-y-auto overscroll-contain px-4 py-4"
+              style={{ touchAction: "pan-y", WebkitOverflowScrolling: "touch" }}
+              aria-live="polite"
             >
-              <X className="h-4 w-4" />
-            </button>
-          </header>
+              {messages.map((message, index) => {
+                const isAssistant = message.role === "assistant";
+                const isLatestAssistant =
+                  isAssistant &&
+                  !messages.slice(index + 1).some((item) => item.role === "assistant");
 
-          <div className="flex-1 space-y-3 overflow-y-auto px-4 py-4" aria-live="polite">
-            {messages.map((message, index) => {
-              const isAssistant = message.role === "assistant";
-              const isLatestAssistant =
-                isAssistant &&
-                !messages.slice(index + 1).some((item) => item.role === "assistant");
+                return (
+                  <div key={`${message.role}-${index}`} className="space-y-2.5">
+                    <div className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}>
+                      <div
+                        className={`max-w-[90%] whitespace-pre-wrap rounded-2xl px-4 py-3 text-sm font-semibold leading-6 ${
+                          message.role === "user"
+                            ? "bg-[#2f86f6] text-white"
+                            : "bg-[color:var(--surface-2)] text-[color:var(--ink)]"
+                        }`}
+                      >
+                        {message.content}
+                      </div>
+                    </div>
 
-              return (
-                <div key={`${message.role}-${index}`} className="space-y-2">
-                  <div className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}>
-                    <div
-                      className={`max-w-[88%] whitespace-pre-wrap rounded-2xl px-4 py-3 text-sm font-semibold leading-6 ${
-                        message.role === "user"
-                          ? "bg-[#2f86f6] text-white"
-                          : "bg-[color:var(--surface-2)] text-[color:var(--ink)]"
-                      }`}
-                    >
-                      {message.content}
-
-                      {isAssistant ? (
+                    {isAssistant ? (
+                      <div className="space-y-2">
                         <a
                           href={whatsappUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           data-lead-placement="ai_message_whatsapp_cta"
                           data-lead-context={leadContext}
-                          className="mt-3 flex min-h-10 items-center justify-center gap-2 rounded-xl border border-[#20c96b]/35 bg-[#20c96b]/10 px-3 text-xs font-black text-[#159554] transition hover:bg-[#20c96b]/15"
+                          className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-[#20c96b]/40 bg-[#20c96b]/10 px-4 text-xs font-black text-[#159554] transition hover:bg-[#20c96b]/16"
                         >
                           <MessageCircle className="h-4 w-4" />
                           {t.whatsappShort}
                         </a>
-                      ) : null}
-                    </div>
+
+                        {isLatestAssistant && Array.isArray(message.suggestions) && message.suggestions.length ? (
+                          <div
+                            data-lenis-prevent
+                            data-lenis-prevent-wheel
+                            data-lenis-prevent-touch
+                            onWheelCapture={stopNestedScroll}
+                            onTouchMoveCapture={stopNestedScroll}
+                            className="mawsooq-suggestion-scroll flex w-full snap-x snap-mandatory flex-nowrap gap-2 overflow-x-auto overflow-y-hidden overscroll-x-contain pb-2 pt-0.5"
+                            style={{ touchAction: "pan-x", WebkitOverflowScrolling: "touch" }}
+                          >
+                            {message.suggestions.map((item) => (
+                              <button
+                                key={item}
+                                type="button"
+                                onClick={() => submitMessage(item)}
+                                disabled={loading}
+                                className="shrink-0 snap-start whitespace-nowrap rounded-full border border-[#2f86f6]/30 bg-[#2f86f6]/10 px-3.5 py-2 text-[11px] font-black leading-4 text-[#2f86f6] transition hover:bg-[#2f86f6]/16 disabled:opacity-50"
+                              >
+                                {item}
+                              </button>
+                            ))}
+                          </div>
+                        ) : null}
+                      </div>
+                    ) : null}
                   </div>
+                );
+              })}
 
-                  {isLatestAssistant && Array.isArray(message.suggestions) && message.suggestions.length ? (
-                    <div className="flex flex-wrap gap-2 pt-1">
-                      {message.suggestions.map((item) => (
-                        <button
-                          key={item}
-                          type="button"
-                          onClick={() => submitMessage(item)}
-                          disabled={loading}
-                          className="rounded-full border border-[#2f86f6]/25 bg-[#2f86f6]/8 px-3 py-2 text-start text-[11px] font-black leading-4 text-[#2f86f6] transition hover:bg-[#2f86f6]/12 disabled:opacity-50"
-                        >
-                          {item}
-                        </button>
-                      ))}
-                    </div>
-                  ) : null}
+              {loading ? (
+                <div className="flex justify-start">
+                  <div className="flex items-center gap-2 rounded-2xl bg-[color:var(--surface-2)] px-4 py-3 text-sm font-bold text-[color:var(--muted)]">
+                    <span className="h-2 w-2 animate-pulse rounded-full bg-[#2f86f6]" />
+                    <span className="h-2 w-2 animate-pulse rounded-full bg-[#2f86f6] [animation-delay:120ms]" />
+                    <span className="h-2 w-2 animate-pulse rounded-full bg-[#2f86f6] [animation-delay:240ms]" />
+                  </div>
                 </div>
-              );
-            })}
+              ) : null}
+              <div ref={endRef} />
+            </div>
 
-            {messages.length === 1 ? (
-              <div className="grid grid-cols-1 gap-2 pt-1 sm:grid-cols-2">
-                {t.quick.slice(4).map((item) => (
-                  <button
-                    key={item}
-                    type="button"
-                    onClick={() => submitMessage(item)}
-                    className="rounded-2xl border border-[color:var(--hairline)] bg-[color:var(--surface)] px-4 py-3 text-start text-xs font-black text-[#2f86f6] transition hover:bg-[color:var(--surface-2)]"
-                  >
-                    {item}
-                  </button>
-                ))}
-              </div>
-            ) : null}
-
-            {loading ? (
-              <div className="flex justify-start">
-                <div className="flex items-center gap-2 rounded-2xl bg-[color:var(--surface-2)] px-4 py-3 text-sm font-bold text-[color:var(--ink-muted)]">
-                  <Bot className="h-4 w-4 animate-pulse" />
-                  <span className="inline-flex gap-1">
-                    <i className="h-1.5 w-1.5 animate-bounce rounded-full bg-current" />
-                    <i className="h-1.5 w-1.5 animate-bounce rounded-full bg-current [animation-delay:120ms]" />
-                    <i className="h-1.5 w-1.5 animate-bounce rounded-full bg-current [animation-delay:240ms]" />
-                  </span>
-                </div>
-              </div>
-            ) : null}
-          </div>
-
-          <div className="border-t border-[color:var(--hairline)] bg-[color:var(--surface)] p-3">
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-lead-placement="ai_chatbot"
-              data-lead-context={leadContext}
-              className={`mb-3 flex min-h-11 items-center justify-center gap-2 rounded-2xl px-4 text-sm font-black transition ${
-                readyForWhatsApp
-                  ? "bg-[#20c96b] text-[#062818] shadow-lg"
-                  : "border border-[#20c96b]/35 bg-[#20c96b]/10 text-[#159554]"
-              }`}
-            >
-              <MessageCircle className="h-4 w-4" /> {t.whatsapp}
-            </a>
-
-            <form
-              onSubmit={(event) => {
-                event.preventDefault();
-                submitMessage(input);
-              }}
-              className="flex items-end gap-2"
-            >
-              <textarea
-                ref={inputRef}
-                value={input}
-                onChange={(event) => setInput(event.target.value.slice(0, 1200))}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter" && !event.shiftKey) {
-                    event.preventDefault();
-                    submitMessage(input);
-                  }
+            <footer className="shrink-0 border-t border-[color:var(--hairline)] bg-[color:var(--surface)] p-3">
+              <form
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  submitMessage(input);
                 }}
-                rows={1}
-                placeholder={t.placeholder}
-                className="min-h-11 max-h-28 flex-1 resize-none rounded-2xl border border-[color:var(--hairline-strong)] bg-[color:var(--surface-2)] px-4 py-3 text-sm font-semibold text-[color:var(--ink)] outline-none transition focus:border-[#2f86f6]"
-              />
-              <button
-                type="submit"
-                disabled={loading || !input.trim()}
-                className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#2f86f6] text-white transition hover:bg-[#1e70dc] disabled:cursor-not-allowed disabled:opacity-45"
-                aria-label={t.send}
+                className="flex items-center gap-2"
               >
-                <Send className="h-4 w-4" />
-              </button>
-            </form>
-            <p className="mt-2 px-1 text-[10px] font-semibold leading-4 text-[color:var(--ink-muted)]">
-              {t.privacy}
-            </p>
-          </div>
-        </section>
-      ) : null}
+                <input
+                  ref={inputRef}
+                  value={input}
+                  onChange={(event) => setInput(event.target.value)}
+                  placeholder={t.placeholder}
+                  maxLength={1800}
+                  className="min-w-0 flex-1 rounded-xl border border-[#2f86f6]/40 bg-[color:var(--surface)] px-4 py-3 text-sm font-semibold text-[color:var(--ink)] outline-none transition placeholder:text-[color:var(--muted)] focus:border-[#2f86f6] focus:ring-2 focus:ring-[#2f86f6]/15"
+                />
+                <button
+                  type="submit"
+                  disabled={!input.trim() || loading}
+                  aria-label={t.send}
+                  className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#2f86f6] text-white transition hover:bg-[#1674e8] disabled:cursor-not-allowed disabled:opacity-45"
+                >
+                  <Send className={`h-4 w-4 ${lang === "ar" ? "rotate-180" : ""}`} />
+                </button>
+              </form>
+              <p className="mt-2 text-center text-[9px] font-semibold leading-4 text-[color:var(--muted)]">
+                {t.privacy}
+              </p>
+            </footer>
+          </section>
+        ) : null}
 
-      <button
-        type="button"
-        onClick={() => {
-          setOpen((value) => !value);
-          window.setTimeout(() => inputRef.current?.focus(), 0);
-        }}
-        className="flex min-h-[52px] items-center gap-2 rounded-full border border-white/15 bg-[#071321] px-4 py-3 text-sm font-black text-white shadow-[0_14px_45px_rgba(7,19,33,.34)] transition hover:-translate-y-0.5"
-        aria-expanded={open}
-        aria-label={t.open}
-      >
-        <span className="grid h-7 w-7 place-items-center rounded-full bg-[#2f86f6]">
-          <Bot className="h-4 w-4" />
-        </span>
-        <span className="hidden sm:inline">{t.open}</span>
-      </button>
-    </div>
+        <div className="flex flex-col items-center gap-2.5">
+          <FloatingIcon
+            href={`tel:${PHONE_NUMBER}`}
+            label={t.phoneLabel}
+            placement="floating_phone"
+            className="bg-[#176fd1]"
+          >
+            <Phone className="h-5 w-5" />
+          </FloatingIcon>
+
+          <FloatingIcon
+            href={buildWhatsAppUrl(t.defaultWa)}
+            label={t.waLabel}
+            placement="floating_whatsapp"
+            className="bg-[#20c96b]"
+          >
+            <MessageCircle className="h-5 w-5" />
+          </FloatingIcon>
+
+          <button
+            type="button"
+            onClick={() => setOpen((value) => !value)}
+            aria-label={t.open}
+            title={t.open}
+            className={`grid h-12 w-12 place-items-center rounded-full text-white shadow-[0_12px_30px_rgba(7,19,33,.24)] transition hover:-translate-y-0.5 ${
+              open ? "bg-[#071321]" : "bg-[#2f86f6]"
+            }`}
+          >
+            {open ? <X className="h-5 w-5" /> : <Bot className="h-5 w-5" />}
+          </button>
+        </div>
+      </div>
+
+      <style jsx global>{`
+        .mawsooq-chat-scroll,
+        .mawsooq-suggestion-scroll {
+          scrollbar-color: #2f86f6 rgba(47, 134, 246, 0.12);
+          scrollbar-width: thin;
+        }
+
+        .mawsooq-chat-scroll::-webkit-scrollbar {
+          width: 7px;
+        }
+
+        .mawsooq-suggestion-scroll::-webkit-scrollbar {
+          height: 6px;
+        }
+
+        .mawsooq-chat-scroll::-webkit-scrollbar-track,
+        .mawsooq-suggestion-scroll::-webkit-scrollbar-track {
+          background: rgba(47, 134, 246, 0.1);
+          border-radius: 999px;
+        }
+
+        .mawsooq-chat-scroll::-webkit-scrollbar-thumb,
+        .mawsooq-suggestion-scroll::-webkit-scrollbar-thumb {
+          background: linear-gradient(180deg, #5aa7ff, #2f86f6);
+          border-radius: 999px;
+        }
+
+        .mawsooq-chat-scroll::-webkit-scrollbar-thumb:hover,
+        .mawsooq-suggestion-scroll::-webkit-scrollbar-thumb:hover {
+          background: #1674e8;
+        }
+      `}</style>
+    </>
   );
 }

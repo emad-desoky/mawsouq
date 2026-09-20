@@ -1,41 +1,41 @@
-# Mawsooq AI + WhatsApp fix patch — 2026-09-20
+# Mawsooq final chatbot + integration fix
 
-## What this patch changes
+Replace the files in this ZIP at the same paths, then redeploy Vercel Production.
 
-- Adds more suggested-question buttons in English and Arabic.
-- Adds a WhatsApp CTA directly inside every assistant message.
-- Adds dynamic 3-4 next-question suggestions returned by Gemini after every answer.
-- Adds `/api/integration-status` to verify that the live deployment can actually see the Vercel environment variables and reach the Apps Script webhook.
+## UI fixes
+- Chat scrolling is isolated from Lenis/smooth-page scrolling using `data-lenis-prevent` + nested wheel/touch handling.
+- Chat vertical scrollbar uses Mawsooq blue instead of the browser gray.
+- Suggestions are one horizontal row directly under each assistant WhatsApp CTA and scroll left/right with a blue scrollbar.
+- Initial assistant message has 10 quick suggestions; later AI responses can return up to 6 contextual suggestions.
+- Phone, WhatsApp, and AI are now one right-side floating stack in this exact order: Phone -> WhatsApp -> AI. This removes the old separate floating-contact components to prevent duplicates.
 
-## Critical deployment step
+## AI reliability fix
+- Keeps the configured GEMINI_MODEL as the first choice.
+- Automatically falls back to `gemini-3.1-flash-lite` and then `gemini-3.8-flash` if a model call fails.
+- Simplifies the Gemini request and removes the optional thinking config to reduce request incompatibilities.
+- Returns safe per-model attempt diagnostics on total failure; never exposes the API key.
 
-The environment variables were added in Vercel after the currently-running production deployment was created. Vercel server functions receive environment variables at deployment/build time. Redeploy Production after saving the variables.
+## Google Sheets status
+Your screenshot already proves the Vercel env variables are loaded. `sheetsWebhookReachable:false` means the Apps Script web app itself is not publicly reachable from Vercel (or the /exec URL is not the exact deployed URL).
 
-After redeploying, open:
+Apps Script deployment MUST be:
+- Execute as: Me
+- Who has access: Anyone
 
-https://mawsouq.com/api/integration-status
+Then copy the exact deployed URL ending `/exec` into `GOOGLE_SHEETS_WEBHOOK_URL` and redeploy Vercel.
 
-Expected shape:
+After redeploy open:
+https://mawsouq.com/api/integration-status/
 
-```json
-{
-  "ok": true,
-  "geminiKeyConfigured": true,
-  "geminiModel": "gemini-3.8-flash",
-  "sheetsWebhookConfigured": true,
-  "leadWebhookSecretConfigured": true,
-  "sheetsWebhookReachable": true,
-  "sheetsWebhookService": "Mawsooq WhatsApp Lead Logger"
-}
-```
+The target is:
+- geminiApiReachable: true
+- sheetsWebhookReachable: true
+- sheetsWebhookService: "Mawsooq WhatsApp Lead Logger"
 
-If any configured field is false, the live deployment does not have that Vercel environment variable.
-If `sheetsWebhookReachable` is false while `sheetsWebhookConfigured` is true, check the Apps Script deployment/access or webhook URL.
+No npm install is required.
 
-## Files to replace/add
+## Recommended Vercel model value
+Set:
+`GEMINI_MODEL=gemini-3.1-flash-lite`
 
-- `components/ai/MawsooqChatbot.jsx`
-- `app/api/mawsooq-ai/route.js`
-- `app/api/integration-status/route.js` (new)
-
-No npm installation is required.
+The route still falls back automatically, but using Flash-Lite first avoids wasting time on a failing 3.8 request and is a better fit for this short website assistant.

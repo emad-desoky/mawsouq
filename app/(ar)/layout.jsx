@@ -6,7 +6,6 @@ import "../globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FloatingButtons from "@/components/FloatingButtons";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import LocalDomainLinkFix from "@/components/LocalDomainLinkFix";
 import SocialFloatingButtons from "@/components/SocialFloatingButtons";
@@ -61,7 +60,6 @@ export default function RootLayout({ children }) {
             {children}
 
             <Footer />
-            <FloatingButtons />
             <SocialFloatingButtons />
             <MawsooqChatbot language="ar" />
           </SmoothScrollProvider>

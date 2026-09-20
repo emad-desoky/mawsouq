@@ -4,7 +4,6 @@ import "../globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import EnglishHeader from "@/components/en/EnglishHeader";
 import EnglishFooter from "@/components/en/EnglishFooter";
-import EnglishFloatingButtons from "@/components/en/EnglishFloatingButtons";
 import GoogleAnalytics from "@/components/en/GoogleAnalytics";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import LocalDomainLinkFix from "@/components/LocalDomainLinkFix";
@@ -67,7 +66,6 @@ export default function EnglishRootLayout({ children }) {
             <LeadClickTracker />
             {children}
             <EnglishFooter />
-            <EnglishFloatingButtons />
             <SocialFloatingButtons />
             <MawsooqChatbot language="en" />
           </SmoothScrollProvider>
