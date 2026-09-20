@@ -12,6 +12,11 @@
 | `/en/blog/house-construction-contract-saudi-arabia/` | contract scope, payment, variation and handover terms | contractor selection |
 | `/en/blog/house-construction-cost-jeddah/` | Jeddah-local construction budget | national Saudi cost-per-m² query |
 | `/en/blog/house-construction-cost-dammam-khobar/` | Dammam / Khobar local construction budget | national Saudi cost-per-m² query |
+| `/en/blog/house-finishing-cost-saudi-arabia/` | finishing-only cost, finish packages and specification allowances | shell, turnkey or whole-house construction-cost intent |
+| `/en/blog/shell-construction-cost-saudi-arabia/` | shell / grey-structure cost and structural-scope boundaries | finishing or turnkey intent |
+| `/en/blog/construction-supervision-cost-saudi-arabia/` | engineering/site supervision fee models and supervision scope | contractor construction pricing |
+| `/en/blog/bill-of-quantities-saudi-arabia/` | BOQ measurement, preparation and contractor tender comparison | generic construction cost per m² |
+| `/en/blog/construction-material-prices-saudi-arabia/` | material-price sourcing, rate dates and procurement budgeting | installed whole-house construction cost |
 
 ## Internal linking rule
 

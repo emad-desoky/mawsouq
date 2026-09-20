@@ -1,3 +1,5 @@
+import { seoGrowthClusters } from "./seo-growth-clusters";
+
 /**
  * English SEO topic cluster for Saudi residential construction.
  * Add new articles here and the pillar, sibling navigation, blog hub,
@@ -6,7 +8,7 @@
 
 export const SITE_URL = "https://mawsouq.com";
 export const BLOG_BASE = "/en/blog";
-export const DATA_AS_OF = "2026-09-04";
+export const DATA_AS_OF = "2026-09-20";
 
 export const business = {
   name: "Mawsooq",
@@ -335,14 +337,14 @@ export const clusters = [
     role: "cluster",
     category: "Construction Costs",
     primaryKeyword: "construction cost per square meter in Saudi Arabia",
-    metaTitle: "Construction Cost per m² in Saudi Arabia (2026)",
+    metaTitle: "Construction Cost per m² Saudi Arabia: 2026 Prices",
     title: "Construction Cost per Square Meter in Saudi Arabia: 2026 Planning Guide",
-    description: "Compare 2026 construction cost per square meter in Saudi Arabia by finish level, scope and city, with exclusions and a practical budgeting method.",
+    description: "See 2026 Saudi construction cost per m² ranges, what each rate includes, city and scope differences, and the checks to make before trusting a quote.",
     excerpt: "Planning bands, scope checks and a better way to use price-per-metre figures without underbudgeting.",
     image: sharedImages.materials.src,
     imageAlt: "Construction cost per square meter in Saudi Arabia planning guide",
     datePublished: "2026-07-29",
-    dateModified: "2026-07-30",
+    dateModified: "2026-09-20",
     readTime: "11 min read",
     author: "Mawsooq Editorial Team",
     whatsappMessage: "Hello Mawsooq, I read your Saudi construction cost per square meter guide. Please help me estimate my project based on area, city and finish level.",
@@ -484,14 +486,14 @@ export const clusters = [
     role: "cluster",
     category: "Villa Construction",
     primaryKeyword: "villa construction cost in Saudi Arabia",
-    metaTitle: "Villa Construction Cost in Saudi Arabia (2026)",
+    metaTitle: "Villa Construction Cost Saudi Arabia: 2026 Guide",
     title: "Villa Construction Cost in Saudi Arabia: Budgeting from Design to Handover",
-    description: "Estimate villa construction cost in Saudi Arabia by built area, specification and scope. See budget examples, exclusions and quote checks.",
+    description: "Planning a Saudi villa? Compare 2026 construction budgets by built area, specification and scope, plus exclusions and quotation checks before you build.",
     excerpt: "A villa-specific budget framework covering structure, MEP, finishes, external works and overlooked costs.",
     image: sharedImages.villa.src,
     imageAlt: "Villa construction cost in Saudi Arabia",
     datePublished: "2026-07-28",
-    dateModified: "2026-07-30",
+    dateModified: "2026-09-20",
     readTime: "12 min read",
     author: "Mawsooq Editorial Team",
     whatsappMessage: "Hello Mawsooq, I read your villa construction cost guide. I would like a planning estimate for my plot, villa area and preferred finish level.",
@@ -517,14 +519,14 @@ export const clusters = [
     role: "cluster",
     category: "Permits and Compliance",
     primaryKeyword: "building permit Saudi Arabia",
-    metaTitle: "Building Permit in Saudi Arabia: 2026 Guide",
+    metaTitle: "Building Permit Saudi Arabia: Requirements & Steps",
     title: "Building Permit in Saudi Arabia: Requirements, Process and Project Checks",
-    description: "Understand the Saudi building permit process, Balady workflow, engineering-office role and documents to prepare before construction.",
+    description: "Saudi building permit guide: see the Balady workflow, required project information, engineering-office role and checks to complete before construction.",
     excerpt: "A practical permit-readiness guide based on Balady and Saudi Building Code sources.",
     image: sharedImages.plans.src,
     imageAlt: "Building permit Saudi Arabia application documents",
     datePublished: "2026-07-27",
-    dateModified: "2026-07-30",
+    dateModified: "2026-09-20",
     readTime: "10 min read",
     author: "Mawsooq Editorial Team",
     whatsappMessage: "Hello Mawsooq, I read your Saudi building permit guide. I would like help understanding the design and permit preparation needed for my plot.",
@@ -1400,16 +1402,16 @@ export const clusters = [
     role: "cluster",
     category: "Two-Story House Cost",
     primaryKeyword: "cost to build a two story house in Saudi Arabia",
-    metaTitle: "Two-Story House Cost Saudi Arabia 2026 | Budget Guide",
+    metaTitle: "Cost to Build a 2-Story House in Saudi Arabia (2026)",
     title: "Cost to Build a Two-Story House in Saudi Arabia: 2026 Budget Guide",
     description:
-      "Plan a two-story Saudi house with published feasibility bands: SAR 900–1,250/m² shell and SAR 1,300–1,850/m² standard, plus tender and budget checks.",
+      "See how to budget a two-story house in Saudi Arabia in 2026 using total built-up area, scope, structure and finish level, with a worked planning method.",
     excerpt:
       "A focused cost guide for owners planning a new two-story family house and comparing shell, finished and turnkey budgets.",
     image: "/images/blog/lead-clusters-en/cost-to-build-two-story-house-saudi-arabia.webp",
     imageAlt: "Cost to build a two-story house in Saudi Arabia",
     datePublished: "2026-08-21",
-    dateModified: "2026-09-10",
+    dateModified: "2026-09-20",
     readTime: "12 min read",
     author: "Mawsooq Editorial Team",
     whatsappMessage:
@@ -2880,7 +2882,7 @@ export const architectureClusters = [
 ];
 
 
-const allClusters = [...clusters, ...architectureClusters];
+const allClusters = [...clusters, ...seoGrowthClusters, ...architectureClusters];
 
 export const allArticles = [pillar, architecturePillar, ...allClusters];
 export const pillarUrl = `${SITE_URL}${BLOG_BASE}/${pillar.slug}/`;

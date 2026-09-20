@@ -1,29 +1,16 @@
-Mawsouq Riyadh engineering SEO patch — 2026-09-10
+MAWSOUQ SEO + AI + WHATSAPP LEAD TRACKING PATCH
+Date: 2026-09-20
 
-NEW PAGES
-app/_arabic-pages/افضل-مكتب-هندسي-مدينة-الرياض/page.jsx
-app/_arabic-pages/مكتب-هندسي-معتمد-في-الرياض/page.jsx
-app/_arabic-pages/تصميم-فلل-في-الرياض/page.jsx
-app/_arabic-pages/اسعار-المخططات-الهندسية-في-الرياض/page.jsx
-app/_arabic-pages/استشارات-هندسية-في-الرياض/page.jsx
+Contents:
+- 5 new English construction cluster articles
+- updated English query ownership guard
+- CTR-oriented metadata refreshes for selected existing English pages
+- canonical redirect for /en/blog/build-saudi-arabia
+- bilingual Mawsooq AI chatbot (server-side Gemini)
+- global WhatsApp reference-code tracking
+- server-side WhatsApp click logger
+- Google Sheets Apps Script bridge + setup guide
+- SEO recovery analysis and deployment guide
 
-SHARED CLUSTER SYSTEM
-app/_arabic-pages/_riyadh-engineering-cluster/riyadh-engineering-data.js
-app/_arabic-pages/_riyadh-engineering-cluster/RiyadhEngineeringArticle.jsx
-
-UPDATED
-app/sitemap.js
-
-NEW INSTALL/ROUTE HELPER
-scripts/apply-riyadh-engineering-cluster.mjs
-
-NEW HERO IMAGES
-public/images/blog/riyadh-engineering/riyadh-engineering-office-guide.webp
-public/images/blog/riyadh-engineering/riyadh-approved-engineering-office.webp
-public/images/blog/riyadh-engineering/riyadh-villa-design.webp
-public/images/blog/riyadh-engineering/riyadh-engineering-plans-prices.webp
-public/images/blog/riyadh-engineering/riyadh-engineering-consultancy.webp
-
-INSTALL
-node scripts/apply-riyadh-engineering-cluster.mjs
-npm run build
+No new npm dependency is required.
+Secrets are intentionally NOT embedded in this ZIP. Use Vercel environment variables.

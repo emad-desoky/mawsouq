@@ -9,6 +9,8 @@ import GoogleAnalytics from "@/components/en/GoogleAnalytics";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import LocalDomainLinkFix from "@/components/LocalDomainLinkFix";
 import SocialFloatingButtons from "@/components/SocialFloatingButtons";
+import LeadClickTracker from "@/components/LeadClickTracker";
+import MawsooqChatbot from "@/components/ai/MawsooqChatbot";
 
 const tajawal = Tajawal({
   subsets: ["latin"],
@@ -62,10 +64,12 @@ export default function EnglishRootLayout({ children }) {
           <SmoothScrollProvider>
             <EnglishHeader />
             <LocalDomainLinkFix />
+            <LeadClickTracker />
             {children}
             <EnglishFooter />
             <EnglishFloatingButtons />
             <SocialFloatingButtons />
+            <MawsooqChatbot language="en" />
           </SmoothScrollProvider>
         </ThemeProvider>
 

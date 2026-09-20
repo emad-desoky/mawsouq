@@ -11,6 +11,7 @@ import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import LocalDomainLinkFix from "@/components/LocalDomainLinkFix";
 import SocialFloatingButtons from "@/components/SocialFloatingButtons";
 import LeadClickTracker from "@/components/LeadClickTracker";
+import MawsooqChatbot from "@/components/ai/MawsooqChatbot";
 
 const tajawal = Tajawal({
   subsets: ["arabic", "latin"],
@@ -62,6 +63,7 @@ export default function RootLayout({ children }) {
             <Footer />
             <FloatingButtons />
             <SocialFloatingButtons />
+            <MawsooqChatbot language="ar" />
           </SmoothScrollProvider>
         </ThemeProvider>
 

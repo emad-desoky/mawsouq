@@ -23,7 +23,7 @@ import {
 } from "@/app/(en)/en/blog/blog-data";
 import MawsooqProofSectionEn from "@/components/en/blog/MawsooqProofSectionEn";
 
-function PrimaryButton({ href, children, external = false }) {
+function PrimaryButton({ href, children, external = false, leadPlacement }) {
   const props = external
     ? { target: "_blank", rel: "noopener noreferrer" }
     : {};
@@ -32,6 +32,7 @@ function PrimaryButton({ href, children, external = false }) {
     <a
       href={href}
       {...props}
+      data-lead-placement={leadPlacement}
       className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#2f86f6] px-6 py-3 text-sm font-black text-white shadow-[0_16px_40px_rgba(47,134,246,0.28)] transition hover:-translate-y-0.5 hover:bg-[#1671e6]"
     >
       {children}
@@ -345,7 +346,7 @@ function SourceSection({ sources }) {
 
   return (
     <section className="border-t border-[color:var(--hairline)] py-10">
-      <h2 className="text-2xl font-black text-[color:var(--ink)]">Authoritative sources used</h2>
+      <h2 className="text-2xl font-black text-[color:var(--ink)]">Sources and market references used</h2>
       <p className="mt-3 text-sm font-semibold leading-7 text-[color:var(--ink-muted)]">
         Official sources support regulatory and index statements. Market cost bands remain indicative and should be replaced by project-specific quotations.
       </p>
@@ -396,7 +397,7 @@ function DesktopSidebar({ article }) {
           <MessageCircle className="h-7 w-7 text-[#62e68a]" />
           <h2 className="mt-4 text-xl font-black">Discuss your project</h2>
           <p className="mt-3 text-sm font-semibold leading-7 text-white/70">Send the plot location, approximate built area, floors and finish level for a more relevant conversation.</p>
-          <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#20c96b] px-5 text-sm font-black text-[#062818] transition hover:-translate-y-0.5 hover:bg-[#39da82]">
+          <a href={whatsapp} target="_blank" rel="noopener noreferrer" data-lead-placement="article_sidebar_whatsapp" className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#20c96b] px-5 text-sm font-black text-[#062818] transition hover:-translate-y-0.5 hover:bg-[#39da82]">
             Chat on WhatsApp <ArrowRight className="h-4 w-4" />
           </a>
         </div>
@@ -455,7 +456,7 @@ export default function ArticleLayout({ article }) {
               <p className="mt-6 max-w-3xl text-lg font-semibold leading-8 text-[color:var(--ink-muted)]">{article.description}</p>
 
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <PrimaryButton href={whatsapp} external>
+                <PrimaryButton href={whatsapp} external leadPlacement="article_hero_whatsapp">
                   <MessageCircle className="h-4 w-4" /> {article.ctaLabel || "Send project brief on WhatsApp"}
                 </PrimaryButton>
                 <SecondaryButton href={routes.calculator}>
@@ -536,7 +537,7 @@ export default function ArticleLayout({ article }) {
               <h2 className="mt-3 text-3xl font-black tracking-[-0.04em]">Turn the guide into a project-specific plan</h2>
               <p className="mt-4 max-w-2xl text-sm font-semibold leading-7 text-white/72">Send your city, plot size, project type, approximate built-up area, current stage and any drawings you already have. Mawsooq can help identify the right design, cost-planning or execution next step for the project.</p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#20c96b] px-6 text-sm font-black text-[#062818] transition hover:-translate-y-0.5">
+                <a href={whatsapp} target="_blank" rel="noopener noreferrer" data-lead-placement="article_bottom_whatsapp" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#20c96b] px-6 text-sm font-black text-[#062818] transition hover:-translate-y-0.5">
                   <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
                 </a>
                 <Link href={serviceHref} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 text-sm font-black text-white transition hover:bg-white/16">
