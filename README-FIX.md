@@ -1,41 +1,55 @@
-# Mawsooq final chatbot + integration fix
+# Mawsooq AI UI + Gemini Flash/Flash-Lite Fix
 
-Replace the files in this ZIP at the same paths, then redeploy Vercel Production.
+Replace only the files in this patch, preserving the folder paths.
 
-## UI fixes
-- Chat scrolling is isolated from Lenis/smooth-page scrolling using `data-lenis-prevent` + nested wheel/touch handling.
-- Chat vertical scrollbar uses Mawsooq blue instead of the browser gray.
-- Suggestions are one horizontal row directly under each assistant WhatsApp CTA and scroll left/right with a blue scrollbar.
-- Initial assistant message has 10 quick suggestions; later AI responses can return up to 6 contextual suggestions.
-- Phone, WhatsApp, and AI are now one right-side floating stack in this exact order: Phone -> WhatsApp -> AI. This removes the old separate floating-contact components to prevent duplicates.
+## What changed
 
-## AI reliability fix
-- Keeps the configured GEMINI_MODEL as the first choice.
-- Automatically falls back to `gemini-3.1-flash-lite` and then `gemini-3.8-flash` if a model call fails.
-- Simplifies the Gemini request and removes the optional thinking config to reduce request incompatibilities.
-- Returns safe per-model attempt diagnostics on total failure; never exposes the API key.
+### Chatbot UI
+- Suggestion chips are no longer rendered under each assistant message.
+- The latest suggestion row is pinned immediately above the chat input.
+- The suggestion row remains a single horizontal scroll row.
+- The horizontal scrollbar keeps Mawsooq blue styling.
+- WhatsApp CTA remains at the end of every assistant message.
+- The chat transcript keeps its independent vertical scroll.
 
-## Google Sheets status
-Your screenshot already proves the Vercel env variables are loaded. `sheetsWebhookReachable:false` means the Apps Script web app itself is not publicly reachable from Vercel (or the /exec URL is not the exact deployed URL).
+### Gemini API
+- Uses the standard `models/:generateContent` REST endpoint with no extra npm package.
+- Removes structured-output configuration from the actual generation request so the same call is compatible across more Flash/Flash-Lite model generations.
+- The model is still instructed to return JSON; the server parses it itself.
+- If a model returns plain text instead of JSON, the user still receives that response instead of seeing the generic AI error.
+- Automatic fallback order:
+  1. `GEMINI_MODEL` from Vercel
+  2. `gemini-3.1-flash-lite`
+  3. `gemini-2.5-flash-lite`
+  4. `gemini-2.5-flash`
+  5. `gemini-3.8-flash`
+  6. `gemini-3-flash-preview`
 
-Apps Script deployment MUST be:
-- Execute as: Me
-- Who has access: Anyone
+Recommended Vercel value:
 
-Then copy the exact deployed URL ending `/exec` into `GOOGLE_SHEETS_WEBHOOK_URL` and redeploy Vercel.
+```env
+GEMINI_MODEL=gemini-3.1-flash-lite
+```
 
-After redeploy open:
-https://mawsouq.com/api/integration-status/
+Keep the existing `GEMINI_API_KEY` unchanged.
 
-The target is:
-- geminiApiReachable: true
-- sheetsWebhookReachable: true
-- sheetsWebhookService: "Mawsooq WhatsApp Lead Logger"
+### Diagnostics
+`/api/integration-status` now performs a tiny real Gemini generation request rather than only checking model metadata.
 
-No npm install is required.
+After redeploying, open:
 
-## Recommended Vercel model value
-Set:
-`GEMINI_MODEL=gemini-3.1-flash-lite`
+`https://mawsouq.com/api/integration-status/`
 
-The route still falls back automatically, but using Flash-Lite first avoids wasting time on a failing 3.8 request and is a better fit for this short website assistant.
+Look for:
+- `geminiGenerationReachable: true`
+- `geminiWorkingModel: "..."`
+
+If all Gemini models fail, `geminiAttempts` shows the HTTP status and Google error for each model without exposing your API key.
+
+## Deployment
+1. Copy these three files over the same paths in the Mawsooq project.
+2. Confirm Vercel has `GEMINI_API_KEY` and `GEMINI_MODEL=gemini-3.1-flash-lite`.
+3. Redeploy Production so the new server route is active.
+4. Test `/api/integration-status/` first, then test the chatbot.
+
+No npm package installation is required.

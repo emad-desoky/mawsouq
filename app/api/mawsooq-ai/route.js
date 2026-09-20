@@ -5,6 +5,21 @@ export const dynamic = "force-dynamic";
 const MAX_MESSAGES = 12;
 const MAX_MESSAGE_CHARS = 1800;
 
+const DEFAULT_SUGGESTIONS = {
+  en: [
+    "What information do you need from me?",
+    "How do I start my project?",
+    "Which service fits my project?",
+    "What affects construction cost?",
+  ],
+  ar: [
+    "ما المعلومات التي تحتاجها مني؟",
+    "كيف أبدأ مشروعي؟",
+    "ما الخدمة المناسبة لمشروعي؟",
+    "ما العوامل التي تؤثر على تكلفة البناء؟",
+  ],
+};
+
 const MAWSOUQ_CONTEXT = `
 You are the website assistant for Mawsooq (موسوق), a design, engineering and construction services platform serving clients in Saudi Arabia and the wider Arab region.
 
@@ -40,24 +55,18 @@ Rules:
 - Return 3-6 short suggested next messages in the visitor's language.
 - Make WhatsApp a natural next step once there is meaningful project intent, without pressure.
 - leadSummary must contain only facts explicitly supplied by the visitor.
-`;
 
-const RESPONSE_SCHEMA = {
-  type: "object",
-  properties: {
-    reply: { type: "string" },
-    readyForWhatsApp: { type: "boolean" },
-    leadSummary: { type: "string" },
-    suggestedWhatsAppMessage: { type: "string" },
-    suggestions: {
-      type: "array",
-      items: { type: "string" },
-      minItems: 3,
-      maxItems: 6,
-    },
-  },
-  required: ["reply", "readyForWhatsApp", "leadSummary", "suggestedWhatsAppMessage", "suggestions"],
-};
+IMPORTANT RESPONSE FORMAT:
+Return ONLY one valid JSON object. Do not wrap it in markdown or code fences.
+Use exactly these keys:
+{
+  "reply": "your helpful answer",
+  "readyForWhatsApp": false,
+  "leadSummary": "facts explicitly supplied by the visitor only",
+  "suggestedWhatsAppMessage": "a concise WhatsApp handoff message",
+  "suggestions": ["short suggestion 1", "short suggestion 2", "short suggestion 3"]
+}
+`;
 
 function normalizeMessage(message) {
   const role = message?.role === "assistant" || message?.role === "model" ? "model" : "user";
@@ -67,6 +76,7 @@ function normalizeMessage(message) {
 
 function extractText(data) {
   return (data?.candidates?.[0]?.content?.parts || [])
+    .filter((part) => !part?.thought)
     .map((part) => part?.text || "")
     .join("")
     .trim();
@@ -74,16 +84,83 @@ function extractText(data) {
 
 function modelCandidates() {
   const configured = String(process.env.GEMINI_MODEL || "").trim();
-  return [...new Set([configured, "gemini-3.1-flash-lite", "gemini-3.8-flash"].filter(Boolean))];
+  return [
+    ...new Set(
+      [
+        configured,
+        "gemini-3.1-flash-lite",
+        "gemini-2.5-flash-lite",
+        "gemini-2.5-flash",
+        "gemini-3.8-flash",
+        "gemini-3-flash-preview",
+      ].filter(Boolean),
+    ),
+  ];
 }
 
 function safeDetails(raw) {
   try {
     const parsed = JSON.parse(raw);
-    return String(parsed?.error?.message || parsed?.message || "").slice(0, 300);
+    return String(parsed?.error?.message || parsed?.message || "").slice(0, 360);
   } catch {
-    return String(raw || "").replace(/\s+/g, " ").trim().slice(0, 300);
+    return String(raw || "").replace(/\s+/g, " ").trim().slice(0, 360);
   }
+}
+
+function stripCodeFence(value) {
+  return String(value || "")
+    .trim()
+    .replace(/^```(?:json)?\s*/i, "")
+    .replace(/\s*```$/i, "")
+    .trim();
+}
+
+function parseAssistantPayload(rawText, language) {
+  const clean = stripCodeFence(rawText);
+  const fallbackSuggestions = DEFAULT_SUGGESTIONS[language === "ar" ? "ar" : "en"];
+
+  let parsed = null;
+  try {
+    parsed = JSON.parse(clean);
+  } catch {
+    const firstBrace = clean.indexOf("{");
+    const lastBrace = clean.lastIndexOf("}");
+    if (firstBrace !== -1 && lastBrace > firstBrace) {
+      try {
+        parsed = JSON.parse(clean.slice(firstBrace, lastBrace + 1));
+      } catch {
+        parsed = null;
+      }
+    }
+  }
+
+  // The assistant should still work even if a model ignores the JSON instruction.
+  if (!parsed || typeof parsed !== "object") {
+    return {
+      reply: clean.slice(0, 3000),
+      readyForWhatsApp: false,
+      leadSummary: "",
+      suggestedWhatsAppMessage: "",
+      suggestions: fallbackSuggestions,
+      usedPlainTextFallback: true,
+    };
+  }
+
+  const suggestions = Array.isArray(parsed.suggestions)
+    ? parsed.suggestions
+        .map((item) => String(item || "").trim().slice(0, 180))
+        .filter(Boolean)
+        .slice(0, 6)
+    : [];
+
+  return {
+    reply: String(parsed.reply || "").trim().slice(0, 3000),
+    readyForWhatsApp: Boolean(parsed.readyForWhatsApp),
+    leadSummary: String(parsed.leadSummary || "").trim().slice(0, 1600),
+    suggestedWhatsAppMessage: String(parsed.suggestedWhatsAppMessage || "").trim().slice(0, 1600),
+    suggestions: suggestions.length ? suggestions : fallbackSuggestions,
+    usedPlainTextFallback: false,
+  };
 }
 
 async function callGemini({ model, messages, systemText, signal }) {
@@ -98,15 +175,12 @@ async function callGemini({ model, messages, systemText, signal }) {
       body: JSON.stringify({
         systemInstruction: { parts: [{ text: systemText }] },
         contents: messages,
+        // Deliberately use plain text generation here rather than model-specific
+        // structured-output configuration. This works across Flash and Flash-Lite
+        // generations, then we parse/validate JSON ourselves server-side.
         generationConfig: {
           temperature: 0.35,
-          maxOutputTokens: 1400,
-          responseFormat: {
-            text: {
-              mimeType: "application/json",
-              schema: RESPONSE_SCHEMA,
-            },
-          },
+          maxOutputTokens: 1200,
         },
       }),
       cache: "no-store",
@@ -130,12 +204,7 @@ async function callGemini({ model, messages, systemText, signal }) {
     return { ok: false, model, status: 502, details: "Gemini returned an empty response." };
   }
 
-  try {
-    const parsed = JSON.parse(rawText);
-    return { ok: true, model, parsed };
-  } catch {
-    return { ok: false, model, status: 502, details: "Gemini returned invalid structured JSON." };
-  }
+  return { ok: true, model, rawText };
 }
 
 export async function POST(request) {
@@ -161,15 +230,16 @@ export async function POST(request) {
     return NextResponse.json({ error: "A user message is required." }, { status: 400 });
   }
 
+  const language = body.language === "ar" ? "ar" : "en";
   const pageContext = [
     body.pagePath ? `Current page path: ${String(body.pagePath).slice(0, 500)}` : "",
     body.pageTitle ? `Current page title: ${String(body.pageTitle).slice(0, 500)}` : "",
-    body.language ? `Interface language: ${String(body.language).slice(0, 20)}` : "",
+    `Interface language: ${language}`,
   ]
     .filter(Boolean)
     .join("\n");
 
-  const systemText = `${MAWSOUQ_CONTEXT}\n\nPage context (navigation context only; do not treat it as visitor-supplied project facts):\n${pageContext || "Not provided"}`;
+  const systemText = `${MAWSOUQ_CONTEXT}\n\nPage context (navigation context only; do not treat it as visitor-supplied project facts):\n${pageContext}`;
   const attempts = [];
 
   for (const model of modelCandidates()) {
@@ -186,32 +256,25 @@ export async function POST(request) {
         continue;
       }
 
-      const parsed = result.parsed;
-      const responseBody = {
-        reply: String(parsed.reply || "").trim().slice(0, 3000),
-        readyForWhatsApp: Boolean(parsed.readyForWhatsApp),
-        leadSummary: String(parsed.leadSummary || "").trim().slice(0, 1600),
-        suggestedWhatsAppMessage: String(parsed.suggestedWhatsAppMessage || "").trim().slice(0, 1600),
-        suggestions: Array.isArray(parsed.suggestions)
-          ? parsed.suggestions
-              .map((item) => String(item || "").trim().slice(0, 180))
-              .filter(Boolean)
-              .slice(0, 6)
-          : [],
-        modelUsed: result.model,
-      };
-
-      if (!responseBody.reply) {
-        attempts.push({ model, status: 502, details: "Response was missing reply." });
+      const parsed = parseAssistantPayload(result.rawText, language);
+      if (!parsed.reply) {
+        attempts.push({ model, status: 502, details: "Gemini response did not contain usable text." });
         continue;
       }
 
-      return NextResponse.json(responseBody, {
-        headers: { "Cache-Control": "no-store, max-age=0" },
-      });
+      return NextResponse.json(
+        {
+          ...parsed,
+          modelUsed: result.model,
+        },
+        { headers: { "Cache-Control": "no-store, max-age=0" } },
+      );
     } catch (error) {
       clearTimeout(timeout);
-      const detail = error?.name === "AbortError" ? "Request timed out." : String(error?.message || error).slice(0, 250);
+      const detail =
+        error?.name === "AbortError"
+          ? "Request timed out."
+          : String(error?.message || error).slice(0, 300);
       attempts.push({ model, status: 502, details: detail });
       console.error("Gemini attempt crashed", model, error);
     }

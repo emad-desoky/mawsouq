@@ -145,6 +145,15 @@ export default function MawsooqChatbot({ language = "en" }) {
     () => JSON.stringify({ chat_summary: leadSummary, ai_ready: readyForWhatsApp }),
     [leadSummary, readyForWhatsApp],
   );
+  const latestSuggestions = useMemo(() => {
+    for (let index = messages.length - 1; index >= 0; index -= 1) {
+      const message = messages[index];
+      if (message.role === "assistant" && Array.isArray(message.suggestions) && message.suggestions.length) {
+        return normalizeSuggestions(message.suggestions, t.fallbackSuggestions, 6);
+      }
+    }
+    return t.fallbackSuggestions.slice(0, 6);
+  }, [messages, t.fallbackSuggestions]);
 
   useEffect(() => {
     if (!open) return;
@@ -267,9 +276,6 @@ export default function MawsooqChatbot({ language = "en" }) {
             >
               {messages.map((message, index) => {
                 const isAssistant = message.role === "assistant";
-                const isLatestAssistant =
-                  isAssistant &&
-                  !messages.slice(index + 1).some((item) => item.role === "assistant");
 
                 return (
                   <div key={`${message.role}-${index}`} className="space-y-2.5">
@@ -299,29 +305,6 @@ export default function MawsooqChatbot({ language = "en" }) {
                           {t.whatsappShort}
                         </a>
 
-                        {isLatestAssistant && Array.isArray(message.suggestions) && message.suggestions.length ? (
-                          <div
-                            data-lenis-prevent
-                            data-lenis-prevent-wheel
-                            data-lenis-prevent-touch
-                            onWheelCapture={stopNestedScroll}
-                            onTouchMoveCapture={stopNestedScroll}
-                            className="mawsooq-suggestion-scroll flex w-full snap-x snap-mandatory flex-nowrap gap-2 overflow-x-auto overflow-y-hidden overscroll-x-contain pb-2 pt-0.5"
-                            style={{ touchAction: "pan-x", WebkitOverflowScrolling: "touch" }}
-                          >
-                            {message.suggestions.map((item) => (
-                              <button
-                                key={item}
-                                type="button"
-                                onClick={() => submitMessage(item)}
-                                disabled={loading}
-                                className="shrink-0 snap-start whitespace-nowrap rounded-full border border-[#2f86f6]/30 bg-[#2f86f6]/10 px-3.5 py-2 text-[11px] font-black leading-4 text-[#2f86f6] transition hover:bg-[#2f86f6]/16 disabled:opacity-50"
-                              >
-                                {item}
-                              </button>
-                            ))}
-                          </div>
-                        ) : null}
                       </div>
                     ) : null}
                   </div>
@@ -341,6 +324,31 @@ export default function MawsooqChatbot({ language = "en" }) {
             </div>
 
             <footer className="shrink-0 border-t border-[color:var(--hairline)] bg-[color:var(--surface)] p-3">
+              {latestSuggestions.length ? (
+                <div
+                  data-lenis-prevent
+                  data-lenis-prevent-wheel
+                  data-lenis-prevent-touch
+                  onWheelCapture={stopNestedScroll}
+                  onTouchMoveCapture={stopNestedScroll}
+                  className="mawsooq-suggestion-scroll mb-2.5 flex w-full snap-x snap-mandatory flex-nowrap gap-2 overflow-x-auto overflow-y-hidden overscroll-x-contain pb-2"
+                  style={{ touchAction: "pan-x", WebkitOverflowScrolling: "touch" }}
+                  aria-label={lang === "ar" ? "اقتراحات سريعة" : "Quick suggestions"}
+                >
+                  {latestSuggestions.map((item) => (
+                    <button
+                      key={item}
+                      type="button"
+                      onClick={() => submitMessage(item)}
+                      disabled={loading}
+                      className="shrink-0 snap-start whitespace-nowrap rounded-full border border-[#2f86f6]/30 bg-[#2f86f6]/10 px-3.5 py-2 text-[11px] font-black leading-4 text-[#2f86f6] transition hover:border-[#2f86f6]/50 hover:bg-[#2f86f6]/16 disabled:opacity-50"
+                    >
+                      {item}
+                    </button>
+                  ))}
+                </div>
+              ) : null}
+
               <form
                 onSubmit={(event) => {
                   event.preventDefault();
