@@ -1,16 +1,5 @@
-MAWSOUQ SEO + AI + WHATSAPP LEAD TRACKING PATCH
-Date: 2026-09-20
-
-Contents:
-- 5 new English construction cluster articles
-- updated English query ownership guard
-- CTR-oriented metadata refreshes for selected existing English pages
-- canonical redirect for /en/blog/build-saudi-arabia
-- bilingual Mawsooq AI chatbot (server-side Gemini)
-- global WhatsApp reference-code tracking
-- server-side WhatsApp click logger
-- Google Sheets Apps Script bridge + setup guide
-- SEO recovery analysis and deployment guide
-
-No new npm dependency is required.
-Secrets are intentionally NOT embedded in this ZIP. Use Vercel environment variables.
+components/LeadClickTracker.jsx
+components/ai/MawsooqChatbot.jsx
+lib/leadTracking.js
+README-PATCH.md
+PATCH-MANIFEST.txt
