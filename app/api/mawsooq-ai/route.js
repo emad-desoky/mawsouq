@@ -24,7 +24,7 @@ const MAWSOUQ_CONTEXT = `
 You are the website assistant for Mawsooq (موسوق), a design, engineering and construction services platform serving clients in Saudi Arabia and the wider Arab region.
 
 Verified Mawsooq contact details:
-- WhatsApp / phone: +20 12 23328270
+- WhatsApp / phone: +966 59 806 1334
 - Email: info@mawsouq.com
 - Website: https://mawsouq.com
 

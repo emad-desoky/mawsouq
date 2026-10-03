@@ -6,6 +6,7 @@ import { getAllBlogEntries as getAllOneFloorCostEntries } from "./_arabic-pages/
 import { getAllResthouseEntries } from "./_arabic-pages/_resthouse-cluster/resthouse-data";
 import { getAllArabicSeo2026Entries } from "@/lib/arabicSeo2026";
 import { getAllRiyadhEngineeringEntries } from "./_arabic-pages/_riyadh-engineering-cluster/riyadh-engineering-data";
+import { getAllMawsooqProjectEntries } from "@/lib/mawsouqProjects";
 
 export const dynamic = "force-static";
 
@@ -165,6 +166,7 @@ export default function sitemap() {
     ...getAllResthouseEntries(),
     ...getAllArabicSeo2026Entries(),
     ...getAllRiyadhEngineeringEntries(),
+    ...getAllMawsooqProjectEntries(),
   ];
 
   for (const sourceEntry of trustedContentEntries) {

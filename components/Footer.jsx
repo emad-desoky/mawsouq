@@ -6,6 +6,7 @@ import Image from "next/image";
 const footerLinks = {
   services: [
     { href: "/", label: "خدماتنا" },
+    { href: "/مشاريعنا/", label: "مشاريعنا" },
     { href: "#architectural-design", label: "التصميم المعماري" },
     { href: "#cost-calculator", label: "حاسبة التكلفة" },
   ],
@@ -181,13 +182,13 @@ export default function Footer() {
                   </p>
                   <div className="flex flex-col gap-1.5">
                     <a
-                      href="https://wa.me/201223328270"
+                      href="https://wa.me/966598061334"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm text-white/75 transition hover:text-[#25D366]"
                       dir="ltr"
                     >
-                      +20 12 23328270
+                      +966 59 806 1334
                     </a>
                   </div>
                 </div>
@@ -220,7 +221,7 @@ export default function Footer() {
             </p>
 
             <a
-              href="https://wa.me/201223328270?text=مرحبا%20موسوق،%20أريد%20استشارة"
+              href="https://wa.me/966598061334?text=مرحبا%20موسوق،%20أريد%20استشارة"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-bold text-white transition hover:scale-[1.02]"

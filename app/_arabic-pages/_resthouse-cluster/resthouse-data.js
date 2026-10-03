@@ -13,7 +13,7 @@
 
 export const SITE_URL = "https://mawsouq.com";
 export const DATA_AS_OF = "2026-08-06";
-export const WHATSAPP_NUMBER = "201223328270";
+export const WHATSAPP_NUMBER = "966598061334";
 
 export const routes = {
   home: "/",

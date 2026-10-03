@@ -44,11 +44,11 @@ The normal Vercel `npm run build` also runs the Arabic route generator again.
 
 All new page-specific WhatsApp CTAs use only:
 
-`+20 12 23328270`
+`+966 59 806 1334`
 
 Destination:
 
-`https://wa.me/201223328270`
+`https://wa.me/966598061334`
 
 Each article uses a different prefilled message so the incoming lead identifies the page and intent.
 

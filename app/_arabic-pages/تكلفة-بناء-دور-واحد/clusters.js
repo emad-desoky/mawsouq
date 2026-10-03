@@ -23,9 +23,9 @@ export const BLOG_HUB = "/المدونات/";
 export const business = {
   name: "موسوق",
   legalName: "منصة موسوق للتصميم والبناء",
-  phone: "+201223328270",
-  displayPhone: "+20 12 23328270",
-  whatsappNumber: "201223328270",
+  phone: "+966598061334",
+  displayPhone: "+966 59 806 1334",
+  whatsappNumber: "966598061334",
   email: "info@mawsouq.com",
   logo: `${SITE_URL}/mawsouq-logo.png`,
   serviceArea: [

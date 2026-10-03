@@ -15,7 +15,7 @@ import MawsooqProofSection from "@/components/ar/MawsooqProofSection";
 import { ARABIC_SEO_2026_PAGES } from "@/lib/arabicSeo2026";
 
 const SITE_URL = "https://mawsouq.com";
-const WHATSAPP_NUMBER = "201223328270";
+const WHATSAPP_NUMBER = "966598061334";
 
 function getPageBySlug(slug) {
   return Object.values(ARABIC_SEO_2026_PAGES).find((page) => page.slug === slug) || null;

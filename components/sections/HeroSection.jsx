@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const WHATSAPP_URL =
-  "https://wa.me/201223328270?text=مرحبا%20موسوق،%20أريد%20استشارة%20عن%20خدمات%20التصميم%20والبناء";
+  "https://wa.me/966598061334?text=مرحبا%20موسوق،%20أريد%20استشارة%20عن%20خدمات%20التصميم%20والبناء";
 
 const features = [
   "تصميم معماري",

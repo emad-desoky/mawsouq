@@ -330,7 +330,7 @@ export default function RiyadhEngineeringArticle({ article }) {
           "@type": "Organization",
           name: "موسوق",
           url: "https://mawsouq.com/",
-          telephone: "+201223328270",
+          telephone: "+966598061334",
         },
         areaServed: { "@type": "City", name: "Riyadh" },
         description:
@@ -674,7 +674,7 @@ export default function RiyadhEngineeringArticle({ article }) {
                 أرسل المساحة والمرحلة والخدمة المطلوبة للحصول على بداية أوضح.
               </p>
               <WhatsAppButton article={article} className="mt-4 w-full px-4">
-                واتساب +20 12 23328270
+                واتساب +966 59 806 1334
               </WhatsAppButton>
             </div>
           </div>

@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import {
+  ArrowLeft,
   BadgeCheck,
   ExternalLink,
   MessageCircle,
@@ -10,9 +12,14 @@ import {
   X,
 } from "lucide-react";
 import { trackLeadAction, trackTrustVideo } from "@/lib/leadTracking";
+import {
+  MAWSOUQ_YOUTUBE_CHANNEL,
+  PROJECT_VIDEO_SAMPLES,
+  TESTIMONIAL_VIDEOS,
+} from "@/lib/mawsouqProjects";
 
-const CHANNEL_URL = "https://www.youtube.com/channel/UCsLilv9AZyX-a3NWBRWiD4Q";
-const WHATSAPP_NUMBER = "201223328270";
+const CHANNEL_URL = MAWSOUQ_YOUTUBE_CHANNEL;
+const WHATSAPP_NUMBER = "966598061334";
 
 function YouTubeIcon({ className = "h-5 w-5" }) {
   return (
@@ -22,20 +29,8 @@ function YouTubeIcon({ className = "h-5 w-5" }) {
   );
 }
 
-const projectVideos = [
-  { id: "3CmBsvvEetI", label: "مشروع تصميم معماري من موسوق" },
-  { id: "d0uXqjHkf_A", label: "نموذج مشروع تصميم من موسوق" },
-  { id: "m7_D-luA-DE", label: "جولة في مشروع تصميم معماري" },
-  { id: "WEF3yjCjr2Y", label: "مشروع آخر منشور على قناة موسوق" },
-];
-
-const testimonialVideos = [
-  { id: "XcKDALgCuIA", label: "رأي عميل في تجربة موسوق" },
-  { id: "J493Jm1f0Xc", label: "تجربة عميل مع موسوق" },
-  { id: "T9715tHfyiY", label: "رأي عميل بعد التعامل مع موسوق" },
-  { id: "QuT6C1L4ya4", label: "شهادة عميل منشورة على قناة موسوق" },
-  { id: "-oS2pzOKqY8", label: "رأي عميل في خدمات موسوق" },
-];
+const projectVideos = PROJECT_VIDEO_SAMPLES;
+const testimonialVideos = TESTIMONIAL_VIDEOS;
 
 function VideoCard({ video, type, onPlay }) {
   const vertical = type === "testimonial";
@@ -105,16 +100,25 @@ export default function MawsooqProofSection({
           </div>
         </div>
 
-        <a
-          href={CHANNEL_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 text-sm font-black text-white transition hover:bg-white/15"
-        >
-          <YouTubeIcon className="h-[19px] w-[19px]" />
-          قناة موسوق
-          <ExternalLink size={15} />
-        </a>
+        <div className="flex flex-col gap-2 sm:flex-row lg:flex-col">
+          <Link
+            href="/مشاريعنا/"
+            className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-black !text-[#0b5bb8] transition hover:-translate-y-0.5"
+          >
+            شاهد دراسات المشاريع
+            <ArrowLeft size={16} />
+          </Link>
+          <a
+            href={CHANNEL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 text-sm font-black text-white transition hover:bg-white/15"
+          >
+            <YouTubeIcon className="h-[19px] w-[19px]" />
+            قناة موسوق
+            <ExternalLink size={15} />
+          </a>
+        </div>
       </div>
 
       <div className="p-6 md:p-8">

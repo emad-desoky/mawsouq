@@ -78,7 +78,7 @@ export default function EnglishHomePage() {
         url: "https://mawsouq.com/",
         logo: "https://mawsouq.com/mawsouq-logo.png",
         email: "info@mawsouq.com",
-        telephone: "+201223328270",
+        telephone: "+966598061334",
         areaServed: [
           { "@type": "Country", name: "Saudi Arabia" },
           { "@type": "AdministrativeArea", name: "Gulf Cooperation Council" },

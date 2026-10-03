@@ -6,7 +6,7 @@ import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const WHATSAPP_URL =
-  "https://wa.me/201223328270?text=Hello%20Mawsooq%2C%20I%20would%20like%20a%20consultation%20about%20design%20and%20construction%20services%20in%20the%20Arab%20region";
+  "https://wa.me/966598061334?text=Hello%20Mawsooq%2C%20I%20would%20like%20a%20consultation%20about%20design%20and%20construction%20services%20in%20the%20Arab%20region";
 
 const navLinks = [
   { href: "/en/", label: "Home" },

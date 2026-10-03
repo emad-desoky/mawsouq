@@ -9,6 +9,7 @@ import AboutSection from "@/components/sections/AboutSection";
 import CTASection from "@/components/sections/CTASection";
 import FAQSection from "@/components/sections/FAQSection";
 import HeroSection from "@/components/sections/HeroSection";
+import ProjectsShowcaseSection from "@/components/sections/ProjectsShowcaseSection";
 
 export default function SaudiArabicPage() {
   const jsonLd = {
@@ -36,7 +37,7 @@ export default function SaudiArabicPage() {
         url: "https://mawsouq.com",
         logo: "https://mawsouq.com/mawsouq-logo.png",
         email: "info@mawsouq.com",
-        telephone: "+201223328270",
+        telephone: "+966598061334",
         address: [
           {
             "@type": "PostalAddress",
@@ -127,7 +128,7 @@ export default function SaudiArabicPage() {
             name: "هل يمكنني التواصل عبر واتساب؟",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "نعم، يمكنك التواصل معنا مباشرة عبر واتساب على الرقم +201223328270 للحصول على استشارة مجانية حول مشروعك.",
+              text: "نعم، يمكنك التواصل معنا مباشرة عبر واتساب على الرقم +966598061334 للحصول على استشارة مجانية حول مشروعك.",
             },
           },
           {
@@ -153,6 +154,7 @@ export default function SaudiArabicPage() {
       <HeroSection />
       <WhyMawsouqSection />
       <ServicesSection />
+      <ProjectsShowcaseSection />
       <SaudiCitiesSection />
       <ProcessSection />
       <CostCalculatorSection />

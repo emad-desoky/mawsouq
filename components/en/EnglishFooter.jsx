@@ -182,13 +182,13 @@ export default function EnglishFooter() {
                   </p>
                   <div className="flex flex-col gap-1.5">
                     <a
-                      href="https://wa.me/201223328270"
+                      href="https://wa.me/966598061334"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm text-white/75 transition hover:text-[#25D366]"
                       dir="ltr"
                     >
-                      +20 12 23328270
+                      +966 59 806 1334
                     </a>
                   </div>
                 </div>
@@ -219,7 +219,7 @@ export default function EnglishFooter() {
             </p>
 
             <a
-              href="https://wa.me/201223328270?text=Hello%20Mawsooq%2C%20I%20would%20like%20a%20consultation"
+              href="https://wa.me/966598061334?text=Hello%20Mawsooq%2C%20I%20would%20like%20a%20consultation"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-bold text-white transition hover:scale-[1.02]"

@@ -15,7 +15,7 @@ const SITE_URL = "https://mawsouq.com";
 const PILLAR_URL = `${SITE_URL}/${encodeURIComponent("تكلفة-بناء-دور-واحد")}/`;
 
 function whatsappLink(message) {
-  return `https://wa.me/201223328270?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/966598061334?text=${encodeURIComponent(message)}`;
 }
 
 function internalHref(slug) {

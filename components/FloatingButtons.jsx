@@ -4,8 +4,8 @@ import { MessageCircle, Phone } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { trackLeadAction } from "@/lib/leadTracking";
 
-const PHONE = "+201223328270";
-const WHATSAPP_NUMBER = "201223328270";
+const PHONE = "+966598061334";
+const WHATSAPP_NUMBER = "966598061334";
 
 const WHATSAPP_ONLY_SEO_SLUGS = [
   "بناء-فلة",

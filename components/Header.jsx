@@ -7,10 +7,11 @@ import ThemeToggle from "@/components/ThemeToggle";
 import { trackLeadAction } from "@/lib/leadTracking";
 
 const WHATSAPP_URL =
-  "https://wa.me/201223328270?text=مرحبا%20موسوق،%20أريد%20استشارة%20عن%20خدمات%20التصميم%20والبناء%20في%20الوطن%20العربى";
+  "https://wa.me/966598061334?text=مرحبا%20موسوق،%20أريد%20استشارة%20عن%20خدمات%20التصميم%20والبناء%20في%20السعودية";
 
 const navLinks = [
   { href: "/", label: "الرئيسية" },
+  { href: "/مشاريعنا/", label: "مشاريعنا" },
   {
     href: "/%d8%a7%d9%84%d9%85%d8%af%d9%88%d9%86%d8%a7%d8%aa/",
     label: "المدونات",
@@ -21,7 +22,6 @@ const navLinks = [
   },
   { href: "/#architectural-design", label: "التصميم المعماري" },
   { href: "/#cost-calculator", label: "حاسبة التكلفة" },
-  { href: "/#faq", label: "الأسئلة الشائعة" },
 ];
 
 function WhatsAppIcon() {

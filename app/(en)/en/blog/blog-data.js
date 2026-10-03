@@ -12,8 +12,8 @@ export const DATA_AS_OF = "2026-09-20";
 
 export const business = {
   name: "Mawsooq",
-  whatsappNumber: "201223328270",
-  displayPhone: "+20 12 23328270",
+  whatsappNumber: "966598061334",
+  displayPhone: "+966 59 806 1334",
   email: "info@mawsouq.com",
   logo: `${SITE_URL}/mawsouq-logo.png`,
 };

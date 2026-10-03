@@ -1,7 +1,7 @@
 "use client";
 
 const WHATSAPP_URL =
-  "https://wa.me/201223328270?text=مرحبا%20موسوق،%20أريد%20الاستفسار%20عن%20خدمة%20";
+  "https://wa.me/966598061334?text=مرحبا%20موسوق،%20أريد%20الاستفسار%20عن%20خدمة%20";
 
 const services = [
   {
@@ -205,7 +205,7 @@ export default function ServicesSection() {
             </div>
 
             <a
-              href="https://wa.me/201223328270?text=مرحبا%20موسوق،%20أريد%20استشارة%20عن%20خدمات%20التصميم%20والبناء"
+              href="https://wa.me/966598061334?text=مرحبا%20موسوق،%20أريد%20استشارة%20عن%20خدمات%20التصميم%20والبناء"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex min-h-12 w-full shrink-0 items-center justify-center rounded-full bg-[color:var(--brand)] px-6 py-3 text-center text-sm font-black leading-5 text-white shadow-[0_16px_36px_rgba(11,91,184,0.26)] transition hover:-translate-y-1 hover:bg-[color:var(--brand-bright)] lg:w-auto lg:px-8"
