@@ -655,7 +655,7 @@ export default function AreaCostClusterPage({
 
             <section id="faq" className="mt-16 scroll-mt-32">
               <SectionTitle eyebrow="FAQ" title={`أسئلة شائعة عن تكلفة بناء ${data.area} متر`}>
-                إجابات مباشرة على أكثر الأسئلة قربًا من نية البحث والقرار المالي.
+                إجابات مباشرة على أكثر الأسئلة ارتباطًا بميزانية المشروع والقرار المالي.
               </SectionTitle>
 
               <div className="space-y-3">
@@ -674,9 +674,8 @@ export default function AreaCostClusterPage({
             </section>
 
             <section className="mt-16">
-              <SectionTitle eyebrow="Topic Cluster" title="اقرأ أيضًا ضمن دليل تكلفة بناء دور واحد">
-                كل صفحة تملك نية مستقلة: هذه الصفحة لمساحة {data.area} متر، بينما
-                الدليل الرئيسي يغطي تكلفة الدور الواحد بشكل عام.
+              <SectionTitle eyebrow="أدلة مرتبطة" title="اقرأ أيضًا ضمن دليل تكلفة بناء دور واحد">
+                هذه الصفحة تركز على مساحة {data.area} متر، بينما الدليل الرئيسي يجمع عوامل تكلفة الدور الواحد بشكل أشمل.
               </SectionTitle>
 
               <p className="mb-6 rounded-[22px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-5 text-sm font-bold leading-8 text-[color:var(--ink-muted)]">

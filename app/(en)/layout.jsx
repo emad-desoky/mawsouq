@@ -20,6 +20,8 @@ const tajawal = Tajawal({
 
 export const metadata = {
   metadataBase: new URL("https://mawsouq.com"),
+  applicationName: "Mawsooq",
+  publisher: "Mawsooq",
   title: {
     default: "Mawsooq | Design and Construction Services",
     template: "%s | Mawsooq",

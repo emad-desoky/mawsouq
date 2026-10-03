@@ -296,7 +296,7 @@ function RelatedGuides({ article }) {
     <section id="related-guides" className="scroll-mt-32 py-10">
       <div className="mb-7 flex items-end justify-between gap-4">
         <div>
-          <p className="text-xs font-black uppercase tracking-[0.18em] text-[#2f86f6]">Topic cluster</p>
+          <p className="text-xs font-black uppercase tracking-[0.18em] text-[#2f86f6]">Explore this topic</p>
           <h2 className="mt-2 text-3xl font-black tracking-[-0.035em] text-[color:var(--ink)]">Related guides</h2>
         </div>
         <Link href={BLOG_BASE} className="hidden text-sm font-black text-[#2f86f6] sm:inline-flex">View latest blogs</Link>

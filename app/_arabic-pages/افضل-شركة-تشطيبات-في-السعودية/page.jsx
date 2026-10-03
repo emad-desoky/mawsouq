@@ -470,7 +470,7 @@ export default function BestFinishingCompanySaudiPage() {
 
           <section id="why" className="mt-14 scroll-mt-32">
             <SectionTitle
-              eyebrow="Search Intent"
+              eyebrow="قرار الاختيار"
               title="لماذا اختيار شركة التشطيبات قرار حساس؟"
             >
               مرحلة التشطيب هي المرحلة التي يظهر فيها شكل البيت النهائي، لكنها
@@ -882,7 +882,7 @@ export default function BestFinishingCompanySaudiPage() {
           {publishedFutureClusterBlogs.length > 0 ? (
             <section id="new-clusters" className="mt-14 scroll-mt-32">
               <SectionTitle
-                eyebrow="Related Cluster Pages"
+                eyebrow="أدلة مرتبطة"
                 title="مقالات متعلقة بالتشطيب"
               >
                 هذا القسم يعرض فقط مقالات التشطيب المنشورة من ملف clusters.js

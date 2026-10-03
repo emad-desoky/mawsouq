@@ -49,7 +49,7 @@ function formatArabicDate(value) {
 
 function AuthorByline({ page, full = false }) {
   const author = page.author || {
-    name: "Mawsooq Team",
+    name: "فريق موسوق",
     role: "فريق موسوق للتصميم والبناء",
     avatar: "/mawsouq-logo.png",
     url: "/عن-الشركة/",
@@ -61,7 +61,7 @@ function AuthorByline({ page, full = false }) {
       <span className={`relative grid shrink-0 place-items-center overflow-hidden rounded-full border border-[color:var(--hairline-strong)] bg-white ${full ? "size-16" : "size-11"}`}>
         <Image
           src={author.avatar || "/mawsouq-logo.png"}
-          alt="شعار موسوق - صورة فريق Mawsooq Team"
+          alt="شعار موسوق - فريق موسوق"
           fill
           sizes={full ? "64px" : "44px"}
           className="object-contain p-1"
@@ -69,9 +69,7 @@ function AuthorByline({ page, full = false }) {
       </span>
       <span className="min-w-0">
         <span className="flex flex-wrap items-center gap-2 text-sm font-black text-[color:var(--ink)]">
-          <span>Mawsooq Team</span>
-          <span className="text-[color:var(--ink-faint)]">|</span>
-          <span>فريق موسوق</span>
+          <span>{author.name || "فريق موسوق"}</span>
           <BadgeCheck size={16} className="text-[color:var(--brand)]" aria-hidden="true" />
         </span>
         <span className="mt-1 block text-xs font-bold leading-6 text-[color:var(--ink-faint)]">
@@ -108,14 +106,14 @@ function ClusterLinksSection({ page }) {
   return (
     <section id="related-guides" className="scroll-mt-32 my-10 rounded-[30px] border border-[color:var(--hairline-strong)] bg-[color:var(--surface-2)] p-5 md:p-7">
       <div className="max-w-[900px]">
-        <span className="text-xs font-black text-[color:var(--brand)]">{isCluster ? "استكمل نفس المحور" : "Topic Cluster"}</span>
+        <span className="text-xs font-black text-[color:var(--brand)]">{isCluster ? "استكمل القراءة" : "أدلة مرتبطة"}</span>
         <h2 className="mt-2 text-3xl font-black leading-tight tracking-[-.035em] text-[color:var(--ink)] md:text-4xl">
           {isCluster ? "أدلة مرتبطة تساعدك على اتخاذ القرار" : "أدلة مرتبطة داخل هذا المحور"}
         </h2>
         <p className="mt-4 text-[15px] font-bold leading-8 text-[color:var(--ink-muted)]">
           {isCluster
-            ? "هذه الصفحة تجيب عن نية بحث محددة. استخدم الروابط التالية للعودة إلى الدليل الرئيسي أو الانتقال إلى أسئلة قريبة بدون تكرار نفس المحتوى."
-            : "كل رابط أدناه يملك سؤالًا أو نية بحث مختلفة داخل نفس الموضوع. ربطها بهذه الصفحة يقوي البنية الموضوعية ويساعدك على الانتقال من الدليل العام إلى القرار المتخصص."}
+            ? "استخدم الروابط التالية للعودة إلى الدليل الرئيسي أو الانتقال إلى أدلة قريبة تساعدك على استكمال القرار بدون تكرار المعلومات نفسها."
+            : "اختر الدليل الأقرب لمرحلة مشروعك لتنتقل من الصورة العامة إلى التفاصيل العملية التي تحتاجها قبل التصميم أو التسعير أو التنفيذ."}
         </p>
       </div>
 
@@ -369,8 +367,8 @@ function buildJsonLd(page) {
       image: { "@type": "ImageObject", url: image, width: 1600, height: 900 },
       author: {
         "@type": page.author?.type || "Organization",
-        name: page.author?.name || "Mawsooq Team",
-        alternateName: "فريق موسوق",
+        name: page.author?.name || "فريق موسوق",
+        alternateName: page.author?.alternateName || "Mawsooq Team",
         url: absoluteUrl(page.author?.url || "/عن-الشركة/"),
         image: absoluteUrl(page.author?.avatar || "/mawsouq-logo.png"),
       },
@@ -500,7 +498,7 @@ export default function ArabicSeo2026Article({ page }) {
               <div className="mt-7 flex flex-wrap gap-2 text-xs font-black text-[color:var(--ink-faint)]">
                 <span className="rounded-full bg-[color:var(--surface-2)] px-3 py-2">محتوى عربي أصيل</span>
                 <span className="rounded-full bg-[color:var(--surface-2)] px-3 py-2">مشاريع وآراء عملاء بالفيديو</span>
-                <span className="rounded-full bg-[color:var(--surface-2)] px-3 py-2">CTA مباشر عبر واتساب</span>
+                <span className="rounded-full bg-[color:var(--surface-2)] px-3 py-2">تواصل مباشر عبر واتساب</span>
               </div>
             </div>
 
@@ -575,18 +573,18 @@ export default function ArabicSeo2026Article({ page }) {
 
             {(cluster || parent) ? (
               <section className="my-12 overflow-hidden rounded-[30px] border border-[color:var(--hairline)] bg-[linear-gradient(135deg,#071321,#0b5bb8)] p-6 text-white md:p-8">
-                <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-black text-cyan-100"><ShieldCheck size={15} /> ضمن نفس Topic Cluster</span>
+                <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-black text-cyan-100"><ShieldCheck size={15} /> ضمن نفس الموضوع</span>
                 {cluster ? (
                   <>
                     <h2 className="mt-5 text-3xl font-black">تابع إلى الدليل المتخصص: {cluster.primaryKeyword}</h2>
-                    <p className="mt-3 max-w-[850px] text-sm font-bold leading-8 text-white/75">هذا المقال يملك النية الأوسع، بينما الصفحة التالية تتعمق في استعلام محدد حتى لا نكرر نفس المحتوى أو نخلق cannibalization.</p>
+                    <p className="mt-3 max-w-[850px] text-sm font-bold leading-8 text-white/75">هذا الدليل يقدم الصورة الأوسع، بينما الدليل التالي يتعمق في جانب محدد من القرار حتى تحصل على التفاصيل التي تحتاجها دون تكرار المحتوى نفسه.</p>
                     <Link href={`/${cluster.slug}/`} className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-black text-white transition hover:bg-white/15">{page.clusterAnchor}<ArrowLeft size={16} /></Link>
                   </>
                 ) : null}
                 {parent ? (
                   <>
                     <h2 className="mt-5 text-3xl font-black">هذا المقال يدعم الدليل الرئيسي</h2>
-                    <p className="mt-3 max-w-[850px] text-sm font-bold leading-8 text-white/75">للحصول على الصورة الكاملة، ارجع إلى الصفحة الأساسية التي تملك نية البحث الأوسع ثم استخدم هذه الصفحة للسؤال المتخصص.</p>
+                    <p className="mt-3 max-w-[850px] text-sm font-bold leading-8 text-white/75">للحصول على الصورة الكاملة، ارجع إلى الدليل الأساسي ثم استخدم هذه الصفحة للتفاصيل المتخصصة المرتبطة بقرارك.</p>
                     <Link href={`/${parent.slug}/`} className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-black text-white transition hover:bg-white/15">{parent.primaryKeyword}<ArrowLeft size={16} /></Link>
                   </>
                 ) : null}

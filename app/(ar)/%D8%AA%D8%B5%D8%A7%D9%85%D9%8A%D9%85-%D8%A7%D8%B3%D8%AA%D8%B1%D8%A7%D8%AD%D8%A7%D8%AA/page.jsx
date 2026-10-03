@@ -222,8 +222,8 @@ export default function ResortDesignsPillarPage() {
               التصميم أو تبدأ التنفيذ.
             </p>
             <p className="rest-hero-support">
-              احتفظنا بالأفكار والصور التي حققت ظهورًا جيدًا في Google، ثم أضفنا
-              هيكلًا أوضح يساعدك على تحويل الإلهام إلى قرار: استراحة عائلية أم
+              جمعنا الأفكار والصور الأكثر فائدة للعميل، ثم نظمناها في مسار واضح
+              يساعدك على تحويل الإلهام إلى قرار: استراحة عائلية أم
               مناسبات؟ مودرن أم ريفية؟ بمسبح أم بدون؟ وما المعلومات التي يحتاجها
               المصمم قبل البدء؟
             </p>
@@ -266,9 +266,9 @@ export default function ResortDesignsPillarPage() {
 
         <section className="rest-snapshot" aria-label="ملخص الدليل">
           <article><strong>30</strong><span>فكرة وصورة محفوظة من المحتوى الأصلي</span></article>
-          <article><strong>5</strong><span>أدلة فرعية تغطي أهم نوايا البحث</span></article>
+          <article><strong>5</strong><span>أدلة فرعية تغطي أهم قرارات التصميم</span></article>
           <article><strong>قرار أول</strong><span>حدد الاستخدام قبل شكل الواجهة</span></article>
-          <article><strong>واتساب</strong><span>CTA مرتبط مباشرة بتفاصيل مشروعك</span></article>
+          <article><strong>واتساب</strong><span>تواصل مرتبط مباشرة بتفاصيل مشروعك</span></article>
         </section>
 
         <details className="rest-mobile-toc">
@@ -435,12 +435,12 @@ export default function ResortDesignsPillarPage() {
             </section>
 
             <section id="cluster-guides" className="rest-section">
-              <span className="rest-eyebrow">شبكة Topic Cluster</span>
+              <span className="rest-eyebrow">أدلة مرتبطة</span>
               <h2>أدلة تفصيلية مرتبطة بتصميم الاستراحات</h2>
               <p>
-                هذا الدليل يملك الاستعلام العام <strong>تصاميم استراحات</strong>.
-                المقالات التالية تتعمق في نوايا محددة حتى لا تتنافس الصفحات مع
-                بعضها، بل تدعم الصفحة الركائزية وتجيب عن قرارات مختلفة.
+                هذا الدليل يقدم الصورة العامة لتصميم الاستراحات. الأدلة التالية
+                تتعمق في قرارات محددة مثل المساحة والمسبح والنمط والميزانية، حتى
+                تصل مباشرة إلى المعلومات الأقرب لمشروعك.
               </p>
 
               <div className="rest-cluster-grid">

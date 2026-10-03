@@ -1,7 +1,8 @@
 import fs from "fs";
-import { getAllBlogEntries as getAllOneFloorCostEntries } from "./_arabic-pages/تكلفة-بناء-دور-واحد/clusters";
 import path from "path";
+
 import { getAllEnglishBlogEntries } from "./(en)/en/blog/blog-data";
+import { getAllBlogEntries as getAllOneFloorCostEntries } from "./_arabic-pages/تكلفة-بناء-دور-واحد/clusters";
 import { getAllResthouseEntries } from "./_arabic-pages/_resthouse-cluster/resthouse-data";
 import { getAllArabicSeo2026Entries } from "@/lib/arabicSeo2026";
 import { getAllRiyadhEngineeringEntries } from "./_arabic-pages/_riyadh-engineering-cluster/riyadh-engineering-data";
@@ -9,16 +10,11 @@ import { getAllRiyadhEngineeringEntries } from "./_arabic-pages/_riyadh-engineer
 export const dynamic = "force-static";
 
 const SITE_URL = "https://mawsouq.com";
-
-// Since the old WordPress URLs mostly had trailing slash.
-// IMPORTANT: if you do NOT add trailingSlash: true in next.config.js,
-// change this to false.
 const USE_TRAILING_SLASH = true;
-
 const APP_DIR = path.join(process.cwd(), "app");
-
 const PAGE_FILES = new Set(["page.js", "page.jsx", "page.ts", "page.tsx"]);
 
+// URLs that permanently redirect must not be advertised as indexable sitemap URLs.
 const REDIRECTED_PATHS = new Set(["/التصميم-الإنشائي"]);
 
 const SKIP_SEGMENTS = new Set([
@@ -28,66 +24,6 @@ const SKIP_SEGMENTS = new Set([
   "login",
   "register",
 ]);
-
-const HIGH_PRIORITY_ROUTES = [
-  "/",
-  "/افضل-شركة-تشطيبات-في-السعودية",
-  "/تصاميم-استراحات",
-  "/التصميم-المعماري",
-  "/تكلفة-بناء-دور-واحد",
-  "/حفر-الأرض",
-  "/باركيه",
-  "/بناء-فلة",
-  "/افضل-مكتب-هندسي-بالدمام",
-  "/تصميم-انشائي",
-  "/جبس-عادي-بورد",
-  "/طريقة-توزيع-الغرف-في-البيت",
-  "/تصميم-حدائق",
-  "/الدهان-البوية",
-  "/فلل-مودرن",
-  "/تصاميم-فلل-نيو-كلاسيك-موسوق",
-  "/أحدث-ديكورات-غرف-نوم-ماستر",
-  "/طرق-تمنع-نمو-العفن",
-  "/هدم-مبانى",
-  "/تصاميم-منازل-من-الخارج",
-  "/انواع-الديكور-الداخلي",
-  "/افضل-مكتب-هندسي-مدينة-الرياض",
-  "/مكتب-هندسي-معتمد-في-الرياض",
-  "/تصميم-فلل-في-الرياض",
-  "/اسعار-المخططات-الهندسية-في-الرياض",
-  "/استشارات-هندسية-في-الرياض",
-  "/السيراميك-الرخام",
-  "/حاسبة-التشيد-و-البناء",
-  "/واجهات-منازل-حديثة",
-  "/شركة-موسوق-تصميم-استراحات-وشاليهات",
-  "/ايجاد-مهندس-انشائي",
-  "/تكلفة-بناء-فيلا-300-متر",
-  "/تكلفة-التصميم-المعماري-في-السعودية",
-  "/سعر-التصميم-الانشائي-في-السعودية",
-  "/تصميم-فلل-بالدمام",
-  "/متى-تحتاج-مهندس-انشائي",
-  "/cost-building-rest-house-saudi-mawsooq",
-  "/ديكور-التلفاز",
-  "/صيانة-المكيفات",
-  "/مظلات-السيارات-السعودية",
-  "/تكلفة-رخصة-الهدم-في-السعودية",
-  "/الفرق-بين-رخصة-الهدم-وقرار-الهدم",
-  "/تصميم-وتنفيذ-الهياكل-الخرسانية-خدمات",
-  "/مكتبة-الوثائق",
-  "/تصميم-واجهات-مودرن",
-  "/المدونات",
-  "/عن-الشركة",
-  "/خدماتنا",
-  "/اتصل-بنا",
-  "/سياسة-الخصوصية",
-  "/شروط-الاستخدام",
-];
-
-const HIGH_PRIORITY_SET = new Set(
-  HIGH_PRIORITY_ROUTES.map((route) =>
-    stripTrailingSlash(normalizeRoute(route)),
-  ),
-);
 
 function safeDecode(value) {
   try {
@@ -109,14 +45,8 @@ function decodeUntilStable(value) {
   return output;
 }
 
-function stripTrailingSlash(value) {
-  if (value === "/") return "/";
-  return value.replace(/\/+$/, "");
-}
-
 function withTrailingSlash(value) {
-  if (!USE_TRAILING_SLASH) return value;
-  if (value === "/") return "/";
+  if (!USE_TRAILING_SLASH || value === "/") return value;
   return value.endsWith("/") ? value : `${value}/`;
 }
 
@@ -150,16 +80,10 @@ function isDynamicRoute(segment) {
 }
 
 function shouldSkipDirectory(segment) {
-  if (!segment) return true;
-  if (segment.startsWith(".")) return true;
-
-  // Next.js private folders are not public routes.
-  // Rename app/_arabic-pages to app/(arabic-pages) if you want those pages live.
+  if (!segment || segment.startsWith(".")) return true;
   if (segment.startsWith("_")) return true;
-
   if (SKIP_SEGMENTS.has(segment)) return true;
   if (isDynamicRoute(segment)) return true;
-
   return false;
 }
 
@@ -167,95 +91,28 @@ function hasPageFile(items) {
   return items.find((item) => item.isFile() && PAGE_FILES.has(item.name));
 }
 
-function getPriority(route) {
-  const cleanRoute = stripTrailingSlash(normalizeRoute(route));
+function collectFilesystemRoutes() {
+  const routes = new Set();
 
-  if (cleanRoute === "/") return 1;
-
-  if (HIGH_PRIORITY_SET.has(cleanRoute)) {
-    return 0.95;
-  }
-
-  const decoded = safeDecode(cleanRoute);
-
-  if (
-    decoded.includes("المدونات") ||
-    decoded.includes("التصميم") ||
-    decoded.includes("تكلفة") ||
-    decoded.includes("بناء") ||
-    decoded.includes("فلل") ||
-    decoded.includes("استراحات")
-  ) {
-    return 0.85;
-  }
-
-  if (
-    decoded.includes("عن-الشركة") ||
-    decoded.includes("اتصل-بنا") ||
-    decoded.includes("سياسة-الخصوصية") ||
-    decoded.includes("شروط-الاستخدام")
-  ) {
-    return 0.6;
-  }
-
-  return 0.75;
-}
-
-function getChangeFrequency(route) {
-  const cleanRoute = stripTrailingSlash(normalizeRoute(route));
-
-  if (cleanRoute === "/") return "daily";
-  if (HIGH_PRIORITY_SET.has(cleanRoute)) return "weekly";
-
-  const decoded = safeDecode(cleanRoute);
-
-  if (
-    decoded.includes("المدونات") ||
-    decoded.includes("التصميم") ||
-    decoded.includes("تكلفة") ||
-    decoded.includes("بناء")
-  ) {
-    return "weekly";
-  }
-
-  return "monthly";
-}
-
-function collectRoutes() {
-  const routes = new Map();
-
-  function addRoute(route, lastModified) {
+  function addRoute(route) {
     const normalized = normalizeRoute(route);
-
     if (!normalized) return;
     if (REDIRECTED_PATHS.has(safeDecode(normalized))) return;
-
-    routes.set(normalized, {
-      route: normalized,
-      lastModified,
-    });
+    routes.add(normalized);
   }
 
   function walk(directory, routeParts = []) {
     if (!fs.existsSync(directory)) return;
 
     const items = fs.readdirSync(directory, { withFileTypes: true });
-    const pageFile = hasPageFile(items);
 
-    if (pageFile) {
-      const route = routeParts.length === 0 ? "/" : `/${routeParts.join("/")}`;
-
-      const pagePath = path.join(directory, pageFile.name);
-      const stats = fs.statSync(pagePath);
-
-      addRoute(route, stats.mtime);
+    if (hasPageFile(items)) {
+      addRoute(routeParts.length === 0 ? "/" : `/${routeParts.join("/")}`);
     }
 
     for (const item of items) {
       if (!item.isDirectory()) continue;
-
       const segment = item.name;
-
       if (shouldSkipDirectory(segment)) continue;
 
       const nextRouteParts =
@@ -268,65 +125,51 @@ function collectRoutes() {
   }
 
   walk(APP_DIR);
+  return Array.from(routes);
+}
 
-  return Array.from(routes.values()).sort((a, b) => {
-    if (a.route === "/") return -1;
-    if (b.route === "/") return 1;
+function cleanExplicitEntry(entry) {
+  if (!entry?.url) return null;
 
-    const aHigh = HIGH_PRIORITY_SET.has(stripTrailingSlash(a.route));
-    const bHigh = HIGH_PRIORITY_SET.has(stripTrailingSlash(b.route));
+  const normalizedPath = normalizeRoute(entry.url);
+  if (!normalizedPath) return null;
+  if (REDIRECTED_PATHS.has(safeDecode(normalizedPath))) return null;
 
-    if (aHigh && !bHigh) return -1;
-    if (!aHigh && bHigh) return 1;
+  // Normalize explicit/dynamic entries the same way as filesystem routes so an
+  // Arabic URL cannot appear twice as both Unicode and percent-encoded forms.
+  const url = `${SITE_URL}${withTrailingSlash(normalizedPath)}`;
 
-    return a.route.localeCompare(b.route, "ar");
-  });
+  // Google ignores changefreq and priority. Keep lastModified only when it is
+  // supplied by the content data itself and therefore represents a real,
+  // substantial page update rather than a deployment/build timestamp.
+  return {
+    url,
+    ...(entry.lastModified ? { lastModified: entry.lastModified } : {}),
+  };
 }
 
 export default function sitemap() {
-  const routes = collectRoutes();
   const entries = new Map();
 
-  for (const { route, lastModified } of routes) {
+  // Filesystem pages are included without lastModified because file mtimes can
+  // change during builds/deployments even when the page content did not.
+  for (const route of collectFilesystemRoutes()) {
     const finalPath = withTrailingSlash(route);
-    const entry = {
-      url: `${SITE_URL}${finalPath}`,
-      lastModified,
-      changeFrequency: getChangeFrequency(route),
-      priority: getPriority(route),
-    };
-
-    entries.set(entry.url, entry);
+    const url = `${SITE_URL}${finalPath}`;
+    entries.set(url, { url });
   }
 
-  // Dynamic English blog routes are not discoverable by the filesystem walker,
-  // so the topic-cluster data file supplies their canonical sitemap entries.
-  for (const entry of getAllEnglishBlogEntries()) {
-    entries.set(entry.url, entry);
-  }
+  const trustedContentEntries = [
+    ...getAllEnglishBlogEntries(),
+    ...getAllOneFloorCostEntries(),
+    ...getAllResthouseEntries(),
+    ...getAllArabicSeo2026Entries(),
+    ...getAllRiyadhEngineeringEntries(),
+  ];
 
-  // MAWSOUQ ONE FLOOR COST CLUSTER ENTRIES
-  for (const entry of getAllOneFloorCostEntries()) {
-    entries.set(entry.url, entry);
-  }
-
-  // The Arabic resthouse pillar keeps its existing public URL, while the five
-  // new cluster routes are generated from app/_arabic-pages at build time.
-  // Their canonical entries come from the shared cluster data file.
-  for (const entry of getAllResthouseEntries()) {
-    entries.set(entry.url, entry);
-  }
-
-  // 2026 Arabic commercial SEO rebuild: five refreshed legacy URLs + five new clusters.
-  for (const entry of getAllArabicSeo2026Entries()) {
-    entries.set(entry.url, entry);
-  }
-
-  // Riyadh engineering pillar + four focused clusters. Explicit entries are
-  // required because the long Arabic price slug is served through the dynamic
-  // long-route registry and cannot be discovered as an individual filesystem route.
-  for (const entry of getAllRiyadhEngineeringEntries()) {
-    entries.set(entry.url, entry);
+  for (const sourceEntry of trustedContentEntries) {
+    const entry = cleanExplicitEntry(sourceEntry);
+    if (entry) entries.set(entry.url, entry);
   }
 
   return Array.from(entries.values()).sort((a, b) => {

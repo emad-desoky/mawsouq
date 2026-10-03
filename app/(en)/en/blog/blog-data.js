@@ -139,7 +139,7 @@ export const pillar = {
       title: "Quick answer: what does it take to build a house in Saudi Arabia?",
       paragraphs: [
         "To build a house in Saudi Arabia successfully, you need five things aligned before site work begins: a clear owner brief, coordinated architectural and engineering drawings, a compliant permit package, a realistic cost plan, and a contractor agreement that defines scope and payment stages. The project becomes risky when one of these is missing and construction starts anyway.",
-        "The broad journey is simple to describe but demanding to manage: define the house, design it, obtain approvals, appoint the execution team, build and inspect each stage, then close defects before handover. This pillar page owns that complete journey. The supporting guides below go deeper into cost per square metre, villa budgets, permits, contractor selection and timeline planning without duplicating the same search intent.",
+        "The broad journey is simple to describe but demanding to manage: define the house, design it, obtain approvals, appoint the execution team, build and inspect each stage, then close defects before handover. This guide covers that complete journey, while the related guides below go deeper into cost per square metre, villa budgets, permits, contractor selection and timeline planning.",
       ],
       callout: {
         title: "Current market context",
@@ -534,7 +534,7 @@ export const clusters = [
     takeaways:["Use the official Balady workflow.","Confirm requirements for the exact municipality and plot.","Coordinate all technical drawings before submission.","Do not start work before the required permit is issued."],
     toc:[["quick-answer","Quick answer"],["roles","Owner and engineering-office roles"],["before-submit","Before submission"],["process","Application process"],["documents","Document readiness"],["code","Saudi Building Code"],["after-issue","After permit issuance"],["changes","Changes during construction"],["delays","Avoiding delays"],["faqs","FAQs"]],
     sections:[
-      {id:"quick-answer",title:"Quick answer",paragraphs:["A Saudi building permit is obtained through the municipal services available on the Balady platform. Balady's published steps include logging in through Unified National Access, choosing the building-permit service, identifying the owner and applicant, selecting the relevant survey decision, completing the information and sending the request to a classified engineering office. After the required review and payment, the permit can be issued.","The exact documentation can vary by property, municipality and project conditions. Use this page as a readiness framework, then ask the appointed engineering office to verify the current requirements for your plot."],callout:{title:"Important",text:"A permit guide cannot replace plot-specific professional review. Setbacks, land-use controls, heights, access, soil conditions and authority comments can change the required package."}},
+      {id:"quick-answer",title:"Quick answer",paragraphs:["A Saudi building permit is obtained through the municipal services available on the Balady platform. Balady's published steps include logging in through Unified National Access, choosing the building-permit service, identifying the owner and applicant, selecting the relevant survey decision, completing the information and sending the request to a classified engineering office. After the required review and payment, the permit can be issued.","The exact documentation can vary by property, municipality and project conditions. Use this guide as a readiness framework, then ask the appointed engineering office to verify the current requirements for your plot."],callout:{title:"Important",text:"A permit guide cannot replace plot-specific professional review. Setbacks, land-use controls, heights, access, soil conditions and authority comments can change the required package."}},
       {id:"roles",title:"What the owner and engineering office each need to do",paragraphs:["The owner supplies accurate property information, approves the project brief and responds to design decisions. The engineering office prepares and coordinates the professional submission, applies the relevant requirements and manages technical responses within its appointed scope. Problems occur when the owner assumes the office can invent missing decisions, or when the office submits before the owner has approved a stable design.","Agree the appointment in writing. It should identify design disciplines, number of revisions, authority-submission scope, response to comments, site-supervision services if any, and which third-party reports or fees are excluded. Permit issuance and construction supervision are related but not automatically the same service."],table:{caption:"Responsibility split to confirm before permit work",headers:["Topic","Owner responsibility","Professional responsibility"],rows:[["Plot information","Provide verified ownership and available records","Review information needed for the submission"],["Design brief","Approve rooms, use and priorities","Translate the brief into compliant coordinated design"],["Authority comments","Make timely commercial or planning decisions","Prepare technical responses and revisions"],["Post-permit changes","Request changes formally","Assess technical and approval impact"]]}},
       {id:"before-submit",title:"What to resolve before the permit application starts",paragraphs:["The fastest permit response begins with a coordinated design, not a faster upload. Confirm the owner's room brief, plot boundaries, access, required setbacks, number of floors, parking, service locations and any special site constraints before the technical team completes detailed drawings.","If architectural, structural and MEP teams are working from different revisions, the submission may contain conflicting openings, shaft sizes, equipment locations or floor levels. Establish one issue register and one approved drawing revision for the application package."],checklist:["Verified plot and ownership information","Approved architectural concept","Agreed structural design basis","MEP loads and service strategy","Consistent drawing titles and revision numbers","Named person responsible for authority comments","Owner availability for time-sensitive decisions"]},
       {id:"process",title:"The permit process in practical project order",steps:[{title:"1. Verify plot information",text:"Confirm ownership, cadastral or survey information and the municipality responsible for the property."},{title:"2. Appoint the engineering office",text:"Use an appropriately classified and licensed office for the required technical role."},{title:"3. Coordinate the design package",text:"Architectural, structural and MEP information should agree before submission."},{title:"4. Submit through Balady",text:"The authorised party completes the electronic workflow and responds to comments."},{title:"5. Pay required fees and obtain the permit",text:"Keep the issued permit and approved documents available for site execution and inspections."}],image:sharedImages.plans},
@@ -626,7 +626,7 @@ export const clusters = [
     description:
       "Use a practical construction cost calculator framework for Saudi Arabia. Estimate your house or villa budget by area, scope, finish level and city.",
     excerpt:
-      "A high-intent budgeting guide that explains how to estimate construction cost in Saudi Arabia before you request contractor quotations.",
+      "A practical budgeting guide that explains how to estimate construction cost in Saudi Arabia before you request contractor quotations.",
     image: "/images/blog/construction-cost-calculator-saudi-arabia.png",
     imageAlt: "Construction cost calculator Saudi Arabia",
     datePublished: "2026-08-06",
@@ -644,7 +644,7 @@ export const clusters = [
       "A useful calculator starts with built-up area, city, scope and finish level.",
       "Planning rates should become a measured estimate before signing a construction contract.",
       "Design fees, permits, utilities, external works and VAT should remain visible as separate lines.",
-      "The calculator page should convert visitors into qualified quote requests, not just display a number.",
+      "A useful calculator should show its assumptions clearly and make it easy to request a project-specific estimate when the planning range is no longer enough.",
     ],
     toc: [
       ["quick-answer", "Quick answer"],
@@ -665,8 +665,8 @@ export const clusters = [
           "This guide supports buyers who search for a fast estimate but still want a trustworthy framework. Use it to create an early planning budget, then compare the result against live contractor quotations and the more detailed Mawsooq guides on square-metre cost, villa cost and Riyadh budgeting.",
         ],
         callout: {
-          title: "Intent behind this page",
-          text: "Visitors searching for a construction cost calculator are often close to a live project. Make the page useful enough to build trust, then offer a direct WhatsApp CTA for a scoped estimate.",
+          title: "When to use this calculator",
+          text: "If you are already budgeting a live project, use the calculator as an early planning tool, then share the project location, area and scope on WhatsApp when you need a more tailored estimate.",
         },
         image: {
           src: "/images/blog/construction-cost-calculator-saudi-arabia.png",
@@ -801,7 +801,7 @@ export const clusters = [
     whatsappMessage:
       "Hello Mawsooq, I want help reviewing a turnkey house construction offer in Saudi Arabia.",
     highlights: [
-      { value: "Turnkey", label: "buyer intent with high conversion value" },
+      { value: "Turnkey", label: "useful for owners comparing full-scope delivery" },
       { value: "Scope", label: "matters more than the headline price" },
       { value: "Contract", label: "must define inclusions and exclusions" },
     ],
@@ -827,7 +827,7 @@ export const clusters = [
         title: "Quick answer: what does turnkey really mean?",
         paragraphs: [
           "In Saudi residential construction, turnkey normally means the owner receives a completed and usable home rather than a shell or semi-finished structure. However, the exact level of completion varies by contractor. Some turnkey offers include most finishes and essential systems but exclude kitchens, specialist joinery, landscaping or major utility service items.",
-          "That is why this query has strong buyer intent. The visitor is not looking for inspiration; they want clarity about what they will receive for the price. The right SEO page answers that directly and gives the owner a clean checklist for reviewing offers.",
+          "At this stage, owners usually need clarity about exactly what they will receive for the price rather than general inspiration. Use the checklist below to compare offers on the same scope, inclusions and handover standard.",
         ],
         image: {
           src: "/images/blog/turnkey-house-construction-cost-saudi-arabia.png",
@@ -949,7 +949,7 @@ export const clusters = [
     description:
       "See a practical 200 sqm house cost example for Saudi Arabia. Compare shell, finished and turnkey scenarios with clear assumptions and common exclusions.",
     excerpt:
-      "A focused lead-generation article for one of the most commercial long-tail construction budget queries in English.",
+      "A practical worked example for homeowners planning the budget of a 200 sqm house in Saudi Arabia.",
     image: "/images/blog/cost-to-build-200-sqm-house-saudi-arabia.png",
     imageAlt: "Cost to build a 200 sqm house in Saudi Arabia",
     datePublished: "2026-08-04",
@@ -959,15 +959,15 @@ export const clusters = [
     whatsappMessage:
       "Hello Mawsooq, I am planning a 200 sqm house in Saudi Arabia and want a budget estimate.",
     highlights: [
-      { value: "200 sqm", label: "specific long-tail query with buyer intent" },
+      { value: "200 sqm", label: "specific worked example for a common house size" },
       { value: "3 scenarios", label: "shell, finished and turnkey" },
       { value: "Example", label: "easy for clients to compare with their case" },
     ],
     takeaways: [
-      "A 200 sqm page should use one clear worked example, not a vague generic range.",
+      "A 200 sqm estimate is most useful when it uses one clear worked example instead of a vague generic range.",
       "The biggest shifts come from scope, finish level, city and design complexity.",
       "Small area changes can still move the budget materially when rates change by only a little per square metre.",
-      "This page performs best when it pushes visitors toward a WhatsApp discussion with their area and city.",
+      "For a more useful project estimate, share the city, built-up area, scope and finish level when requesting a quotation.",
     ],
     toc: [
       ["quick-answer", "Quick answer"],
@@ -985,7 +985,7 @@ export const clusters = [
         title: "Quick answer: how much can a 200 sqm house cost?",
         paragraphs: [
           "A 200 sqm house in Saudi Arabia can sit in very different cost bands depending on whether the owner wants a shell build, a finished house or a more complete turnkey package. For early planning only, many owners start by comparing multiple scenarios rather than treating one rate as a fixed answer.",
-          "This page works because it is specific. A buyer searching for 200 sqm cost usually has a real project in mind, not general curiosity. The page should therefore deliver a worked example, visible assumptions and a clear CTA for a tailored estimate.",
+          "A 200 sqm example is useful because it turns general rates into a concrete planning exercise. Use the worked example and visible assumptions below, then request a tailored estimate if your city, structure or finish level is different.",
         ],
         image: {
           src: "/images/blog/cost-to-build-200-sqm-house-saudi-arabia.png",
@@ -1080,7 +1080,7 @@ export const clusters = [
       ["How much does a 200 sqm house cost in Saudi Arabia?", "It depends on scope and finish level. For early planning, a shell scenario may sit around SAR 180k–250k, a finished house around SAR 260k–370k and turnkey scenarios can move higher depending on inclusions and quality level."],
       ["Is 200 sqm considered a small house budget?", "It is a moderate size, but the budget still varies significantly based on design complexity, city, systems and finish quality. Compact homes can still become expensive if the specification is high."],
       ["What is the best way to get a more accurate 200 sqm estimate?", "Share the city, total built-up area definition, number of floors, target finish level and any known special features. This lets Mawsooq frame the budget more precisely."],
-      ["Should I compare this page with the square-metre guide?", "Yes. The square-metre guide explains the rate logic, while this page translates that logic into one focused 200 sqm example."],
+      ["Should I compare this guide with the square-metre guide?", "Yes. The square-metre guide explains the rate logic, while this guide translates that logic into one focused 200 sqm example."],
     ],
     sources: [officialSources.gastat, officialSources.zatca],
   },
@@ -1094,7 +1094,7 @@ export const clusters = [
     description:
       "Estimate house construction cost in Riyadh with a practical guide covering budget ranges, scope, local factors and quote comparison for real clients.",
     excerpt:
-      "A city-specific cost guide built to capture Riyadh-based construction enquiries with clear commercial intent.",
+      "A city-specific cost guide for homeowners planning real residential construction projects in Riyadh.",
     image: "/images/blog/house-construction-cost-riyadh.png",
     imageAlt: "House construction cost in Riyadh",
     datePublished: "2026-08-03",
@@ -1104,15 +1104,15 @@ export const clusters = [
     whatsappMessage:
       "Hello Mawsooq, I have a project in Riyadh and want help estimating my house construction budget.",
     highlights: [
-      { value: "Riyadh", label: "high local-intent query" },
+      { value: "Riyadh", label: "city-specific budgeting context" },
       { value: "Budget", label: "built around real client decisions" },
-      { value: "Local factors", label: "make city pages more useful and searchable" },
+      { value: "Local factors", label: "supplier, logistics and project conditions" },
     ],
     takeaways: [
-      "A Riyadh-specific page can attract local enquiries better than a generic national article alone.",
-      "The right page explains why local supplier access, logistics and market context matter.",
-      "City pages should still link back to the broader cost, permit and contractor guides.",
-      "The best CTA asks for location, built-up area and intended handover level.",
+      "Riyadh projects benefit from city-specific assumptions instead of relying only on a generic national average.",
+      "Local supplier access, logistics and market conditions can materially affect the final budget.",
+      "Use the broader cost, permit and contractor guides when you need detail beyond the Riyadh-specific budget factors.",
+      "For a useful estimate, share the location, built-up area and intended handover level.",
     ],
     toc: [
       ["quick-answer", "Quick answer"],
@@ -1129,8 +1129,8 @@ export const clusters = [
         id: "quick-answer",
         title: "Quick answer: how should you budget a house in Riyadh?",
         paragraphs: [
-          "Budget a Riyadh house project by total built-up area, scope level and finish quality, then adjust for local delivery conditions, contractor market conditions and project-specific requirements. City-specific pages are useful because they let the owner think about their real market rather than a generic national average.",
-          "This page complements the broader Saudi square-metre guide and the villa cost guide. It narrows the conversation to Riyadh and works especially well for local lead generation because the search intent is strong and location specific.",
+          "Budget a Riyadh house project by total built-up area, scope level and finish quality, then adjust for local delivery conditions, contractor market conditions and project-specific requirements. City-specific assumptions help the owner plan around the real market rather than a generic national average.",
+          "This guide complements the broader Saudi square-metre and villa-cost guides by focusing on Riyadh-specific budgeting factors, local quotations and project assumptions.",
         ],
         image: {
           src: "/images/blog/house-construction-cost-riyadh.png",
@@ -1139,7 +1139,7 @@ export const clusters = [
       },
       {
         id: "why-riyadh",
-        title: "Why Riyadh deserves its own budgeting page",
+        title: "Why Riyadh needs city-specific budgeting assumptions",
         paragraphs: [
           "Riyadh is one of the Kingdom's biggest and most competitive construction markets, with active residential demand, broad supplier access and a large contractor ecosystem. That does not guarantee low cost, but it does mean the owner has options and should compare offers carefully.",
         ],
@@ -1171,7 +1171,7 @@ export const clusters = [
         id: "local-factors",
         title: "Local factors that affect cost in Riyadh",
         paragraphs: [
-          "City pages become valuable when they explain the real cost drivers. In Riyadh, the owner should think about design ambition, façade materials, HVAC strategy, site access, external works and the quality level expected in the target neighbourhood.",
+          "In Riyadh, the owner should think about design ambition, façade materials, HVAC strategy, site access, external works and the quality level expected in the target neighbourhood. These factors can change the budget even when the built-up area is similar.",
         ],
         table: {
           caption: "Riyadh-specific cost considerations",
@@ -1225,7 +1225,7 @@ export const clusters = [
     ],
     faqs: [
       ["How much does it cost to build a house in Riyadh?", "It depends on built-up area, scope and finish level. For early planning, many projects fall into broad bands that range from controlled designs to premium custom homes, but the result should always be verified with current quotations."],
-      ["Why create a Riyadh-specific page instead of relying on the national guide?", "Because local-intent users search by city. A Riyadh page lets Mawsooq talk directly about the local market and attract higher-conversion enquiries."],
+      ["Why use Riyadh-specific guidance instead of relying only on the national guide?", "Because Riyadh projects can have different supplier, logistics, neighbourhood and specification assumptions. City-specific guidance makes those factors visible while the national guide remains useful for broader comparisons."],
       ["What should I send Mawsooq for a Riyadh estimate?", "Send the project location in Riyadh, expected built-up area, number of floors, preferred scope and target finish level. If you have drawings or a brief, mention that too."],
       ["Can Riyadh quotes differ a lot for the same house?", "Yes. Differences in scope, exclusions, quality level, contractor resources and pricing assumptions can create a wide spread. Normalising the offers is essential."],
     ],
@@ -1270,7 +1270,7 @@ export const clusters = [
       "Architectural design cost should be reviewed together with deliverables, coordination and revision scope.",
       "A cheaper design service may cost more later if it creates rework, permit delays or poor coordination.",
       "This article supports design-service enquiries and links naturally into permit, cost and contractor topics.",
-      "The strongest CTA asks for project type, plot, city and whether the owner already has a brief or concept.",
+      "When requesting design guidance, share the project type, plot, city and whether you already have a brief or concept.",
     ],
     toc: [
       ["quick-answer", "Quick answer"],
@@ -1424,12 +1424,12 @@ export const clusters = [
       "choose-construction-contractor-saudi-arabia",
     ],
     highlights: [
-      { value: "2 floors", label: "new-build intent, not an extension" },
+      { value: "2 floors", label: "new build, not an extension" },
       { value: "3 scopes", label: "shell, finished and turnkey" },
       { value: "WhatsApp", label: "prefilled project brief for faster qualification" },
     ],
     takeaways: [
-      "This page owns new two-story house cost intent; second-floor additions are handled separately.",
+      "A new two-story house should be budgeted differently from adding a second floor to an existing structure.",
       "Budget from total built-up area across both floors, not plot size or one-floor area.",
       "Stairs, structure, MEP distribution and façade complexity can change the effective cost per square metre.",
       "Use planning ranges for feasibility, then replace them with project-specific quantities and live quotations.",
@@ -1452,10 +1452,10 @@ export const clusters = [
         title: "Quick answer: how should you estimate a two-story house?",
         paragraphs: [
           "For a new two-story house in Saudi Arabia, start with the TOTAL built-up area of both floors, then select a scope level: shell, finished or turnkey. The correct planning question is not simply 'what is the price per square metre?' but 'what area, specification and scope does that rate actually cover?'",
-          "This page intentionally owns the new-build two-story query. If you already have a house and want to build another floor above it, use the separate second-floor addition guide because structural assessment, demolition and strengthening can change the decision completely.",
+          "If you already have a house and want to build another floor above it, use the separate second-floor addition guide because structural assessment, demolition and strengthening can change the decision completely.",
         ],
         callout: {
-          title: "Lead-ready information",
+          title: "Information for a more accurate estimate",
           text: "For a faster WhatsApp estimate, send the city, plot size, approximate ground-floor area, first-floor area, finish level and whether you already have architectural drawings.",
         },
         image: sharedImages.villa,
@@ -1577,7 +1577,7 @@ export const clusters = [
     description:
       "Planning to add a second floor to an existing house in Saudi Arabia? Understand structural checks, permits, strengthening risks, cost layers and the information needed for a real estimate.",
     excerpt:
-      "A high-intent extension guide for owners who already have a house and want to know whether another floor is technically and financially practical.",
+      "A practical extension guide for owners who already have a house and want to know whether another floor is technically and financially practical.",
     image: "/images/blog/lead-clusters-en/cost-to-add-second-floor-saudi-arabia.webp",
     imageAlt: "Cost to add a second floor to an existing house in Saudi Arabia",
     datePublished: "2026-08-20",
@@ -1596,14 +1596,14 @@ export const clusters = [
     highlights: [
       { value: "Assess first", label: "existing structure controls feasibility" },
       { value: "Permit", label: "authority and engineering review matter" },
-      { value: "Existing house", label: "separate intent from a new two-story build" },
+      { value: "Existing house", label: "different assessment from a new build" },
     ],
     takeaways: [
       "Do not estimate a second-floor addition like a normal new-build floor before checking the existing structure.",
       "Original drawings, site inspection and structural assessment can materially improve the quality of the decision.",
       "Strengthening, demolition, waterproofing and service modifications can create costs that do not appear in a simple square-metre rate.",
       "The correct permit and engineering workflow should be confirmed for the specific property before work starts.",
-      "This page is designed to convert serious extension enquiries into a structured WhatsApp brief.",
+      "For an extension estimate, prepare the existing drawings, proposed added area, city and any known structural information before requesting advice.",
     ],
     toc: [
       ["quick-answer", "Quick answer"],
@@ -1745,7 +1745,7 @@ export const clusters = [
     description:
       "Before signing a house construction contract in Saudi Arabia, check scope, exclusions, payment milestones, variations, delays, materials, defects and handover documents.",
     excerpt:
-      "A conversion-focused contract checklist for homeowners who already have quotations and are close to choosing a contractor.",
+      "A practical contract checklist for homeowners who already have quotations and are close to choosing a contractor.",
     image: "/images/blog/lead-clusters-en/house-construction-contract-saudi-arabia.webp",
     imageAlt: "House construction contract checklist in Saudi Arabia",
     datePublished: "2026-08-19",
@@ -1767,11 +1767,11 @@ export const clusters = [
       { value: "Variations", label: "written approval protects both parties" },
     ],
     takeaways: [
-      "This page owns contract terms and payment-control intent; contractor-selection intent remains on the existing contractor guide.",
+      "Use this guide for contract terms and payment control; use the contractor-selection guide when you are still comparing providers.",
       "The contract should identify drawings, specifications, inclusions, exclusions and commercial assumptions clearly.",
       "Payment stages should relate to measurable completed work and inspection, not calendar dates alone.",
       "Variation work should be priced and approved in writing before execution where possible.",
-      "Owners close to signing are high-intent leads, so the WhatsApp CTA invites them to share the offer summary for review guidance.",
+      "If you are close to signing, share the offer summary on WhatsApp so the scope, exclusions and key comparison points can be reviewed more clearly.",
     ],
     toc: [
       ["quick-answer", "Quick answer"],
@@ -1793,7 +1793,7 @@ export const clusters = [
           "This guide does not replace legal advice. It is a practical project-control checklist for owners who are already comparing offers or preparing to sign. For contractor screening and reference checks, use Mawsooq's separate contractor-selection guide.",
         ],
         callout: {
-          title: "High-intent CTA",
+          title: "Before you sign",
           text: "If you already have a contractor offer, send the city, built-up area, contract value and the main inclusions/exclusions on WhatsApp. Mawsooq can help you identify commercial questions to clarify before you proceed.",
         },
         image: sharedImages.contractor,
@@ -1942,16 +1942,16 @@ export const clusters = [
       "choose-construction-contractor-saudi-arabia",
     ],
     highlights: [
-      { value: "Jeddah", label: "city-specific commercial search intent" },
+      { value: "Jeddah", label: "city-specific construction budgeting" },
       { value: "Built area", label: "better starting point than plot area" },
       { value: "Local quote", label: "replace generic rates before signing" },
     ],
     takeaways: [
-      "This page owns Jeddah-specific house construction cost intent; the national page continues to own Saudi-wide cost-per-square-metre queries.",
+      "Use the Jeddah-specific assumptions here alongside the national cost-per-square-metre guide for broader Saudi comparisons.",
       "Use the national planning bands for feasibility, then refresh pricing with Jeddah-specific project quotations.",
       "Coastal climate, envelope choices, waterproofing, HVAC design and finish selections should be coordinated for the actual site and design.",
       "The final budget depends on built-up area, design complexity, contractor scope and what is excluded from the quotation.",
-      "The WhatsApp CTA collects district, area, floors and scope to turn search traffic into qualified local leads.",
+      "For a more useful local estimate, share the district, built-up area, number of floors and intended scope on WhatsApp.",
     ],
     toc: [
       ["quick-answer", "Quick answer"],
@@ -1969,7 +1969,7 @@ export const clusters = [
         title: "Quick answer: how should you estimate a house in Jeddah?",
         paragraphs: [
           "Start with total built-up area, select a realistic construction scope and finish level, then use a planning band only for feasibility. Before signing, replace that early estimate with Jeddah-specific contractor quotations based on coordinated drawings and the same scope.",
-          "Jeddah searches have clear local commercial intent. This page therefore focuses on the questions a real owner should answer before requesting a quote rather than repeating the national Saudi construction-cost guide.",
+          "For a Jeddah project, focus on the questions a real owner should answer before requesting a quote: location, built-up area, scope, finish level, access and project-specific requirements. Use the national Saudi construction-cost guide for broader comparisons.",
         ],
         callout: {
           title: "Get a Jeddah-specific conversation",
@@ -2084,7 +2084,7 @@ export const clusters = [
     description:
       "Estimate house and villa construction cost in Dammam and Khobar using built-up area, scope and finish level, then prepare a quote-ready brief for local contractors.",
     excerpt:
-      "A local lead-generation guide for homeowners planning residential construction in Dammam, Khobar and the Eastern Province.",
+      "A local budgeting guide for homeowners planning residential construction in Dammam, Khobar and the Eastern Province.",
     image: "/images/blog/lead-clusters-en/house-construction-cost-dammam-khobar.webp",
     imageAlt: "House construction cost in Dammam and Khobar Saudi Arabia",
     datePublished: "2026-08-17",
@@ -2103,14 +2103,14 @@ export const clusters = [
     highlights: [
       { value: "Dammam", label: "local homeowner cost intent" },
       { value: "Khobar", label: "premium residential project potential" },
-      { value: "Eastern Province", label: "location-qualified WhatsApp leads" },
+      { value: "Eastern Province", label: "local project context" },
     ],
     takeaways: [
-      "This page owns Dammam / Khobar local cost intent and does not replace the national Saudi cost-per-square-metre guide.",
+      "Use these Dammam and Khobar assumptions alongside the national Saudi cost-per-square-metre guide rather than as a replacement for it.",
       "Use one consistent national feasibility framework, then obtain local project quotations for the actual design and site.",
       "Coastal exposure, waterproofing, exterior materials and HVAC decisions should be coordinated with the actual site conditions and applicable code requirements.",
       "Keep external works, owner-supplied packages, professional fees and tax treatment visible when comparing offers.",
-      "The CTA asks for exact Eastern Province location and project data so WhatsApp enquiries arrive more qualified.",
+      "For a more useful discussion, share the exact Eastern Province location and the main project data on WhatsApp.",
     ],
     toc: [
       ["quick-answer", "Quick answer"],
@@ -2127,8 +2127,8 @@ export const clusters = [
         id: "quick-answer",
         title: "Quick answer: how should you budget a house in Dammam or Khobar?",
         paragraphs: [
-          "Use total built-up area, scope and finish level to establish an early feasibility range, then replace generic rates with project-specific Dammam or Khobar quotations. The search intent is local, but the pricing discipline remains the same: compare the same drawings, inclusions and exclusions.",
-          "This article is intentionally location-specific. National cost-per-square-metre questions stay on the main Saudi guide, while this page is designed to attract owners whose project is already in the Eastern Province and who are more likely to need a real design, budget or contractor conversation.",
+          "Use total built-up area, scope and finish level to establish an early feasibility range, then replace generic rates with project-specific Dammam or Khobar quotations. The pricing discipline remains the same: compare the same drawings, inclusions and exclusions.",
+          "This guide focuses on Eastern Province project conditions. Use the national Saudi cost-per-square-metre guide for broader comparisons, then apply local supplier, logistics, site and specification assumptions to the real project.",
         ],
         callout: {
           title: "Eastern Province project brief",
@@ -2282,10 +2282,10 @@ export const architecturePillar = {
   ],
   takeaways: [
     "Architectural design should begin with a written owner brief, plot information and a realistic budget boundary rather than a collection of reference images alone.",
-    "The broad design process and the drawing deliverables are different search intents: this pillar summarizes both and links to dedicated guides for each.",
+    "The broad design process and the drawing deliverables are different decisions. This guide summarizes both and links to dedicated guides for each.",
     "Design cost has its own page so this guide does not compete with the existing architectural-design-cost article.",
     "Villa-specific layout, privacy and facade decisions belong to the villa-design cluster rather than being repeated in full here.",
-    "Dammam and Khobar local service intent has a separate cluster, while this page remains national in scope.",
+    "Dammam and Khobar project considerations are covered in a dedicated guide, while this overview remains national in scope.",
     "Permit and technical requirements should be verified for the actual project through the relevant professional and official Saudi channels.",
     "A good design package makes later cost planning, permits, tender comparison and construction coordination easier because fewer critical decisions remain undefined.",
   ],
@@ -2312,11 +2312,11 @@ export const architecturePillar = {
       title: "Quick answer: what does good architectural design in Saudi Arabia require?",
       paragraphs: [
         "Good architectural design in Saudi Arabia starts by turning the owner’s needs, plot conditions, local requirements and budget boundary into a coordinated design that can be reviewed, approved, priced and eventually built. The most useful early decision is not the facade style; it is agreeing what the project must achieve, how much area is actually needed and which decisions must be resolved before the next stage begins.",
-        "For a house or villa, the design work normally progresses from brief and concept into developed layouts, coordinated technical information and an approval or tender-ready package. The exact scope depends on the project and consultant appointment. This page owns the broad architectural-design intent, while the supporting guides below own specific questions such as villa design, drawings, process, provider selection, local Eastern Province services and design fees.",
+        "For a house or villa, the design work normally progresses from brief and concept into developed layouts, coordinated technical information and an approval or tender-ready package. The exact scope depends on the project and consultant appointment. This guide explains the broad architectural-design journey, while the related guides below answer specific questions about villa design, drawings, process, provider selection, Eastern Province services and design fees.",
       ],
       callout: {
-        title: "Cannibalization guard",
-        text: "This pillar stays broad. Detailed fee questions link to the existing architectural-design-cost page; detailed drawing questions link to the house-plans cluster; process questions link to the design-process cluster; and local Dammam/Khobar searches have their own page.",
+        title: "Keep each decision clear",
+        text: "Start with the broad design overview, then use the dedicated guides for fees, drawing packages, process stages or Dammam/Khobar project considerations when you need more detail.",
       },
       links: [
         { href: "/en/#architectural-design", label: "Architectural Design service", description: "See Mawsooq's architectural-design service context on the English homepage." },
@@ -2406,23 +2406,23 @@ export const architecturePillar = {
       id: "villa-design",
       title: "Villa design needs its own decision framework",
       paragraphs: [
-        "Villa design is a narrower search intent than architectural design as a whole. It usually places more emphasis on family zoning, guest reception, privacy, indoor-outdoor living, parking, stairs and lifts, facade character, landscape interfaces and the relationship between multiple floors. The villa page therefore owns those design decisions so this pillar does not repeat them in full.",
+        "Villa design is a more specific part of architectural design. It usually places more emphasis on family zoning, guest reception, privacy, indoor-outdoor living, parking, stairs and lifts, facade character, landscape interfaces and the relationship between multiple floors. The dedicated villa guide covers those decisions in greater detail so this broader guide can stay focused on the complete design process.",
         "One of the most common mistakes is treating the facade and the plan as separate projects. A large opening, double-height space, balcony or screen changes the internal layout, structure, sun exposure and cost. Good villa design develops the plan and external form together while keeping future engineering coordination in view. That is more useful than selecting a facade style first and forcing the rooms to fit behind it.",
       ],
       links: [
         { href: "/en/blog/villa-design-saudi-arabia/", label: "Villa design in Saudi Arabia", description: "Layouts, privacy, facade decisions and a project-ready villa brief." },
-        { href: "/en/blog/villa-construction-cost-saudi-arabia/", label: "Villa construction cost in Saudi Arabia", description: "Keep design intent separate from the existing villa construction-budget query." },
+        { href: "/en/blog/villa-construction-cost-saudi-arabia/", label: "Villa construction cost in Saudi Arabia", description: "Use this when your main question is construction budget rather than design scope." },
       ],
     },
     {
       id: "cost-scope",
       title: "Design cost should be compared by scope, not by one headline fee",
       paragraphs: [
-        "This pillar intentionally does not reproduce design-fee ranges because Mawsooq already has a page that owns architectural-design-cost intent. The useful decision here is understanding why two fee proposals can differ: one may stop at concept design while another includes developed drawings, coordination, approval support, tender information, 3D work or additional revision rounds. A lower number is not cheaper if important project stages are missing and later purchased separately.",
-        "Before accepting a proposal, compare the exact deliverables, number of options or revisions, meeting cadence, coordination responsibility, excluded disciplines and what happens after owner approval. If the budget is constrained, reduce optional scope deliberately rather than leaving it ambiguous. The dedicated cost guide explains pricing logic and what to ask for without forcing this broad page to compete for the same query.",
+        "Design-fee ranges are covered in the dedicated cost guide. The useful decision here is understanding why two fee proposals can differ: one may stop at concept design while another includes developed drawings, coordination, approval support, tender information, 3D work or additional revision rounds. A lower number is not cheaper if important project stages are missing and later purchased separately.",
+        "Before accepting a proposal, compare the exact deliverables, number of options or revisions, meeting cadence, coordination responsibility, excluded disciplines and what happens after owner approval. If the budget is constrained, reduce optional scope deliberately rather than leaving it ambiguous. The dedicated cost guide explains pricing logic and what to ask for in more detail.",
       ],
       links: [
-        { href: "/en/blog/architectural-design-cost-saudi-arabia/", label: "Architectural design cost in Saudi Arabia", description: "The existing page owns fees, pricing models and design-scope comparisons." },
+        { href: "/en/blog/architectural-design-cost-saudi-arabia/", label: "Architectural design cost in Saudi Arabia", description: "Fees, pricing models and design-scope comparisons." },
       ],
     },
     {
@@ -2453,12 +2453,12 @@ export const architecturePillar = {
       title: "Connect design to permits, pricing and construction instead of treating it as a standalone image exercise",
       paragraphs: [
         "The value of architectural design becomes clearer at the handoff points. Permit preparation depends on coordinated information and the applicable approval route. Cost planning becomes more accurate as area, systems and specifications are resolved. Contractor tendering becomes more comparable when bidders receive the same issued package. Construction becomes easier to control when drawings, revisions and clarifications follow a documented process.",
-        "This is also where the architecture topic connects to Mawsooq’s existing construction authority without cannibalizing it. The architecture pillar owns the design journey. The house-building pillar owns the complete build journey. The permit page owns permit intent. The construction-cost page owns cost-per-square-metre intent. Readers should move between those pages through descriptive internal links instead of finding four pages trying to answer the same question.",
+        "This is also where architectural design connects naturally to the wider construction journey. Use the architecture guide for design decisions, the house-building guide for the complete build process, the permit guide for approvals, and the construction-cost guide for budgeting. Descriptive links between these resources help you move to the right level of detail without repeating the same explanation on every page.",
       ],
       links: [
         { href: "/en/blog/building-permit-saudi-arabia/", label: "Building permit in Saudi Arabia", description: "Dedicated permit workflow and document-readiness guide." },
         { href: "/en/blog/construction-cost-per-square-meter-saudi-arabia/", label: "Construction cost per square meter in Saudi Arabia", description: "Dedicated national residential construction-cost intent." },
-        { href: "/en/blog/build-a-house-saudi-arabia/", label: "How to build a house in Saudi Arabia", description: "The existing pillar owns the full construction journey after design." },
+        { href: "/en/blog/build-a-house-saudi-arabia/", label: "How to build a house in Saudi Arabia", description: "The full construction journey after design." },
       ],
     },
     {
@@ -2501,7 +2501,7 @@ export const architecturePillar = {
   faqs: [
     ["What is included in architectural design in Saudi Arabia?", "The exact scope depends on the appointment. It can include briefing, concept layouts, developed plans, elevations, sections, facade development, coordination, approval support, tender information and later clarifications. Ask for a written deliverable list instead of assuming every design proposal includes the same stages."],
     ["How long does architectural design take in Saudi Arabia?", "There is no reliable single duration for every project. Plot information, project size, number of options, owner decision speed, coordination depth and approval requirements all affect the programme. Ask the designer for stage dates and decision deadlines tied to your actual scope."],
-    ["How much does architectural design cost in Saudi Arabia?", "Design fees depend on scope, project size, complexity, revisions, coordination and approval support. Mawsooq has a separate architectural-design-cost guide that owns this query so pricing detail is not duplicated across multiple pages."],
+    ["How much does architectural design cost in Saudi Arabia?", "Design fees depend on scope, project size, complexity, revisions, coordination and approval support. Use Mawsooq’s dedicated architectural-design-cost guide for the pricing detail and scope comparisons."],
     ["Do I need architectural design before a building permit?", "A permit application requires the appropriate project information and professional workflow. The exact documents and responsibilities depend on the project and authority process, so verify the current requirements through the appointed professionals and official Balady guidance."],
     ["What is the difference between architectural plans and the architectural design process?", "The process is the sequence of decisions and stages used to develop the project. Architectural plans are deliverables produced at those stages. Mawsooq separates these intents into different supporting pages to make each guide more focused."],
     ["Can Mawsooq help with villa design in Saudi Arabia?", "Mawsooq presents architectural-design services and project support for Saudi projects. For a useful first conversation, send the city, plot size, approximate built-up area, room needs, floor count and any reference images or existing drawings."],
@@ -2559,10 +2559,10 @@ export const architectureClusters = [
         title: "Quick answer: what makes a strong villa design in Saudi Arabia?",
         paragraphs: [
           "A strong villa design in Saudi Arabia balances privacy, family life, guest reception, service circulation, parking, outdoor use, facade character and the technical realities of structure and building services. The plan should be easy to live in before it is impressive to look at. That means testing everyday movement, furniture, door positions, stairs, kitchens, service areas and views before locking the facade.",
-          "This page owns villa-design intent. It does not try to rank for villa construction cost, architectural design fees or the broad process of building a house. Those queries already have dedicated pages. Here the goal is to help an owner prepare a better villa brief, evaluate layouts and understand which decisions should be approved before the design moves into detailed coordination.",
+          "This guide focuses on preparing a better villa brief, evaluating layouts and understanding which decisions should be approved before the design moves into detailed coordination. Use the dedicated cost and construction guides when your main question is budget or execution rather than villa design.",
         ],
         links: [
-          { href: "/en/blog/architectural-design-saudi-arabia/", label: "Architectural design in Saudi Arabia", description: "Return to the broad architecture pillar for the complete design context." },
+          { href: "/en/blog/architectural-design-saudi-arabia/", label: "Architectural design in Saudi Arabia", description: "Return to the broad architecture guide for the complete design context." },
           { href: "/en/blog/villa-construction-cost-saudi-arabia/", label: "Villa construction cost in Saudi Arabia", description: "Use the separate page when the primary question is build budget." },
         ],
       },
@@ -2643,9 +2643,9 @@ export const architectureClusters = [
     ],
     faqs: [
       ["What should I prepare before starting a villa design in Saudi Arabia?", "Prepare the plot information you have, city, household and guest needs, room list, approximate floor count, target built-up area, privacy priorities, style references and a realistic budget boundary. Mention any existing drawings, survey information or permit progress."],
-      ["How is villa design different from general architectural design?", "Villa design is a focused residential intent. It places more emphasis on family and guest zoning, privacy, parking, stairs, outdoor living, facade composition and multi-floor relationships. The broader architecture pillar covers the complete design context across project types."],
+      ["How is villa design different from general architectural design?", "Villa design places more emphasis on family and guest zoning, privacy, parking, stairs, outdoor living, facade composition and multi-floor relationships. The broader architecture guide covers the complete design context across project types."],
       ["Should the facade be designed before the floor plan?", "Usually the plan and facade should develop together. Fixing a facade first can force awkward room layouts, openings or structure. The exterior form should respond to internal spaces, orientation, privacy and technical coordination."],
-      ["How much does villa design cost in Saudi Arabia?", "Fee questions depend on scope and deliverables. Use Mawsooq's separate architectural-design-cost guide so pricing intent is handled in one dedicated page instead of duplicated here."],
+      ["How much does villa design cost in Saudi Arabia?", "Fee questions depend on scope and deliverables. Use Mawsooq's separate architectural-design-cost guide for detailed pricing models and scope comparisons."],
       ["Can Mawsooq review an existing villa concept?", "For a useful first conversation, send the city, plot size, available plans or images, the issues you want reviewed and the stage of the project. The team can then clarify what review or design scope is appropriate."],
     ],
     sources: [officialSources.sbc, officialSources.residentialCode, officialSources.baladyPermit],
@@ -2683,12 +2683,12 @@ export const architectureClusters = [
       "Ask every shortlisted provider to price a comparable brief so fee differences can be understood.",
       "Review deliverables, revisions, approval responsibility and excluded disciplines in writing.",
       "Use client testimonials and project videos as trust signals, then still test how the team will handle your actual project.",
-      "The architectural-design-cost page owns fee intent; this page owns provider-selection intent.",
+      "Use the architectural-design-cost guide for fee comparisons; use this guide when you are evaluating which provider fits the project.",
       "A clear first WhatsApp brief makes it easier to identify whether you need concept design, full architecture, coordination or a review service.",
     ],
     toc: [["quick-answer","Quick answer"],["shortlist","Build a shortlist"],["portfolio","Portfolio and proof"],["scope","Compare scope"],["proposal","Proposal comparison"],["coordination","Coordination and approvals"],["interview","Questions to ask"],["red-flags","Red flags"],["decision","Decision framework"],["related-guides","Related guides"],["faqs","FAQs"]],
     sections: [
-      { id:"quick-answer", title:"Quick answer: how should you choose an architecture firm in Saudi Arabia?", paragraphs:["Choose an architecture firm by checking whether its process, team and deliverables fit your project—not simply whether you like its portfolio. Start with a written brief, send the same information to each shortlisted provider and compare what each proposal actually includes. The strongest option is the one that can explain how your brief moves through concept, coordination, approvals and usable project information with clear responsibilities.","This page owns architecture-firm selection intent. It intentionally does not reproduce design-fee guidance or the broad architectural-design process in full. Those topics have their own pages. The goal here is to help an owner move from a long list of providers to a defensible shortlist using project fit, proof, scope clarity, communication and risk control."], links:[{href:"/en/blog/architectural-design-saudi-arabia/",label:"Architectural design in Saudi Arabia",description:"Use the pillar if you first need to understand the complete design journey."},{href:"/en/blog/architectural-design-cost-saudi-arabia/",label:"Architectural design cost",description:"Use the dedicated cost page for fee and pricing-model intent."}] },
+      { id:"quick-answer", title:"Quick answer: how should you choose an architecture firm in Saudi Arabia?", paragraphs:["Choose an architecture firm by checking whether its process, team and deliverables fit your project—not simply whether you like its portfolio. Start with a written brief, send the same information to each shortlisted provider and compare what each proposal actually includes. The strongest option is the one that can explain how your brief moves through concept, coordination, approvals and usable project information with clear responsibilities.","Use this guide to move from a long list of providers to a defensible shortlist using project fit, proof, scope clarity, communication and risk control. For detailed fee comparisons or a full explanation of the design journey, follow the dedicated guides linked below."], links:[{href:"/en/blog/architectural-design-saudi-arabia/",label:"Architectural design in Saudi Arabia",description:"Use this guide if you first need to understand the complete design journey."},{href:"/en/blog/architectural-design-cost-saudi-arabia/",label:"Architectural design cost",description:"Use the dedicated cost guide for fee and pricing-model comparisons."}] },
       { id:"shortlist", title:"Build a shortlist around the project you actually have", paragraphs:["A firm that is strong at one building type or service may not be the best fit for every commission. Start by defining the project type, plot, approximate area, stage and required scope. Then look for evidence that the provider can handle work of similar complexity and can explain the decisions that matter for your case. A relevant process is more valuable than a portfolio full of unrelated projects.","Also decide what kind of relationship you need. Some owners need concept design only; others need a coordinated architecture package, approval support, tender information, interior design or continuing technical clarification. If you do not define that expectation, two proposals can look comparable while one contains several stages the other excludes."], checklist:["Project type and approximate scale match","The firm can explain its design stages","Named deliverables are clear","Revision process is written","Structural/MEP coordination responsibility is defined","Approval support is described accurately","Communication and decision channels are clear","Exclusions are visible rather than hidden"] },
       { id:"portfolio", title:"Use portfolios, testimonials and project videos as evidence—not as the entire decision", paragraphs:["A portfolio can show design quality, range and presentation. Client testimonials can show how people describe the experience. Project videos can help you see how work is communicated. Those are useful trust signals, which is why the Mawsooq proof section on this page includes published client reviews and project showcases from the existing YouTube channel.","But proof should lead to better questions rather than replace them. Ask what the firm's actual role was in a project, what deliverables were produced and how revisions or technical coordination were handled. A beautiful image does not tell you whether the drawing package was complete, whether the owner brief was controlled or whether the team communicated clearly during difficult decisions."], callout:{title:"What to look for in the videos below",text:"Look beyond visual style. Notice the variety of projects, clarity of presentation and whether the work resembles the type of service you need. Then ask how that process would apply to your own brief."} },
       { id:"scope", title:"Compare scope line by line before comparing fees", paragraphs:["The most common procurement mistake is comparing total design fees before normalising scope. One proposal may include concept and 3D only; another may include developed architecture, coordination, approval support and tender information. The cheaper headline can become more expensive if the missing stages are later added as variations or appointed separately under time pressure.","Create a one-page comparison sheet listing concept options, plans/elevations/sections, 3D views, revision rounds, coordination, permit support, tender drawings, site-stage clarification, meeting count and excluded disciplines. Mark each item as included, optional or excluded. This converts a vague creative-service comparison into a decision the owner can explain."], table:{caption:"Architecture proposal comparison sheet",headers:["Item","Firm A","Firm B","Question to resolve"],rows:[["Concept options","Included / excluded","Included / excluded","How many and to what depth?"],["Developed drawings","Included / excluded","Included / excluded","What drawings and stage?"],["3D / visualization","Included / excluded","Included / excluded","How many views and revisions?"],["Structural + MEP coordination","Included / excluded","Included / excluded","Who owns coordination?"],["Permit support","Included / excluded","Included / excluded","Submission role and authority interaction?"],["Tender / construction information","Included / excluded","Included / excluded","What is issued for contractor pricing?"]] } },
@@ -2734,30 +2734,30 @@ export const architectureClusters = [
     whatsappMessage:
       "Hello Mawsooq, I have an architectural design project in Dammam / Khobar / Eastern Province. City/district: __. Plot size: __ m². Project type: __. Approximate built-up area: __ m². Current stage: __. Please help me define the design scope and next steps.",
     relatedSlugs: ["villa-design-saudi-arabia", "choose-architecture-firm-saudi-arabia", "house-architectural-plans-saudi-arabia", "architectural-design-process-saudi-arabia", "architectural-design-cost-saudi-arabia"],
-    highlights: [{ value:"Dammam",label:"local design-service search intent"},{value:"Khobar",label:"villa and residential design context"},{value:"Clear scope",label:"remote, local and approval needs confirmed first"}],
+    highlights: [{ value:"Dammam",label:"local architectural-design service"},{value:"Khobar",label:"villa and residential design context"},{value:"Clear scope",label:"remote, local and approval needs confirmed first"}],
     takeaways: [
-      "This page owns local Dammam/Khobar architectural-design-service intent, not local construction-cost intent.",
-      "Mawsooq can serve clients with Saudi projects digitally, but this page does not claim a physical Mawsooq branch at a Dammam address.",
+      "This guide focuses on architectural design considerations in Dammam and Khobar rather than construction budgeting.",
+      "Mawsooq can serve clients with Saudi projects digitally and does not claim a physical Mawsooq branch at a Dammam address.",
       "If the project requires a locally licensed authority-facing role, site visit or physical attendance, confirm that requirement before appointment.",
       "For Eastern Province sites, discuss sun, outdoor use, material exposure and maintenance with the actual site conditions in mind rather than applying a generic coastal rule.",
       "A local design brief should include the exact city/district, plot, project type, approximate area, floors and current stage.",
-      "Use the separate Dammam/Khobar construction-cost page when the main query is build budget rather than design service.",
+      "Use the separate Dammam/Khobar construction-cost guide when your main question is the build budget rather than the design service.",
     ],
-    toc: [["quick-answer","Quick answer"],["local-intent","What local intent means"],["brief","Project brief"],["site-context","Site and climate context"],["workflow","Design workflow"],["approval","Approval and local roles"],["deliverables","Deliverables"],["compare","Compare providers"],["cost-boundary","Design vs construction cost"],["related-guides","Related guides"],["faqs","FAQs"]],
+    toc: [["quick-answer","Quick answer"],["local-intent","What changes locally"],["brief","Project brief"],["site-context","Site and climate context"],["workflow","Design workflow"],["approval","Approval and local roles"],["deliverables","Deliverables"],["compare","Compare providers"],["cost-boundary","Design vs construction cost"],["related-guides","Related guides"],["faqs","FAQs"]],
     sections: [
-      { id:"quick-answer", title:"Quick answer: what should you look for in architectural design services for Dammam or Khobar?", paragraphs:["Look for a design process that begins with the actual Eastern Province plot and owner brief, then defines the architecture scope, coordination, deliverables and any local or authority-facing requirements before fees are agreed. The location matters because access, orientation, privacy, outdoor use and environmental exposure should be reviewed for the real site rather than assumed from a generic Saudi template.","This page is intentionally local but careful about claims. Mawsooq serves clients with projects in Saudi Arabia and can provide digital design and coordination support. The page should not be read as a claim that Mawsooq operates a physical branch at a specific Dammam address. If a task requires licensed local submission, a site visit or in-person attendance, confirm that requirement as part of the scope."], links:[{href:"/en/blog/architectural-design-saudi-arabia/",label:"Architectural design in Saudi Arabia",description:"National pillar for the broad design journey."},{href:"/en/blog/house-construction-cost-dammam-khobar/",label:"House construction cost Dammam & Khobar",description:"Separate local page for construction-budget intent."}] },
-      { id:"local-intent", title:"Why a Dammam/Khobar design page should answer different questions from a national guide", paragraphs:["A person searching for architectural design services in Dammam or Khobar is usually closer to a real project than someone reading a broad architecture guide. They may already have a plot, district, villa type or design problem. The page therefore needs to make the next step practical: send the actual location, plot dimensions, floor count, approximate area, existing drawings and the decision you need help with.","Local intent does not justify inventing a branch, address, local award or approval capability. Trust comes from a clear process, verifiable project proof and accurate scope. If the project needs an activity that must be carried out by a particular licensed role or physically at the site, that should be identified before appointment instead of implied by local SEO wording."], callout:{title:"Useful first message",text:"Dammam / Khobar / nearby city + district, plot size, approximate built-up area, floors, project stage, required service and any existing drawings."} },
+      { id:"quick-answer", title:"Quick answer: what should you look for in architectural design services for Dammam or Khobar?", paragraphs:["Look for a design process that begins with the actual Eastern Province plot and owner brief, then defines the architecture scope, coordination, deliverables and any local or authority-facing requirements before fees are agreed. The location matters because access, orientation, privacy, outdoor use and environmental exposure should be reviewed for the real site rather than assumed from a generic Saudi template.","Mawsooq serves clients with projects in Saudi Arabia and can provide digital design and coordination support. Mawsooq does not claim a physical branch at a specific Dammam address. If a task requires licensed local submission, a site visit or in-person attendance, confirm that requirement as part of the scope."], links:[{href:"/en/blog/architectural-design-saudi-arabia/",label:"Architectural design in Saudi Arabia",description:"National guide for the broad design journey."},{href:"/en/blog/house-construction-cost-dammam-khobar/",label:"House construction cost Dammam & Khobar",description:"Local guide for construction budgeting."}] },
+      { id:"local-intent", title:"What changes when the project is in Dammam or Khobar", paragraphs:["An owner in Dammam or Khobar may already have a plot, district, villa type or specific design problem. Make the next step practical by sharing the actual location, plot dimensions, floor count, approximate area, existing drawings and the decision you need help with.","Location-specific guidance should remain factual. Mawsooq does not invent a branch, address, local award or approval capability. If the project needs an activity that must be carried out by a particular licensed role or physically at the site, identify that requirement before appointment."], callout:{title:"Useful first message",text:"Dammam / Khobar / nearby city + district, plot size, approximate built-up area, floors, project stage, required service and any existing drawings."} },
       { id:"brief", title:"Build the Eastern Province project brief around the site and household", paragraphs:["For a villa, the brief should cover family and guest zoning, parking, service access, outdoor areas, facade preferences, privacy priorities and future expansion. For a commercial or mixed project, include user flows, operating needs, frontage, servicing and any known technical constraints. The exact location helps the design team discuss orientation, neighbouring context and access rather than designing from plot dimensions alone.","If you already have a concept, explain what you want to keep and what is not working. A review brief such as ‘improve privacy and reduce wasted corridor area without changing the number of bedrooms’ is much more actionable than asking for a completely new design with no decision criteria."], checklist:["Exact city and district","Plot plan or dimensions","Project type and users","Approximate built-up area/floors","Guest-family-service zoning needs","Parking and outdoor priorities","Existing design stage","Any known authority/site information"] },
       { id:"site-context", title:"Discuss sun, outdoor use and environmental exposure using the actual site", paragraphs:["Dammam, Khobar and nearby Eastern Province locations can have strong sun and, depending on the exact location, varying levels of coastal or saline exposure. The correct design and material response is project-specific. Rather than applying a blanket specification, ask the design team how orientation, shading, glazing, external materials, waterproofing details and equipment locations will be reviewed for the site and expected maintenance strategy.","Outdoor spaces also need realistic planning. A terrace or garden that looks attractive in a rendering may be uncomfortable or poorly connected if shade, privacy and movement were not designed. Coordinate the outdoor concept with room locations, boundary conditions and the way the family expects to use the property."], note:"This section is design guidance, not a site-specific environmental specification. Confirm exposure categories, materials and engineering requirements for the actual project." },
       { id:"workflow", title:"Use a controlled local design workflow", paragraphs:["The design stages themselves do not need to be reinvented for every city: brief, concept, developed design, technical coordination, approval information and tender/construction handoff remain a useful framework. What changes is the project input and who must be involved. The local page should therefore connect the national design process to the actual site rather than duplicate the entire process article.","Remote coordination can work well for many design stages when project information is reliable and decisions are documented. Site-dependent tasks may require local measurements, inspection or attendance. Define that boundary at the start so the owner knows which activities are digital and which require another local resource."], links:[{href:"/en/blog/architectural-design-process-saudi-arabia/",label:"Architectural design process in Saudi Arabia",description:"Detailed stages and decision gates."}] },
-      { id:"approval", title:"Confirm approval responsibility and any locally required professional role", paragraphs:["Do not assume that every architecture service includes submission, licensed sign-off or authority interaction. Ask which documents the design team prepares, who is responsible for the permit workflow and whether the project needs a particular local professional, engineering office or site attendance. The answer can vary with project type and scope.","Balady publishes the official building-permit service information, and the Saudi Building Code provides the national technical reference framework. Use those official sources plus the appointed professionals for current project requirements. A local SEO page should make verification easier, not replace it with an unqualified claim."], links:[{href:officialSources.baladyPermit.url,label:officialSources.baladyPermit.label,description:"Official permit service information."},{href:officialSources.sbc.url,label:officialSources.sbc.label,description:"Saudi Building Code reference."}] },
+      { id:"approval", title:"Confirm approval responsibility and any locally required professional role", paragraphs:["Do not assume that every architecture service includes submission, licensed sign-off or authority interaction. Ask which documents the design team prepares, who is responsible for the permit workflow and whether the project needs a particular local professional, engineering office or site attendance. The answer can vary with project type and scope.","Balady publishes the official building-permit service information, and the Saudi Building Code provides the national technical reference framework. Use those official sources plus the appointed professionals for current project requirements. This guide can help you organize the questions to verify, but it should not replace project-specific professional or authority advice."], links:[{href:officialSources.baladyPermit.url,label:officialSources.baladyPermit.label,description:"Official permit service information."},{href:officialSources.sbc.url,label:officialSources.sbc.label,description:"Saudi Building Code reference."}] },
       { id:"deliverables", title:"Ask for deliverables that match the next local project decision", paragraphs:["If the immediate goal is concept approval, the package should support a concept decision. If the goal is permit preparation, the scope should state the information and professional responsibilities needed for that workflow. If the goal is contractor pricing, the issued package should be detailed enough to reduce assumptions and make local quotations comparable.","Do not pay for a large package simply because it sounds comprehensive. Match deliverables to the project stage and make later stages optional only when their boundaries are clear. The house-plans guide explains individual drawing types in more detail."], links:[{href:"/en/blog/house-architectural-plans-saudi-arabia/",label:"House architectural plans in Saudi Arabia",description:"Detailed deliverables and drawing-review guide."}] },
-      { id:"compare", title:"Compare Dammam/Khobar design providers on scope and proof", paragraphs:["Local search results can include firms, platforms and individual professionals with very different service models. Compare relevant project experience, who actually leads the work, deliverables, revision policy, coordination, approval responsibility and communication. If a provider claims a physical location or local accreditation that matters to your decision, verify it independently.","Use published projects and client feedback as evidence of work and experience, but ask what role the provider had in each project. The proof section on this page uses actual Mawsooq YouTube videos already published by the brand so the trust signal is based on a real source rather than invented testimonials."], links:[{href:"/en/blog/choose-architecture-firm-saudi-arabia/",label:"How to choose an architecture firm in Saudi Arabia",description:"Full provider-comparison framework."}] },
-      { id:"cost-boundary", title:"Keep local design fees separate from local construction-cost intent", paragraphs:["A local design-service page can mention that scope affects professional fees, but it should not become another cost article. Design-fee intent belongs to the architectural-design-cost page. Construction-budget intent for Dammam and Khobar belongs to the existing local construction-cost page. Keeping those questions separate helps readers and reduces keyword cannibalization.","If your project is at the design stage, first define the design scope and outputs. If your primary concern is whether the complete villa is financially feasible, move to the local construction-budget guide and then return to the design page with a realistic area and specification strategy."], links:[{href:"/en/blog/architectural-design-cost-saudi-arabia/",label:"Architectural design cost in Saudi Arabia",description:"Professional fee and scope intent."},{href:"/en/blog/house-construction-cost-dammam-khobar/",label:"House construction cost Dammam & Khobar",description:"Local build-budget intent."}] },
+      { id:"compare", title:"Compare Dammam/Khobar design providers on scope and proof", paragraphs:["Local search results can include firms, platforms and individual professionals with very different service models. Compare relevant project experience, who actually leads the work, deliverables, revision policy, coordination, approval responsibility and communication. If a provider claims a physical location or local accreditation that matters to your decision, verify it independently.","Use published projects and client feedback as evidence of work and experience, but ask what role the provider had in each project. The project examples below use actual Mawsooq YouTube videos published by the brand rather than invented testimonials."], links:[{href:"/en/blog/choose-architecture-firm-saudi-arabia/",label:"How to choose an architecture firm in Saudi Arabia",description:"Full provider-comparison framework."}] },
+      { id:"cost-boundary", title:"Keep design fees separate from construction cost", paragraphs:["Design scope affects professional fees, but design fees and construction budgets are different decisions. Use the architectural-design-cost guide for professional scope and fees, and the Dammam and Khobar construction-cost guide for the build budget. Keeping those questions separate makes the comparison clearer and easier to use.","If your project is at the design stage, first define the design scope and outputs. If your primary concern is whether the complete villa is financially feasible, move to the local construction-budget guide and then return to the design page with a realistic area and specification strategy."], links:[{href:"/en/blog/architectural-design-cost-saudi-arabia/",label:"Architectural design cost in Saudi Arabia",description:"Professional fees and scope."},{href:"/en/blog/house-construction-cost-dammam-khobar/",label:"House construction cost Dammam & Khobar",description:"Local construction budget."}] },
     ],
     faqs: [
       ["Does Mawsooq provide architectural design for projects in Dammam and Khobar?", "Mawsooq presents architectural-design and coordination services for clients with projects in Saudi Arabia, including Eastern Province projects. Send the exact location and project details so the required digital, local, approval or site-dependent scope can be clarified."],
-      ["Does Mawsooq have a physical office in Dammam?", "This page should not be treated as a claim that Mawsooq has a physical branch at a specific Dammam address. If your project requires local attendance, licensed authority-facing work or a site visit, confirm how that requirement will be handled before appointment."],
+      ["Does Mawsooq have a physical office in Dammam?", "Mawsooq does not claim a physical branch at a specific Dammam address. If your project requires local attendance, licensed authority-facing work or a site visit, confirm how that requirement will be handled before appointment."],
       ["What should I send for a villa design in Khobar?", "Send the district/location, plot size, approximate built-up area, floors, family and guest requirements, parking, privacy priorities, style references, current project stage and any existing drawings."],
       ["Is architectural design cost different in Dammam and Khobar?", "Do not assume a fixed city percentage. Professional fees depend primarily on scope, complexity, deliverables, revisions and service model. Use the dedicated design-cost guide and obtain a project-specific proposal."],
       ["Can design be done remotely for an Eastern Province project?", "Many briefing, concept, design-development and coordination tasks can be handled digitally when reliable project information is available. Site-dependent or authority-facing tasks may require local input, inspection or attendance, which should be defined for the actual scope."],
@@ -2802,7 +2802,7 @@ export const architectureClusters = [
     ],
     toc: [["quick-answer","Quick answer"],["plan-types","Main drawing types"],["stages","Concept vs permit vs tender"],["floor-plans","Review floor plans"],["elevations","Elevations and sections"],["coordination","Coordination"],["revision-control","Revision control"],["owner-review","Owner review checklist"],["handoff","Permit and tender handoff"],["related-guides","Related guides"],["faqs","FAQs"]],
     sections: [
-      { id:"quick-answer", title:"Quick answer: what house architectural plans should you expect?", paragraphs:["The architectural drawing package should match the project stage. A concept set may contain plans and selected elevations sufficient to approve the design direction. A later package can add dimensions, sections, schedules, details, coordination information and documents needed for approvals or contractor pricing. The important point is not the number of sheets; it is whether the package is complete enough for the decision it is supposed to support.","This page owns drawings-and-deliverables intent. It does not duplicate the design-process article, which explains stages and decision gates, or the architectural-design-cost page, which explains fee logic. If you are reviewing a villa layout rather than a drawing package, the villa-design page is the more focused guide."], links:[{href:"/en/blog/architectural-design-saudi-arabia/",label:"Architectural design in Saudi Arabia",description:"Broad pillar for the complete architecture journey."},{href:"/en/blog/architectural-design-process-saudi-arabia/",label:"Architectural design process",description:"Use this when the question is sequence and stage gates."}] },
+      { id:"quick-answer", title:"Quick answer: what house architectural plans should you expect?", paragraphs:["The architectural drawing package should match the project stage. A concept set may contain plans and selected elevations sufficient to approve the design direction. A later package can add dimensions, sections, schedules, details, coordination information and documents needed for approvals or contractor pricing. The important point is not the number of sheets; it is whether the package is complete enough for the decision it is supposed to support.","Use the design-process guide for stages and decision gates, and the architectural-design-cost guide for fee logic. If you are reviewing a villa layout rather than a drawing package, the villa-design guide is the more focused resource."], links:[{href:"/en/blog/architectural-design-saudi-arabia/",label:"Architectural design in Saudi Arabia",description:"Broad guide for the complete architecture journey."},{href:"/en/blog/architectural-design-process-saudi-arabia/",label:"Architectural design process",description:"Use this when the question is sequence and stage gates."}] },
       { id:"plan-types", title:"The main architectural drawing types and what each one helps you understand", paragraphs:["Floor plans show horizontal relationships: room locations, walls, doors, windows, stairs, circulation and dimensions. Elevations show the external faces of the building and help coordinate openings, material zones and overall composition. Sections cut through the building vertically so the team can understand heights, floor relationships, stairs, double-height spaces, roofs and levels that may be difficult to read from plans alone.","Other deliverables may include roof plans, reflected ceiling information, door/window schedules, room schedules, finish references, enlarged plans, details, area statements and 3D views. Not every project needs every drawing at every stage. The proposal should state what is included and the sheet set should clearly identify the issue purpose."], table:{caption:"Common architecture deliverables",headers:["Deliverable","Main purpose","Owner review focus"],rows:[["Floor plans","Spaces, circulation, dimensions","Room use, furniture, privacy and flow"],["Elevations","External form and openings","Facade consistency, window positions, materials"],["Sections","Vertical relationships and levels","Heights, stairs, voids, roofs"],["Schedules","Repeatable components/room information","Consistency and completeness"],["3D views","Spatial and visual communication","Check they match current drawings"],["Details","Specific interfaces and construction intent","Confirm critical areas are not left vague"]] } },
       { id:"stages", title:"Concept, approval and tender drawings are not interchangeable", paragraphs:["A concept set is created to make design decisions. It may intentionally omit technical detail that would be premature before the owner approves the layout and form. An approval package is prepared for the requirements of the relevant workflow. A tender or construction-oriented package needs enough definition to reduce contractor assumptions and support coordination. Calling all three ‘plans’ without the stage creates confusion.","Before using drawings for pricing or construction, check the title block or issue status and confirm with the design team what the package is approved for. A contractor should not price a final fixed scope from a sketch set while the owner believes the numbers are based on completed design information."], links:[{href:"/en/blog/building-permit-saudi-arabia/",label:"Building permit in Saudi Arabia",description:"Dedicated permit-workflow intent."}] },
       { id:"floor-plans", title:"How an owner should review floor plans", paragraphs:["Review the plan as a user, not only as a drawing. Trace arrival from the street and parking. Walk a guest to reception and a family member to daily living. Check kitchen deliveries, laundry, storage and staff routes where relevant. Add furniture to test whether the room dimensions actually support the intended use. Look at door swings, corridor widths and the way stairs connect floors.","Then review privacy and views. What can be seen from the entrance? Which windows face neighbours or public areas? Do bedrooms open directly onto noisy circulation? Is the outdoor space connected to the rooms that will use it? These questions often reveal design issues earlier than aesthetic comments."], checklist:["Furniture fits the room purpose","Doors open without conflicts","Circulation is direct","Guest/family/service routes are intentional","Stairs align across floors","Wet areas and shafts are coordinated","Windows support privacy and furniture","Built-up area matches the approved target"] },
@@ -2855,17 +2855,17 @@ export const architectureClusters = [
       "Each stage should have a clear deliverable, owner decision and list of open items.",
       "Architecture, structure and MEP should be coordinated before downstream permit, tender or construction use.",
       "Late major changes should be assessed for programme and coordination impact rather than treated as invisible edits.",
-      "Fees belong to the architectural-design-cost page; this page owns process and stage intent.",
+      "Use the architectural-design-cost guide for fees; use this guide for process stages and decision gates.",
     ],
     toc: [["quick-answer","Quick answer"],["stage-1","1. Brief and site"],["stage-2","2. Concept design"],["stage-3","3. Developed design"],["stage-4","4. Coordination"],["stage-5","5. Approval package"],["stage-6","6. Tender and handoff"],["decision-gates","Decision gates"],["change-control","Change control"],["who-involved","Who is involved"],["related-guides","Related guides"],["faqs","FAQs"]],
     sections: [
-      { id:"quick-answer", title:"Quick answer: what is a practical architectural design process in Saudi Arabia?", paragraphs:["A practical process moves through six decision stages: define the brief and site information, test concept options, develop the approved design, coordinate architecture with structure and MEP, prepare the information required for the applicable approval workflow, then issue the appropriate tender/construction package and manage clarifications. The names can vary between firms; the important point is that each stage has a purpose and approval gate.","This page owns process intent, not drawings or pricing. The house-plans page explains the deliverables in detail, while the architectural-design-cost page explains fee models. Keeping those queries separate means this guide can focus on sequence, ownership of decisions and how to reduce late rework."], links:[{href:"/en/blog/architectural-design-saudi-arabia/",label:"Architectural design in Saudi Arabia",description:"Broad pillar and topic map."},{href:"/en/blog/house-architectural-plans-saudi-arabia/",label:"House architectural plans",description:"Detailed outputs created during the process."}] },
+      { id:"quick-answer", title:"Quick answer: what is a practical architectural design process in Saudi Arabia?", paragraphs:["A practical process moves through six decision stages: define the brief and site information, test concept options, develop the approved design, coordinate architecture with structure and MEP, prepare the information required for the applicable approval workflow, then issue the appropriate tender/construction package and manage clarifications. The names can vary between firms; the important point is that each stage has a purpose and approval gate.","The house-plans guide explains deliverables in detail, while the architectural-design-cost guide explains fee models. This guide focuses on sequence, ownership of decisions and how to reduce late rework."], links:[{href:"/en/blog/architectural-design-saudi-arabia/",label:"Architectural design in Saudi Arabia",description:"Broad guide and topic overview."},{href:"/en/blog/house-architectural-plans-saudi-arabia/",label:"House architectural plans",description:"Detailed outputs created during the process."}] },
       { id:"stage-1", title:"Stage 1 — Owner brief and site understanding", paragraphs:["Before drawing options, collect the project facts: plot location and dimensions, current survey information, household or user needs, room schedule, approximate area, parking, privacy, outdoor use, accessibility, references and budget boundary. Record which information is confirmed and which is still assumed. A concept built on the wrong plot data or an incomplete room programme creates false progress.","The owner should also define who approves decisions. For family projects, several stakeholders may comment, but one agreed approval route prevents the design team from receiving contradictory instructions. If a key family requirement changes, update the brief formally rather than treating it as an isolated drawing note."], checklist:["Plot/site information collected","Owner/user brief written","Required vs optional spaces separated","Target area recorded","Budget boundary discussed","Decision-maker identified","Reference images annotated","Known technical/authority inputs listed"] },
       { id:"stage-2", title:"Stage 2 — Concept design: test the big decisions while change is still cheap", paragraphs:["Concept design tests zoning, massing, main circulation, floor count, entrances, orientation, privacy and the relationship between indoor and outdoor spaces. The objective is not to decorate the building; it is to find a spatial strategy that satisfies the brief with a realistic area and clear logic. Multiple options are useful when they test genuinely different approaches rather than small cosmetic variations.","At the end of concept design, document what is approved: room programme, approximate areas, key plans, main massing/facade direction and any decisions deliberately postponed. If the owner is still uncertain about a major requirement, keep it open rather than pretending the stage is complete."], links:[{href:"/en/blog/villa-design-saudi-arabia/",label:"Villa design in Saudi Arabia",description:"Villa-specific concept decisions: zoning, privacy, facade and outdoor use."}] },
       { id:"stage-3", title:"Stage 3 — Developed design: make the approved idea measurable and coordinated", paragraphs:["Developed design refines room dimensions, openings, stairs, levels, facade composition, material intent and the architectural information needed for deeper engineering coordination. This is where the project should stop behaving like a sketch. Major dimensions and interfaces need enough definition for structural and MEP teams to respond accurately.","The owner should review developed design with furniture, circulation and real use in mind. A visually pleasing concept can still hide a poor storage strategy, tight bathroom, awkward stair landing or impractical service route. Resolve those issues before technical documentation makes the cost of change higher."], },
       { id:"stage-4", title:"Stage 4 — Coordinate architecture, structure and MEP", paragraphs:["Coordination checks whether the architectural intent can coexist with the structural system and building services. Typical interfaces include columns, beams, slab openings, shafts, ceiling zones, equipment locations, drainage routes, electrical/service rooms and facade penetrations. The goal is not to eliminate every site question, but to resolve predictable conflicts before they become rework.","Use one controlled architectural issue as the coordination base. When architecture changes, identify which other disciplines are affected. A coordinated team should be able to explain the current model/drawing status and outstanding clashes instead of allowing each consultant to continue from a different revision."], callout:{title:"Owner question to ask",text:"Which architectural revision are the structural and MEP teams currently coordinating against, and what major interfaces are still open?"} },
       { id:"stage-5", title:"Stage 5 — Prepare the approval / permit information for the actual workflow", paragraphs:["The project should then be prepared for the applicable Saudi approval process using the appropriate professional roles and required information. The exact submission content and responsibilities depend on the project and authority workflow, so do not treat an online checklist as a substitute for project-specific verification.","Balady publishes building-permit service information and the Saudi Building Code provides the technical code framework. Your design team should identify which parts of the architectural package must be adapted or supplemented for the submission and who is responsible for the authority-facing process."], links:[{href:"/en/blog/building-permit-saudi-arabia/",label:"Building permit in Saudi Arabia",description:"Dedicated permit-process guide."},{href:officialSources.baladyPermit.url,label:officialSources.baladyPermit.label,description:"Official Balady service page."}] },
-      { id:"stage-6", title:"Stage 6 — Tender and construction handoff", paragraphs:["A contractor should receive a controlled package with a clear issue purpose. If bidders price different drawings or unresolved alternatives, the owner cannot compare offers fairly. The tender package should make scope assumptions visible and identify items that remain allowances or separate appointments.","Once construction begins, define how design questions and revisions will be issued. Site teams should not build from informal screenshots or verbal changes. Even on a small villa, a simple RFI/clarification and revision process reduces the chance that one trade acts on a change while another continues with superseded information."], links:[{href:"/en/blog/choose-construction-contractor-saudi-arabia/",label:"How to choose a construction contractor",description:"Move from design into contractor evaluation without mixing the two search intents."},{href:"/en/blog/build-a-house-saudi-arabia/",label:"How to build a house in Saudi Arabia",description:"Continue into the full construction journey."}] },
+      { id:"stage-6", title:"Stage 6 — Tender and construction handoff", paragraphs:["A contractor should receive a controlled package with a clear issue purpose. If bidders price different drawings or unresolved alternatives, the owner cannot compare offers fairly. The tender package should make scope assumptions visible and identify items that remain allowances or separate appointments.","Once construction begins, define how design questions and revisions will be issued. Site teams should not build from informal screenshots or verbal changes. Even on a small villa, a simple RFI/clarification and revision process reduces the chance that one trade acts on a change while another continues with superseded information."], links:[{href:"/en/blog/choose-construction-contractor-saudi-arabia/",label:"How to choose a construction contractor",description:"Move from design into contractor evaluation with a clear handoff between the two decisions."},{href:"/en/blog/build-a-house-saudi-arabia/",label:"How to build a house in Saudi Arabia",description:"Continue into the full construction journey."}] },
       { id:"decision-gates", title:"Use decision gates so a stage is actually complete", paragraphs:["A stage gate is a short list of decisions that must be approved before downstream work relies on them. For concept design, that may include room schedule, floor count, layout direction and massing. For developed design, it may include openings, levels and key material direction. For coordination, it may include agreed structural/service interfaces and a controlled drawing issue.","The gate does not need bureaucracy. A one-page approval summary can be enough. The value is that later changes become visible decisions with known impact rather than silent drift. This is especially important when several family members or consultants are contributing comments."], table:{caption:"Example design decision gates",headers:["Gate","Owner approves","Team confirms"],rows:[["Brief","Needs, priorities, area/budget boundary","Site inputs and assumptions recorded"],["Concept","Preferred layout/massing direction","Major open items listed"],["Developed design","Key dimensions, openings, facade direction","Information ready for coordination"],["Coordination","Resolved architectural interfaces","Structure/MEP aligned to current issue"],["Approval package","Submission-ready design intent","Roles and required documents confirmed"],["Tender/handoff","Issued design and scope assumptions","Revision/clarification process established"]] } },
       { id:"change-control", title:"Control late changes instead of pretending they are free", paragraphs:["Changes are normal during design. The problem is not change; it is unrecorded change after other work depends on an earlier decision. Moving a stair, adding a bathroom or enlarging a window can affect structure, services, elevations, area and cost. When a major change is requested, identify the affected disciplines, drawings and programme before accepting it.","A simple change log should record the request, reason, decision, approval date and affected deliverables. If the change is outside the agreed revision scope, the designer should explain the fee/programme impact before proceeding. This makes the commercial relationship clearer and protects the owner from hidden downstream rework."], links:[{href:"/en/blog/architectural-design-cost-saudi-arabia/",label:"Architectural design cost and scope",description:"See how revisions and deliverables affect professional fees."}] },
       { id:"who-involved", title:"Who is involved at each stage?", paragraphs:["The owner remains central throughout because only the owner can confirm needs, priorities and budget. The architect leads the spatial and architectural decisions. Structural and MEP disciplines become increasingly important as design develops. Other specialists may be needed depending on the project: interior design, landscape, quantity surveying, geotechnical, facade, fire/life safety or other technical roles.","The project does not need every specialist in every meeting, but responsibilities should be visible. Ask who owns coordination, who issues the controlled design package and who communicates approval or site questions. Undefined responsibility is one of the easiest ways for a technically solvable issue to become a delay."], },

@@ -145,7 +145,7 @@ export default function BlogsClient({ blogs }) {
 
               <p className="mt-6 max-w-[720px] text-pretty text-lg font-bold leading-9 text-white/75 sm:text-xl">
                 مكتبة منظمة لكل مقالات التصميم، البناء، الديكور، التكاليف،
-                والخدمات المنزلية بروابطها القديمة كما هي للحفاظ على SEO.
+                والخدمات المنزلية في مكتبة واحدة بروابط ثابتة وسهلة التصفح.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -170,7 +170,7 @@ export default function BlogsClient({ blogs }) {
                     {blogs.length}+
                   </strong>
                   <span className="mt-2 block text-xs font-black text-white/65">
-                    مقال منقول
+                    مقال ودليل
                   </span>
                 </div>
 
@@ -185,10 +185,10 @@ export default function BlogsClient({ blogs }) {
 
                 <div className="rounded-3xl border border-white/15 bg-white/10 p-5 backdrop-blur-xl">
                   <strong className="block text-4xl font-black leading-none text-white">
-                    SEO
+                    منظمة
                   </strong>
                   <span className="mt-2 block text-xs font-black text-white/65">
-                    روابط محفوظة
+                    روابط ثابتة
                   </span>
                 </div>
               </div>

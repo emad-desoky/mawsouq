@@ -159,7 +159,7 @@ export default function EnglishBlogHubPage() {
             <p className="text-xs font-black uppercase tracking-[0.18em] text-[#2f86f6]">Newest first</p>
             <h2 className="mt-3 text-4xl font-black tracking-[-0.05em] text-[color:var(--ink)] sm:text-5xl">Latest blogs</h2>
             <p className="mt-4 text-base font-semibold leading-8 text-[color:var(--ink-muted)]">
-              Newest English articles appear first. Every supporting article links to the correct topic pillar, sibling guides, relevant service/contact paths and the separate page that owns any overlapping search intent.
+              Newest English articles appear first. Each guide links to the broader topic, useful related reading, and the relevant service or contact path so you can move from research to the next practical step.
             </p>
           </div>
 
@@ -182,7 +182,7 @@ export default function EnglishBlogHubPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#071321]/55 via-transparent to-transparent" />
                     <span className="absolute left-4 top-4 rounded-full bg-[#071321]/80 px-3 py-2 text-[11px] font-black uppercase tracking-[0.12em] text-white backdrop-blur-xl">
-                      {blog.role === "pillar" ? "Pillar guide" : "Supporting guide"}
+                      {blog.role === "pillar" ? "Main guide" : "Related guide"}
                     </span>
                   </div>
 

@@ -19,14 +19,27 @@ const tajawal = Tajawal({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://mawsouq.com"),
+  applicationName: "موسوق",
   title: "موسوق | منصة خدمات التصميم والبناء",
   description:
     "موسوق منصة تساعدك في التصميم المعماري والإنشائي وحساب تكلفة البناء واختيار مزودي الخدمات",
+  publisher: "موسوق",
   icons: {
     icon: "/mawsouq-logo.png",
     apple: "/mawsouq-logo.png",
   },
-  generator: "v0.app",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export const viewport = {

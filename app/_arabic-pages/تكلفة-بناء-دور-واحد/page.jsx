@@ -724,10 +724,10 @@ export default function OneFloorCostPage() {
 
           <section id="meaning" className="mt-16 scroll-mt-32">
             <SectionTitle
-              eyebrow="Search Intent"
+              eyebrow="تحديد نطاق المشروع"
               title="ماذا يقصد الباحث بعبارة تكلفة بناء دور واحد؟"
             >
-              الاستعلام يبدو بسيطًا، لكنه قد يشير إلى مشروعين مختلفين تمامًا.
+              العبارة تبدو بسيطة، لكنها قد تشير إلى مشروعين مختلفين تمامًا.
               تحديد النوع من البداية يمنع تطبيق سعر غير مناسب على مشروعك.
             </SectionTitle>
 
@@ -1428,7 +1428,7 @@ export default function OneFloorCostPage() {
             {publishedClusters.length > 0 ? (
               <div className="mt-10">
                 <h3 className="text-2xl font-black text-[color:var(--ink)]">
-                  أدلة منشورة ضمن نفس Topic Cluster
+                  أدلة إضافية مرتبطة بتكلفة البناء
                 </h3>
                 <div className="mt-5 grid gap-5 md:grid-cols-2">
                   {publishedClusters.map((post) => (
@@ -1450,7 +1450,7 @@ export default function OneFloorCostPage() {
               eyebrow="FAQ"
               title="أسئلة شائعة عن تكلفة بناء دور واحد"
             >
-              إجابات مباشرة للاستعلامات الأقرب للكلمة الرئيسية وقرار طلب عرض
+              إجابات مباشرة عن الأسئلة الأكثر شيوعًا قبل حساب الميزانية أو طلب عرض
               السعر.
             </SectionTitle>
 

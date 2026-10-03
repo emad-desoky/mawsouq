@@ -9,16 +9,16 @@ const articles = [
     description:
       "The complete 2026 architecture pillar covering the owner brief, design stages, plans, local context, fees, provider selection and project handoff.",
     href: "/en/blog/architectural-design-saudi-arabia/",
-    category: "Architecture Pillar",
+    category: "Architecture Guide",
     image: "/images/blog/architecture/architectural-design-saudi-arabia.webp",
     icon: "design",
   },
   {
     title: "How to Build a House in Saudi Arabia",
     description:
-      "The complete 2026 pillar guide to costs, permits, contractors, timelines, and project decisions.",
+      "The complete 2026 guide to costs, permits, contractors, timelines, and project decisions.",
     href: "/en/blog/build-a-house-saudi-arabia/",
-    category: "Pillar Guide",
+    category: "Main Guide",
     image: "/images/blog/build-house-saudi-arabia-2026.webp",
     icon: "villa",
   },

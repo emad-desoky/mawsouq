@@ -614,7 +614,7 @@ export default function DecisionCostClusterPage({
 
             <section id="faq" className="mt-16 scroll-mt-32">
               <SectionTitle eyebrow="FAQ" title={data.faqTitle}>
-                إجابات مباشرة على الاستعلامات الأقرب إلى قرار التسعير والتعاقد.
+                إجابات مباشرة على الأسئلة الأقرب إلى قرار التسعير والتعاقد.
               </SectionTitle>
               <div className="space-y-3">
                 {data.faqs.map((faq) => (
@@ -634,8 +634,8 @@ export default function DecisionCostClusterPage({
             </section>
 
             <section className="mt-16">
-              <SectionTitle eyebrow="Topic Cluster" title="أدلة مرتبطة تساعدك على اتخاذ القرار">
-                هذه الصفحة تملك نية بحث مستقلة، بينما الدليل الرئيسي يجمع الصورة
+              <SectionTitle eyebrow="أدلة مرتبطة" title="أدلة مرتبطة تساعدك على اتخاذ القرار">
+                هذه الصفحة تركز على قرار محدد، بينما الدليل الرئيسي يجمع الصورة
                 الكاملة لتكلفة بناء دور واحد في السعودية.
               </SectionTitle>
               <p className="mb-6 rounded-[22px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-5 text-sm font-bold leading-8 text-[color:var(--ink-muted)]">
