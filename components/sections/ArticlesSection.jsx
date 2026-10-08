@@ -5,6 +5,15 @@ import Link from "next/link";
 
 const articles = [
   {
+    title: "تشطيب فلل في السعودية 2026",
+    description:
+      "الدليل الجديد لمراحل تشطيب الفلل والخامات والتكلفة والاستلام، مع روابط متخصصة للداخل والمودرن والواجهات.",
+    href: "/تشطيب-فلل/",
+    category: "تشطيب فلل",
+    image: "/images/seo/villa-finishing-2026/01-tashtib-fll-hero.webp",
+    icon: "villa",
+  },
+  {
     title: "بناء فلة",
     description:
       "دليل شامل لتكاليف وخطوات بناء الفلل مع أهم النصائح قبل البدء.",
@@ -180,12 +189,11 @@ export default function ArticlesSection() {
             </div>
 
             <h2 className="text-balance text-3xl font-black leading-tight tracking-[-0.03em] text-[#102033] dark:text-white sm:text-4xl lg:text-5xl">
-              مقالات تساعدك قبل بدء البناء
+              أدلة تساعدك قبل التصميم والبناء والتشطيب
             </h2>
 
             <p className="mt-5 max-w-2xl text-pretty text-base leading-8 text-[#102033]/65 dark:text-white/65 sm:text-lg">
-              اقرأ دليلنا الشامل لفهم تكاليف وخطوات البناء في السعودية والوطن
-              العربى، مع نصائح عملية لتخطيط مشروعك بثقة.
+              ابدأ من الدليل الأنسب لمرحلة مشروعك، ثم انتقل إلى المقالات المتخصصة بدل تكرار نفس نية البحث في أكثر من صفحة.
             </p>
           </div>
 
@@ -276,8 +284,7 @@ export default function ArticlesSection() {
                   تريد معرفة تكلفة مشروعك بدل القراءة فقط؟
                 </h3>
                 <p className="mt-2 text-sm leading-7 text-white/65 sm:text-base">
-                  استخدم حاسبة التكلفة أو تواصل معنا لنساعدك في تحديد الخطوة
-                  التالية.
+                  استخدم حاسبة التكلفة أو تواصل معنا لنساعدك في تحديد الخطوة التالية.
                 </p>
               </div>
 

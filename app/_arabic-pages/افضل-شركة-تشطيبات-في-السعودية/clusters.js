@@ -94,7 +94,7 @@ export const existingStrongBlogs = [
     category: "تكاليف",
     href: "/تكلفة-بناء-دور-واحد/",
     image:
-      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=90",
+      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5c?auto=format&fit=crop&w=900&q=90",
     anchor: "تكلفة بناء دور واحد",
     isLive: true,
   },
@@ -123,6 +123,74 @@ export const existingStrongBlogs = [
 ];
 
 export const futureClusterBlogs = [
+  // LIVE 2026 villa-finishing pillar + clusters. Each URL owns a distinct search intent.
+  {
+    title: "تشطيب فلل في السعودية 2026",
+    keyword: "تشطيب فلل",
+    excerpt:
+      "الدليل المحوري لمراحل تشطيب الفلل والخامات والتنسيق بين الداخل والواجهة والاستلام.",
+    category: "Pillar",
+    href: "/تشطيب-فلل/",
+    image: "/images/seo/villa-finishing-2026/01-tashtib-fll-hero.webp",
+    anchor: "دليل تشطيب الفلل الكامل",
+    isLive: true,
+  },
+  {
+    title: "تشطيب فلل من الداخل",
+    keyword: "تشطيب فلل من الداخل",
+    excerpt:
+      "كلاستر متخصص في المجالس والمعيشة وغرف النوم والحمامات والإضاءة والأرضيات والنجارة.",
+    category: "تشطيب داخلي",
+    href: "/تشطيب-فلل-من-الداخل/",
+    image: "/images/seo/villa-finishing-2026/06-interior-finishing-living.webp",
+    anchor: "تشطيب الفلل من الداخل",
+    isLive: true,
+  },
+  {
+    title: "تشطيب فلل مودرن",
+    keyword: "تشطيب فلل مودرن",
+    excerpt:
+      "تنفيذ وخامات التشطيب المودرن بدون مزاحمة صفحة فلل مودرن المخصصة للتصميم والإلهام.",
+    category: "مودرن",
+    href: "/تشطيب-فلل-مودرن/",
+    image: "/images/seo/villa-finishing-2026/09-modern-villa-finishing-hero.webp",
+    anchor: "تشطيب فلل مودرن",
+    isLive: true,
+  },
+  {
+    title: "تشطيب واجهات فلل",
+    keyword: "تشطيب واجهات فلل",
+    excerpt:
+      "دليل تنفيذ الكسوات والعزل والفواصل والإضاءة الخارجية واستلام واجهة الفيلا.",
+    category: "واجهات",
+    href: "/تشطيب-واجهات-فلل/",
+    image: "/images/seo/villa-finishing-2026/17-villa-facade-daylight.webp",
+    anchor: "تشطيب واجهات الفلل",
+    isLive: true,
+  },
+  {
+    title: "تكلفة تشطيب فيلا",
+    keyword: "تكلفة تشطيب فيلا",
+    excerpt:
+      "صفحة ميزانية مستقلة تشرح بنود التشطيب والعوامل التي تغيّر السعر وكيفية مقارنة العروض.",
+    category: "تكلفة",
+    href: "/تكلفة-تشطيب-فيلا/",
+    image: "/images/seo/villa-finishing-2026/19-villa-finishing-cost-planning.webp",
+    anchor: "تكلفة تشطيب فيلا",
+    isLive: true,
+  },
+  {
+    title: "تشطيب منازل في السعودية",
+    keyword: "تشطيب منازل",
+    excerpt:
+      "دليل أوسع لتشطيب المنازل السكنية من التأسيس حتى الاستلام والخامات اليومية.",
+    category: "منازل",
+    href: "/تشطيب-منازل/",
+    image: "/images/seo/villa-finishing-2026/20-home-finishing-hero.webp",
+    anchor: "تشطيب المنازل",
+    isLive: true,
+  },
+  // Planned topics below remain hidden until their pages exist.
   {
     title: "كيف تختار شركة تشطيبات في السعودية؟",
     keyword: "كيف تختار شركة تشطيبات",

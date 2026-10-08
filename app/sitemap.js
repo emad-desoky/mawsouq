@@ -6,6 +6,7 @@ import { getAllBlogEntries as getAllOneFloorCostEntries } from "./_arabic-pages/
 import { getAllResthouseEntries } from "./_arabic-pages/_resthouse-cluster/resthouse-data";
 import { getAllArabicSeo2026Entries } from "@/lib/arabicSeo2026";
 import { getAllRiyadhEngineeringEntries } from "./_arabic-pages/_riyadh-engineering-cluster/riyadh-engineering-data";
+import { getAllBlogEntries as getAllVillaFinishingEntries } from "./_arabic-pages/_villa-finishing-cluster/villa-finishing-data";
 import { getAllMawsooqProjectEntries } from "@/lib/mawsouqProjects";
 
 export const dynamic = "force-static";
@@ -136,13 +137,8 @@ function cleanExplicitEntry(entry) {
   if (!normalizedPath) return null;
   if (REDIRECTED_PATHS.has(safeDecode(normalizedPath))) return null;
 
-  // Normalize explicit/dynamic entries the same way as filesystem routes so an
-  // Arabic URL cannot appear twice as both Unicode and percent-encoded forms.
   const url = `${SITE_URL}${withTrailingSlash(normalizedPath)}`;
 
-  // Google ignores changefreq and priority. Keep lastModified only when it is
-  // supplied by the content data itself and therefore represents a real,
-  // substantial page update rather than a deployment/build timestamp.
   return {
     url,
     ...(entry.lastModified ? { lastModified: entry.lastModified } : {}),
@@ -152,8 +148,6 @@ function cleanExplicitEntry(entry) {
 export default function sitemap() {
   const entries = new Map();
 
-  // Filesystem pages are included without lastModified because file mtimes can
-  // change during builds/deployments even when the page content did not.
   for (const route of collectFilesystemRoutes()) {
     const finalPath = withTrailingSlash(route);
     const url = `${SITE_URL}${finalPath}`;
@@ -166,6 +160,7 @@ export default function sitemap() {
     ...getAllResthouseEntries(),
     ...getAllArabicSeo2026Entries(),
     ...getAllRiyadhEngineeringEntries(),
+    ...getAllVillaFinishingEntries(),
     ...getAllMawsooqProjectEntries(),
   ];
 
