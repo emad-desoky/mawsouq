@@ -3,8 +3,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Bot, Phone, Send, Sparkles, X } from "lucide-react";
 
-const WHATSAPP_NUMBER = "966598061334";
-const PHONE_NUMBER = "+966598061334";
+const WHATSAPP_NUMBER = "201223328270";
+const PHONE_NUMBER = "+201223328270";
 
 const copy = {
   en: {

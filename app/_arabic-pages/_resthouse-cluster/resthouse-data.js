@@ -13,7 +13,7 @@
 
 export const SITE_URL = "https://mawsouq.com";
 export const DATA_AS_OF = "2026-08-06";
-export const WHATSAPP_NUMBER = "966598061334";
+export const WHATSAPP_NUMBER = "201223328270";
 
 export const routes = {
   home: "/",
@@ -58,18 +58,18 @@ export const pillar = {
   role: "pillar",
   category: "التصميم المعماري",
   primaryKeyword: "تصاميم استراحات",
-  metaTitle: "تصاميم استراحات راقية: 30 فكرة بالصور + دليل التصميم",
+  metaTitle: "تصاميم استراحات 2026 | 30 فكرة بالصور + مشروع حقيقي",
   title: "تصاميم استراحات راقية: 30 فكرة بالصور ودليل عملي قبل التصميم",
   description:
     "شاهد 30 فكرة من تصاميم استراحات راقية، وتعرّف على توزيع المساحات والخصوصية والمسبح والحديقة قبل طلب مخطط استراحة مناسب لأرضك.",
   excerpt:
     "دليل شامل يجمع 30 صورة للاستراحات مع طريقة اختيار المخطط والأسلوب والمساحات المناسبة قبل بدء التصميم.",
-  image: "/images/blog/resthouses/resthouse-designs-pillar.webp",
+  image: "/projects/resthouse-saudi.jpg",
   imageAlt: "تصاميم استراحات راقية في السعودية",
   datePublished: "2026-03-10",
-  dateModified: "2026-08-26",
+  dateModified: "2026-10-13",
   readTime: "18 دقيقة قراءة",
-  author: "فريق موسوق للتصميم والبناء",
+  author: "فريق موسوق التحريري",
   whatsappMessage:
     "مرحبًا موسوق، شاهدت دليل تصاميم الاستراحات وأرغب في تصميم استراحة مناسبة لأرضي. أحتاج معرفة الخطوة التالية والتكلفة المتوقعة للتصميم.",
 };
@@ -91,7 +91,7 @@ export const clusters = [
     datePublished: "2026-08-06",
     dateModified: "2026-08-06",
     readTime: "11 دقيقة قراءة",
-    author: "فريق موسوق للتصميم والبناء",
+    author: "فريق موسوق التحريري",
     whatsappMessage:
       "مرحبًا موسوق، أبحث عن مخطط استراحة جاهز وأريد تعديله بما يناسب مساحة أرضي واستخدامي.",
     highlights: [
@@ -265,7 +265,7 @@ export const clusters = [
     datePublished: "2026-08-06",
     dateModified: "2026-08-06",
     readTime: "10 دقائق قراءة",
-    author: "فريق موسوق للتصميم والبناء",
+    author: "فريق موسوق التحريري",
     whatsappMessage:
       "مرحبًا موسوق، أريد تصميم استراحة صغيرة واستغلال المساحة بشكل عملي. هذه أبعاد أرضي واستخدامي المتوقع.",
     highlights: [
@@ -431,7 +431,7 @@ export const clusters = [
     datePublished: "2026-08-06",
     dateModified: "2026-08-06",
     readTime: "12 دقيقة قراءة",
-    author: "فريق موسوق للتصميم والبناء",
+    author: "فريق موسوق التحريري",
     whatsappMessage:
       "مرحبًا موسوق، أريد تصميم استراحة غير مكلفة في السعودية بميزانية مدروسة. أحتاج مساعدة في تحديد المساحة والأولويات.",
     highlights: [
@@ -609,7 +609,7 @@ export const clusters = [
     datePublished: "2026-08-06",
     dateModified: "2026-08-06",
     readTime: "11 دقيقة قراءة",
-    author: "فريق موسوق للتصميم والبناء",
+    author: "فريق موسوق التحريري",
     whatsappMessage:
       "مرحبًا موسوق، أريد تصميم استراحة مودرن بخصوصية جيدة وجلسات داخلية وخارجية مترابطة.",
     highlights: [
@@ -776,7 +776,7 @@ export const clusters = [
     datePublished: "2026-08-06",
     dateModified: "2026-08-06",
     readTime: "11 دقيقة قراءة",
-    author: "فريق موسوق للتصميم والبناء",
+    author: "فريق موسوق التحريري",
     whatsappMessage:
       "مرحبًا موسوق، أريد مخطط استراحة صغيرة بمسبح وأحتاج توزيعًا يحافظ على الخصوصية وسهولة الاستخدام.",
     highlights: [

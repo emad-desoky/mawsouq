@@ -19,9 +19,9 @@ import {
   MAWSOUQ_YOUTUBE_CHANNEL,
 } from "@/lib/mawsouqProjects";
 
-const SAUDI_PHONE_DISPLAY = "+966 59 806 1334";
-const SAUDI_PHONE_E164 = "+966598061334";
-const SAUDI_WHATSAPP_NUMBER = "966598061334";
+const CONTACT_PHONE_DISPLAY = "+20 12 23328270";
+const CONTACT_PHONE_E164 = "+201223328270";
+const CONTACT_WHATSAPP_NUMBER = "201223328270";
 const SITE_URL = "https://mawsouq.com";
 
 function ProjectCard({ item }) {
@@ -60,7 +60,7 @@ function ProjectCard({ item }) {
 
 export default function ProjectCaseStudy({ project }) {
   const relatedProjects = getRelatedMawsooqProjects(project.slug, 3);
-  const whatsappUrl = `https://wa.me/${SAUDI_WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  const whatsappUrl = `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(
     project.whatsappMessage,
   )}`;
   const canonical = `${SITE_URL}${project.href}`;
@@ -98,7 +98,7 @@ export default function ProjectCaseStudy({ project }) {
           "@id": `${SITE_URL}/#organization`,
           name: "موسوق",
           url: SITE_URL,
-          telephone: SAUDI_PHONE_E164,
+          telephone: CONTACT_PHONE_E164,
           sameAs: [MAWSOUQ_YOUTUBE_CHANNEL],
         },
         spatialCoverage: {
@@ -179,12 +179,12 @@ export default function ProjectCaseStudy({ project }) {
                 <MessageCircle size={19} /> ناقش مشروعك على واتساب
               </a>
               <a
-                href={`tel:${SAUDI_PHONE_E164}`}
+                href={`tel:${CONTACT_PHONE_E164}`}
                 data-lead-tracked="true"
                 data-lead-placement="project_case_hero_phone"
                 className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full border border-[color:var(--hairline-strong)] bg-[color:var(--surface)] px-6 text-sm font-black text-[color:var(--ink)] transition hover:border-[color:var(--brand-bright)] hover:text-[color:var(--brand)]"
               >
-                <Phone size={18} /> {SAUDI_PHONE_DISPLAY}
+                <Phone size={18} /> {CONTACT_PHONE_DISPLAY}
               </a>
             </div>
           </div>

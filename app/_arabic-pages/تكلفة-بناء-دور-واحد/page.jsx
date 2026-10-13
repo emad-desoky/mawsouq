@@ -47,22 +47,22 @@ const publishedStrongBlogs = existingStrongBlogs.filter(
 const heroImage = pillar.image;
 const contentImages = [
   {
-    src: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1500&q=90",
-    alt: "تنفيذ الهيكل الخرساني ضمن تكلفة بناء دور واحد",
+    src: "/projects/architecture-villa-dammam.jpg",
+    alt: "مشروع تصميم معماري لفيلا في الدمام من أعمال موسوق",
     caption:
-      "سعر العظم لا يُقارن بطريقة صحيحة إلا بعد توحيد نطاق الأعمال والمواد والمواصفات.",
+      "مشروع فيلا الدمام من معرض أعمال موسوق: نستخدم المشاريع الحقيقية لإظهار شكل المخرجات والقرارات المعمارية، وليس لنقل تكلفة مشروع إلى مشروع آخر.",
   },
   {
-    src: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1500&q=90",
-    alt: "مخططات معمارية وإنشائية لحساب تكلفة بناء منزل دور واحد",
+    src: "/projects/architecture-villa-makkah.jpg",
+    alt: "مشروع تصميم معماري لفيلا في مكة المكرمة من أعمال موسوق",
     caption:
-      "المخطط المعماري والإنشائي وجدول الكميات يحولان سعر المتر العام إلى ميزانية قابلة للمراجعة.",
+      "مشروع فيلا مكة المنشور لدى موسوق يوضح لماذا يجب تثبيت المسقط والكتلة والفتحات قبل تحويل التقدير العام إلى عرض سعر قابل للمقارنة.",
   },
   {
-    src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1500&q=90",
-    alt: "منزل دور واحد مكتمل التشطيب في السعودية",
+    src: "/projects/architecture-villa-ahsa.jpg",
+    alt: "مشروع تصميم معماري لفيلا في الأحساء من أعمال موسوق",
     caption:
-      "التسليم على المفتاح يشمل مراحل أكثر من العظم، لذلك يجب تحديد جودة كل بند قبل مقارنة الأسعار.",
+      "مشروع فيلا الأحساء مثال بصري حقيقي من أعمال موسوق؛ التكلفة الفعلية لأي دور أو فيلا تُبنى على مساحة ومخططات ومواصفات المشروع نفسه.",
   },
 ];
 
@@ -1411,7 +1411,7 @@ export default function OneFloorCostPage() {
 
           <section id="related-guides" className="mt-16 scroll-mt-32">
             <SectionTitle
-              eyebrow="Internal Linking Hub"
+              eyebrow="أدلة مرتبطة"
               title="أدلة مرتبطة تساعدك قبل بناء دور واحد"
             >
               هذه الروابط تُجلب تلقائيًا من ملف clusters.js. استخدمها لفهم
@@ -1443,6 +1443,10 @@ export default function OneFloorCostPage() {
           <MawsooqProofSection
             context="حساب ميزانية البناء"
             whatsappMessage="مرحبًا موسوق، أريد تقدير تكلفة بناء دور واحد. المدينة: ___، مساحة البناء: ___، ونوع التنفيذ: ___"
+            projectSlugs={["dammam-architectural-villa", "makkah-architectural-villa", "alahsa-architectural-villa"]}
+            projectVideoIds={["3CmBsvvEetI", "m7_D-luA-DE"]}
+            testimonialIds={["XcKDALgCuIA", "J493Jm1f0Xc", "T9715tHfyiY"]}
+            intro="هذه أمثلة حقيقية من مشاريع موسوق المنشورة. نعرضها لإثبات الخبرة البصرية وربط قرارات التصميم بالميزانية، لكن لا ننقل تكلفة أو مساحة من مشروع منشور إلى مشروعك؛ الحساب هنا يبدأ من مساحة مشروعك ونطاقه ومواصفاته."
           />
 
           <section id="faq" className="mt-16 scroll-mt-32">

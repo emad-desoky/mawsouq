@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const WHATSAPP_URL =
-  "https://wa.me/966598061334?text=Hello%20Mawsooq%2C%20I%20have%20a%20question";
+  "https://wa.me/201223328270?text=Hello%20Mawsooq%2C%20I%20have%20a%20question";
 
 const faqs = [
   {
@@ -24,7 +24,7 @@ const faqs = [
   {
     question: "Can I contact Mawsooq through WhatsApp?",
     answer:
-      "Yes. You can contact us directly on WhatsApp at +966 59 806 1334 for an initial project consultation.",
+      "Yes. You can contact us directly on WhatsApp at +20 12 23328270 for an initial project consultation.",
   },
   {
     question: "Is this page focused on the Saudi market?",

@@ -1,5 +1,5 @@
 const WHATSAPP_URL =
-  "https://wa.me/966598061334?text=Hello%20Mawsooq%2C%20I%20would%20like%20a%20consultation%20about%20design%20and%20construction%20services%20in%20Saudi%20Arabia";
+  "https://wa.me/201223328270?text=Hello%20Mawsooq%2C%20I%20would%20like%20a%20consultation%20about%20design%20and%20construction%20services%20in%20Saudi%20Arabia";
 
 function WhatsAppIcon() {
   return (
@@ -96,7 +96,7 @@ export default function CTASection() {
               </a>
 
               <a
-                href="tel:+966598061334"
+                href="tel:+201223328270"
                 className="inline-flex h-14 w-full items-center justify-center gap-2 rounded-full border border-[var(--hairline)] bg-[var(--surface)] px-8 text-base font-black text-[var(--brand)] shadow-[var(--card-shadow)] transition duration-300 hover:-translate-y-1 hover:bg-[var(--surface-2)] sm:w-auto"
               >
                 <PhoneIcon />

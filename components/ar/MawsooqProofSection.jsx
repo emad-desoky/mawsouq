@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowLeft,
   BadgeCheck,
   ExternalLink,
+  MapPin,
   MessageCircle,
   Play,
   ShieldCheck,
@@ -13,13 +15,14 @@ import {
 } from "lucide-react";
 import { trackLeadAction, trackTrustVideo } from "@/lib/leadTracking";
 import {
+  MAWSOUQ_PROJECTS,
   MAWSOUQ_YOUTUBE_CHANNEL,
   PROJECT_VIDEO_SAMPLES,
   TESTIMONIAL_VIDEOS,
 } from "@/lib/mawsouqProjects";
 
 const CHANNEL_URL = MAWSOUQ_YOUTUBE_CHANNEL;
-const WHATSAPP_NUMBER = "966598061334";
+const WHATSAPP_NUMBER = "201223328270";
 
 function YouTubeIcon({ className = "h-5 w-5" }) {
   return (
@@ -29,8 +32,11 @@ function YouTubeIcon({ className = "h-5 w-5" }) {
   );
 }
 
-const projectVideos = PROJECT_VIDEO_SAMPLES;
-const testimonialVideos = TESTIMONIAL_VIDEOS;
+function pickByIds(items, ids, fallbackCount) {
+  if (!ids?.length) return items.slice(0, fallbackCount);
+  const selected = ids.map((id) => items.find((item) => item.id === id)).filter(Boolean);
+  return selected.length ? selected : items.slice(0, fallbackCount);
+}
 
 function VideoCard({ video, type, onPlay }) {
   const vertical = type === "testimonial";
@@ -61,12 +67,66 @@ function VideoCard({ video, type, onPlay }) {
   );
 }
 
+function RealProjectCard({ project }) {
+  return (
+    <Link
+      href={project.href}
+      className="group overflow-hidden rounded-[24px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] transition duration-300 hover:-translate-y-1 hover:border-[color:var(--brand-bright)] hover:shadow-[var(--card-shadow)]"
+    >
+      <div className="relative aspect-[16/10] overflow-hidden bg-[#071321]">
+        <Image
+          src={project.image}
+          alt={project.imageAlt}
+          fill
+          sizes="(max-width: 760px) 100vw, 33vw"
+          className="object-cover transition duration-500 group-hover:scale-[1.035]"
+        />
+        <span className="absolute inset-0 bg-gradient-to-t from-[#071321]/82 via-transparent to-transparent" />
+        <span className="absolute bottom-4 right-4 rounded-full bg-white/92 px-3 py-1.5 text-[11px] font-black text-[#0b5bb8]">
+          {project.category}
+        </span>
+      </div>
+      <div className="p-5">
+        <span className="flex items-center gap-1.5 text-xs font-black text-[color:var(--brand)]">
+          <MapPin size={14} /> {project.location}
+        </span>
+        <h3 className="mt-2 text-lg font-black leading-7 text-[color:var(--ink)]">{project.shortTitle}</h3>
+        <p className="mt-2 line-clamp-3 text-sm font-bold leading-7 text-[color:var(--ink-muted)]">{project.summary}</p>
+        <span className="mt-4 inline-flex items-center gap-2 text-xs font-black text-[color:var(--brand)]">
+          شاهد المشروع الحقيقي <ArrowLeft size={15} />
+        </span>
+      </div>
+    </Link>
+  );
+}
+
 export default function MawsooqProofSection({
   context = "مشروعك",
   whatsappMessage = "مرحبًا موسوق، أريد استشارة عن مشروعي. المدينة: ___، نوع المشروع: ___، المساحة: ___",
   compact = false,
+  projectSlugs = [],
+  projectVideoIds = [],
+  testimonialIds = [],
+  intro,
 }) {
   const [activeVideo, setActiveVideo] = useState(null);
+
+  const projects = useMemo(() => {
+    if (!projectSlugs?.length) return MAWSOUQ_PROJECTS.slice(0, 3);
+    const selected = projectSlugs
+      .map((slug) => MAWSOUQ_PROJECTS.find((project) => project.slug === slug))
+      .filter(Boolean);
+    return selected.length ? selected : MAWSOUQ_PROJECTS.slice(0, 3);
+  }, [projectSlugs]);
+
+  const projectVideos = useMemo(
+    () => pickByIds(PROJECT_VIDEO_SAMPLES, projectVideoIds, compact ? 1 : 2),
+    [projectVideoIds, compact],
+  );
+  const testimonialVideos = useMemo(
+    () => pickByIds(TESTIMONIAL_VIDEOS, testimonialIds, compact ? 2 : 3),
+    [testimonialIds, compact],
+  );
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
     whatsappMessage,
@@ -86,17 +146,19 @@ export default function MawsooqProofSection({
         <div>
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-black text-cyan-100">
             <ShieldCheck size={16} />
-            ثقة قبل التواصل
+            دليل أعمال حقيقي من موسوق
           </span>
           <h2 id="mawsouq-proof-heading" className="mt-5 text-3xl font-black leading-tight md:text-4xl">
-            شاهد آراء عملاء ومشاريع موسوق قبل أن تبدأ {context}
+            اربط {context} بمشاريع منشورة وآراء عملاء حقيقية
           </h2>
-          <p className="mt-4 max-w-[850px] text-base font-bold leading-8 text-white/75 md:text-lg">
-            بدل الاعتماد على كلام تسويقي فقط، يمكنك مشاهدة آراء عملاء بالفيديو ونماذج مشاريع منشورة على قناة موسوق، ثم إرسال بيانات مشروعك لبدء محادثة واضحة حول الخطوة التالية.
+          <p className="mt-4 max-w-[900px] text-base font-bold leading-8 text-white/75 md:text-lg">
+            {intro ||
+              "نعرض هنا مشاريع موجودة فعليًا في معرض أعمال موسوق وفيديوهات منشورة على القناة الرسمية. لا نستخدم هذه المشاريع لاختلاق مساحة أو تكلفة أو نتيجة غير منشورة؛ نستخدمها كدليل بصري وخبرة عملية تساعدك على فهم القرارات قبل بدء مشروعك."}
           </p>
           <div className="mt-5 flex flex-wrap gap-2 text-xs font-black text-white/80">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-2"><BadgeCheck size={15} /> آراء عملاء بالفيديو</span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-2"><YouTubeIcon className="h-[15px] w-[15px]" /> مشاريع منشورة على القناة</span>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-2"><BadgeCheck size={15} /> مشاريع فعلية منشورة</span>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-2"><YouTubeIcon className="h-[15px] w-[15px]" /> فيديوهات من قناة موسوق</span>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-2"><BadgeCheck size={15} /> شهادات عملاء بالفيديو</span>
           </div>
         </div>
 
@@ -105,8 +167,7 @@ export default function MawsooqProofSection({
             href="/مشاريعنا/"
             className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-black !text-[#0b5bb8] transition hover:-translate-y-0.5"
           >
-            شاهد دراسات المشاريع
-            <ArrowLeft size={16} />
+            كل مشاريع موسوق <ArrowLeft size={16} />
           </Link>
           <a
             href={CHANNEL_URL}
@@ -115,32 +176,42 @@ export default function MawsooqProofSection({
             className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 text-sm font-black text-white transition hover:bg-white/15"
           >
             <YouTubeIcon className="h-[19px] w-[19px]" />
-            قناة موسوق
-            <ExternalLink size={15} />
+            قناة موسوق <ExternalLink size={15} />
           </a>
         </div>
       </div>
 
       <div className="p-6 md:p-8">
-        <div className="flex items-end justify-between gap-4">
+        <div>
+          <span className="text-xs font-black text-[color:var(--brand)]">مشاريع مرتبطة بالموضوع</span>
+          <h3 className="mt-1 text-2xl font-black text-[color:var(--ink)]">أمثلة حقيقية من معرض أعمال موسوق</h3>
+          <p className="mt-2 max-w-[900px] text-sm font-bold leading-7 text-[color:var(--ink-muted)]">
+            افتح أي مشروع لترى الصور وسياقه المنشور بدل الاعتماد على صور مخزنية أو أمثلة عامة لا تخص موسوق.
+          </p>
+        </div>
+        <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {projects.map((project) => <RealProjectCard key={project.slug} project={project} />)}
+        </div>
+
+        <div className="mt-9 flex items-end justify-between gap-4">
           <div>
             <span className="text-xs font-black text-[color:var(--brand)]">آراء العملاء</span>
             <h3 className="mt-1 text-2xl font-black text-[color:var(--ink)]">شاهد التجربة بصوت أصحابها</h3>
           </div>
-          <span className="hidden text-xs font-bold text-[color:var(--ink-faint)] sm:block">اضغط على أي فيديو للتشغيل</span>
+          <span className="hidden text-xs font-bold text-[color:var(--ink-faint)] sm:block">اضغط على الفيديو للتشغيل</span>
         </div>
 
-        <div className="mt-5 flex gap-3 overflow-x-auto pb-2 sm:grid sm:grid-cols-3 lg:grid-cols-5">
+        <div className="mt-5 flex gap-3 overflow-x-auto pb-2 sm:grid sm:grid-cols-2 lg:grid-cols-3">
           {testimonialVideos.map((video) => (
             <VideoCard key={video.id} video={video} type="testimonial" onPlay={openVideo} />
           ))}
         </div>
 
-        {!compact && (
+        {!compact && projectVideos.length ? (
           <>
             <div className="mt-9">
-              <span className="text-xs font-black text-[color:var(--brand)]">نماذج مشاريع</span>
-              <h3 className="mt-1 text-2xl font-black text-[color:var(--ink)]">شاهد طريقة عرض مشاريع التصميم على قناة موسوق</h3>
+              <span className="text-xs font-black text-[color:var(--brand)]">فيديوهات مشاريع</span>
+              <h3 className="mt-1 text-2xl font-black text-[color:var(--ink)]">شاهد طريقة عرض مشاريع موسوق على القناة</h3>
             </div>
             <div className="mt-5 grid gap-4 md:grid-cols-2">
               {projectVideos.map((video) => (
@@ -148,7 +219,7 @@ export default function MawsooqProofSection({
               ))}
             </div>
           </>
-        )}
+        ) : null}
 
         <div className="mt-8 rounded-[26px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-5 md:flex md:items-center md:justify-between md:gap-6 md:p-6">
           <div>
@@ -175,7 +246,7 @@ export default function MawsooqProofSection({
         </div>
       </div>
 
-      {activeVideo && (
+      {activeVideo ? (
         <div
           className="fixed inset-0 z-[120] grid place-items-center bg-black/75 p-4 backdrop-blur-sm"
           role="dialog"
@@ -209,7 +280,7 @@ export default function MawsooqProofSection({
             </div>
           </div>
         </div>
-      )}
+      ) : null}
     </section>
   );
 }

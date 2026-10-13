@@ -976,7 +976,7 @@ export default function CostCalculatorSection({
             />
           </div>
           <a
-            href="https://wa.me/966598061334?text=Hello%20Mawsooq%2C%20I%20would%20like%20a%20consultation%20about%20my%20project"
+            href="https://wa.me/201223328270?text=Hello%20Mawsooq%2C%20I%20would%20like%20a%20consultation%20about%20my%20project"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-8 inline-flex items-center justify-center gap-2 bg-green-500 text-white px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform"

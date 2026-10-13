@@ -7,7 +7,7 @@ import { MAWSOUQ_PROJECTS, MAWSOUQ_YOUTUBE_CHANNEL } from "@/lib/mawsouqProjects
 
 const SITE_URL = "https://mawsouq.com";
 const WHATSAPP_URL =
-  "https://wa.me/966598061334?text=" +
+  "https://wa.me/201223328270?text=" +
   encodeURIComponent("مرحبًا موسوق، شاهدت معرض مشاريعكم وأريد مناقشة مشروعي في السعودية. المدينة: ___، نوع المشروع: ___، المساحة التقريبية: ___");
 
 export const metadata = {

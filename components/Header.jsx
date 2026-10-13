@@ -7,7 +7,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 import { trackLeadAction } from "@/lib/leadTracking";
 
 const WHATSAPP_URL =
-  "https://wa.me/966598061334?text=مرحبا%20موسوق،%20أريد%20استشارة%20عن%20خدمات%20التصميم%20والبناء%20في%20السعودية";
+  "https://wa.me/201223328270?text=مرحبا%20موسوق،%20أريد%20استشارة%20عن%20خدمات%20التصميم%20والبناء%20في%20السعودية";
 
 const navLinks = [
   { href: "/", label: "الرئيسية" },
@@ -103,10 +103,10 @@ export default function Header() {
           >
             <span className="relative grid h-[70px] w-[70px] place-items-center overflow-hidden rounded-full transition duration-300 group-hover:scale-105">
               <Image
-                src="/mawsouq-logo.png"
+                src="/logo-png.webp"
                 alt="شعار موسوق"
-                width={150}
-                height={150}
+                width={256}
+                height={256}
                 sizes="70px"
                 quality={100}
                 className="h-full w-full object-contain"

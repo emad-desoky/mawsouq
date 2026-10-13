@@ -3,7 +3,7 @@ export default function EnglishFloatingButtons() {
     <div className="no-print">
       {/* WhatsApp Button */}
       <a
-        href="https://wa.me/966598061334?text=Hello%20Mawsooq%2C%20I%20would%20like%20a%20consultation%20about%20design%20and%20construction%20services"
+        href="https://wa.me/201223328270?text=Hello%20Mawsooq%2C%20I%20would%20like%20a%20consultation%20about%20design%20and%20construction%20services"
         target="_blank"
         rel="noopener noreferrer"
         className="floating-btn whatsapp-btn"
@@ -20,7 +20,7 @@ export default function EnglishFloatingButtons() {
 
       {/* Call Button */}
       <a
-        href="tel:+966598061334"
+        href="tel:+201223328270"
         className="floating-btn call-btn"
         aria-label="Call us"
       >

@@ -1,6 +1,6 @@
 const SITE_URL = "https://mawsouq.com";
 export const BLOG_HUB = "/المدونات/";
-export const WHATSAPP_NUMBER = "966598061334";
+export const WHATSAPP_NUMBER = "201223328270";
 export const DATA_AS_OF = "2026-09-10";
 
 export function whatsappLink(message) {

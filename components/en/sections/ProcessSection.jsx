@@ -8,7 +8,7 @@ import {
 } from "iconsax-react";
 
 const WHATSAPP_URL =
-  "https://wa.me/966598061334?text=Hello%20Mawsooq%2C%20I%20would%20like%20to%20start%20my%20project";
+  "https://wa.me/201223328270?text=Hello%20Mawsooq%2C%20I%20would%20like%20to%20start%20my%20project";
 
 const steps = [
   {

@@ -28,7 +28,7 @@ import {
 const SITE_URL = "https://mawsouq.com";
 const UPDATED_DATE = "2026-10-07";
 const UPDATED_DATE_AR = "7 أكتوبر 2026";
-const WHATSAPP_PHONE = "966598061334";
+const WHATSAPP_PHONE = "201223328270";
 
 function absoluteUrl(path) {
   if (!path) return SITE_URL;

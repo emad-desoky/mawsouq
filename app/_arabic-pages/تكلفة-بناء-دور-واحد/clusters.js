@@ -23,9 +23,9 @@ export const BLOG_HUB = "/المدونات/";
 export const business = {
   name: "موسوق",
   legalName: "منصة موسوق للتصميم والبناء",
-  phone: "+966598061334",
-  displayPhone: "+966 59 806 1334",
-  whatsappNumber: "966598061334",
+  phone: "+201223328270",
+  displayPhone: "+20 12 23328270",
+  whatsappNumber: "201223328270",
   email: "info@mawsouq.com",
   logo: `${SITE_URL}/mawsouq-logo.png`,
   serviceArea: [
@@ -85,11 +85,11 @@ export const pillar = {
     "حاسبة تكلفة البناء السعودية",
   ],
   datePublished: "2026-03-10T14:24:00+03:00",
-  dateModified: "2026-08-26T10:00:00+03:00",
+  dateModified: "2026-10-13T10:30:00+03:00",
   readTime: "18 دقيقة قراءة",
   author: {
-    name: "فريق موسوق",
-    role: "فريق محتوى التصميم والبناء",
+    name: "فريق موسوق التحريري",
+    role: "فريق التحرير والمحتوى الهندسي في موسوق",
   },
 };
 

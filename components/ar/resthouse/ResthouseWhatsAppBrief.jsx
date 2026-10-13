@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { MessageCircle, Send } from "lucide-react";
 
-const WHATSAPP_NUMBER = "966598061334";
+const WHATSAPP_NUMBER = "201223328270";
 
 export default function ResthouseWhatsAppBrief({
   articleTitle = "تصاميم استراحات",

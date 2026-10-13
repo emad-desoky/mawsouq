@@ -37,7 +37,7 @@ export default function SaudiArabicPage() {
         url: "https://mawsouq.com",
         logo: "https://mawsouq.com/mawsouq-logo.png",
         email: "info@mawsouq.com",
-        telephone: "+966598061334",
+        telephone: "+201223328270",
         address: [
           {
             "@type": "PostalAddress",
@@ -128,7 +128,7 @@ export default function SaudiArabicPage() {
             name: "هل يمكنني التواصل عبر واتساب؟",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "نعم، يمكنك التواصل معنا مباشرة عبر واتساب على الرقم +966598061334 للحصول على استشارة مجانية حول مشروعك.",
+              text: "نعم، يمكنك التواصل معنا مباشرة عبر واتساب على الرقم +201223328270 للحصول على استشارة مجانية حول مشروعك.",
             },
           },
           {

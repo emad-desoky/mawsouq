@@ -15,7 +15,7 @@ import MawsooqProofSection from "@/components/ar/MawsooqProofSection";
 import { ARABIC_SEO_2026_PAGES } from "@/lib/arabicSeo2026";
 
 const SITE_URL = "https://mawsouq.com";
-const WHATSAPP_NUMBER = "966598061334";
+const WHATSAPP_NUMBER = "201223328270";
 
 function getPageBySlug(slug) {
   return Object.values(ARABIC_SEO_2026_PAGES).find((page) => page.slug === slug) || null;
@@ -496,9 +496,9 @@ export default function ArabicSeo2026Article({ page }) {
               </div>
 
               <div className="mt-7 flex flex-wrap gap-2 text-xs font-black text-[color:var(--ink-faint)]">
-                <span className="rounded-full bg-[color:var(--surface-2)] px-3 py-2">محتوى عربي أصيل</span>
-                <span className="rounded-full bg-[color:var(--surface-2)] px-3 py-2">مشاريع وآراء عملاء بالفيديو</span>
-                <span className="rounded-full bg-[color:var(--surface-2)] px-3 py-2">تواصل مباشر عبر واتساب</span>
+                <span className="rounded-full bg-[color:var(--surface-2)] px-3 py-2">مدعوم بمشاريع موسوق المنشورة</span>
+                <span className="rounded-full bg-[color:var(--surface-2)] px-3 py-2">مراجع رسمية + خبرة عملية</span>
+                <span className="rounded-full bg-[color:var(--surface-2)] px-3 py-2">آراء عملاء وفيديوهات حقيقية</span>
               </div>
             </div>
 
@@ -565,7 +565,14 @@ export default function ArabicSeo2026Article({ page }) {
                     </div>
                   ) : null}
                   {index === 3 ? (
-                    <MawsooqProofSection context={page.primaryKeyword} whatsappMessage={page.whatsappMessage} />
+                    <MawsooqProofSection
+                      context={page.primaryKeyword}
+                      whatsappMessage={page.whatsappMessage}
+                      projectSlugs={page.proof?.projectSlugs}
+                      projectVideoIds={page.proof?.projectVideoIds}
+                      testimonialIds={page.proof?.testimonialIds}
+                      intro={page.proof?.intro}
+                    />
                   ) : null}
                 </div>
               ))}

@@ -237,7 +237,7 @@ export default function ResortDesignsPillarPage() {
             </div>
             <div className="rest-hero-meta">
               <span><Clock3 size={16} />{pillar.readTime}</span>
-              <span>آخر تحديث حقيقي: 6 أغسطس 2026</span>
+              <span>آخر تحديث فعلي: 13 أكتوبر 2026</span>
             </div>
           </div>
 
@@ -250,7 +250,7 @@ export default function ResortDesignsPillarPage() {
               loading="eager"
               fetchPriority="high"
             />
-            <figcaption>فكرة استراحة راقية تربط الفراغ الداخلي بالطبيعة والجلسات الخارجية.</figcaption>
+            <figcaption>مشروع تصميم استراحة/شاليه منشور ضمن معرض أعمال موسوق في السعودية.</figcaption>
           </figure>
         </header>
 
@@ -486,6 +486,10 @@ export default function ResortDesignsPillarPage() {
             <MawsooqProofSection
               context="تصميم الاستراحة"
               whatsappMessage={pillar.whatsappMessage}
+              projectSlugs={["saudi-resthouse-design"]}
+              projectVideoIds={["WEF3yjCjr2Y", "3CmBsvvEetI"]}
+              testimonialIds={["J493Jm1f0Xc", "QuT6C1L4ya4", "-oS2pzOKqY8"]}
+              intro="نربط هذا الدليل بمشروع استراحة/شاليه حقيقي منشور ضمن أعمال موسوق في السعودية. الصور والفيديو هنا دليل على نوع العمل المنشور، بينما أي مساحة أو تكلفة أو اشتراطات تنفيذية لمشروع جديد تُحدد من بيانات أرض العميل وحالته الفعلية."
             />
 
             <section id="faqs" className="rest-section rest-faq-section">
