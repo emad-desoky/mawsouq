@@ -20,6 +20,7 @@ import {
 import OneFloorCostCalculator from "./OneFloorCostCalculator";
 import MawsooqProofSection from "@/components/ar/MawsooqProofSection";
 import {
+  SITE_URL,
   business,
   existingStrongBlogs,
   getPublishedClusters,
@@ -216,6 +217,7 @@ const tocItems = [
   { id: "quick-answer", label: "الإجابة السريعة والأسعار" },
   { id: "calculator", label: "حاسبة تكلفة بناء دور واحد" },
   { id: "meaning", label: "ماذا يعني بناء دور واحد؟" },
+  { id: "scope-before-price", label: "مثال الفرق بين الأرض والمبني" },
   { id: "formula", label: "طريقة الحساب الصحيحة" },
   { id: "price-table", label: "سعر المتر في السعودية 2026" },
   { id: "examples", label: "أمثلة 100 و200 و300 متر" },
@@ -223,6 +225,7 @@ const tocItems = [
   { id: "factors", label: "العوامل التي تغير التكلفة" },
   { id: "stages", label: "مراحل البناء" },
   { id: "hidden-costs", label: "التكاليف الخفية" },
+  { id: "quote-comparison", label: "مقارنة عروض المقاولين" },
   { id: "contract", label: "قائمة فحص العقد" },
   { id: "mistakes", label: "أخطاء ترفع الميزانية" },
   { id: "official-sources", label: "المصادر الرسمية" },
@@ -424,7 +427,7 @@ export default function OneFloorCostPage() {
         description: pageDescription,
         image: {
           "@type": "ImageObject",
-          url: heroImage,
+          url: `${SITE_URL}${heroImage}`,
           width: 1024,
           height: 768,
         },
@@ -447,27 +450,11 @@ export default function OneFloorCostPage() {
         inLanguage: "ar-SA",
         articleSection: pillar.category,
         keywords: pillar.keywords.join(", "),
-        wordCount: 2400,
         about: [
           { "@type": "Thing", name: "تكلفة البناء في السعودية" },
           { "@type": "Thing", name: "بناء دور واحد" },
           { "@type": "Thing", name: "سعر متر البناء" },
         ],
-      },
-      {
-        "@type": "HowTo",
-        "@id": `${pillarUrl}#howto`,
-        name: "طريقة حساب تكلفة بناء دور واحد",
-        description:
-          "خطوات عملية لتقدير تكلفة بناء دور واحد في السعودية قبل طلب عروض المقاولين.",
-        totalTime: "PT15M",
-        step: stages.map((stage, index) => ({
-          "@type": "HowToStep",
-          position: index + 1,
-          name: stage.title,
-          text: stage.text,
-          url: `${pillarUrl}#stages`,
-        })),
       },
       {
         "@type": "BreadcrumbList",
@@ -492,19 +479,7 @@ export default function OneFloorCostPage() {
             item: pillarUrl,
           },
         ],
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${pillarUrl}#faq`,
-        mainEntity: faqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
-        })),
-      },
+      }
     ],
   };
 
@@ -548,7 +523,7 @@ export default function OneFloorCostPage() {
                 دليل أسعار البناء في السعودية 2026
               </span>
               <span className="text-xs font-black text-[color:var(--ink-faint)]">
-                آخر تحديث: 17 يوليو 2026
+                آخر مراجعة تحريرية: 17 أكتوبر 2026
               </span>
             </div>
 
@@ -557,9 +532,7 @@ export default function OneFloorCostPage() {
             </h1>
 
             <p className="mt-6 max-w-[900px] text-lg font-bold leading-9 text-[color:var(--ink-muted)] md:text-xl md:leading-10">
-              تعرف على <strong>تكلفة بناء دور واحد</strong> للعظم أو التسليم على
-              المفتاح، واحسب ميزانية 100 أو 200 أو 300 متر، وافهم البنود التي لا
-              تظهر في سعر المتر قبل أن تطلب عرضًا من المقاول.
+              كم تحتاج لبناء دور أرضي في السعودية؟ نبدأ بالمساحة <strong>المبنية فعليًا</strong>، ثم نقارن العظم والتسليم على المفتاح بأمثلة واضحة، ونكشف المصروفات التي يغفلها عرض «سعر المتر» قبل أن ترسل مخططاتك للمقاول.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
@@ -591,42 +564,41 @@ export default function OneFloorCostPage() {
                 </span>
               </div>
               <a
-                href="https://www.stats.gov.sa/documents/20117/2435267/CCI%2BMay%2B2026-AR.pdf/44915a92-2b45-b084-79b6-df68d18a43ec"
+                href="https://www.stats.gov.sa/en/w/cci"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-2xl border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-4 transition hover:border-[color:var(--brand)]"
               >
                 <strong className="block text-2xl font-black text-[color:var(--ink)]">
-                  +2.5%
+                  مصدر رسمي
                 </strong>
                 <span className="mt-1 block text-xs font-bold leading-6 text-[color:var(--ink-muted)]">
-                  ارتفاع سنوي لتكاليف القطاع السكني في مايو 2026
+                  مؤشر تكاليف البناء لدى الهيئة العامة للإحصاء — ليس تسعيرة مقاول
                 </span>
               </a>
             </div>
           </div>
 
-          <div className="relative min-h-[430px] overflow-hidden rounded-[32px] lg:min-h-[650px]">
-            <Image
-              src={heroImage}
-              alt={pillar.imageAlt}
-              fill
-              priority
-              fetchPriority="high"
-              sizes="(max-width: 1024px) 100vw, 46vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_30%,rgba(3,16,30,0.88))]" />
-            <div className="absolute inset-x-5 bottom-5 rounded-[26px] border border-white/15 bg-[#071321]/82 p-5 text-white backdrop-blur-xl md:inset-x-7 md:bottom-7 md:p-6">
-              <p className="text-xs font-black text-cyan-200">
-                أهم قاعدة قبل الحساب
-              </p>
-              <p className="mt-2 text-lg font-black leading-8 md:text-xl">
-                لا تضرب مساحة الأرض في سعر المتر. استخدم مسطح البناء الحقيقي،
-                ثم أضف البنود غير المشمولة والاحتياطي المالي.
-              </p>
+          <figure className="min-w-0 self-start overflow-hidden rounded-[28px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] lg:self-center">
+            {/* Keep the native 4:3 composition visible across desktop and mobile. */}
+            <div className="relative aspect-[4/3] w-full bg-[color:var(--surface-2)]">
+              <Image
+                src={heroImage}
+                alt={pillar.imageAlt}
+                fill
+                priority
+                fetchPriority="high"
+                sizes="(max-width: 1024px) calc(100vw - 42px), 46vw"
+                className="object-contain"
+              />
             </div>
-          </div>
+            <figcaption className="border-t border-[color:var(--hairline)] bg-[#071321] px-5 py-5 text-white md:px-7 md:py-6">
+              <span className="text-xs font-black text-cyan-200">قبل أن تطلب تسعيرة</span>
+              <p className="mt-2 text-base font-bold leading-8 md:text-lg">
+                احسب مسطح البناء الفعلي، ثم افصل العظم عن التشطيب والبنود غير المشمولة. مساحة الأرض ليست دائمًا مساحة البناء.
+              </p>
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -641,9 +613,7 @@ export default function OneFloorCostPage() {
                 كم سعر بناء دور واحد في السعودية؟
               </h2>
               <p className="mt-3 max-w-4xl text-base font-semibold leading-8 text-[color:var(--ink-muted)]">
-                هذه نطاقات تخطيطية واسعة للسوق السعودي في 2026. لا تعتبر تسعيرة
-                رسمية أو عرضًا ملزمًا؛ لأن المخطط والتربة والمدينة والمواصفات
-                ونطاق العقد قد تنقل المشروع من فئة إلى أخرى.
+                الأرقام أدناه <strong>سيناريوهات حسابية إرشادية</strong> وليست متوسطات سوقية موثقة أو عرض سعر من موسوق. تختلف الأسعار الفعلية باختلاف المدينة، فحص التربة، المخططات، تاريخ التسعير، والمواصفات. استخدمها لاختبار قدرة ميزانيتك فقط ثم اطلب عرضًا حديثًا وجدول كميات من جهة تنفيذ مناسبة.
               </p>
             </div>
             <a
@@ -773,6 +743,26 @@ export default function OneFloorCostPage() {
                 </p>
               </div>
             </div>
+          </section>
+
+          <section id="scope-before-price" className="mt-16 scroll-mt-32">
+            <SectionTitle eyebrow="مثال تطبيقي" title="أرضك 300 متر؟ قد يكون مسطح دورك أقل بكثير">
+              تخيل أرضًا مساحتها 300 م²، لكن المسطح المبني المعتمد في المخطط 190 م². عندها لا يصح تسعير 300 متر على أنها مساحة مبنية. فرق 110 م² سيغيّر الميزانية المبدئية بصورة كبيرة حتى قبل اختيار فئة التشطيب.
+            </SectionTitle>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {[
+                { label: "مساحة الأرض في المثال", value: "300 م²", note: "ليست مدخل الحاسبة" },
+                { label: "مسطح البناء الافتراضي", value: "190 م²", note: "هذا ما يُراجع من المخطط" },
+                { label: "الفرق بين المساحتين", value: "110 م²", note: "لا تُسعّره دون سبب محدد" },
+              ].map((item) => (
+                <div key={item.label} className="rounded-[24px] border border-[color:var(--hairline)] bg-[color:var(--surface-2)] p-5">
+                  <span className="text-sm font-bold text-[color:var(--ink-muted)]">{item.label}</span>
+                  <strong className="mt-2 block text-3xl font-black text-[color:var(--ink)]">{item.value}</strong>
+                  <span className="mt-2 block text-xs font-bold text-[color:var(--ink-muted)]">{item.note}</span>
+                </div>
+              ))}
+            </div>
+            <p className="mt-5 text-sm font-bold leading-8 text-[color:var(--ink-muted)]">هذا مثال توضيحي وليس افتراضًا عن نسبة البناء المسموحة. تتحدد مساحة البناء المسموحة حسب الموقع والاشتراطات والمخططات المعتمدة. اقرأ <Link href="/حساب-مسطح-البناء-للدور-الواحد/" className="font-black text-[color:var(--brand)] underline underline-offset-4">طريقة حساب المسطح المبني خطوة بخطوة</Link> قبل إدخال رقم في الحاسبة.</p>
           </section>
 
           <section id="formula" className="mt-16 scroll-mt-32">
@@ -1058,7 +1048,7 @@ export default function OneFloorCostPage() {
               eyebrow="Budget Visualization"
               title="كيف تتوزع ميزانية بناء دور واحد؟"
             >
-              هذا توزيع بصري إرشادي لمشروع تسليم مفتاح متوسط. النسب تتغير من
+              هذا مثال توزيع افتراضي للشرح وليس نتيجة حصر كميات أو نسبة مثبتة للسوق. النسب تتغير من
               مشروع لآخر، لكنها تساعدك على اكتشاف العرض الذي يضع رقمًا كبيرًا تحت
               بند واحد ويخفي بقية البنود.
             </SectionTitle>
@@ -1172,11 +1162,7 @@ export default function OneFloorCostPage() {
                 هل البناء في الرياض أغلى من مدينة أخرى؟
               </h3>
               <p className="mt-4 text-base font-semibold leading-9 text-[color:var(--ink-muted)]">
-                لا توجد نسبة ثابتة تصلح لكل مشروع. المدن الكبيرة قد ترتفع فيها
-                تكلفة بعض العمالة أو إدارة الموقع، لكنها توفر موردين ومقاولين أكثر.
-                المدن الأبعد قد تقل فيها أجور معينة، بينما يرتفع النقل أو تقل خيارات
-                المواد. لذلك استخدم معامل المدينة في الحاسبة كتعديل أولي فقط، ثم
-                اطلب عروضًا محلية على نفس المخططات.
+                لا توجد نسبة منشورة واحدة تثبت أن مدينة أغلى من أخرى في جميع أعمال البناء. فقد يزيد النقل في مشروع بعيد بينما تقل أجور بند آخر. لذلك أصبحت الحاسبة تُظهر المدينة المطلوبة <strong>دون افتراض نسبة زيادة تلقائية</strong>؛ للحصول على فرق سعر حقيقي، قارن عروضًا محلية حديثة على المخططات والمواصفات نفسها.
               </p>
             </div>
           </section>
@@ -1254,6 +1240,27 @@ export default function OneFloorCostPage() {
                 معتمد للمتر وآلية احتساب الفرق إذا اختار المالك منتجًا أعلى.
               </p>
             </div>
+          </section>
+
+          <section id="quote-comparison" className="mt-16 scroll-mt-32">
+            <SectionTitle eyebrow="قبل قبول أقل عرض" title="مثال: لماذا قد يكون عرض المقاول الأرخص هو الأعلى في النهاية؟">
+              وصلتك ثلاثة عروض لبيت دور واحد. الأول يذكر «السعر شامل» دون جدول، والثاني يذكر العظم بالمواد لكنه يستبعد الحفر والعزل، والثالث يوضح كل بند ومواصفاته. لا يمكن ترتيب هذه العروض ماليًا بعدل قبل توحيد نطاق الأعمال؛ الاختلاف هنا في <strong>المشمُول</strong> وليس في السعر فقط.
+            </SectionTitle>
+            <div className="overflow-x-auto rounded-[26px] border border-[color:var(--hairline)]">
+              <table className="w-full min-w-[620px] text-right text-sm">
+                <caption className="bg-[color:var(--surface-2)] p-4 text-right font-black">مقارنة توضيحية لجودة معلومات ثلاثة عروض — ليست عروضًا حقيقية</caption>
+                <thead className="bg-[#071321] text-white"><tr>{["ما نراجعه", "عرض مختصر", "عرض بنطاق ناقص", "عرض موصّف"].map((v) => <th key={v} scope="col" className="p-4">{v}</th>)}</tr></thead>
+                <tbody className="text-[color:var(--ink-muted)]">
+                  {[
+                    ["مسطح ومخططات التسعير", "غير محدد", "محدد", "محدد بالإصدار"],
+                    ["الحفر والعزل والاختبارات", "غير واضح", "مستبعد", "مشمول أو مستبعد كتابيًا"],
+                    ["مواصفات وكميات المواد", "عبارات عامة", "بعض البنود فقط", "جدول مفصل"],
+                    ["الضريبة وأوامر التغيير", "غير مذكورة", "بحاجة لإيضاح", "شروط واضحة"],
+                  ].map((row) => <tr key={row[0]} className="border-t border-[color:var(--hairline)]">{row.map((v, i) => <td key={i} className="p-4 align-top font-semibold">{v}</td>)}</tr>)}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-5 text-base font-semibold leading-9 text-[color:var(--ink-muted)]">ابدأ بملف <Link href="/جدول-كميات-بناء-دور-واحد/" className="font-black text-[color:var(--brand)] underline underline-offset-4">جدول كميات بناء دور واحد</Link> موحد. وعندما ترسله لكل مقاول ستكون الفروق أسهل في الفهم والتفاوض، وستعرف ما الذي يحتاج إلى موافقة مكتوبة قبل التنفيذ.</p>
           </section>
 
           <section id="contract" className="mt-16 scroll-mt-32">
@@ -1414,9 +1421,7 @@ export default function OneFloorCostPage() {
               eyebrow="أدلة مرتبطة"
               title="أدلة مرتبطة تساعدك قبل بناء دور واحد"
             >
-              هذه الروابط تُجلب تلقائيًا من ملف clusters.js. استخدمها لفهم
-              التصميم والهيكل والمقاول والتشطيب كمنظومة واحدة بدل النظر إلى سعر
-              المتر فقط.
+              بعد معرفة الميزانية المبدئية، ستحتاج إلى حساب المساحة بدقة، وحصر البنود، وفهم مراحل العظم والتشطيب. اختر الخطوة الأقرب لمشروعك، وانتقل إلى الدليل المتخصص بدل الاعتماد على رقم متر منفصل عن بقية القرارات.
             </SectionTitle>
 
             <div className="grid gap-5 md:grid-cols-2">

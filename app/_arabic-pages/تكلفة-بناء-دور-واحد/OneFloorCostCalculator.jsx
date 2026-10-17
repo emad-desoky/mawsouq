@@ -35,12 +35,12 @@ const BUILD_TYPES = {
   },
 };
 
-const CITY_FACTORS = {
-  riyadh: { label: "الرياض", factor: 1.08 },
-  jeddah: { label: "جدة / مكة", factor: 1.08 },
-  eastern: { label: "الدمام / الخبر / الشرقية", factor: 1.05 },
-  madinah: { label: "المدينة / القصيم", factor: 1 },
-  other: { label: "مدينة أخرى", factor: 0.98 },
+const CITY_OPTIONS = {
+  riyadh: { label: "الرياض" },
+  jeddah: { label: "جدة / مكة" },
+  eastern: { label: "الدمام / الخبر / الشرقية" },
+  madinah: { label: "المدينة / القصيم" },
+  other: { label: "مدينة أخرى" },
 };
 
 const formatter = new Intl.NumberFormat("ar-SA", {
@@ -65,11 +65,11 @@ export default function OneFloorCostCalculator({ initialArea = 200 }) {
     const safeArea = clampNumber(area, 40, 2000);
     const safeReserve = clampNumber(reserve, 0, 30);
     const selectedType = BUILD_TYPES[buildType];
-    const selectedCity = CITY_FACTORS[city];
+    const selectedCity = CITY_OPTIONS[city];
     const reserveFactor = 1 + safeReserve / 100;
 
-    const baseMin = safeArea * selectedType.min * selectedCity.factor;
-    const baseMax = safeArea * selectedType.max * selectedCity.factor;
+    const baseMin = safeArea * selectedType.min;
+    const baseMax = safeArea * selectedType.max;
 
     return {
       safeArea,
@@ -87,7 +87,7 @@ export default function OneFloorCostCalculator({ initialArea = 200 }) {
     <div className="overflow-hidden rounded-[34px] border border-[color:var(--hairline-strong)] bg-[color:var(--surface)] shadow-[var(--card-shadow)]">
       <div className="border-b border-[color:var(--hairline)] bg-[linear-gradient(135deg,#071321,#0b5bb8)] p-6 text-white md:p-8">
         <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-black">
-          حاسبة تقديرية — تحديث يوليو 2026
+          حاسبة سيناريوهات — مراجعة أكتوبر 2026
         </span>
         <h3 className="mt-4 text-3xl font-black leading-tight md:text-4xl">
           احسب تكلفة بناء دور واحد خلال دقيقة
@@ -144,7 +144,7 @@ export default function OneFloorCostCalculator({ initialArea = 200 }) {
               onChange={(event) => setCity(event.target.value)}
               className="h-14 w-full rounded-2xl border border-[color:var(--hairline-strong)] bg-[color:var(--surface-2)] px-4 text-base font-black text-[color:var(--ink)] outline-none transition focus:border-[color:var(--brand)]"
             >
-              {Object.entries(CITY_FACTORS).map(([value, item]) => (
+              {Object.entries(CITY_OPTIONS).map(([value, item]) => (
                 <option key={value} value={value}>
                   {item.label}
                 </option>
@@ -210,9 +210,17 @@ export default function OneFloorCostCalculator({ initialArea = 200 }) {
           </div>
 
           <div className="mt-5 rounded-2xl border border-amber-500/25 bg-amber-500/10 p-4 text-sm font-bold leading-7 text-[color:var(--ink)]">
-            لا تفترض أن جميع عروض “سعر المتر” تشمل الرخصة والتصميم وفحص التربة
-            والتكييف والمطبخ والخزائن والحديقة والمصعد وضريبة القيمة المضافة.
+            هذه سيناريوهات حسابية تقريبية وليست أسعار سوق موثقة أو عروض مقاولين. المدينة مسجلة في الملخص فقط، ولا نضيف معاملًا رقميًا افتراضيًا لها دون عروض محلية قابلة للمقارنة. تحقق من استبعاد الرخصة والتصميم وفحص التربة والتكييف والمطبخ والضريبة.
           </div>
+          <a
+            href={`https://wa.me/966598061334?text=${encodeURIComponent(`مرحبًا موسوق، أريد مراجعة تقدير بناء دور واحد. المدينة: ${result.selectedCity.label}، المسطح المبني: ${result.safeArea} متر مربع، فئة التنفيذ: ${result.selectedType.label}، الاحتياطي: ${result.safeReserve}%. لدي مخططات: نعم/لا.`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-lead-placement="one-floor-calculator-result"
+            className="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[#25D366] px-5 text-center text-sm font-black text-white transition hover:bg-[#20bd5a]"
+          >
+            أرسل هذه الحسبة واطلب مراجعة النطاق
+          </a>
         </div>
       </div>
     </div>

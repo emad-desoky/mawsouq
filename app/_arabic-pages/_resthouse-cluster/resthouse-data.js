@@ -13,7 +13,7 @@
 
 export const SITE_URL = "https://mawsouq.com";
 export const DATA_AS_OF = "2026-08-06";
-export const WHATSAPP_NUMBER = "201223328270";
+export const WHATSAPP_NUMBER = "966598061334";
 
 export const routes = {
   home: "/",
@@ -67,7 +67,7 @@ export const pillar = {
   image: "/projects/resthouse-saudi.jpg",
   imageAlt: "تصاميم استراحات راقية في السعودية",
   datePublished: "2026-03-10",
-  dateModified: "2026-10-13",
+  dateModified: "2026-10-17",
   readTime: "18 دقيقة قراءة",
   author: "فريق موسوق التحريري",
   whatsappMessage:

@@ -191,6 +191,7 @@ const toc = [
   ["gallery", "30 فكرة وصورة للاستراحات"],
   ["cluster-guides", "أدلة تفصيلية مرتبطة"],
   ["engineering", "الرخصة والتنسيق الهندسي"],
+  ["budget-handoff", "من المخطط إلى الميزانية"],
   ["faqs", "الأسئلة الشائعة"],
 ];
 
@@ -237,7 +238,7 @@ export default function ResortDesignsPillarPage() {
             </div>
             <div className="rest-hero-meta">
               <span><Clock3 size={16} />{pillar.readTime}</span>
-              <span>آخر تحديث فعلي: 13 أكتوبر 2026</span>
+              <span>مراجعة المحتوى: 17 أكتوبر 2026</span>
             </div>
           </div>
 
@@ -491,6 +492,18 @@ export default function ResortDesignsPillarPage() {
               testimonialIds={["J493Jm1f0Xc", "QuT6C1L4ya4", "-oS2pzOKqY8"]}
               intro="نربط هذا الدليل بمشروع استراحة/شاليه حقيقي منشور ضمن أعمال موسوق في السعودية. الصور والفيديو هنا دليل على نوع العمل المنشور، بينما أي مساحة أو تكلفة أو اشتراطات تنفيذية لمشروع جديد تُحدد من بيانات أرض العميل وحالته الفعلية."
             />
+
+            <section id="budget-handoff" className="rest-section">
+              <span className="rest-eyebrow">بعد اختيار التصميم</span>
+              <h2>متى تطلب تقدير التنفيذ لاستراحتك؟</h2>
+              <p>بعد اختيار أسلوب الاستراحة، جهّز نسخة محدثة من المسقط وجدول المساحات وحدد هل يشمل النطاق المسبح والحديقة والأسوار والمظلات والتكييف. هذه العناصر قد تجعل عرضين متشابهين في قيمة المتر مختلفين في السعر النهائي.</p>
+              <p>إذا كانت الاستراحة مبنى من دور واحد، يساعدك <Link href="/تكلفة-بناء-دور-واحد/" className="font-black underline underline-offset-4">دليل حساب تكلفة بناء دور واحد</Link> في فهم الفرق بين مساحة الأرض ومسطح البناء، وتحديد ما يُطلب من المقاول قبل مقارنة عروض التنفيذ. هذا الرابط للحساب؛ أما اختيار المخطط نفسه فيبقى محور دليل الاستراحات.</p>
+              <ul className="rest-key-list">
+                <li><CheckCircle2 size={21} />حدد المسطح المبني بدل استخدام مساحة الأرض بالكامل.</li>
+                <li><CheckCircle2 size={21} />افصل بنود المسبح والحدائق والأسوار والإنارة الخارجية في التسعير.</li>
+                <li><CheckCircle2 size={21} />ثبت مواصفات المبنى والمرافق قبل التفاوض على تكلفة التنفيذ.</li>
+              </ul>
+            </section>
 
             <section id="faqs" className="rest-section rest-faq-section">
               <span className="rest-eyebrow">أسئلة يبحث عنها أصحاب الأراضي</span>
