@@ -8,6 +8,7 @@ import { getAllArabicSeo2026Entries } from "@/lib/arabicSeo2026";
 import { getAllRiyadhEngineeringEntries } from "./_arabic-pages/_riyadh-engineering-cluster/riyadh-engineering-data";
 import { getAllBlogEntries as getAllVillaFinishingEntries } from "./_arabic-pages/_villa-finishing-cluster/villa-finishing-data";
 import { getAllMawsooqProjectEntries } from "@/lib/mawsouqProjects";
+import { MERGED_ARABIC_SLUGS } from "@/lib/mergedPages.mjs";
 
 export const dynamic = "force-static";
 
@@ -17,7 +18,10 @@ const APP_DIR = path.join(process.cwd(), "app");
 const PAGE_FILES = new Set(["page.js", "page.jsx", "page.ts", "page.tsx"]);
 
 // URLs that permanently redirect must not be advertised as indexable sitemap URLs.
-const REDIRECTED_PATHS = new Set(["/التصميم-الإنشائي"]);
+const REDIRECTED_PATHS = new Set([
+  "/التصميم-الإنشائي",
+  ...Array.from(MERGED_ARABIC_SLUGS, (slug) => `/${slug}`),
+]);
 
 const SKIP_SEGMENTS = new Set([
   "api",

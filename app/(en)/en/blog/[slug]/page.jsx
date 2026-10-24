@@ -183,18 +183,7 @@ export default async function EnglishBlogArticlePage({ params }) {
         "@id": `${canonical}#breadcrumb`,
         itemListElement: breadcrumbItems,
       },
-      {
-        "@type": "FAQPage",
-        "@id": `${canonical}#faq`,
-        mainEntity: article.faqs.map(([question, answer]) => ({
-          "@type": "Question",
-          name: question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: answer,
-          },
-        })),
-      },
+
     ],
   };
 

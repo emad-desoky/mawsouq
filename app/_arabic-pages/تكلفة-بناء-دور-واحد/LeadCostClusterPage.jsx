@@ -192,16 +192,6 @@ export default function LeadCostClusterPage({ article }) {
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: article.faqs.map(([question, answer]) => ({
-      "@type": "Question",
-      name: question,
-      acceptedAnswer: { "@type": "Answer", text: answer },
-    })),
-  };
-
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -215,7 +205,6 @@ export default function LeadCostClusterPage({ article }) {
   return (
     <main dir="rtl" className="relative isolate min-h-screen bg-[color:var(--page)] pt-[calc(var(--nav-height)+24px)] pb-28 text-[color:var(--ink)]">
       <JsonLd data={blogPostingSchema} />
-      <JsonLd data={faqSchema} />
       <JsonLd data={breadcrumbSchema} />
 
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[760px] bg-[radial-gradient(circle_at_88%_8%,rgba(47,134,246,0.16),transparent_34%),radial-gradient(circle_at_12%_42%,rgba(11,91,184,0.08),transparent_30%)]" />

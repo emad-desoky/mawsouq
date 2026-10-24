@@ -66,7 +66,7 @@ export function whatsappLink(
 export const pillar = {
   slug: "تكلفة-بناء-دور-واحد",
   category: "تكاليف البناء",
-  metaTitle: "تكلفة بناء دور واحد في السعودية 2026 | حاسبة العظم والتشطيب",
+  metaTitle: "تكلفة بناء دور واحد 2026 بالريال حسب المساحة + حاسبة",
   title: "تكلفة بناء دور واحد في السعودية 2026: سعر المتر وحاسبة تقديرية",
   description:
     "دليل تكلفة بناء دور واحد في السعودية 2026: حاسبة للعظم والتشطيب، أمثلة 100 و200 و300 متر، مقارنة البنود والاستبعادات وكيف تطلب عرض مقاول واضحًا.",
@@ -204,7 +204,7 @@ export const futureClusterBlogs = [
     dateModified: "2026-07-17T13:00:00+03:00",
     readTime: "9 دقائق قراءة",
     priority: 1,
-    isLive: true,
+    isLive: false,
   },
   {
     slug: "تكلفة-بناء-دور-واحد-200-متر",
@@ -233,7 +233,7 @@ export const futureClusterBlogs = [
     dateModified: "2026-07-17T13:00:00+03:00",
     readTime: "10 دقائق قراءة",
     priority: 2,
-    isLive: true,
+    isLive: false,
   },
   {
     slug: "تكلفة-بناء-دور-واحد-300-متر",
@@ -262,7 +262,7 @@ export const futureClusterBlogs = [
     dateModified: "2026-09-10T16:31:00+03:00",
     readTime: "10 دقائق قراءة",
     priority: 3,
-    isLive: true,
+    isLive: false,
   },
   {
     slug: "تكلفة-بناء-دور-واحد-250-متر",
@@ -292,7 +292,7 @@ export const futureClusterBlogs = [
     dateModified: "2026-07-21T10:00:00+03:00",
     readTime: "12 دقيقة قراءة",
     priority: 4,
-    isLive: true,
+    isLive: false,
   },
   {
     slug: "تكلفة-بناء-دور-واحد-500-متر",
@@ -322,7 +322,7 @@ export const futureClusterBlogs = [
     dateModified: "2026-07-21T10:10:00+03:00",
     readTime: "13 دقيقة قراءة",
     priority: 5,
-    isLive: true,
+    isLive: false,
   },
   {
     slug: "سعر-متر-العظم-بالمواد-في-السعودية",
@@ -330,7 +330,7 @@ export const futureClusterBlogs = [
     metaTitle: "سعر متر العظم بالمواد 2026 | 650–950 ر.س/م²",
     title: "سعر متر العظم بالمواد في السعودية 2026: السعر وما يشمله",
     description:
-      "سعر متر العظم بالمواد في السعودية قد يكون 650–950 ر.س/م² كنطاق تخطيطي. اعرف ما يشمله العرض والاستثناءات وكيف تقارن المقاولين قبل التعاقد.",
+      "سعر متر العظم بالمواد ف�� السعودية قد يكون 650–950 ر.س/م² كنطاق تخطيطي. اعرف ما يشمله العرض والاستثناءات وكيف تقارن المقاولين قبل التعاقد.",
     excerpt:
       "يفكك عرض العظم بالمواد ويمنع مقارنة أسعار لا تشمل البنود نفسها.",
     href: "/سعر-متر-العظم-بالمواد-في-السعودية/",
@@ -380,7 +380,7 @@ export const futureClusterBlogs = [
     dateModified: "2026-07-21T10:30:00+03:00",
     readTime: "14 دقيقة قراءة",
     priority: 7,
-    isLive: true,
+    isLive: false,
   },
   {
     slug: "تكلفة-اضافة-دور-فوق-منزل-قائم",

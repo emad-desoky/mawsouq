@@ -1,8 +1,20 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "flag-icons/css/flag-icons.min.css";
 
 @custom-variant dark (&:is(.dark *));
+
+.fi {
+  display: inline-block;
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+.fi-sa { background-image: url(/flags/sa.svg); }
+.fi-ae { background-image: url(/flags/ae.svg); }
+.fi-kw { background-image: url(/flags/kw.svg); }
+.fi-qa { background-image: url(/flags/qa.svg); }
+.fi-bh { background-image: url(/flags/bh.svg); }
+.fi-om { background-image: url(/flags/om.svg); }
 
 :root {
   /* Brand palette (primary colors) */

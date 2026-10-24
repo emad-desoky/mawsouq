@@ -11,6 +11,12 @@ import FAQSection from "@/components/sections/FAQSection";
 import HeroSection from "@/components/sections/HeroSection";
 import ProjectsShowcaseSection from "@/components/sections/ProjectsShowcaseSection";
 
+export const metadata = {
+  alternates: {
+    canonical: "https://mawsouq.com/",
+  },
+};
+
 export default function SaudiArabicPage() {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -95,52 +101,7 @@ export default function SaudiArabicPage() {
           },
         ],
       },
-      {
-        "@type": "FAQPage",
-        "@id": "https://mawsouq.com/#faq",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "ما هي خدمات موسوق في السعودية؟",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "موسوق تقدم خدمات التصميم المعماري والإنشائي والداخلي، بالإضافة إلى حاسبة تكلفة البناء ودراسات الجدوى وربطك بمزودي الخدمات المناسبين في السعودية.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "هل تساعد موسوق في حساب تكلفة البناء؟",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "نعم، نقدم حاسبة تكلفة البناء المحدثة بأسعار السوق السعودي والتي تساعدك في تقدير تكلفة مشروعك بناءً على المساحة ونوع المشروع ومستوى التشطيب.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "هل تقدم موسوق التصميم المعماري والإنشائي؟",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "نعم، نقدم خدمات التصميم المعماري والإنشائي والداخلي بالتعاون مع أفضل المصممين والمهندسين من العالم العربي مع توفير يصل إلى 70% من أسعار المكاتب الهندسية.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "هل يمكنني التواصل عبر واتساب؟",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "نعم، يمكنك التواصل معنا مباشرة عبر واتساب على الرقم +201223328270 للحصول على استشارة مجانية حول مشروعك.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "هل الصفحة مخصصة للسوق السعودي؟",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "نعم، هذه الصفحة مخصصة بالكامل للسوق السعودي وتغطي خدماتنا في الرياض وجدة والدمام والخبر ومكة والمدينة وجميع مناطق المملكة.",
-            },
-          },
-        ],
-      },
+
     ],
   };
 

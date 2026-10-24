@@ -109,36 +109,7 @@ export default function EnglishHomePage() {
           },
         ],
       },
-      {
-        "@type": "FAQPage",
-        "@id": `${pageUrl}#faq-schema`,
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "What services does Mawsooq provide in Saudi Arabia?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Mawsooq provides architectural, structural, and interior design, construction cost estimation, feasibility support, and access to suitable service providers for projects in Saudi Arabia.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Can Mawsooq estimate my construction budget?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. The Mawsooq construction cost calculator estimates costs using project area, building type, finish level, and editable Saudi market price assumptions.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Can I request a consultation through WhatsApp?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. You can send your project details through WhatsApp and the team will help identify the relevant services, approximate budget, and next steps.",
-            },
-          },
-        ],
-      },
+
     ],
   };
 

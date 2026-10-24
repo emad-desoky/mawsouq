@@ -278,15 +278,7 @@ function JsonLd({ article }) {
       },
       ...(faqs.length
         ? [
-            {
-              "@type": "FAQPage",
-              "@id": `${canonical}#faq`,
-              mainEntity: faqs.map((faq) => ({
-                "@type": "Question",
-                name: faq.question,
-                acceptedAnswer: { "@type": "Answer", text: faq.answer },
-              })),
-            },
+
           ]
         : []),
     ],

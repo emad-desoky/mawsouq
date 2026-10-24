@@ -312,15 +312,7 @@ export default function RiyadhEngineeringArticle({ article }) {
           item,
         })),
       },
-      {
-        "@type": "FAQPage",
-        "@id": `${currentUrl}#faq`,
-        mainEntity: article.faqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: { "@type": "Answer", text: faq.answer },
-        })),
-      },
+
       {
         "@type": "Service",
         "@id": `${currentUrl}#service`,

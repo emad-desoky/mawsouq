@@ -2,6 +2,9 @@ export const metadata = {
   title: "عن الشركة | مَوْسوق",
   description:
     "مَوْسوق هي منصة عربية للعمل الحر الهندسي تربط أصحاب المشاريع بأفضل المهندسين المحترفين لتنفيذ المشاريع باحترافية وضمان حقوق الطرفين.",
+  alternates: {
+    canonical: `https://mawsouq.com/${encodeURIComponent("عن-الشركة")}/`,
+  },
 };
 
 const steps = [

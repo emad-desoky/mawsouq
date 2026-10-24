@@ -410,14 +410,7 @@ function buildJsonLd(page) {
         item: crumb.item,
       })),
     },
-    {
-      "@type": "FAQPage",
-      mainEntity: page.faqs.map((faq) => ({
-        "@type": "Question",
-        name: faq.question,
-        acceptedAnswer: { "@type": "Answer", text: faq.answer },
-      })),
-    },
+
   ];
 
   if (["pillar", "local-commercial"].includes(page.pageType)) {
