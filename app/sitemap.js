@@ -20,6 +20,10 @@ const PAGE_FILES = new Set(["page.js", "page.jsx", "page.ts", "page.tsx"]);
 // URLs that permanently redirect must not be advertised as indexable sitemap URLs.
 const REDIRECTED_PATHS = new Set([
   "/التصميم-الإنشائي",
+  // Off-topic legacy pages set to noindex
+  "/صيانة-المكيفات",
+  "/مياه-صالحة-للشرب",
+  "/اسعار-نقل-العفش-بالسعوديّة",
   ...Array.from(MERGED_ARABIC_SLUGS, (slug) => `/${slug}`),
 ]);
 

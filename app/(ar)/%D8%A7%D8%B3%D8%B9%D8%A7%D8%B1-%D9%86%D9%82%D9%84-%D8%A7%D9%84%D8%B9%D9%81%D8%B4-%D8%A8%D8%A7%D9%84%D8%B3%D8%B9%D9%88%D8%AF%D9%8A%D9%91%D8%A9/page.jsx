@@ -5,6 +5,9 @@ const featuredImage =
   "https://mawsouq.com/wp-content/uploads/2026/03/اسعار-نقل-العفش-بالسعوديّة-2.webp";
 
 export const metadata = {
+  // Off-topic legacy article (not a design/construction service): kept online but
+  // excluded from Google so it does not dilute the site's topical focus.
+  robots: { index: false, follow: true },
   title: "نقل العفش – معلومات مهمّة قبل طلب الخدمة",
   description:
     "استفسرنا عن اسعار نقل العفش بالسعوديّة مع ٢٣ شركة مختلفة ووجدنا بانّ معدّل الاسعار هو 570 ريال. السعر يرتفع كلّما زادت المسافة او حجم العفش",

@@ -213,7 +213,7 @@ export default function OneFloorCostCalculator({ initialArea = 200 }) {
             هذه سيناريوهات حسابية تقريبية وليست أسعار سوق موثقة أو عروض مقاولين. المدينة مسجلة في الملخص فقط، ولا نضيف معاملًا رقميًا افتراضيًا لها دون عروض محلية قابلة للمقارنة. تحقق من استبعاد الرخصة والتصميم وفحص التربة والتكييف والمطبخ والضريبة.
           </div>
           <a
-            href={`https://wa.me/966598061334?text=${encodeURIComponent(`مرحبًا موسوق، أريد مراجعة تقدير بناء دور واحد. المدينة: ${result.selectedCity.label}، المسطح المبني: ${result.safeArea} متر مربع، فئة التنفيذ: ${result.selectedType.label}، الاحتياطي: ${result.safeReserve}%. لدي مخططات: نعم/لا.`)}`}
+            href={`https://wa.me/201223328270?text=${encodeURIComponent(`مرحبًا موسوق، أريد مراجعة تقدير بناء دور واحد. المدينة: ${result.selectedCity.label}، المسطح المبني: ${result.safeArea} متر مربع، فئة التنفيذ: ${result.selectedType.label}، الاحتياطي: ${result.safeReserve}%. لدي مخططات: نعم/لا.`)}`}
             target="_blank"
             rel="noopener noreferrer"
             data-lead-placement="one-floor-calculator-result"

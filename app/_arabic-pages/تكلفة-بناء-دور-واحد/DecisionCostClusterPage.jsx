@@ -723,7 +723,7 @@ export default function DecisionCostClusterPage({
                   التصميم المعماري قبل التسعير
                 </Link>
                 <Link
-                  href="/التصميم-الإنشائي/"
+                  href="/تصميم-انشائي/"
                   className="rounded-xl bg-[color:var(--surface-2)] px-4 py-3 text-[color:var(--ink-muted)] hover:text-[color:var(--brand)]"
                 >
                   التصميم الإنشائي والأساسات
