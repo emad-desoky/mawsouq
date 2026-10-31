@@ -8,6 +8,7 @@ import GoogleAnalytics from "@/components/en/GoogleAnalytics";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import LocalDomainLinkFix from "@/components/LocalDomainLinkFix";
 import SocialFloatingButtons from "@/components/SocialFloatingButtons";
+import CallbackForm from "@/components/CallbackForm";
 import LeadClickTracker from "@/components/LeadClickTracker";
 import MawsooqChatbot from "@/components/ai/MawsooqChatbot";
 
@@ -67,6 +68,7 @@ export default function EnglishRootLayout({ children }) {
             <LocalDomainLinkFix />
             <LeadClickTracker />
             {children}
+            <CallbackForm language="en" />
             <EnglishFooter />
             <SocialFloatingButtons />
             <MawsooqChatbot language="en" />

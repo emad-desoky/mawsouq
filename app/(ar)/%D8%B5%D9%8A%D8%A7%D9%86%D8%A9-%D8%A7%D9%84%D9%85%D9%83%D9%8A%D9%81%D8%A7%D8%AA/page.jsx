@@ -5,6 +5,9 @@ const featuredImage =
   "https://mawsouq.com/wp-content/uploads/2026/06/صيانة-المكيفات.webp";
 
 export const metadata = {
+  // Off-topic legacy article (not a design/construction service): kept online but
+  // excluded from Google so it does not dilute the site's topical focus.
+  robots: { index: false, follow: true },
   title: "صيانة المكيفات – معدّل اسعار السوق, الضمانات, وغيره (2026)",
   description:
     "استفسرنا من ٦ شركات مختلفة لنجد لكم اسعار السوق لصيانة وتصليح المكيفات المنزلية في السعودية بارخص الاسعار",

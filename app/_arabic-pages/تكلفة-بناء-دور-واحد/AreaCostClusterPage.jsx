@@ -736,7 +736,7 @@ export default function AreaCostClusterPage({
               <h2 className="mt-4 text-xl font-black text-[color:var(--ink)]">روابط تساعد قبل البناء</h2>
               <div className="mt-4 grid gap-2 text-sm font-black">
                 <Link href="/التصميم-المعماري/" className="rounded-xl bg-[color:var(--surface-2)] px-4 py-3 text-[color:var(--ink-muted)] hover:text-[color:var(--brand)]">التصميم المعماري قبل التسعير</Link>
-                <Link href="/التصميم-الإنشائي/" className="rounded-xl bg-[color:var(--surface-2)] px-4 py-3 text-[color:var(--ink-muted)] hover:text-[color:var(--brand)]">التصميم الإنشائي والأساسات</Link>
+                <Link href="/تصميم-انشائي/" className="rounded-xl bg-[color:var(--surface-2)] px-4 py-3 text-[color:var(--ink-muted)] hover:text-[color:var(--brand)]">التصميم الإنشائي والأساسات</Link>
                 <Link href="/مقاول-بناء/" className="rounded-xl bg-[color:var(--surface-2)] px-4 py-3 text-[color:var(--ink-muted)] hover:text-[color:var(--brand)]">اختيار مقاول بناء</Link>
                 <Link href="/حفر-الأرض/" className="rounded-xl bg-[color:var(--surface-2)] px-4 py-3 text-[color:var(--ink-muted)] hover:text-[color:var(--brand)]">تكلفة حفر وتجهيز الأرض</Link>
               </div>

@@ -113,7 +113,7 @@ function doPost(e) {
         text(payload.chat_summary, 1600),
         payload.ai_ready === true ? 'Yes' : 'No',
         text(payload.whatsapp_url),
-        'Clicked WhatsApp',
+        text(payload.status, 60) || 'Clicked WhatsApp',
         '',
       ]);
 

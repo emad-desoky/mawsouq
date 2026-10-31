@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import LocalDomainLinkFix from "@/components/LocalDomainLinkFix";
 import SocialFloatingButtons from "@/components/SocialFloatingButtons";
+import CallbackForm from "@/components/CallbackForm";
 import LeadClickTracker from "@/components/LeadClickTracker";
 import MawsooqChatbot from "@/components/ai/MawsooqChatbot";
 
@@ -72,6 +73,7 @@ export default function RootLayout({ children }) {
 
             {children}
 
+            <CallbackForm language="ar" />
             <Footer />
             <SocialFloatingButtons />
             <MawsooqChatbot language="ar" />

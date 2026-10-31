@@ -1,6 +1,10 @@
 import fs from "fs";
 import path from "path";
 import { MERGED_ARABIC_PAGES, MERGED_ARABIC_SLUGS } from "./lib/mergedPages.mjs";
+import {
+  LEGACY_WORDPRESS_REDIRECTS,
+  LEGACY_PREFIX_REDIRECTS,
+} from "./lib/legacyRedirects.mjs";
 
 function safeDecode(value) {
   try {
@@ -243,6 +247,12 @@ function getArabicSeoRedirects() {
     addRedirect(from, to);
   }
 
+  // Old WordPress URLs that 404 since the Next.js migration.
+  for (const [from, to] of Object.entries(LEGACY_WORDPRESS_REDIRECTS)) {
+    if (existingRoutes.has(from)) continue; // never shadow a live page
+    addRedirect(from, to);
+  }
+
   // One URL per page: redirect the ي / ى word-ending spelling variant to the
   // spelling that actually exists instead of serving duplicate content.
   for (const route of existingRoutes) {
@@ -297,6 +307,11 @@ const nextConfig = {
         destination: "/:slug*",
         permanent: true,
       },
+      ...LEGACY_PREFIX_REDIRECTS.map((r) => ({
+        source: r.source,
+        destination: encodeUpper(r.destination.replace(/\/$/, "")) + "/",
+        permanent: true,
+      })),
       ...getArabicSeoRedirects(),
     ];
   },

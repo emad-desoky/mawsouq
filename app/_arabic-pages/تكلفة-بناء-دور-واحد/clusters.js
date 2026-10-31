@@ -23,9 +23,9 @@ export const BLOG_HUB = "/المدونات/";
 export const business = {
   name: "موسوق",
   legalName: "منصة موسوق للتصميم والبناء",
-  phone: "+966598061334",
-  displayPhone: "+966 59 806 1334",
-  whatsappNumber: "966598061334",
+  phone: "+201223328270",
+  displayPhone: "+20 12 23328270",
+  whatsappNumber: "201223328270",
   email: "info@mawsouq.com",
   logo: `${SITE_URL}/mawsouq-logo.png`,
   serviceArea: [
@@ -50,7 +50,7 @@ export const routes = {
   contact: "/#contact",
   calculator: "/#calculator",
   architecture: "/التصميم-المعماري/",
-  structuralDesign: "/التصميم-الإنشائي/",
+  structuralDesign: "/تصميم-انشائي/",
   contractor: "/مقاول-بناء/",
   villaBuild: "/بناء-فلة/",
 };
@@ -66,10 +66,10 @@ export function whatsappLink(
 export const pillar = {
   slug: "تكلفة-بناء-دور-واحد",
   category: "تكاليف البناء",
-  metaTitle: "تكلفة بناء دور واحد 2026 بالريال حسب المساحة + حاسبة",
+  metaTitle: "تكلفة بناء دور واحد في السعودية 2026 | حاسبة وسعر المتر",
   title: "تكلفة بناء دور واحد في السعودية 2026: سعر المتر وحاسبة تقديرية",
   description:
-    "دليل تكلفة بناء دور واحد في السعودية 2026: حاسبة للعظم والتشطيب، أمثلة 100 و200 و300 متر، مقارنة البنود والاستبعادات وكيف تطلب عرض مقاول واضحًا.",
+    "احسب تكلفة بناء دور واحد في السعودية 2026 للعظم أو تسليم المفتاح، مع سعر المتر، أمثلة لمساحات 100 و200 و300 متر، وبنود التكلفة الخفية.",
   excerpt:
     "دليل شامل لحساب ميزانية دور واحد من المساحة المبنية حتى العظم والتشطيب والاحتياطي المالي.",
   image: "/تكلفة_بناء_السعودية_2026.png",
@@ -149,12 +149,12 @@ export const existingStrongBlogs = [
     isLive: true,
   },
   {
-    slug: "التصميم-الإنشائي",
+    slug: "تصميم-انشائي",
     title: "التصميم الإنشائي وحساب الأساسات والهيكل",
     excerpt:
       "يوضح دور المخطط الإنشائي وفحص التربة والأحمال في ضبط تكلفة الخرسانة والحديد وتجنب التعديلات.",
     category: "تصميم إنشائي",
-    href: "/التصميم-الإنشائي/",
+    href: "/تصميم-انشائي/",
     image:
       "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=88",
     imageAlt: "تصميم إنشائي وهيكل خرساني لمبنى سكني",

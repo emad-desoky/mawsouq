@@ -5,6 +5,9 @@ const featuredImage =
   "https://mawsouq.com/wp-content/uploads/2026/06/مياة-الشرب.webp";
 
 export const metadata = {
+  // Off-topic legacy article (not a design/construction service): kept online but
+  // excluded from Google so it does not dilute the site's topical focus.
+  robots: { index: false, follow: true },
   title: "هل مياه منزلك صالحة للشرب؟",
   description:
     "ما هو تلوّث المياه؟ وكيف تعرف ان كانت مياه منزلك صالحة للشرب؟تعرف الاسباب الى تجعل مياه الشرب في المنازل مشكلة حقيقية",
