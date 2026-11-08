@@ -7,6 +7,10 @@ import { getAllResthouseEntries } from "./_arabic-pages/_resthouse-cluster/resth
 import { getAllArabicSeo2026Entries } from "@/lib/arabicSeo2026";
 import { getAllRiyadhEngineeringEntries } from "./_arabic-pages/_riyadh-engineering-cluster/riyadh-engineering-data";
 import { getAllBlogEntries as getAllVillaFinishingEntries } from "./_arabic-pages/_villa-finishing-cluster/villa-finishing-data";
+import {
+  getAllBlogEntries as getAllInteriorPricingEntries,
+  getHiddenInteriorPricingPaths,
+} from "./_arabic-pages/_interior-pricing-cluster/interior-pricing-data";
 import { getAllMawsooqProjectEntries } from "@/lib/mawsouqProjects";
 import { MERGED_ARABIC_SLUGS } from "@/lib/mergedPages.mjs";
 
@@ -25,6 +29,8 @@ const REDIRECTED_PATHS = new Set([
   "/مياه-صالحة-للشرب",
   "/اسعار-نقل-العفش-بالسعوديّة",
   ...Array.from(MERGED_ARABIC_SLUGS, (slug) => `/${slug}`),
+  // Interior pricing clusters that are not live yet (404 + noindex until `live: true`).
+  ...getHiddenInteriorPricingPaths(),
 ]);
 
 const SKIP_SEGMENTS = new Set([
@@ -169,6 +175,7 @@ export default function sitemap() {
     ...getAllArabicSeo2026Entries(),
     ...getAllRiyadhEngineeringEntries(),
     ...getAllVillaFinishingEntries(),
+    ...getAllInteriorPricingEntries(),
     ...getAllMawsooqProjectEntries(),
   ];
 
