@@ -9,11 +9,11 @@ A pillar plus five cluster articles for people who are ready to pay for interior
 1. `/سعر-التصميم-الداخلي/`: pillar (live)
 2. `/سعر-متر-التصميم-الداخلي/`: cluster (live)
 3. `/سعر-التصميم-الداخلي-3d/`: cluster (live)
-4. `/تكلفة-التصميم-الداخلي-للفلل/`: cluster (written, **not live**)
-5. `/تكلفة-التصميم-الداخلي-للشقق/`: cluster (written, **not live**)
-6. `/تصميم-داخلي-مع-اشراف-تنفيذ/`: cluster (written, **not live**)
+4. `/تكلفة-التصميم-الداخلي-للفلل/`: cluster (live)
+5. `/تكلفة-التصميم-الداخلي-للشقق/`: cluster (live)
+6. `/تصميم-داخلي-مع-اشراف-تنفيذ/`: cluster (live)
 
-Only wave 1 (pages 1 to 3) is published by default. Pages 4 to 6 return 404, are `noindex`, are
+All six pages are published (`live: true`) by default.
 excluded from the sitemap and are not linked from anywhere until you turn them on. This follows
 `SEO-RECOVERY-2026-10-31.md`: the August drop coincided with five cluster pages being added at once.
 

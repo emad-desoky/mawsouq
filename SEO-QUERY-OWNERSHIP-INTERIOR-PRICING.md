@@ -10,12 +10,12 @@ into an inspiration page.
 
 | URL | Primary query | Owns | Must NOT own | Wave |
 |---|---|---|---|---|
-| `/سعر-التصميم-الداخلي/` | `سعر التصميم الداخلي في السعودية` | Pricing models, price factors, quote checklist, how to compare offers | Ideas/photos; execution (finishing) cost | 1 |
-| `/سعر-متر-التصميم-الداخلي/` | `سعر متر التصميم الداخلي` | Per-m² model: which area counts, scope tiers, comparing two per-m² quotes | 3D packaging; villa/apartment specifics | 1 |
-| `/سعر-التصميم-الداخلي-3d/` | `سعر التصميم الداخلي 3d` | 3D render packages, deliverables, 3D vs working drawings | Per-m² maths; inspiration | 1 |
-| `/تكلفة-التصميم-الداخلي-للفلل/` | `تكلفة التصميم الداخلي للفلل` | Villa-specific drivers, three-budget split | Finishing cost (`/تكلفة-تشطيب-فيلا/`) | 2 |
-| `/تكلفة-التصميم-الداخلي-للشقق/` | `تكلفة التصميم الداخلي للشقق` | Apartment fees, minimum fee, small-space effect | Villa content | 2 |
-| `/تصميم-داخلي-مع-اشراف-تنفيذ/` | `تصميم داخلي مع إشراف على التنفيذ` | Design-only vs supervision vs design-and-build | Execution cost | 2 |
+| `/سعر-التصميم-الداخلي/` | `سعر التصميم الداخلي في السعودية` | Pricing models, price factors, quote checklist, how to compare offers | Ideas/photos; execution (finishing) cost | live |
+| `/سعر-متر-التصميم-الداخلي/` | `سعر متر التصميم الداخلي` | Per-m² model: which area counts, scope tiers, comparing two per-m² quotes | 3D packaging; villa/apartment specifics | live |
+| `/سعر-التصميم-الداخلي-3d/` | `سعر التصميم الداخلي 3d` | 3D render packages, deliverables, 3D vs working drawings | Per-m² maths; inspiration | live |
+| `/تكلفة-التصميم-الداخلي-للفلل/` | `تكلفة التصميم الداخلي للفلل` | Villa-specific drivers, three-budget split | Finishing cost (`/تكلفة-تشطيب-فيلا/`) | live |
+| `/تكلفة-التصميم-الداخلي-للشقق/` | `تكلفة التصميم الداخلي للشقق` | Apartment fees, minimum fee, small-space effect | Villa content | live |
+| `/تصميم-داخلي-مع-اشراف-تنفيذ/` | `تصميم داخلي مع إشراف على التنفيذ` | Design-only vs supervision vs design-and-build | Execution cost | live |
 
 ## Existing pages that keep their intent (not edited)
 
