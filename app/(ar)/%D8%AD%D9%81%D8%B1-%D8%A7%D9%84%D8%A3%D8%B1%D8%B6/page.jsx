@@ -1,3 +1,5 @@
+import MawsooqProofSection from "@/components/ar/MawsooqProofSection";
+
 const pageUrl =
   "https://mawsouq.com/%D8%AD%D9%81%D8%B1-%D8%A7%D9%84%D8%A3%D8%B1%D8%B6";
 
@@ -374,7 +376,20 @@ export default function ExcavationCostPage() {
         </div>
       </article>
 
+      <div className="mawsooq-proof-wrap">
+        <MawsooqProofSection
+          context="بدء البناء على أرضك"
+          projectSlugs={["dammam-architectural-villa", "alahsa-architectural-villa", "makkah-architectural-villa"]}
+          whatsappMessage="مرحبًا موسوق، أريد استشارة هندسية/مخطط إنشائي. المدينة: ___، مساحة الأرض: ___، المرحلة الحالية: ___"
+        />
+      </div>
+
       <style>{`
+        .mawsooq-proof-wrap {
+          width: min(100% - 32px, 1040px);
+          margin-inline: auto;
+        }
+
         .article-page {
           direction: rtl;
           background:

@@ -1,3 +1,5 @@
+import MawsooqProofSection from "@/components/ar/MawsooqProofSection";
+
 const pageUrl =
   "https://mawsouq.com/%D8%A8%D9%86%D8%A7%D8%A1-%D9%81%D9%84%D8%A9/";
 
@@ -262,7 +264,20 @@ export default function VillaConstructionCostPage() {
         </div>
       </article>
 
+      <div className="mawsooq-proof-wrap">
+        <MawsooqProofSection
+          context="بناء فيلتك"
+          projectSlugs={["dammam-architectural-villa", "makkah-architectural-villa", "alahsa-architectural-villa"]}
+          whatsappMessage="مرحبًا موسوق، أريد تصميم فيلا/منزل. المدينة: ___، مساحة الأرض: ___، عدد الأدوار: ___"
+        />
+      </div>
+
       <style>{`
+        .mawsooq-proof-wrap {
+          width: min(100% - 32px, 1040px);
+          margin-inline: auto;
+        }
+
         .article-page {
           direction: rtl;
           background:

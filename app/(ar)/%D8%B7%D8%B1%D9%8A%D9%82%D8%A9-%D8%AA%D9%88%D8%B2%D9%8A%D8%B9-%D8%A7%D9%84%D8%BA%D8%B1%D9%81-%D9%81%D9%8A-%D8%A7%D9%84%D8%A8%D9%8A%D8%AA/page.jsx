@@ -1,3 +1,5 @@
+import MawsooqProofSection from "@/components/ar/MawsooqProofSection";
+
 const pageUrl =
   "https://mawsouq.com/%D8%B7%D8%B1%D9%8A%D9%82%D8%A9-%D8%AA%D9%88%D8%B2%D9%8A%D8%B9-%D8%A7%D9%84%D8%BA%D8%B1%D9%81-%D9%81%D9%8A-%D8%A7%D9%84%D8%A8%D9%8A%D8%AA";
 
@@ -299,7 +301,20 @@ export default function RoomDistributionPage() {
         </div>
       </article>
 
+      <div className="mawsooq-proof-wrap">
+        <MawsooqProofSection
+          context="توزيع غرف منزلك"
+          projectSlugs={["dammam-architectural-villa", "makkah-architectural-villa", "alahsa-architectural-villa"]}
+          whatsappMessage="مرحبًا موسوق، أريد تصميم فيلا/منزل. المدينة: ___، مساحة الأرض: ___، عدد الأدوار: ___"
+        />
+      </div>
+
       <style>{`
+        .mawsooq-proof-wrap {
+          width: min(100% - 32px, 1040px);
+          margin-inline: auto;
+        }
+
         .article-page {
           direction: rtl;
           background:

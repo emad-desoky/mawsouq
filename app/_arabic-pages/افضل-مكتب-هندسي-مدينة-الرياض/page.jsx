@@ -1,3 +1,5 @@
+import MawsooqProofSection from "@/components/ar/MawsooqProofSection";
+
 const pageUrl =
   "https://mawsouq.com/%D8%A7%D9%81%D8%B6%D9%84-%D9%85%D9%83%D8%AA%D8%A8-%D9%87%D9%86%D8%AF%D8%B3%D9%8A-%D9%85%D8%AF%D9%8A%D9%86%D8%A9-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/";
 
@@ -439,7 +441,20 @@ export default function BestEngineeringOfficeRiyadhPage() {
         </div>
       </article>
 
+      <div className="mawsooq-proof-wrap">
+        <MawsooqProofSection
+          context="اختيار مكتب هندسي في الرياض"
+          projectSlugs={["dammam-architectural-villa", "alahsa-architectural-villa", "riyadh-interior-villa"]}
+          whatsappMessage="مرحبًا موسوق، أبحث عن مكتب هندسي لمشروعي. المدينة: ___، مساحة الأرض: ___، الخدمة المطلوبة: ___"
+        />
+      </div>
+
       <style>{`
+        .mawsooq-proof-wrap {
+          width: min(100% - 32px, 1040px);
+          margin-inline: auto;
+        }
+
         .article-page {
           direction: rtl;
           background:

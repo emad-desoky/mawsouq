@@ -1,3 +1,5 @@
+import MawsooqProofSection from "@/components/ar/MawsooqProofSection";
+
 const pageUrl =
   "https://mawsouq.com/%D9%85%D8%B5%D9%85%D9%85-%D9%85%D8%B9%D9%85%D8%A7%D8%B1%D9%8A";
 
@@ -378,7 +380,20 @@ export default function ArchitectDesignerPage() {
         </div>
       </article>
 
+      <div className="mawsooq-proof-wrap">
+        <MawsooqProofSection
+          context="اختيار المصمم المعماري"
+          projectSlugs={["dammam-architectural-villa", "makkah-architectural-villa", "alahsa-architectural-villa"]}
+          whatsappMessage="مرحبًا موسوق، أريد تصميم فيلا/منزل. المدينة: ___، مساحة الأرض: ___، عدد الأدوار: ___"
+        />
+      </div>
+
       <style>{`
+        .mawsooq-proof-wrap {
+          width: min(100% - 32px, 1040px);
+          margin-inline: auto;
+        }
+
         .article-page {
           direction: rtl;
           background:

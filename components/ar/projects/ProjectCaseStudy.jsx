@@ -15,9 +15,20 @@ import {
 
 import MawsooqProofSection from "@/components/ar/MawsooqProofSection";
 import {
+  buildVideoObject,
+  getProjectVideo,
   getRelatedMawsooqProjects,
   MAWSOUQ_YOUTUBE_CHANNEL,
 } from "@/lib/mawsouqProjects";
+
+const FACT_LABELS = [
+  ["landArea", "مساحة الأرض"],
+  ["builtArea", "مسطح البناء"],
+  ["floors", "عدد الأدوار"],
+  ["duration", "مدة التصميم"],
+  ["feeRange", "نطاق أتعاب التصميم"],
+  ["year", "سنة التنفيذ"],
+];
 
 const CONTACT_PHONE_DISPLAY = "+20 12 23328270";
 const CONTACT_PHONE_E164 = "+201223328270";
@@ -64,6 +75,12 @@ export default function ProjectCaseStudy({ project }) {
     project.whatsappMessage,
   )}`;
   const canonical = `${SITE_URL}${project.href}`;
+  const projectVideo = getProjectVideo(project);
+  const videoObject = projectVideo ? buildVideoObject(projectVideo, canonical) : null;
+  const facts = FACT_LABELS.filter(([key]) => project.facts?.[key]).map(([key, label]) => [
+    label,
+    project.facts[key],
+  ]);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -106,6 +123,7 @@ export default function ProjectCaseStudy({ project }) {
           name: project.location,
         },
       },
+      ...(videoObject ? [videoObject] : []),
       {
         "@type": "BreadcrumbList",
         itemListElement: [
@@ -230,7 +248,8 @@ export default function ProjectCaseStudy({ project }) {
           {[
             [Building2, "نوع المشروع", project.category],
             [MapPin, "الموقع", project.location],
-            [BadgeCheck, "المصدر", "قناة موسوق الرسمية"],
+            ...facts.map(([label, value]) => [BadgeCheck, label, value]),
+            ...(facts.length ? [] : [[BadgeCheck, "المصدر", "قناة موسوق الرسمية"]]),
           ].map(([Icon, label, value]) => (
             <div key={label} className="rounded-[26px] border border-[color:var(--hairline)] bg-[color:var(--surface)] p-5 shadow-[var(--card-shadow)]">
               <Icon size={22} className="text-[color:var(--brand)]" />
@@ -239,6 +258,36 @@ export default function ProjectCaseStudy({ project }) {
             </div>
           ))}
         </div>
+
+        {projectVideo || project.clientQuote ? (
+          <div className="mt-12 grid gap-6 lg:grid-cols-[1.3fr_.7fr] lg:items-stretch">
+            {projectVideo ? (
+              <div className="overflow-hidden rounded-[30px] border border-[color:var(--hairline)] bg-black shadow-[var(--card-shadow)]">
+                <div className="aspect-video">
+                  <iframe
+                    className="h-full w-full"
+                    src={`https://www.youtube-nocookie.com/embed/${projectVideo.id}?rel=0`}
+                    title={projectVideo.title || project.title}
+                    loading="lazy"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            ) : null}
+            {project.clientQuote ? (
+              <blockquote className="flex flex-col justify-center rounded-[30px] border border-[color:var(--hairline)] bg-[color:var(--surface)] p-6 shadow-[var(--card-shadow)] sm:p-8">
+                <span className="text-xs font-black text-[color:var(--brand)]">رأي صاحب المشروع</span>
+                <p className="mt-3 text-xl font-black leading-9 text-[color:var(--ink)]">“{project.clientQuote}”</p>
+                {project.clientName ? (
+                  <footer className="mt-4 text-sm font-bold text-[color:var(--ink-muted)]">
+                    {project.clientName} — {project.location}
+                  </footer>
+                ) : null}
+              </blockquote>
+            ) : null}
+          </div>
+        ) : null}
 
         <div className="mt-12 grid gap-8 lg:grid-cols-[1.05fr_.95fr]">
           <article className="rounded-[32px] border border-[color:var(--hairline)] bg-[color:var(--surface)] p-6 shadow-[var(--card-shadow)] sm:p-8">

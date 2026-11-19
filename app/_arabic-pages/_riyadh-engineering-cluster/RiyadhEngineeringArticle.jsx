@@ -1,3 +1,4 @@
+import MawsooqProofSection from "@/components/ar/MawsooqProofSection";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -608,6 +609,12 @@ export default function RiyadhEngineeringArticle({ article }) {
               </div>
             </div>
           </section>
+
+          <MawsooqProofSection
+            context="مشروعك في الرياض"
+            projectSlugs={["riyadh-interior-villa", "dammam-architectural-villa", "makkah-architectural-villa"]}
+            whatsappMessage={article.whatsappMessage}
+          />
         </article>
 
         <aside className="self-start lg:sticky lg:top-[calc(var(--nav-height)+24px)]">

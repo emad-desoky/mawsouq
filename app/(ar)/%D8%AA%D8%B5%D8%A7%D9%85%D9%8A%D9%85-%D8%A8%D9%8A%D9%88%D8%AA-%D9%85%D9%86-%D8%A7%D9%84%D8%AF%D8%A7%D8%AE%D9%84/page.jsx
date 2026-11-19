@@ -1,3 +1,5 @@
+import MawsooqProofSection from "@/components/ar/MawsooqProofSection";
+
 const pageUrl =
   "https://mawsouq.com/%D8%AA%D8%B5%D8%A7%D9%85%D9%8A%D9%85-%D8%A8%D9%8A%D9%88%D8%AA-%D9%85%D9%86-%D8%A7%D9%84%D8%AF%D8%A7%D8%AE%D9%84";
 
@@ -419,7 +421,20 @@ export default function InteriorHouseDesignsPage() {
         </div>
       </article>
 
+      <div className="mawsooq-proof-wrap">
+        <MawsooqProofSection
+          context="التصميم الداخلي لمنزلك"
+          projectSlugs={["riyadh-interior-villa", "dammam-architectural-villa", "makkah-architectural-villa"]}
+          whatsappMessage="مرحبًا موسوق، أريد تصميم داخلي أو تشطيب لمشروعي. المدينة: ___، نوع العقار: ___، المساحة: ___"
+        />
+      </div>
+
       <style>{`
+        .mawsooq-proof-wrap {
+          width: min(100% - 32px, 1040px);
+          margin-inline: auto;
+        }
+
         .article-page {
           direction: rtl;
           background:

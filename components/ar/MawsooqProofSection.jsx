@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   ArrowLeft,
   BadgeCheck,
@@ -19,6 +20,8 @@ import {
   MAWSOUQ_YOUTUBE_CHANNEL,
   PROJECT_VIDEO_SAMPLES,
   TESTIMONIAL_VIDEOS,
+  buildVideoObject,
+  testimonialDisplayLabel,
 } from "@/lib/mawsouqProjects";
 
 const CHANNEL_URL = MAWSOUQ_YOUTUBE_CHANNEL;
@@ -40,6 +43,7 @@ function pickByIds(items, ids, fallbackCount) {
 
 function VideoCard({ video, type, onPlay }) {
   const vertical = type === "testimonial";
+  const label = vertical ? testimonialDisplayLabel(video) : video.label;
 
   return (
     <button
@@ -48,17 +52,25 @@ function VideoCard({ video, type, onPlay }) {
       className={`group relative overflow-hidden rounded-[24px] border border-[color:var(--hairline)] bg-[#071321] text-right shadow-[var(--card-shadow)] transition duration-300 hover:-translate-y-1 hover:border-[color:var(--brand-bright)] ${
         vertical ? "aspect-[9/16] min-w-[180px] sm:min-w-0" : "aspect-video"
       }`}
-      aria-label={`تشغيل ${video.label}`}
+      aria-label={`تشغيل ${label}`}
     >
       <img
         src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
-        alt={video.label}
+        alt={label}
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover opacity-90 transition duration-500 group-hover:scale-[1.035] group-hover:opacity-100"
       />
       <span className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/5 to-black/5" />
       <span className="absolute inset-x-4 bottom-4 flex items-end justify-between gap-3 text-white">
-        <span className="text-sm font-black leading-6 drop-shadow">{video.label}</span>
+        <span className="min-w-0">
+          <span className="block text-sm font-black leading-6 drop-shadow">{label}</span>
+          {vertical && video.service ? (
+            <span className="block text-[11px] font-bold leading-5 text-white/75">{video.service}</span>
+          ) : null}
+          {vertical && video.quote ? (
+            <span className="mt-1 line-clamp-3 block text-xs font-bold leading-5 text-white/90">“{video.quote}”</span>
+          ) : null}
+        </span>
         <span className="grid size-11 shrink-0 place-items-center rounded-full bg-red-600 text-white shadow-lg transition group-hover:scale-105">
           <Play size={19} fill="currentColor" />
         </span>
@@ -110,6 +122,7 @@ export default function MawsooqProofSection({
   intro,
 }) {
   const [activeVideo, setActiveVideo] = useState(null);
+  const pathname = usePathname() || "/";
 
   const projects = useMemo(() => {
     if (!projectSlugs?.length) return MAWSOUQ_PROJECTS.slice(0, 3);
@@ -132,6 +145,14 @@ export default function MawsooqProofSection({
     whatsappMessage,
   )}`;
 
+  const pageUrl = `https://mawsouq.com${pathname}`;
+  const videoSchema = useMemo(() => {
+    const items = [...testimonialVideos, ...(compact ? [] : projectVideos)]
+      .map((video) => buildVideoObject(video, pageUrl))
+      .filter(Boolean);
+    return items.length ? { "@context": "https://schema.org", "@graph": items } : null;
+  }, [testimonialVideos, projectVideos, compact, pageUrl]);
+
   const openVideo = (video, type) => {
     setActiveVideo({ ...video, type });
     trackTrustVideo(type, video.id);
@@ -142,6 +163,12 @@ export default function MawsooqProofSection({
       aria-labelledby="mawsouq-proof-heading"
       className="my-14 overflow-hidden rounded-[34px] border border-[color:var(--hairline-strong)] bg-[color:var(--surface)] shadow-[var(--card-shadow)]"
     >
+      {videoSchema ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema).replace(/</g, "\\u003c") }}
+        />
+      ) : null}
       <div className="grid gap-7 bg-[linear-gradient(135deg,#071321,#0b5bb8)] p-7 text-white md:p-9 lg:grid-cols-[1fr_auto] lg:items-end">
         <div>
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-black text-cyan-100">
@@ -153,7 +180,7 @@ export default function MawsooqProofSection({
           </h2>
           <p className="mt-4 max-w-[900px] text-base font-bold leading-8 text-white/75 md:text-lg">
             {intro ||
-              "نعرض هنا مشاريع موجودة فعليًا في معرض أعمال موسوق وفيديوهات منشورة على القناة الرسمية. لا نستخدم هذه المشاريع لاختلاق مساحة أو تكلفة أو نتيجة غير منشورة؛ نستخدمها كدليل بصري وخبرة عملية تساعدك على فهم القرارات قبل بدء مشروعك."}
+              "عملاء من السعودية يتحدثون عن تجربتهم مع موسوق، ومشاريع فلل واستراحات صممها فريقنا في الرياض والدمام ومكة والأحساء. شاهد بنفسك ثم أرسل تفاصيل مشروعك."}
           </p>
           <div className="mt-5 flex flex-wrap gap-2 text-xs font-black text-white/80">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-2"><BadgeCheck size={15} /> مشاريع فعلية منشورة</span>

@@ -1,3 +1,5 @@
+import MawsooqProofSection from "@/components/ar/MawsooqProofSection";
+
 const pageUrl =
   "https://mawsouq.com/%D9%85%D9%82%D8%A7%D9%88%D9%84-%D8%A8%D9%86%D8%A7%D8%A1";
 
@@ -285,7 +287,20 @@ export default function BuildingContractorPage() {
         </div>
       </article>
 
+      <div className="mawsooq-proof-wrap">
+        <MawsooqProofSection
+          context="اختيار مقاول البناء"
+          projectSlugs={["dammam-architectural-villa", "alahsa-architectural-villa", "makkah-architectural-villa"]}
+          whatsappMessage="مرحبًا موسوق، أريد استشارة هندسية/مخطط إنشائي. المدينة: ___، مساحة الأرض: ___، المرحلة الحالية: ___"
+        />
+      </div>
+
       <style>{`
+        .mawsooq-proof-wrap {
+          width: min(100% - 32px, 1040px);
+          margin-inline: auto;
+        }
+
         .article-page {
           direction: rtl;
           background:

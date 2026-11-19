@@ -1,3 +1,5 @@
+import MawsooqProofSection from "@/components/ar/MawsooqProofSection";
+
 const pageUrl = "https://mawsouq.com/افضل-مكتب-هندسي-بالدمام/";
 
 const featuredImage =
@@ -401,7 +403,20 @@ export default function BestEngineeringOfficeDammamPage() {
         </div>
       </article>
 
+      <div className="mawsooq-proof-wrap">
+        <MawsooqProofSection
+          context="اختيار مكتب هندسي في الدمام"
+          projectSlugs={["dammam-architectural-villa", "alahsa-architectural-villa", "riyadh-interior-villa"]}
+          whatsappMessage="مرحبًا موسوق، أبحث عن مكتب هندسي لمشروعي. المدينة: ___، مساحة الأرض: ___، الخدمة المطلوبة: ___"
+        />
+      </div>
+
       <style>{`
+        .mawsooq-proof-wrap {
+          width: min(100% - 32px, 1040px);
+          margin-inline: auto;
+        }
+
         .article-page {
           direction: rtl;
           background:

@@ -1,3 +1,5 @@
+import MawsooqProofSection from "@/components/ar/MawsooqProofSection";
+
 const pageUrl = "https://mawsouq.com/%D8%A8%D8%A7%D8%B1%D9%83%D9%8A%D9%87";
 
 const featuredImage =
@@ -391,7 +393,20 @@ export default function ParquetPage() {
         </div>
       </article>
 
+      <div className="mawsooq-proof-wrap">
+        <MawsooqProofSection
+          context="تشطيب منزلك"
+          projectSlugs={["riyadh-interior-villa", "dammam-architectural-villa", "makkah-architectural-villa"]}
+          whatsappMessage="مرحبًا موسوق، أريد تصميم داخلي أو تشطيب لمشروعي. المدينة: ___، نوع العقار: ___، المساحة: ___"
+        />
+      </div>
+
       <style>{`
+        .mawsooq-proof-wrap {
+          width: min(100% - 32px, 1040px);
+          margin-inline: auto;
+        }
+
         .article-page {
           direction: rtl;
           background:

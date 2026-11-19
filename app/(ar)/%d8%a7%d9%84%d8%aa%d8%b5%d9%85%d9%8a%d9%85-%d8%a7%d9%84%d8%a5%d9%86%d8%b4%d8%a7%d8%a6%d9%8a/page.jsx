@@ -1,3 +1,5 @@
+import MawsooqProofSection from "@/components/ar/MawsooqProofSection";
+
 import Link from "next/link";
 
 const pageUrl =
@@ -347,7 +349,20 @@ export default function StructuralDesignPage() {
         </div>
       </article>
 
+      <div className="mawsooq-proof-wrap">
+        <MawsooqProofSection
+          context="التصميم الإنشائي لمشروعك"
+          projectSlugs={["dammam-architectural-villa", "alahsa-architectural-villa", "makkah-architectural-villa"]}
+          whatsappMessage="مرحبًا موسوق، أريد استشارة هندسية/مخطط إنشائي. المدينة: ___، مساحة الأرض: ___، المرحلة الحالية: ___"
+        />
+      </div>
+
       <style>{`
+        .mawsooq-proof-wrap {
+          width: min(100% - 32px, 1040px);
+          margin-inline: auto;
+        }
+
         .article-page {
           direction: rtl;
           background:
