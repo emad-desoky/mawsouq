@@ -2513,6 +2513,155 @@ export const architecturePillar = {
 
 export const architectureClusters = [
   {
+    slug: "rest-house-design-saudi-arabia",
+    role: "cluster",
+    topicId: "architecture",
+    category: "Rest House Design",
+    primaryKeyword: "rest house design in Saudi Arabia",
+    secondaryKeywords: ["istiraha design", "Saudi rest house design", "rest house plan Saudi Arabia", "istiraha with pool design", "rest house design Riyadh"],
+    metaTitle: "Rest House (Istiraha) Design in Saudi Arabia: Plans & Ideas",
+    title: "Rest House (Istiraha) Design in Saudi Arabia: Layouts, Pools, Shade and Permits",
+    description:
+      "Plan a Saudi rest house (istiraha) that works all year: layouts by plot size, guest and family zoning, pools and shaded seating, climate, permits through Balady and how remote design works.",
+    excerpt:
+      "A practical guide to designing an istiraha in Saudi Arabia: what to decide first, how plot size shapes the layout, and how to brief an architect remotely.",
+    image: "/projects/resthouse-saudi.jpg",
+    imageAlt: "Rest house (istiraha) design in Saudi Arabia with pool and shaded seating by Mawsooq",
+    imageWidth: 1200,
+    imageHeight: 800,
+    datePublished: "2026-11-26",
+    dateModified: "2026-11-26",
+    readTime: "11 min read",
+    author: "Mawsooq Editorial Team",
+    showProof: true,
+    proofContext: "a rest house (istiraha) in Saudi Arabia",
+    ctaLabel: "Send your rest house brief on WhatsApp",
+    whatsappMessage:
+      "Hello Mawsooq, I want to design a rest house (istiraha) in Saudi Arabia. City: __. Plot size: __ m². Use: family / guests and events / rental. Pool: yes / no. Please help me with the next step.",
+    relatedSlugs: ["villa-design-saudi-arabia", "architectural-design-process-saudi-arabia", "architectural-design-cost-saudi-arabia", "building-permit-saudi-arabia"],
+    highlights: [
+      { value: "Use first", label: "family, guests and events, or rental" },
+      { value: "Shade", label: "seating and pool designed for the Saudi summer" },
+      { value: "Remote", label: "full design without repeated office visits" },
+    ],
+    takeaways: [
+      "Decide how the istiraha will be used before choosing a style: family retreat, guests and events, or rental each need different entrances and zoning.",
+      "Plot size sets the programme: a compact plot needs a tight layout and useful outdoor space, a large plot needs planned movement between buildings.",
+      "In Saudi summers, unshaded seating and pools go unused; shade, insulation and dust-resistant materials are design decisions, not extras.",
+      "Plan a winter seating area or fire pit sheltered from the wind; many rest houses are used most in the cooler months.",
+      "Check the plot's permitted use and permit requirements on Balady before approving the design.",
+    ],
+    toc: [["quick-answer","Quick answer"],["use","Start with the use"],["plot-size","Layouts by plot size"],["climate","Designing for the climate"],["pool","Pool and outdoor spaces"],["permit","Permits and code"],["remote","Designing remotely with Mawsooq"],["mistakes","Common mistakes"],["faqs","FAQs"]],
+    sections: [
+      {
+        id: "quick-answer",
+        title: "Quick answer: what makes a good rest house design in Saudi Arabia?",
+        paragraphs: [
+          "A good istiraha starts with three facts: the plot size and shape, how it will be used (a private family retreat, a place for guests and events, or a property for rent), and the features you will not give up, such as a pool, a majlis, a fire pit or a children's play area. Style and facade come after those decisions.",
+          "The Saudi climate makes shade, insulation and material choice part of the design itself. Seating without shade is not used in summer, and seating open to the wind is not used on winter nights. A well-designed rest house is comfortable in most months of the year.",
+        ],
+        links: [
+          { href: "/تصاميم-استراحات/", label: "Rest house design ideas (Arabic)", description: "Mawsooq's main Arabic guide with 30 rest house design ideas and photos." },
+          { href: "/تصميم-استراحات-في-الرياض/", label: "Rest house design in Riyadh (Arabic)", description: "Riyadh-specific guide: rest house areas, climate and permits." },
+        ],
+      },
+      {
+        id: "use",
+        title: "Start with the use, not the style",
+        paragraphs: [
+          "The same plot can become three very different projects. A family istiraha puts living space, the pool and play areas close together. A guest and events istiraha needs a separate men's majlis with its own entrance, washrooms near the reception and parking that does not cross family areas. A rental istiraha needs durable materials, easy maintenance and a layout that works for different groups.",
+        ],
+        table: {
+          caption: "How the intended use changes the design",
+          headers: ["Use", "Design priority", "Decide early"],
+          rows: [
+            ["Private family retreat", "Living space connected to pool and garden", "Children's areas, shade, privacy from neighbours"],
+            ["Guests and events", "Separate majlis and guest entrance", "Washroom count, parking, kitchen support"],
+            ["Rental", "Durability and easy maintenance", "Materials, lockable storage, simple services"],
+          ],
+        },
+      },
+      {
+        id: "plot-size",
+        title: "Layouts by plot size",
+        paragraphs: [
+          "There is no ideal plot size for a rest house; what matters is matching the programme to the land. The table below is a starting point that the final plan adjusts to the plot dimensions, setbacks and use.",
+        ],
+        table: {
+          caption: "What a rest house can typically hold by plot size (design starting point)",
+          headers: ["Plot size", "Typical elements", "Design note"],
+          rows: [
+            ["Under 600 m²", "Majlis or living room, small kitchen, two washrooms, outdoor seating, optional small pool", "Keep the layout compact and leave useful outdoor space"],
+            ["600 – 1,500 m²", "Separate majlis and family living, kitchen, one or two rooms, pool with shaded seating, fire pit", "Guest and family entrances can be separated"],
+            ["Over 1,500 m²", "Main building plus annex, larger pool, play area or pitch, lawns, internal parking", "Plan shaded routes between buildings"],
+          ],
+        },
+      },
+      {
+        id: "climate",
+        title: "Designing for the Saudi climate",
+        checklist: [
+          "Shade outdoor seating and part of the pool with pergolas or covered terraces designed with the building.",
+          "Face large openings toward a garden or private courtyard rather than the most sun-exposed sides.",
+          "Insulate walls and roof well; a rest house often stays closed for days and heats up fast.",
+          "Choose outdoor floors and cladding that are easy to clean of dust and do not get too hot in the sun.",
+          "Place a winter seating area or fire pit where it is sheltered from the prevailing wind.",
+          "Keep the pool close to washrooms and a changing room, and away from dusty paths and parking.",
+        ],
+      },
+      {
+        id: "pool",
+        title: "Pool and outdoor spaces",
+        paragraphs: [
+          "The pool is usually the centre of a Saudi rest house, but placing it in the middle of the plot can split the garden and make movement awkward. A better approach is to place it along one side, connected to the main living space, with shaded seating, a changing room and a clear route to washrooms.",
+          "Outdoor spaces work best as a sequence: arrival and parking, a shaded transition, the main seating area, the pool and garden, and a quieter winter corner. Designing this sequence early avoids leftover spaces that are never used.",
+        ],
+      },
+      {
+        id: "permit",
+        title: "Permits and the Saudi Building Code",
+        paragraphs: [
+          "Building permit applications are submitted online through the Balady platform, with drawings prepared by an accredited engineering office in line with the Saudi Building Code. Requirements vary with the type of land and its permitted use, so confirm what applies to your plot before finalising the design.",
+          "If the rest house is intended for rental or commercial use, different requirements may apply than for a private rest house. State the intended use from the start so the project is designed on the right basis.",
+        ],
+      },
+      {
+        id: "remote",
+        title: "Designing your rest house remotely with Mawsooq",
+        paragraphs: [
+          "Mawsooq designs rest houses for clients across Saudi Arabia remotely, through WhatsApp and video meetings, without repeated office visits. You can see client testimonials and published projects further down this page.",
+        ],
+        steps: [
+          { title: "Send the plot details", text: "Title deed or sketch, dimensions, location and photos of the land if available." },
+          { title: "Agree the use and programme", text: "Number of users, required spaces, pool, majlis, style and approximate budget." },
+          { title: "Review the concept layout", text: "An initial plan that we revise together until it fits how you will use the space." },
+          { title: "Facades and outdoor design", text: "Elevations, shaded seating and pool area once the layout is approved." },
+          { title: "Permit and construction drawings", text: "Drawings ready for the permit and for contractor pricing, depending on the agreed scope." },
+        ],
+      },
+      {
+        id: "mistakes",
+        title: "Common rest house design mistakes",
+        bullets: [
+          "Designing open outdoor seating with no shade that nobody uses in summer.",
+          "Putting the pool in the middle of the plot so it splits the garden.",
+          "Forgetting a winter seating area and adding it later in the wrong place.",
+          "Sharing one entrance between guests and family in a rest house used for events.",
+          "Choosing very light or porous facade materials that look dirty quickly in dusty conditions.",
+          "Starting construction before confirming the plot's permitted use and permit.",
+        ],
+      },
+    ],
+    faqs: [
+      ["What is an istiraha?", "An istiraha is a Saudi rest house: a private property, often on the edge of a city, used for family time, gatherings with friends and events. It usually includes a majlis, outdoor seating and often a pool."],
+      ["What should I prepare before designing a rest house?", "The plot dimensions or title deed sketch, the city and area, how the rest house will be used, the number of users and the features you need, such as a pool, majlis or fire pit."],
+      ["Can a small plot have a rest house with a pool?", "Often yes, with a small pool and a compact layout. The final plan depends on the plot dimensions and setbacks."],
+      ["Do I need a building permit for a rest house?", "Yes. Construction requires a permit applied for through the Balady platform, with drawings from an accredited engineering office. Details depend on the type of land and its use."],
+      ["Can Mawsooq design my rest house remotely?", "Yes. Send the plot details and your requirements on WhatsApp, and we review the design with you in video meetings until the drawings are approved."],
+    ],
+    sources: [officialSources.baladyPermit, officialSources.sbc, officialSources.residentialCode],
+  },
+  {
     slug: "villa-design-saudi-arabia",
     role: "cluster",
     topicId: "architecture",
