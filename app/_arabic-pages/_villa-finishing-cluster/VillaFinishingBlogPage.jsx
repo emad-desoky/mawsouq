@@ -1,3 +1,4 @@
+import PhoneLeadForm from "@/components/leads/PhoneLeadForm";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -536,6 +537,23 @@ export default function VillaFinishingBlogPage({ slug }) {
               </div>
             ) : null}
           </section>
+
+          <div className="mt-14">
+            <PhoneLeadForm
+              placement="project_brief_form"
+              title="اترك رقمك ونرسل لك عرض سعر مبدئي لمشروعك"
+              lead="أخبرنا بالمدينة والمساحة ونوع العقار، ويتواصل معك مهندس من موسوق على واتساب بنطاق العمل والخطوة التالية."
+              submitLabel="أريد عرضًا مبدئيًا"
+              successText="تم استلام طلبك ✅ سيتواصل معك مهندس على واتساب خلال ساعات العمل."
+              askLand
+              landLabel="المساحة"
+              project={`تشطيب فيلا — ${article.title}`}
+              choice={{
+                label: "نوع العقار",
+                options: ["فيلا", "دور / شقة", "استراحة", "مبنى تجاري", "أخرى"],
+              }}
+            />
+          </div>
 
           <section id="faq" className="mt-16 scroll-mt-32">
             <span className="text-xs font-black text-[color:var(--brand)]">FAQ</span>

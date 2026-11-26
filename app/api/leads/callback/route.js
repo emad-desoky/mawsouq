@@ -7,6 +7,15 @@ import { NextResponse } from "next/server";
 
 const REFERENCE_RE = /^MSQ-\d{6}-[A-Z0-9]{6}$/;
 
+// Which form sent the lead. Shown in the sheet's "CTA Placement" column so each
+// form can be judged on its own. Unknown values fall back to callback_form.
+const PLACEMENTS = {
+  callback_form: "📞 طلب اتصال (نموذج الموقع)",
+  resthouse_plans_catalog: "📐 طلب كتالوج مخططات استراحات",
+  calculator_review: "🧮 طلب مراجعة تقدير الحاسبة",
+  project_brief_form: "📝 طلب عرض لمشروع (نموذج تفاصيل المشروع)",
+};
+
 function text(value, max = 600) {
   if (value === null || value === undefined) return "";
   return String(value).replace(/\s+/g, " ").trim().slice(0, max);
@@ -53,6 +62,11 @@ export async function POST(request) {
   const phone = normalizePhone(body.phone);
   const city = text(body.city, 60);
   const project = text(body.project, 400);
+  const placement = Object.hasOwn(PLACEMENTS, body.placement) ? body.placement : "callback_form";
+  const details = (Array.isArray(body.details) ? body.details : [])
+    .slice(0, 10)
+    .map((item) => text(item, 160))
+    .filter(Boolean);
 
   if (!REFERENCE_RE.test(reference) || !isAllowedPageUrl(body.page_url)) {
     return NextResponse.json({ ok: false, error: "Invalid request" }, { status: 400 });
@@ -62,11 +76,12 @@ export async function POST(request) {
   }
 
   const summary = [
-    "📞 طلب اتصال (نموذج الموقع)",
+    PLACEMENTS[placement],
     `الاسم: ${name}`,
     `الجوال: +${phone}`,
     city ? `المدينة: ${city}` : "",
     project ? `المشروع: ${project}` : "",
+    ...details,
   ]
     .filter(Boolean)
     .join(" | ");
@@ -78,7 +93,7 @@ export async function POST(request) {
     page_url: text(body.page_url, 1600),
     page_path: text(body.page_path, 500),
     page_title: text(body.page_title, 500),
-    placement: "callback_form",
+    placement,
     language: text(body.language, 20),
     device: text(body.device, 30),
     screen: text(body.screen, 40),

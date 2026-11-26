@@ -2,12 +2,14 @@
 
 import { useMemo, useState } from "react";
 import { MessageCircle, Send } from "lucide-react";
+import PhoneLeadForm from "@/components/leads/PhoneLeadForm";
 
 const WHATSAPP_NUMBER = "201223328270";
 
 export default function ResthouseWhatsAppBrief({
   articleTitle = "تصاميم استراحات",
   compact = false,
+  withCatalog = true,
 }) {
   const [city, setCity] = useState("");
   const [land, setLand] = useState("");
@@ -105,6 +107,29 @@ export default function ResthouseWhatsAppBrief({
       <p className="resthouse-lead-note">
         لا ترسل بيانات حساسة. هذه المعلومات تساعد فقط على بدء محادثة أكثر دقة.
       </p>
+
+      {withCatalog ? (
+      <div className="mt-5 border-t border-[color:var(--hairline)] pt-5">
+        <PhoneLeadForm
+          bare
+          stacked={compact}
+          placement="resthouse_plans_catalog"
+          title="أو احصل على كتالوج مخططات استراحات على جوالك"
+          lead="نماذج مخططات استراحات بمساحات مختلفة (عائلية، بمسبح، صغيرة) نرسلها لك على واتساب مع رأي مهندس في الأنسب لأرضك."
+          submitLabel="أرسلوا لي كتالوج المخططات"
+          successText="تم استلام طلبك ✅ سنرسل لك الكتالوج على واتساب خلال ساعات العمل."
+          askCity={false}
+          project={`استراحة — ${articleTitle}`}
+          details={[
+            `المدينة: ${city || "غير محددة"}`,
+            `مساحة الأرض: ${land || "غير محددة"}`,
+            `الاستخدام: ${usage}`,
+            `النمط: ${style}`,
+            `المسبح: ${pool}`,
+          ]}
+        />
+      </div>
+      ) : null}
     </div>
   );
 }

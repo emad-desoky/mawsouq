@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import PhoneLeadForm from "@/components/leads/PhoneLeadForm";
 
 const BUILD_TYPES = {
   laborOnly: {
@@ -221,6 +222,26 @@ export default function OneFloorCostCalculator({ initialArea = 200 }) {
           >
             أرسل هذه الحسبة واطلب مراجعة النطاق
           </a>
+
+          <div className="mt-5 border-t border-[color:var(--hairline)] pt-5">
+            <PhoneLeadForm
+              bare
+              stacked
+              placement="calculator_review"
+              title="أرسلوا لي التقدير مراجَعًا من مهندس"
+              lead="اترك رقمك ونرسل لك على واتساب مراجعة لهذا التقدير: ما الذي يشمله، ما الذي ينقصه، وما الخطوة التالية لأرضك."
+              submitLabel="أريد مراجعة التقدير"
+              successText="تم استلام طلبك ✅ سيتواصل معك مهندس على واتساب خلال ساعات العمل."
+              askCity={false}
+              project={`بناء دور واحد ${result.safeArea} م²`}
+              details={[
+                `المدينة: ${result.selectedCity.label}`,
+                `المسطح المبني: ${result.safeArea} م²`,
+                `فئة التنفيذ: ${result.selectedType.label}`,
+                `التقدير: ${formatter.format(result.totalMin)} – ${formatter.format(result.totalMax)} (احتياطي ${result.safeReserve}%)`,
+              ]}
+            />
+          </div>
         </div>
       </div>
     </div>

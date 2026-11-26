@@ -23,6 +23,7 @@ import {
   buildVideoObject,
   testimonialDisplayLabel,
 } from "@/lib/mawsouqProjects";
+import PhoneLeadForm from "@/components/leads/PhoneLeadForm";
 
 const CHANNEL_URL = MAWSOUQ_YOUTUBE_CHANNEL;
 const WHATSAPP_NUMBER = "201223328270";
@@ -120,6 +121,14 @@ export default function MawsooqProofSection({
   projectVideoIds = [],
   testimonialIds = [],
   intro,
+  showBriefForm = true,
+  briefServices = [
+    "تصميم معماري (فيلا / منزل)",
+    "تصميم استراحة",
+    "مخطط إنشائي",
+    "تصميم داخلي / تشطيب",
+    "استشارة قبل البناء",
+  ],
 }) {
   const [activeVideo, setActiveVideo] = useState(null);
   const pathname = usePathname() || "/";
@@ -271,6 +280,21 @@ export default function MawsooqProofSection({
             </a>
           </div>
         </div>
+
+        {showBriefForm ? (
+          <div className="mt-5">
+            <PhoneLeadForm
+              placement="project_brief_form"
+              title="تفضّل أن نتصل بك؟ اترك رقمك ونرسل لك عرضًا لمشروعك"
+              lead="مهندس من موسوق يراجع بياناتك ويتواصل معك على واتساب بنطاق العمل والخطوة التالية. بدون التزام."
+              submitLabel="أريد عرضًا لمشروعي"
+              successText="تم استلام طلبك ✅ سيتواصل معك مهندس على واتساب خلال ساعات العمل."
+              askLand
+              project={context}
+              choice={{ label: "الخدمة المطلوبة", options: briefServices }}
+            />
+          </div>
+        ) : null}
       </div>
 
       {activeVideo ? (

@@ -18,6 +18,9 @@ import {
   whatsappLink,
 } from "@/app/_arabic-pages/_resthouse-cluster/resthouse-data";
 import ResthouseWhatsAppBrief from "./ResthouseWhatsAppBrief";
+import PhoneLeadForm from "@/components/leads/PhoneLeadForm";
+import MotionIllustration from "@/components/motion/MotionIllustration";
+import MawsooqProofSection from "@/components/ar/MawsooqProofSection";
 
 function DataTable({ table }) {
   if (!table) return null;
@@ -126,6 +129,12 @@ function ContentSection({ section, article }) {
       {section.paragraphs?.map((paragraph) => (
         <p key={paragraph.slice(0, 72)}>{paragraph}</p>
       ))}
+
+      {section.motion ? (
+        <div className="rh-motion">
+          <MotionIllustration name={section.motion} label={section.title} />
+        </div>
+      ) : null}
 
       {section.callout ? (
         <aside className="rh-callout">
@@ -243,7 +252,7 @@ function Sidebar({ article }) {
           </ol>
         </nav>
 
-        <ResthouseWhatsAppBrief articleTitle={article.title} compact />
+        <ResthouseWhatsAppBrief articleTitle={article.title} compact withCatalog={false} />
 
         <div className="rh-sidebar-card">
           <span className="rh-eyebrow">اقرأ بعد ذلك</span>
@@ -293,6 +302,9 @@ export default function ResthouseClusterLayout({ article }) {
           </div>
           <figure className="rh-hero-image">
             <img src={article.image} alt={article.imageAlt} width="1200" height="800" loading="eager" fetchPriority="high" />
+            {article.heroMotion ? (
+              <MotionIllustration fill name={article.heroMotion} label={article.imageAlt} />
+            ) : null}
           </figure>
         </header>
 
@@ -327,6 +339,22 @@ export default function ResthouseClusterLayout({ article }) {
               <a href={whatsapp} target="_blank" rel="noopener noreferrer"><MessageCircle size={20} /> تحدث مع فريق موسوق</a>
             </section>
 
+            <div className="rh-catalog">
+              <PhoneLeadForm
+                placement="resthouse_plans_catalog"
+                title="احصل على كتالوج مخططات استراحات على جوالك"
+                lead="نماذج مخططات استراحات بمساحات واستخدامات مختلفة نرسلها لك على واتساب، مع رأي مهندس في الأنسب لمساحة أرضك."
+                submitLabel="أرسلوا لي كتالوج المخططات"
+                successText="تم استلام طلبك ✅ سنرسل لك الكتالوج على واتساب خلال ساعات العمل."
+                askLand
+                project={`استراحة — ${article.title}`}
+                choice={{
+                  label: "استخدام الاستراحة",
+                  options: ["استراحة عائلية خاصة", "استراحة للضيوف والمناسبات", "استراحة تجارية للتأجير", "لم أحدد بعد"],
+                }}
+              />
+            </div>
+
             <section className="rh-service-links" aria-label="روابط خدمات مرتبطة">
               <span className="rh-eyebrow">روابط تساعدك على الانتقال من الفكرة إلى التنفيذ</span>
               <div>
@@ -336,6 +364,15 @@ export default function ResthouseClusterLayout({ article }) {
                 <Link href={routes.about}>تعرف على شركة موسوق</Link>
               </div>
             </section>
+
+            {article.showProof ? (
+              <MawsooqProofSection
+                context={article.proofContext || "مشروع استراحتك"}
+                projectSlugs={["saudi-resthouse-design", "riyadh-interior-villa", "dammam-architectural-villa"]}
+                whatsappMessage={article.whatsappMessage}
+                showBriefForm={false}
+              />
+            ) : null}
 
             <RelatedGuides article={article} />
             <FAQ faqs={article.faqs} />
@@ -400,7 +437,7 @@ const styles = `
   .rh-faq>div{display:grid;gap:10px;margin-top:22px}.rh-faq details{padding:18px 20px;border:1px solid var(--hairline);border-radius:19px;background:var(--surface-2)}.rh-faq details[open]{border-color:rgba(47,134,246,.5)}.rh-faq summary{cursor:pointer;color:var(--ink);font-size:16px;font-weight:950}.rh-faq details p{margin:14px 0 0;padding-top:14px;border-top:1px solid var(--hairline);color:var(--ink-muted);font-size:14px;line-height:1.9;font-weight:700}
   .rh-sources ul{display:grid;gap:9px;margin:20px 0 0;padding:0;list-style:none}.rh-sources a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border:1px solid var(--hairline);border-radius:15px;background:var(--surface-2);color:var(--ink);font-weight:900;text-decoration:none}.rh-sources a:hover{color:var(--brand);border-color:rgba(47,134,246,.5)}
   .rh-final-cta{margin-top:36px;padding:clamp(26px,5vw,42px);border-radius:28px;background:#071321;color:#fff}.rh-final-cta h2{margin:10px 0 0;font-size:clamp(30px,4vw,44px);line-height:1.35;font-weight:950}.rh-final-cta p{max-width:760px;margin:14px 0 0;color:rgba(255,255,255,.72);font-size:16px;line-height:1.9;font-weight:700}.rh-final-cta>div{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.rh-final-cta a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:12px 21px;border-radius:999px;background:#20c96b;color:#062818;font-weight:950;text-decoration:none;transition:.2s ease}.rh-final-cta a+ a{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2)}
-  .rh-sidebar{position:sticky;top:calc(var(--nav-height) + 20px);align-self:start;min-width:0;max-height:calc(100vh - var(--nav-height) - 28px);overflow-y:auto;padding-left:3px;overscroll-behavior:contain}.rh-sidebar-inner{display:grid;gap:14px}.rh-sidebar::-webkit-scrollbar{width:5px}.rh-sidebar::-webkit-scrollbar-thumb{background:rgba(47,134,246,.35);border-radius:999px}.rh-sidebar-card,.resthouse-lead-card{padding:20px;border:1px solid var(--hairline);border-radius:24px;background:var(--surface);box-shadow:var(--card-shadow)}.rh-toc-card ol{display:grid;gap:3px;margin:13px 0 0;padding:0;list-style:none}.rh-toc-card a{display:block;padding:8px 10px;border-radius:10px;color:var(--ink-muted);font-size:13px;font-weight:850;text-decoration:none}.rh-toc-card a:hover{background:rgba(47,134,246,.09);color:var(--brand)}.rh-side-links{display:grid;gap:8px;margin-top:13px}.rh-side-links a{padding:10px 11px;border-radius:12px;background:var(--surface-2);color:var(--ink);font-size:13px;line-height:1.65;font-weight:900;text-decoration:none}.rh-side-links a:hover{color:var(--brand)}
+  .rh-catalog{margin:34px 0}.rh-motion{margin:26px 0}.rh-sidebar{position:sticky;top:calc(var(--nav-height) + 20px);align-self:start;min-width:0;max-height:calc(100vh - var(--nav-height) - 28px);overflow-y:auto;padding-left:3px;overscroll-behavior:contain}.rh-sidebar-inner{display:grid;gap:14px}.rh-sidebar::-webkit-scrollbar{width:5px}.rh-sidebar::-webkit-scrollbar-thumb{background:rgba(47,134,246,.35);border-radius:999px}.rh-sidebar-card,.resthouse-lead-card{padding:20px;border:1px solid var(--hairline);border-radius:24px;background:var(--surface);box-shadow:var(--card-shadow)}.rh-toc-card ol{display:grid;gap:3px;margin:13px 0 0;padding:0;list-style:none}.rh-toc-card a{display:block;padding:8px 10px;border-radius:10px;color:var(--ink-muted);font-size:13px;font-weight:850;text-decoration:none}.rh-toc-card a:hover{background:rgba(47,134,246,.09);color:var(--brand)}.rh-side-links{display:grid;gap:8px;margin-top:13px}.rh-side-links a{padding:10px 11px;border-radius:12px;background:var(--surface-2);color:var(--ink);font-size:13px;line-height:1.65;font-weight:900;text-decoration:none}.rh-side-links a:hover{color:var(--brand)}
   .resthouse-lead-heading{display:flex;gap:10px;align-items:flex-start}.resthouse-lead-icon{display:grid;place-items:center;flex:0 0 auto;width:41px;height:41px;border-radius:14px;background:rgba(32,201,107,.14);color:#12a958}.resthouse-lead-heading strong{display:block;color:var(--ink);font-size:17px;font-weight:950}.resthouse-lead-heading p{margin:5px 0 0;color:var(--ink-muted);font-size:12px;line-height:1.65;font-weight:700}.resthouse-lead-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:16px}.resthouse-lead-fields label{display:grid;gap:5px}.resthouse-lead-fields label>span{font-size:11px;color:var(--ink-faint);font-weight:900}.resthouse-lead-fields input,.resthouse-lead-fields select{width:100%;min-width:0;height:42px;padding:0 10px;border:1px solid var(--hairline);border-radius:11px;background:var(--surface-2);color:var(--ink);font-family:inherit;font-size:12px;font-weight:750;outline:none}.resthouse-lead-fields input:focus,.resthouse-lead-fields select:focus{border-color:var(--brand)}.lead-field-full{grid-column:1/-1}.resthouse-whatsapp-submit{display:flex;align-items:center;justify-content:center;gap:8px;min-height:47px;margin-top:12px;padding:10px 14px;border-radius:999px;background:#20c96b;color:#062818;font-size:13px;font-weight:950;text-decoration:none}.resthouse-lead-note{margin:8px 0 0;color:var(--ink-faint);font-size:10px;line-height:1.6;font-weight:700}.is-compact .resthouse-lead-fields{grid-template-columns:1fr}.is-compact .lead-field-full{grid-column:auto}
   .rh-mobile-toc{display:none;margin-top:16px;padding:18px;border:1px solid var(--hairline);border-radius:20px;background:var(--surface)}.rh-mobile-toc summary{cursor:pointer;font-weight:950}.rh-mobile-toc ol{display:grid;gap:8px;margin:14px 0 0}.rh-mobile-toc a{color:var(--brand);font-weight:850;text-decoration:none}.rh-mobile-whatsapp{display:none}
   @media(max-width:1050px){.rh-sidebar{position:static;max-height:none;overflow:visible;padding:0}.rh-hero{grid-template-columns:1fr}.rh-hero-copy{order:2}.rh-hero-image{order:1;min-height:380px}.rh-layout{grid-template-columns:1fr}.rh-sidebar{display:none}.rh-mobile-toc{display:block}.rh-page{overflow:visible}.rh-highlights{grid-template-columns:repeat(3,1fr)}}
